@@ -10,5 +10,3 @@ export const classNames = (cls: string, mods: Mods, additional: string[]) => {
 	]
 		.join(' ')
 }
-
-classNames('remove-btn', { hovered: true, selectable: true, red: false, }, ['withPaddings'])
