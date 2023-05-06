@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AboutPage } from 'pages/AboutPage'
 import { MainPage } from 'pages/MainPage'
 import './styles/index.scss'
+import { AppRouter } from './providers/router'
 
 const App: React.FC = () => {
 
@@ -16,12 +17,7 @@ const App: React.FC = () => {
 			<button onClick={toggleTheme}>Swap theme</button>
 			<Link to={'/'}>Главная</Link>
 			<Link to={'/about'}>О сайте</Link>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Routes>
-					<Route path={'/about'} element={<AboutPage />} />
-					<Route path={'/'} element={<MainPage />} />
-				</Routes>
-			</Suspense>
+			<AppRouter />
 		</div>
 	)
 }
