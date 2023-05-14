@@ -7,11 +7,11 @@ interface MainPageProps {
 
 const MainPage: FC<MainPageProps> = ({ }) => {
 
-	const { t } = useTranslation()
+	const { t } = useTranslation('main')
 
 	return (
 		<div>
-			{t('main-page.title')}
+			{t('title')}
 		</div>
 	)
 }

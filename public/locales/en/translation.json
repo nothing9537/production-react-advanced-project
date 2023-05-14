@@ -1,14 +1,9 @@
 {
 	"test-translation": "Test translation",
 	"translate": "Translate",
-	"main-page": {
-		"title": "Main Page"
-	},
-	"about-page": {
-		"title": "About Page"
-	},
 	"navbar": {
 		"main-link": "Main",
 		"about-link": "About"
-	}
+	},
+	"language": "English"
 }

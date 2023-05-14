@@ -1,14 +1,9 @@
 {
 	"test-translation": "Тестовый перевод",
 	"translate": "Перевод",
-	"main-page": {
-		"title": "Главная страница"
-	},
-	"about-page": {
-		"title": "Страница о сайте"
-	},
 	"navbar": {
 		"main-link": "Главная",
 		"about-link": "О сайте"
-	}
+	},
+	"language": "Русский"
 }

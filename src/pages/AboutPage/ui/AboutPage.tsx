@@ -7,11 +7,11 @@ interface AboutPageProps {
 
 const AboutPage: FC<AboutPageProps> = () => {
 
-	const { t } = useTranslation()
+	const { t } = useTranslation('about')
 
 	return (
 		<div>
-			{t('about-page.title')}
+			{t('title')}
 		</div>
 	)
 }
