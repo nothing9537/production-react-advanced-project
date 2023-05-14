@@ -5,7 +5,7 @@ interface MainPageProps {
 
 }
 
-const MainPage: FC<MainPageProps> = ({ }) => {
+const MainPage: FC<MainPageProps> = () => {
 
 	const { t } = useTranslation('main')
 

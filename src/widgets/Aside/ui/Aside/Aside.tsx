@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import cls from './Aside.module.scss'
 
 interface AsideProps {
