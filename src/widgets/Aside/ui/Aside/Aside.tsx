@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { FC, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'

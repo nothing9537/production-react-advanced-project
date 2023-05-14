@@ -6,7 +6,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:i18next/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -16,13 +17,15 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "i18next"
   ],
   "rules": {
     "react/jsx-indent": [2, "tab"],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "i18next/no-literal-string": ["error", { "markupOnly": true }],
     "indent": [
       "error",
       "tab"
