@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -21,11 +22,28 @@
     "i18next"
   ],
   "rules": {
-    "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent": [
+      2,
+      "tab"
+    ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-empty-interface": "off",
-    "i18next/no-literal-string": ["error", { "markupOnly": true }],
+    "@typescript-eslint/no-empty-function": "warn",
+    "max-len": [
+      "error",
+      {
+        "ignoreComments": true,
+        "code": 120,
+        "tabWidth": 2
+      }
+    ],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true
+      }
+    ],
     "indent": [
       "error",
       "tab"
