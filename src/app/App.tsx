@@ -4,7 +4,6 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/RouterProvider'
 import { Navbar } from 'widgets/Navbar'
 import { Aside } from 'widgets/Aside'
-import './styles/index.scss'
 
 const App: React.FC = () => {
 

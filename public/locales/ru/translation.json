@@ -1,10 +1,12 @@
 {
-	"test-translation": "Тестовый перевод",
-	"translate": "Перевод",
-	"navbar": {
-		"main-link": "Главная",
-		"about-link": "О сайте"
-	},
-	"language": "Русский",
-	"page-not-found": "Страница не найдена."
+  "test-translation": "Тестовый перевод",
+  "translate": "Перевод",
+  "navbar": {
+    "main-link": "Главная",
+    "about-link": "О сайте"
+  },
+  "language": "Русский",
+  "page-not-found": "Страница не найдена.",
+  "error-message": "Произошла непредвиденная ошибка.",
+  "error-message-update-page": "Обновить страницу"
 }

@@ -1,10 +1,12 @@
 {
-	"test-translation": "Test translation",
-	"translate": "Translate",
-	"navbar": {
-		"main-link": "Main",
-		"about-link": "About"
-	},
-	"language": "English",
-	"page-not-found": "Page not found."
+  "test-translation": "Test translation",
+  "translate": "Translate",
+  "navbar": {
+    "main-link": "Main",
+    "about-link": "About"
+  },
+  "language": "English",
+  "page-not-found": "Page not found.",
+  "error-message": "There is unexpected error.",
+  "error-message-update-page": "Update page"
 }

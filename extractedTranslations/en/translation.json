@@ -1,4 +1,6 @@
 {
+  "error-message": "error-message",
+  "error-message-update-page": "error-message-update-page",
   "language": "language",
   "navbar": {
     "about-link": "about-link",
