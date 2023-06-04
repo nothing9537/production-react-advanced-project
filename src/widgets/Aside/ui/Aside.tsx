@@ -19,8 +19,11 @@ export const Aside: FC<AsideProps> = ({ className }) => {
 	}
 
 	return (
-		<div className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
-			<Button onClick={onToggle}>
+		<div data-testid='aside' className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
+			<Button
+				data-testid='aside-toggle'
+				onClick={onToggle}
+			>
 				Toggle
 			</Button>
 			<div className={cls.switchers}>
