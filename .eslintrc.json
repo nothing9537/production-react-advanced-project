@@ -8,9 +8,19 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:i18next/recommended"
+    "plugin:i18next/recommended",
+    "plugin:storybook/recommended"
   ],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": [
+        "**/src/**/*.{test,spec}.{ts,tsx}"
+      ],
+      "rules": {
+        "i18next/no-literal-string": "off"
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -41,7 +51,11 @@
     "i18next/no-literal-string": [
       "error",
       {
-        "markupOnly": true
+        "markupOnly": true,
+        "ignoreAttribute": [
+          "data-testid",
+          "to"
+        ]
       }
     ],
     "indent": [

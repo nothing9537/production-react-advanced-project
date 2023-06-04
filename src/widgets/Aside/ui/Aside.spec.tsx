@@ -1,5 +1,4 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { withTranslation } from 'react-i18next'
 import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
 import { Aside } from './Aside'
 
