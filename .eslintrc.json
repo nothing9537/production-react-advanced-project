@@ -9,12 +9,14 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:i18next/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:cypress/recommended"
   ],
   "overrides": [
     {
       "files": [
-        "**/src/**/*.{test,spec}.{ts,tsx}"
+        "**/src/**/*.{test,spec}.{ts,tsx}",
+        "**/cypress*.{test,spec,cy}.{js,ts,tsx}"
       ],
       "rules": {
         "i18next/no-literal-string": "off"
@@ -29,7 +31,9 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "i18next"
+    "i18next",
+    "cypress",
+    "plugin:cypress/recommended"
   ],
   "rules": {
     "react/jsx-indent": [
@@ -44,7 +48,7 @@
       "error",
       {
         "ignoreComments": true,
-        "code": 120,
+        "code": 140,
         "tabWidth": 2
       }
     ],

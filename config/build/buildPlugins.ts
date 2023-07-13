@@ -19,7 +19,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 		new webpack.DefinePlugin({
 			__IS_DEV__: isDev
 		}),
-		new BundleAnalyzerPlugin({ openAnalyzer: false })
+		// new BundleAnalyzerPlugin({ openAnalyzer: false })
 	]
 
 	if (isDev) {

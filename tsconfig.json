@@ -8,9 +8,14 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
+		"typeRoots": [
+			"node_modules/@types"
+		],
 		"baseUrl": ".",
 		"paths": {
-			"*": ["./src/*"]
+			"*": [
+				"./src/*"
+			]
 		},
 		"allowSyntheticDefaultImports": true,
 		"plugins": [
@@ -22,6 +27,12 @@
 			}
 		]
 	},
+	"exclude": [
+		"./cypress.config.ts",
+		"node_modules",
+		"cypress",
+		"**/*.cy.tsx"
+	],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"
