@@ -12,7 +12,7 @@ jobs:
         node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v3
-      - uses: stefanoeb/eslint-action@1.0.2
+      
       - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -21,8 +21,11 @@ jobs:
         run: npm i
       - name: Production build
         run: npm run build:prod
-      - name: Linting TypeScript
-        run: npm run lint:ts
+      - uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: [ src/, cypress/ ]
+      # - name: Linting TypeScript
+      #   run: npm run lint:ts
       - name: Unit testing JEST
         run: npm run test
       
