@@ -1,15 +1,15 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
+import { ComponentRender } from 'shared/lib/tests/componentRender/componentRender'
 import { Aside } from './Aside'
 
 describe('aside', () => {
 	test('text existing in DOM', () => {
-		renderWithTranslation(<Aside />)
+		ComponentRender(<Aside />)
 		expect(screen.getByTestId('aside')).toBeInTheDocument()
 	})
 
 	test('test toggle aside', () => {
-		renderWithTranslation(<Aside />)
+		ComponentRender(<Aside />)
 		const toggleButton = screen.getByTestId('aside-toggle')
 		expect(screen.getByTestId('aside')).toBeInTheDocument()
 		fireEvent.click(toggleButton)

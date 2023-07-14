@@ -24,5 +24,8 @@ jobs:
       # - name: Linting TypeScript
       #   run: npm run lint:ts
       - name: Unit testing JEST
+        if: always()
         run: npm run test
-      
+      - name: Build Storybook
+        if: always()
+        run: npm run build:storybook

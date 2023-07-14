@@ -6,6 +6,7 @@
     "about-link": "About"
   },
   "language": "English",
+  "short-language": "EN",
   "page-not-found": "Page not found.",
   "error-message": "There is unexpected error.",
   "error-message-update-page": "Update page"

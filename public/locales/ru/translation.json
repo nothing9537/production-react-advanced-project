@@ -6,6 +6,7 @@
     "about-link": "О сайте"
   },
   "language": "Русский",
+  "short-language": "RU",
   "page-not-found": "Страница не найдена.",
   "error-message": "Произошла непредвиденная ошибка.",
   "error-message-update-page": "Обновить страницу"
