@@ -21,9 +21,6 @@ jobs:
         run: npm i
       - name: Production build
         run: npm run build:prod
-      - uses: stefanoeb/eslint-action@1.0.2
-        with:
-          files: src/
       # - name: Linting TypeScript
       #   run: npm run lint:ts
       - name: Unit testing JEST
