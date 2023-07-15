@@ -1,4 +1,7 @@
 :root {
+
+	// * Fonts
+
 	--font-family-main: 'Consolas', 'Times New Roman', serif; 
 	--font-size-m: 16px;
 	--font-line-m: 24px;
@@ -9,7 +12,21 @@
 	--font-size-xl: 32px;
 	--font-line-xl: 40px;
 	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+	// * Sizes
+
 	--navbar-height: 50px;
 	--sidebar-width: 300px;
-	--sidebar-width-collapsed: 80px
+	--sidebar-width-collapsed: 80px;
+
+	// * z - Indexes
+
+	--modal-z-index: 10;
+
+	// * Colors
+
+	--overlay-color: rgba( 0 0 0 / .6);
+
+	// * Animation
+	--app-transition: .3s;
 }
