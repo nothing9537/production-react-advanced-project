@@ -1,3 +1,5 @@
 {
-	"title": "Main page"
+  "title": "Main page",
+  "increment": "Increment",
+  "decrement": "Decrement"
 }

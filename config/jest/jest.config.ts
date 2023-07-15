@@ -7,6 +7,9 @@ import path from 'path'
  */
 
 const config: Config = {
+  globals: {
+    __IS_DEV__: true
+  },
   verbose: true,
   testEnvironment: "jsdom",
   clearMocks: true,

@@ -1,9 +1,15 @@
 {
   "": "",
+  "decrement": "decrement",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
+  "increment": "increment",
   "language": "language",
   "login": "login",
+  "main": {
+    "": "",
+    "title": "title"
+  },
   "navbar": {
     "about-link": "about-link",
     "main-link": "main-link"
