@@ -15,11 +15,12 @@
   "overrides": [
     {
       "files": [
-        "**/src/**/*.{test,spec}.{ts,tsx}",
+        "**/src/**/*.{test,spec,stories}.{ts,tsx}",
         "**/cypress*.{test,spec,cy}.{js,ts,tsx}"
       ],
       "rules": {
-        "i18next/no-literal-string": "off"
+        "i18next/no-literal-string": "off",
+        "max-len": "off"
       }
     }
   ],
@@ -55,7 +56,7 @@
       }
     ],
     "i18next/no-literal-string": [
-      "error",
+      "warn",
       {
         "markupOnly": true,
         "ignoreAttribute": [

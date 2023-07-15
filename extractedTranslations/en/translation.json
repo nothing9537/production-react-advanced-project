@@ -1,7 +1,9 @@
 {
+  "": "",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
   "language": "language",
+  "login": "login",
   "navbar": {
     "about-link": "about-link",
     "main-link": "main-link"

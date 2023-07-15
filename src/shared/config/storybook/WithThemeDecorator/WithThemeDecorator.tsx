@@ -1,12 +1,12 @@
-/* eslint-disable react/display-name */
-
 import { Decorator } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
+import { Theme, ThemeProvider } from 'app/providers/ThemeProvider'
 
-export const WithThemeDecorator = (theme: Theme): Decorator => (Story) => {
+export const WithThemeDecorator = (theme: Theme): Decorator => function Render(Story) {
 	return (
-		<div className={`App ${theme}`}>
-			<Story />
-		</div>
+		<ThemeProvider initialTheme={theme}>
+			<div className={`App ${theme}`}>
+				<Story />
+			</div>
+		</ThemeProvider>
 	)
 }
