@@ -25,7 +25,7 @@ jobs:
       #   run: npm run lint:ts
       - name: Unit testing JEST
         if: always()
-        run: npm run test
+        run: npm run test:unit
       - name: Build Storybook
         if: always()
-        run: npm run build:storybook
+        run: npm run storybook:build
