@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const jestMockSvg = () => {
-	return (
-		<div />
-	)
-}
+const jestMockSvg = () => (
+  <div />
+);
 
-export default jestMockSvg
+export default jestMockSvg;

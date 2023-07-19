@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Modal } from './Modal'
-import { WithThemeDecorator } from 'shared/config/storybook/WithThemeDecorator/WithThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import type { Meta, StoryObj } from '@storybook/react';
+import { WithThemeDecorator } from 'shared/config/storybook/WithThemeDecorator/WithThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { Modal } from './Modal';
 
 const meta: Meta<typeof Modal> = {
-	title: 'Shared/Modal',
-	component: Modal,
-	tags: ['autodocs'],
-	decorators: [WithThemeDecorator(Theme.DARK)]
-}
+  title: 'Shared/Modal',
+  component: Modal,
+  tags: ['autodocs'],
+  decorators: [WithThemeDecorator(Theme.DARK)],
+};
 
-export default meta
+export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Primary: Story = {
-	args: {
-		isOpen: true,
-		children: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, enim.'
-	}
-}
+  args: {
+    isOpen: true,
+    children: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, enim.',
+  },
+};
