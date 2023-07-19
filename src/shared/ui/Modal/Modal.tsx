@@ -1,20 +1,21 @@
 import {
-  Dispatch, FC, MouseEvent, ReactNode, SetStateAction, useCallback, useEffect,
+  Dispatch, FC, MouseEvent, ReactNode, SetStateAction, useCallback, useEffect, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-	className?: string;
-	children: ReactNode;
-	isOpen?: boolean;
-	onClose?: Dispatch<SetStateAction<boolean>>;
+  className?: string;
+  children: ReactNode;
+  isOpen?: boolean;
+  onClose?: Dispatch<SetStateAction<boolean>>;
+  lazy?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({
-  children, className, isOpen, onClose,
-}) => {
+export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, lazy }) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
   };
@@ -44,6 +45,16 @@ export const Modal: FC<ModalProps> = ({
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

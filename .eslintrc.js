@@ -46,6 +46,9 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'linebreak-style': 'off',
+    'arrow-body-style': 'off',
+    'object-curly-newline': 'off',
+    'react/prop-types': 'off',
     'i18next/no-literal-string': [
       'error',
       {

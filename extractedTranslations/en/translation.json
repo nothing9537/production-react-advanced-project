@@ -1,6 +1,9 @@
 {
   "": "",
   "decrement": "decrement",
+  "enter-pass": "enter-pass",
+  "enter-password": "enter-password",
+  "enter-username": "enter-username",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
   "increment": "increment",
