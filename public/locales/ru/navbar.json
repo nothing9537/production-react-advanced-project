@@ -1,4 +1,7 @@
 {
-	"enter-username": "Введите имя",
-	"enter-password": "Введите пароль"
+  "enter-username": "Введите имя",
+  "enter-password": "Введите пароль",
+  "login": "Войти",
+  "logout": "Выйти",
+  "auth-form": "Форма авторизации"
 }

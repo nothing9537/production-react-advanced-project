@@ -1,4 +1,7 @@
 {
-	"enter-username": "Enter username",
-	"enter-password": "Enter password"
+  "enter-username": "Enter username",
+  "enter-password": "Enter password",
+  "login": "Login",
+  "logout": "Logout",
+  "auth-form": "Auth form"
 }

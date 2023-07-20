@@ -2,6 +2,10 @@
 	cursor: pointer;
 	color: var(--primary-color);
 	padding: 6px 15px;
+
+	&:disabled {
+		opacity: .5;
+	}
 }
 
 .clear, .clearInverted {
@@ -66,4 +70,3 @@
 .size_xl {
 	font: var(--font-xl);
 }
-

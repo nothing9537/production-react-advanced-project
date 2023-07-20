@@ -1,5 +1,8 @@
 {
   "": "",
+  "Lo": "",
+  "Logout": "Logout",
+  "auth-form": "auth-form",
   "decrement": "decrement",
   "enter-pass": "enter-pass",
   "enter-password": "enter-password",
@@ -9,6 +12,7 @@
   "increment": "increment",
   "language": "language",
   "login": "login",
+  "logout": "logout",
   "main": {
     "": "",
     "title": "title"
