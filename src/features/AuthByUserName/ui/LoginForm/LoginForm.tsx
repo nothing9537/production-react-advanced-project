@@ -35,7 +35,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('auth-form')} />
-      {error && <Text text={error} theme={TextTheme.ERROR} />}
+      {error && <Text text={t('auth-error-message')} theme={TextTheme.ERROR} />}
       <Input
         autoFocus
         placeholder={t('enter-username')}

@@ -1,7 +1,6 @@
 {
   "": "",
-  "Lo": "Lo",
-  "Logout": "Logout",
+  "auth-error-message": "auth-error-message",
   "auth-form": "auth-form",
   "decrement": "decrement",
   "enter-pass": "enter-pass",
@@ -15,6 +14,7 @@
   "logout": "logout",
   "main": {
     "": "",
+    "auth-error-message": "auth-error-message",
     "title": "title"
   },
   "navbar": {

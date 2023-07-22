@@ -1,6 +1,5 @@
 {
   "title": "Main page",
   "increment": "Increment",
-  "decrement": "Decrement",
-  "auth-error-message": "Incorrect username or password"
+  "decrement": "Decrement"
 }

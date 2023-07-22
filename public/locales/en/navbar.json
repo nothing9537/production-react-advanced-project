@@ -3,5 +3,6 @@
   "enter-password": "Enter password",
   "login": "Login",
   "logout": "Logout",
-  "auth-form": "Auth form"
+  "auth-form": "Auth form",
+  "auth-error-message": "Incorrect username or password"
 }
