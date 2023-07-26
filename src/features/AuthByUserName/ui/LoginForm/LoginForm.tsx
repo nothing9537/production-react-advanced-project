@@ -11,11 +11,11 @@ import { getLoginState } from '../../model/selectors/getLoginState/getLoginState
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
+const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
   const { t } = useTranslation('navbar');
   const dispatch = useAppDispatch();
   const { username, password, isLoading, error } = useAppSelector(getLoginState);
@@ -60,3 +60,5 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     </div>
   );
 });
+
+export default LoginForm;
