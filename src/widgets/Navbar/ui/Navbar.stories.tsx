@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { WithReduxDecorator } from 'shared/config/storybook/WithReduxDecorator/WithReduxDecorator';
+import { WithStoreDecorator } from 'shared/config/storybook';
 import { Navbar } from './Navbar';
 
 const meta: Meta<typeof Navbar> = {
   title: 'Widgets/Navbar',
   component: Navbar,
   tags: ['autodocs'],
-  decorators: [WithReduxDecorator({ user: {} })],
+  decorators: [WithStoreDecorator({ user: {} })],
 };
 
 export default meta;
@@ -19,7 +19,7 @@ export const Root: Story = {
 };
 
 export const UserAuth: Story = {
-  decorators: [WithReduxDecorator({
+  decorators: [WithStoreDecorator({
     user: {
       authData: {
         username: 'Nothingg9537',

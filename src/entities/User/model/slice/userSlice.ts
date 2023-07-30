@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AUTH_TOKEN_KEY } from 'shared/consts/localStorage';
-import { User, UserShema } from '../types/user';
+import { User, UserSchema } from '../types/user';
 
-const initialState: UserShema = {};
+const initialState: UserSchema = {};
 
 export const userSlice = createSlice({
   name: 'user',

@@ -1,9 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { WithThemeDecorator } from 'shared/config/storybook';
-import { WithRouterDecorator } from 'shared/config/storybook/WithRouterDecorator/WithRouterDecorator';
-import { WithStyleDecorator } from 'shared/config/storybook/WithStyleDecorator/WithStyleDecorator';
-import { WithTranslationDecorator } from 'shared/config/storybook/WithTranslationDecorator/WithTranslationDecorator';
+import { WithRouterDecorator, WithStyleDecorator, WithThemeDecorator, WithTranslationDecorator } from 'shared/config/storybook';
 
 const preview: Preview = {
   parameters: {
