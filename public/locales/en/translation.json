@@ -1,10 +1,6 @@
 {
   "test-translation": "Test translation",
   "translate": "Translate",
-  "navbar": {
-    "main-link": "Main",
-    "about-link": "About"
-  },
   "language": "English",
   "short-language": "EN",
   "page-not-found": "Page not found.",

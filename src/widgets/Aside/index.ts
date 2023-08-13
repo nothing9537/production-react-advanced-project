@@ -1,1 +1,1 @@
-export { Aside } from './ui/Aside';
+export { Aside } from './ui/Aside/Aside';

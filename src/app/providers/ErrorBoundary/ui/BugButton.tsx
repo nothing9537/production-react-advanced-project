@@ -17,7 +17,7 @@ export const BugButton: FC<BugButtonProps> = () => {
   const throwError = () => setBug((prev) => !prev);
 
   return (
-    // eslint-disable-next-line i18next/no-literal-string
+  // eslint-disable-next-line i18next/no-literal-string
     <Button onClick={throwError}>
       Throw error
     </Button>

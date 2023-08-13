@@ -1,6 +1,6 @@
 .Aside {
 	height: calc(100vh - var(--navbar-height));
-	width: var(--sidebar-width);
+	width: var(--aside-width);
 	background: var(--inverted-bg-color);
 	position: relative;
 	transition: width .3s;
@@ -30,23 +30,8 @@
 	gap: 10px;
 }
 
-.link {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.link-item {
-	opacity: 1;
-	transition: .3s opacity;
-}
-
-.icon {
-	fill: var(--inverted-primary-color);
-}
-
 .collapsed {
-	width: var(--sidebar-width-collapsed);
+	width: var(--aside-width-collapsed);
 	
 	.switchers {
 		flex-direction: column;

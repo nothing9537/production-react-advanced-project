@@ -42,7 +42,7 @@ export const DynamicModuleWrapper: FC<DynamicModuleWrapperProps> = ({ children, 
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+  // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {children}
     </>

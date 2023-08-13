@@ -28,7 +28,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Map
   return store;
 }
 
-const store = createReduxStore();
+// const store = createReduxStore();
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>;
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

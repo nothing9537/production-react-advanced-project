@@ -24,7 +24,6 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameParams>(
 
       return response.data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(i18n.t('auth-error-message'));
     }
   },

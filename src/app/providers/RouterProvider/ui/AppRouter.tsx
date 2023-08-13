@@ -14,7 +14,7 @@ export const AppRouter: React.FC = () => (
             <div className="page-wrapper">
               {element}
             </div>
-          )}
+					)}
         />
       ))}
     </Routes>

@@ -2,12 +2,12 @@
   "posts": [
     {
       "id": "1",
-      "title": "json-server",
+      "title": "json-server 1",
       "userId": "1"
     },
     {
       "id": "2",
-      "title": "json-server",
+      "title": "json-server 2",
       "userId": "2"
     }
   ],
@@ -26,6 +26,19 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "Vadym",
+    "lastName": "Monastyrskyi",
+    "nickname": "Nothing9537",
+    "age": 20,
+    "currencies": [
+      "UAH",
+      "USD",
+      "CZK"
+    ],
+    "country": "USA",
+    "city": "Chicago",
+    "state": "IL",
+    "address": "322 Woodbury Ct. APT B1",
+    "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
   }
 }

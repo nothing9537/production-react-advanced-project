@@ -14,13 +14,14 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
+const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   const { t } = useTranslation('navbar');
   const { username, password, isLoading, error } = useAppSelector(getLoginState);
   const dispatch = useAppDispatch();
@@ -33,9 +34,13 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLogin = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLogin = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   return (
     <DynamicModuleWrapper reducers={initialReducers}>

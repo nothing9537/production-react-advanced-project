@@ -1,10 +1,6 @@
 {
   "test-translation": "Тестовый перевод",
   "translate": "Перевод",
-  "navbar": {
-    "main-link": "Главная",
-    "about-link": "О сайте"
-  },
   "language": "Русский",
   "short-language": "RU",
   "page-not-found": "Страница не найдена.",

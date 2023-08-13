@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ className }) => {
+export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation('navbar');
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
   const authData = useAppSelector(getUserAuthData);
@@ -55,4 +55,4 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       />
     </div>
   );
-};
+});
