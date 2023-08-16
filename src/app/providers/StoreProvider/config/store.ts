@@ -1,14 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { $API } from 'shared/API';
 import { createReducerManager } from './reducerManager';
-import { MappedReducer, ReducerManager, StateSchema } from './StateChema';
+import { CreateReduxStoreOptions, MappedReducer, StoreWithReducerManager } from './StateChema';
 
-export interface StoreWithReducerManager extends ReturnType<typeof configureStore<StateSchema>> {
-  reducerManager?: ReducerManager;
-}
-
-export function createReduxStore(initialState?: StateSchema, asyncReducers?: MappedReducer) {
+export function createReduxStore({ initialState, asyncReducers }: CreateReduxStoreOptions) {
   const rootReducers: MappedReducer = {
     ...asyncReducers,
     counter: counterReducer,
@@ -17,18 +14,20 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Map
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const store: StoreWithReducerManager = configureStore<StateSchema>({
+  const store: StoreWithReducerManager = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    middleware: (gDM) => gDM({
+      thunk: {
+        extraArgument: {
+          API: $API,
+        },
+      },
+    }),
   });
 
   store.reducerManager = reducerManager;
 
   return store;
 }
-
-// const store = createReduxStore();
-
-export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>;
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
