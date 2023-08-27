@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import path from 'path';
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
-import { BuildPaths } from '../build/types/config';
 import { buildCSSLoader } from '../build/loaders/buildCSSLoader';
-import { buildSVGLoder } from '../build/loaders/buildSVGLoader';
+import { buildSVGLoader } from '../build/loaders/buildSVGLoader';
+import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -11,11 +12,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
 
-  config.resolve?.modules?.push(paths.src);
-  config.resolve?.extensions?.push('.ts', '.tsx');
-
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+  // eslint-disable-next-line no-param-reassign, @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  config!.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i };
     }
@@ -23,11 +25,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
     return rule;
   });
 
-  config.module?.rules?.push(buildSVGLoder());
+  config.module?.rules?.push(buildSVGLoader());
   config.module?.rules?.push(buildCSSLoader(true));
-  config.plugins.push(new DefinePlugin({
+  config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
-    __API__: '',
+    __API__: JSON.stringify(''),
   }));
 
   return config;

@@ -46,7 +46,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
     <DynamicModuleWrapper reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('auth-form')} />
-        {error && <Text text={t('auth-error-message')} theme={TextTheme.ERROR} />}
+        {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
         <Input
           autoFocus
           placeholder={t('enter-username')}

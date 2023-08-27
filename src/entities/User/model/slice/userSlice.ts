@@ -12,7 +12,7 @@ export const userSlice = createSlice({
       state.authData = action.payload;
     },
     initAuthData: (state) => {
-      const authData = JSON.parse(localStorage.getItem(AUTH_TOKEN_KEY));
+      const authData = localStorage.getItem(AUTH_TOKEN_KEY);
 
       if (authData) {
         state.authData = JSON.parse(authData);

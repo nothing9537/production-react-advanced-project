@@ -1,7 +1,7 @@
 import {
   Dispatch, FC, MouseEvent, ReactNode, SetStateAction, useCallback, useEffect, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -16,7 +16,7 @@ interface ModalProps {
 export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, lazy }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
   };
 

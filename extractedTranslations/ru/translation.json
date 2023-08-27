@@ -8,12 +8,19 @@
   "auth-error-message": "auth-error-message",
   "auth-form": "auth-form",
   "decrement": "decrement",
+  "edit": "edit",
   "enter-pass": "enter-pass",
   "enter-password": "enter-password",
   "enter-username": "enter-username",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
   "increment": "increment",
+  "input": {
+    "placeholders": {
+      "firstName": "firstName",
+      "lastName": "lastName"
+    }
+  },
   "language": "language",
   "login": "login",
   "logout": "logout",
@@ -28,6 +35,7 @@
     "main-link": "main-link"
   },
   "page-not-found": "page-not-found",
+  "profile": "profile",
   "profile-page": "profile-page",
   "title": "title"
 }

@@ -31,7 +31,7 @@ export interface ReducerManager {
 }
 
 export interface StoreWithReducerManager extends ReturnType<typeof configureStore<StateSchema>> {
-  reducerManager?: ReducerManager;
+  reducerManager: ReducerManager;
 }
 
 export interface CreateReduxStoreOptions {
@@ -40,12 +40,12 @@ export interface CreateReduxStoreOptions {
   navigate?: NavigateFunction;
 }
 
-export interface ThunkAPIArgs {
+export interface ThunkExtraArg {
   API: AxiosInstance;
   navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T = string> {
   rejectValue: T;
-  extra: ThunkAPIArgs;
+  extra: ThunkExtraArg;
 }

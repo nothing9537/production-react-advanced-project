@@ -4,5 +4,6 @@
   "login": "Login",
   "logout": "Logout",
   "auth-form": "Auth form",
-  "auth-error-message": "Incorrect username or password"
+  "auth-error": "Incorrect username or password",
+  "server-error": "Error on server. Please try later"
 }

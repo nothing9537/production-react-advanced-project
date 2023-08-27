@@ -1,0 +1,10 @@
+{
+  "profile": "Profile",
+  "edit": "Edit profile",
+  "input": {
+    "placeholders": {
+      "firstName": "Your name",
+      "lastName": "Yout last name"
+    }
+  }
+}

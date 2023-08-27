@@ -1,8 +1,8 @@
-import { FC, memo } from 'react';
+import { FC, memo, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
-import { profileReducer } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -13,12 +13,16 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
-  const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
       <div className={classNames('', {}, [className])}>
-        {t('profile-page')}
+        <ProfileCard />
       </div>
     </DynamicModuleWrapper>
   );

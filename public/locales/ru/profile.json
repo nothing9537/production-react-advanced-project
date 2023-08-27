@@ -1,0 +1,10 @@
+{
+  "profile": "Профиль",
+  "edit": "Редактировать профиль",
+  "input": {
+    "placeholders": {
+      "firstName": "Ваше имя",
+      "lastName": "Ваша фамилия"
+    }
+  }
+}

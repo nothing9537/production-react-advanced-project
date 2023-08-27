@@ -6,15 +6,13 @@ import { AsideItemType } from 'widgets/Aside/model/items';
 import cls from './AsideItem.module.scss';
 
 interface AsideItemProps {
-  item?: AsideItemType;
+  item: AsideItemType;
   isCollapsed?: boolean;
 }
 
 export const AsideItem: FC<AsideItemProps> = memo(({ item, isCollapsed }) => {
   const { t } = useTranslation('aside');
   const { text, path, Icon } = item;
-
-  console.log(isCollapsed);
 
   return (
     <AppLink

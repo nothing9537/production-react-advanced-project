@@ -1,15 +1,13 @@
-import { FC, ReactNode, useEffect } from 'react';
-import { StoreWithReducerManager } from 'app/providers/StoreProvider';
-import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateChema';
+import { FC, Fragment, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
+import { StoreWithReducerManager } from 'app/providers/StoreProvider';
+import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateChema';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 
 export type ReducersList = {
   [key in StateSchemaKey]?: Reducer;
 }
-
-type ReducerListEntry = [StateSchemaKey, Reducer];
 
 interface DynamicModuleWrapperProps {
   children: ReactNode;
@@ -23,16 +21,16 @@ export const DynamicModuleWrapper: FC<DynamicModuleWrapperProps> = ({ children, 
 
   useEffect(() => {
     // * When lazy component will mounting, reducer will be loaded with and mounted with component.
-    Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-      store.reducerManager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager.add(name as StateSchemaKey, reducer);
       dispatch({ type: `@MOUNT ${name} Reducer!!!` });
     });
 
     return () => {
       // * The same thing, when it will be unmounted.
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([name]: ReducerListEntry) => {
-          store.reducerManager.remove(name);
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as StateSchemaKey);
           dispatch({ type: `@UNMOUNT ${name} Reducer!!!` });
         });
       }
@@ -42,7 +40,7 @@ export const DynamicModuleWrapper: FC<DynamicModuleWrapperProps> = ({ children, 
   }, []);
 
   return (
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {children}
     </>
