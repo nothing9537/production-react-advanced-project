@@ -4,7 +4,16 @@
   "input": {
     "placeholders": {
       "firstName": "Your name",
-      "lastName": "Yout last name"
+      "lastName": "Yout last name",
+      "age": "Your age",
+      "nickname": "Your nickname",
+      "country": "Your contry",
+      "state": "Your state",
+      "city": "Your city"
     }
-  }
+  },
+  "profile-fetch-error": "Error when loading a profile",
+  "reload-message": "Try to reload page",
+  "cancel-edit": "Cancel",
+  "save": "Save"
 }

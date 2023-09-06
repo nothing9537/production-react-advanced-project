@@ -7,6 +7,7 @@
   },
   "auth-error-message": "auth-error-message",
   "auth-form": "auth-form",
+  "cancel-edit": "cancel-edit",
   "decrement": "decrement",
   "edit": "edit",
   "enter-pass": "enter-pass",
@@ -17,8 +18,15 @@
   "increment": "increment",
   "input": {
     "placeholders": {
+      "age": "age",
+      "city": "city",
+      "country": "country",
+      "county": "county",
       "firstName": "firstName",
-      "lastName": "lastName"
+      "lastName": "lastName",
+      "nick": "nick",
+      "nickname": "nickname",
+      "state": "state"
     }
   },
   "language": "language",
@@ -36,6 +44,9 @@
   },
   "page-not-found": "page-not-found",
   "profile": "profile",
+  "profile-fetch-error": "profile-fetch-error",
   "profile-page": "profile-page",
+  "reload-message": "reload-message",
+  "save": "save",
   "title": "title"
 }

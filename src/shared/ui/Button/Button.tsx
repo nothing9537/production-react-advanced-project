@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
@@ -6,6 +7,7 @@ export enum ButtonTheme {
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
+  OUTLINE_RED = 'outlineRed',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
@@ -32,9 +34,9 @@ export const Button: FC<ButtonProps> = memo(({
 
   return (
     <button
+      {...props}
       type="button"
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
-      {...props}
     >
       {children}
     </button>
