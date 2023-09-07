@@ -2,10 +2,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Country } from 'shared/consts/common';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Input, InputProps } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Select, SelectProps } from 'shared/ui/Select/Select';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -43,7 +45,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
     );
   }
 
-  const fieldsProps: InputProps[] = [
+  const fieldsProps: (InputProps | SelectProps)[] = [
     { value: data?.firstName, placeholder: t('input.placeholders.firstName') },
     { value: data?.lastName, placeholder: t('input.placeholders.lastName') },
     { value: data?.age, placeholder: t('input.placeholders.age'), inputMode: 'numeric' },
@@ -53,17 +55,37 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
     { value: data?.city, placeholder: t('input.placeholders.city') },
   ];
 
+  const mods: Mods = {
+    [cls.editing]: !readonly,
+  };
+
   return (
-    <div className={classNames(cls.ProfileCard, {}, [className])}>
+    <div className={classNames(cls.ProfileCard, mods, [className])}>
       <div className={cls.data}>
         {data?.avatar && <Avatar src={data.avatar} alt="Avatar" size={AvatarSize.LARGE} />}
         {callbacks?.map((cb, index) => (
-          <Input
-            {...fieldsProps[index]}
-            onChange={cb}
-            readonly={readonly}
-            key={index}
-          />
+          index === 4
+            ? (
+              <Select
+                {...fieldsProps[index]}
+                onChange={cb}
+                readonly={readonly}
+                options={[
+                  { label: Country.USA, value: Country.USA },
+                  { label: Country.Canada, value: Country.Canada },
+                  { label: Country.Czech_Republic, value: Country.Czech_Republic },
+                  { label: Country.Ukraine, value: Country.Ukraine },
+                ]}
+              />
+            )
+            : (
+              <Input
+                {...fieldsProps[index]}
+                onChange={cb}
+                readonly={readonly}
+                key={index}
+              />
+            )
         ))}
       </div>
     </div>

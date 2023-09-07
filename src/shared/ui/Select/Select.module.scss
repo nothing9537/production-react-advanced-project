@@ -1,0 +1,77 @@
+.Select {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.placeholder {
+  white-space: nowrap;
+}
+
+.Wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.selectValue {
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 2px 8px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    transition: .3s;
+    path {
+      fill: var(--primary-color);
+    }
+  }
+}
+
+.selectValueOpened {
+  svg {
+    transform: rotate(-180deg);
+  }
+}
+
+.readonly {
+  opacity: .7;
+  pointer-events: none;
+}
+
+.options {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  transition: .3s;
+  opacity: 1;
+  pointer-events: all;
+  z-index: 2;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.option {
+  width: 100%;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid var(--primary-color);
+  background: var(--bg-color);
+  color: var(--primary-color);
+  &:hover {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+  }
+}
