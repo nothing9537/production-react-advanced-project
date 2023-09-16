@@ -3,8 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { Country } from 'shared/consts/common';
 import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -26,14 +27,17 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
   const isLoading = useAppSelector(getProfileIsLoading);
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
+  const { updateProfile } = profileActions;
 
-  const onChangeFirstName = useCallback((value?: string) => dispatch(profileActions.updateProfile({ firstName: value })), [dispatch]);
-  const onChangeLastName = useCallback((value?: string) => dispatch(profileActions.updateProfile({ lastName: value })), [dispatch]);
-  const onChangeAge = useCallback((value?: string) => dispatch(profileActions.updateProfile({ age: Number(value) || 0 })), [dispatch]);
-  const onChangeNickname = useCallback((value?: string) => dispatch(profileActions.updateProfile({ nickname: value })), [dispatch]);
-  const onChangeCountry = useCallback((value?: string) => dispatch(profileActions.updateProfile({ country: value as Country })), [dispatch]);
-  const onChangeState = useCallback((value?: string) => dispatch(profileActions.updateProfile({ state: value })), [dispatch]);
-  const onChangeCity = useCallback((value?: string) => dispatch(profileActions.updateProfile({ city: value })), [dispatch]);
+  const onChangeFirstName = useCallback((firstName?: string) => dispatch(updateProfile({ firstName })), [dispatch, updateProfile]);
+  const onChangeLastName = useCallback((lastName?: string) => dispatch(updateProfile({ lastName })), [dispatch, updateProfile]);
+  const onChangeAge = useCallback((age?: string) => dispatch(updateProfile({ age: Number(age) || 0 })), [dispatch, updateProfile]);
+  const onChangeNickname = useCallback((nickname?: string) => dispatch(updateProfile({ nickname })), [dispatch, updateProfile]);
+  const onChangeCountry = useCallback((country?: Country) => dispatch(updateProfile({ country })), [dispatch, updateProfile]);
+  const onChangeCurrency = useCallback((currency?: Currency) => dispatch(updateProfile({ currency })), [dispatch, updateProfile]);
+  const onChangeState = useCallback((state?: string) => dispatch(updateProfile({ state })), [dispatch, updateProfile]);
+  const onChangeCity = useCallback((city?: string) => dispatch(updateProfile({ city })), [dispatch, updateProfile]);
+  const onChangeAddress = useCallback((address?: string) => dispatch(updateProfile({ address })), [dispatch, updateProfile]);
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
@@ -44,15 +48,17 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
           isLoading={isLoading}
           error={error}
           readonly={readonly}
-          callbacks={[
+          callbacks={{
             onChangeFirstName,
             onChangeLastName,
-            onChangeAge,
+            onChangeCurrency,
             onChangeNickname,
+            onChangeAddress,
             onChangeCountry,
             onChangeState,
             onChangeCity,
-          ]}
+            onChangeAge,
+          }}
         />
       </div>
     </DynamicModuleWrapper>

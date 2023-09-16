@@ -1,13 +1,11 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-props-no-spreading */
-import { FC, memo } from 'react';
+import { CountrySelect } from 'entities/Country';
+import { CurrencySelect } from 'entities/Currency';
+import { Dispatch, FC, memo, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Country } from 'shared/consts/common';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { Input, InputProps } from 'shared/ui/Input/Input';
+import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Select, SelectProps } from 'shared/ui/Select/Select';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -18,7 +16,7 @@ interface ProfileCardProps {
   error?: string;
   readonly?: boolean;
   isLoading?: boolean;
-  callbacks?: ((value: string) => void)[];
+  callbacks?: { [key: string]: Dispatch<SetStateAction<any>> };
 }
 
 export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, callbacks, readonly }) => {
@@ -45,16 +43,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
     );
   }
 
-  const fieldsProps: (InputProps | SelectProps)[] = [
-    { value: data?.firstName, placeholder: t('input.placeholders.firstName') },
-    { value: data?.lastName, placeholder: t('input.placeholders.lastName') },
-    { value: data?.age, placeholder: t('input.placeholders.age'), inputMode: 'numeric' },
-    { value: data?.nickname, placeholder: t('input.placeholders.nickname') },
-    { value: data?.country, placeholder: t('input.placeholders.country') },
-    { value: data?.state, placeholder: t('input.placeholders.state') },
-    { value: data?.city, placeholder: t('input.placeholders.city') },
-  ];
-
   const mods: Mods = {
     [cls.editing]: !readonly,
   };
@@ -63,30 +51,61 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
     <div className={classNames(cls.ProfileCard, mods, [className])}>
       <div className={cls.data}>
         {data?.avatar && <Avatar src={data.avatar} alt="Avatar" size={AvatarSize.LARGE} />}
-        {callbacks?.map((cb, index) => (
-          index === 4
-            ? (
-              <Select
-                {...fieldsProps[index]}
-                onChange={cb}
-                readonly={readonly}
-                options={[
-                  { label: Country.USA, value: Country.USA },
-                  { label: Country.Canada, value: Country.Canada },
-                  { label: Country.Czech_Republic, value: Country.Czech_Republic },
-                  { label: Country.Ukraine, value: Country.Ukraine },
-                ]}
-              />
-            )
-            : (
-              <Input
-                {...fieldsProps[index]}
-                onChange={cb}
-                readonly={readonly}
-                key={index}
-              />
-            )
-        ))}
+        <Input
+          value={data?.firstName}
+          placeholder={t('input.placeholders.firstName')}
+          onChange={callbacks?.onChangeFirstName}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.lastName}
+          placeholder={t('input.placeholders.lastName')}
+          onChange={callbacks?.onChangeLastName}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.age}
+          placeholder={t('input.placeholders.age')}
+          onChange={callbacks?.onChangeAge}
+          readonly={readonly}
+          inputMode="numeric"
+        />
+        <Input
+          value={data?.nickname}
+          placeholder={t('input.placeholders.nickname')}
+          onChange={callbacks?.onChangeNickname}
+          readonly={readonly}
+        />
+        <CountrySelect
+          value={data?.country}
+          placeholder={t('input.placeholders.country')}
+          onChange={callbacks?.onChangeCountry}
+          readonly={readonly}
+        />
+        <CurrencySelect
+          value={data?.currency}
+          placeholder={t('input.placeholders.currency')}
+          onChange={callbacks?.onChangeCurrency}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.state}
+          placeholder={t('input.placeholders.state')}
+          onChange={callbacks?.onChangeState}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('input.placeholders.city')}
+          onChange={callbacks?.onChangeCity}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.address}
+          placeholder={t('input.placeholders.address')}
+          onChange={callbacks?.onChangeAddress}
+          readonly={readonly}
+        />
       </div>
     </div>
   );

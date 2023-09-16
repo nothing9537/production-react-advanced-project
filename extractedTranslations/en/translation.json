@@ -18,11 +18,16 @@
   "increment": "increment",
   "input": {
     "placeholders": {
+      "": "",
+      "address": "address",
       "age": "age",
+      "bick": "bick",
       "city": "city",
       "country": "country",
       "county": "county",
+      "currency": "currency",
       "firstName": "firstName",
+      "las": "las",
       "lastName": "lastName",
       "nick": "nick",
       "nickname": "nickname",
@@ -48,5 +53,6 @@
   "profile-page": "profile-page",
   "reload-message": "reload-message",
   "save": "save",
+  "select-currency": "",
   "title": "title"
 }

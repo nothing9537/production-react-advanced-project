@@ -1,5 +1,6 @@
 {
   "title": "Главная страница",
   "increment": "Увеличить",
-  "decrement": "Уменьшить"
+  "decrement": "Уменьшить",
+  "select-currency": "Выберете валюту"
 }

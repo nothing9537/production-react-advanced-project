@@ -33,6 +33,8 @@ export const Select: FC<SelectProps> = memo(({ className, placeholder, defaultVa
     }
   };
 
+  const onCloseTriggerClick = () => setIsOpen(false);
+
   const onOptionsClick = useCallback((option: SelectOption) => {
     if (!readonly) {
       setIsOpen(false);
@@ -68,22 +70,27 @@ export const Select: FC<SelectProps> = memo(({ className, placeholder, defaultVa
   )), [options, onOptionsClick]);
 
   return (
-    <div className={classNames(cls.Select, {}, [className])}>
-      <span className={classNames(cls.placeholder, placeholderMods)}>
-        {`${placeholder}>`}
-      </span>
-      <div className={cls.Wrapper}>
-        <span
-          onClick={onSelectValueClick}
-          className={classNames(cls.selectValue, selectValueMods)}
-        >
-          {label}
-          <ArrowIcon />
+    <>
+      {isOpen && (
+        <div className={cls.closeTrigger} onClick={onCloseTriggerClick} />
+      )}
+      <div className={classNames(cls.Select, {}, [className])}>
+        <span className={classNames(cls.placeholder, placeholderMods)}>
+          {`${placeholder}>`}
         </span>
-        <div className={classNames(cls.options, optionsMods)}>
-          {optionsList}
+        <div className={cls.Wrapper}>
+          <span
+            onClick={onSelectValueClick}
+            className={classNames(cls.selectValue, selectValueMods)}
+          >
+            {label}
+            <ArrowIcon />
+          </span>
+          <div className={classNames(cls.options, optionsMods)}>
+            {optionsList}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 });

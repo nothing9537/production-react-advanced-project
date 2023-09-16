@@ -8,6 +8,8 @@
       "age": "Your age",
       "nickname": "Your nickname",
       "country": "Your country",
+      "currency": "Your currency",
+      "address": "Your address",
       "state": "Your state",
       "city": "Your city"
     }

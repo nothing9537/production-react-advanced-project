@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { FC, memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
@@ -18,6 +18,14 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
     setIsCollaped((prev) => !prev);
   };
 
+  const itemsList = useMemo(() => AsideItemsList.map((asideItem) => (
+    <AsideItem
+      item={asideItem}
+      key={asideItem.path}
+      isCollapsed={isCollapsed}
+    />
+  )), [isCollapsed]);
+
   return (
     <div data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
       <Button
@@ -31,13 +39,7 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
         {isCollapsed ? '>' : '<'}
       </Button>
       <div className={cls.links}>
-        {AsideItemsList.map((asideItem) => (
-          <AsideItem
-            item={asideItem}
-            key={asideItem.path}
-            isCollapsed={isCollapsed}
-          />
-        ))}
+        {itemsList}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />

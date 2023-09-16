@@ -7,6 +7,7 @@ import ProfileIcon from 'shared/assets/icons/aside-profile-page.svg';
 export interface AsideItemType {
   path: string;
   text: string;
+  authOnly?: boolean;
   Icon: VFC<SVGProps<SVGSVGElement>>;
 }
 
@@ -25,5 +26,6 @@ export const AsideItemsList: AsideItemType[] = [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     text: 'profile-link',
+    authOnly: true,
   },
 ];

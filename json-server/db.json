@@ -30,11 +30,7 @@
     "lastName": "Monastyrskyi",
     "nickname": "Nothing9537",
     "age": 20,
-    "currencies": [
-      "UAH",
-      "USD",
-      "CZK"
-    ],
+    "currency": "UAH",
     "country": "Ukraine",
     "city": "Chicago",
     "state": "IL",
