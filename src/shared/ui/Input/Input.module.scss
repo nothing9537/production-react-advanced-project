@@ -52,3 +52,13 @@
 		opacity: 1;
 	}
 }
+
+.wrapperWithError {
+	display: flex;
+	flex-direction: column;
+}
+
+.errorMessage {
+	font: var(--font-m);
+	color: var(--red-light);
+}

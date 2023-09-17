@@ -1,6 +1,8 @@
 {
   "": "",
   "about-link": "about-link",
+  "address": "address",
+  "age": "age",
   "aside": {
     "main": "main",
     "main-link": "main-link"
@@ -8,6 +10,9 @@
   "auth-error-message": "",
   "auth-form": "auth-form",
   "cancel-edit": "cancel-edit",
+  "city": "city",
+  "country": "country",
+  "currency": "currency",
   "decrement": "decrement",
   "edit": "edit",
   "enter-pass": "enter-pass",
@@ -15,6 +20,7 @@
   "enter-username": "enter-username",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
+  "firstName": "firstName",
   "increment": "increment",
   "input": {
     "placeholders": {
@@ -35,6 +41,7 @@
     }
   },
   "language": "language",
+  "lastName": "lastName",
   "login": "login",
   "logout": "logout",
   "main": {
@@ -47,6 +54,7 @@
     "about-link": "about-link",
     "main-link": "main-link"
   },
+  "nickname": "nickname",
   "page-not-found": "page-not-found",
   "profile": "profile",
   "profile-fetch-error": "profile-fetch-error",
@@ -54,5 +62,6 @@
   "reload-message": "reload-message",
   "save": "save",
   "select-currency": "",
+  "state": "state",
   "title": "title"
 }

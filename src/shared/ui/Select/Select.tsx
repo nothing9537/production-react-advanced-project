@@ -3,6 +3,7 @@ import { FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 import ArrowIcon from './arrow.svg';
+import { Portal } from '../Portal/Portal';
 
 export interface SelectOption {
   label: string;
@@ -72,7 +73,9 @@ export const Select: FC<SelectProps> = memo(({ className, placeholder, defaultVa
   return (
     <>
       {isOpen && (
-        <div className={cls.closeTrigger} onClick={onCloseTriggerClick} />
+        <Portal>
+          <div className={cls.closeTrigger} onClick={onCloseTriggerClick} />
+        </Portal>
       )}
       <div className={classNames(cls.Select, {}, [className])}>
         <span className={classNames(cls.placeholder, placeholderMods)}>

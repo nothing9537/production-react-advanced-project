@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-props-no-spreading */
 import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -26,7 +27,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<ButtonProps> = memo(({
-  children, className, theme = ButtonTheme.OUTLINE, square, size = ButtonSize.M, ...props
+  children, className, theme = ButtonTheme.OUTLINE, square, size = ButtonSize.M, type = 'button', ...props
 }) => {
   const mods: Mods = {
     [cls.square]: square,
@@ -35,7 +36,7 @@ export const Button: FC<ButtonProps> = memo(({
   return (
     <button
       {...props}
-      type="button"
+      type={type}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
     >
       {children}

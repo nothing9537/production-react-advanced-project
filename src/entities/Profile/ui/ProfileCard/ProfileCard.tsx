@@ -1,12 +1,13 @@
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Control, UseFormSetValue } from 'react-hook-form';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { controlledInputsFactory } from 'shared/lib/components/controlledInputs';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { CountrySelect } from 'entities/Country';
 import { CurrencySelect } from 'entities/Currency';
-import { Dispatch, FC, memo, SetStateAction } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { Input } from 'shared/ui/Input/Input';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -16,11 +17,13 @@ interface ProfileCardProps {
   error?: string;
   readonly?: boolean;
   isLoading?: boolean;
-  callbacks?: { [key: string]: Dispatch<SetStateAction<any>> };
+  control: Control<Profile>;
+  setValue: UseFormSetValue<Profile>;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, callbacks, readonly }) => {
-  const { t } = useTranslation('profile');
+export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, control, readonly, setValue }) => {
+  const { t } = useTranslation('profile', { keyPrefix: 'input.placeholders' });
+  const { t: tV } = useTranslation('validate');
 
   if (isLoading) {
     return (
@@ -47,64 +50,80 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
     [cls.editing]: !readonly,
   };
 
+  const { ControlledInput } = controlledInputsFactory<Profile>();
+
   return (
     <div className={classNames(cls.ProfileCard, mods, [className])}>
       <div className={cls.data}>
         {data?.avatar && <Avatar src={data.avatar} alt="Avatar" size={AvatarSize.LARGE} />}
-        <Input
-          value={data?.firstName}
-          placeholder={t('input.placeholders.firstName')}
-          onChange={callbacks?.onChangeFirstName}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="firstName"
+          placeholder={t('firstName')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.firstName}
         />
-        <Input
-          value={data?.lastName}
-          placeholder={t('input.placeholders.lastName')}
-          onChange={callbacks?.onChangeLastName}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="lastName"
+          placeholder={t('lastName')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.lastName}
         />
-        <Input
-          value={data?.age}
-          placeholder={t('input.placeholders.age')}
-          onChange={callbacks?.onChangeAge}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="age"
+          placeholder={t('age')}
+          rules={{ required: { message: tV('required'), value: true }, valueAsNumber: true }}
+          defaultValue={data?.age}
           inputMode="numeric"
         />
-        <Input
-          value={data?.nickname}
-          placeholder={t('input.placeholders.nickname')}
-          onChange={callbacks?.onChangeNickname}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="nickname"
+          placeholder={t('nickname')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.nickname}
         />
         <CountrySelect
           value={data?.country}
-          placeholder={t('input.placeholders.country')}
-          onChange={callbacks?.onChangeCountry}
+          placeholder={t('country')}
           readonly={readonly}
+          onChange={(value) => setValue('country', value)}
         />
         <CurrencySelect
           value={data?.currency}
-          placeholder={t('input.placeholders.currency')}
-          onChange={callbacks?.onChangeCurrency}
+          placeholder={t('currency')}
+          onChange={(value) => setValue('currency', value)}
           readonly={readonly}
         />
-        <Input
-          value={data?.state}
-          placeholder={t('input.placeholders.state')}
-          onChange={callbacks?.onChangeState}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="state"
+          placeholder={t('state')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.state}
         />
-        <Input
-          value={data?.city}
-          placeholder={t('input.placeholders.city')}
-          onChange={callbacks?.onChangeCity}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="city"
+          placeholder={t('city')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.city}
         />
-        <Input
-          value={data?.address}
-          placeholder={t('input.placeholders.address')}
-          onChange={callbacks?.onChangeAddress}
+        <ControlledInput
+          control={control}
           readonly={readonly}
+          name="address"
+          placeholder={t('address')}
+          rules={{ required: { message: tV('required'), value: true } }}
+          defaultValue={data?.address}
         />
       </div>
     </div>

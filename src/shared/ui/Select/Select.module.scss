@@ -28,7 +28,7 @@
   z-index: 3;
 
   svg {
-    transition: .3s;
+    transition: var(--app-transition);
     path {
       fill: var(--primary-color);
     }
@@ -52,7 +52,7 @@
   flex-direction: column;
   position: absolute;
   top: 30px;
-  transition: .3s;
+  transition: var(--app-transition);
   opacity: 1;
   pointer-events: all;
   z-index: 4;
