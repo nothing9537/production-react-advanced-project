@@ -22,8 +22,8 @@ interface ProfileCardProps {
 }
 
 export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, control, readonly, setValue }) => {
-  const { t } = useTranslation('profile', { keyPrefix: 'input.placeholders' });
-  const { t: tV } = useTranslation('validate');
+  const { t } = useTranslation<'profile'>('profile');
+  const { t: tV } = useTranslation<'validate'>('validate');
 
   if (isLoading) {
     return (
@@ -60,7 +60,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="firstName"
-          placeholder={t('firstName')}
+          placeholder={t('input.placeholders.firstName')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.firstName}
         />
@@ -68,7 +68,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="lastName"
-          placeholder={t('lastName')}
+          placeholder={t('input.placeholders.lastName')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.lastName}
         />
@@ -76,7 +76,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="age"
-          placeholder={t('age')}
+          placeholder={t('input.placeholders.age')}
           rules={{ required: { message: tV('required'), value: true }, valueAsNumber: true }}
           defaultValue={data?.age}
           inputMode="numeric"
@@ -85,19 +85,19 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="nickname"
-          placeholder={t('nickname')}
+          placeholder={t('input.placeholders.nickname')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.nickname}
         />
         <CountrySelect
           value={data?.country}
-          placeholder={t('country')}
+          placeholder={t('input.placeholders.country')}
           readonly={readonly}
           onChange={(value) => setValue('country', value)}
         />
         <CurrencySelect
           value={data?.currency}
-          placeholder={t('currency')}
+          placeholder={t('input.placeholders.currency')}
           onChange={(value) => setValue('currency', value)}
           readonly={readonly}
         />
@@ -105,7 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="state"
-          placeholder={t('state')}
+          placeholder={t('input.placeholders.state')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.state}
         />
@@ -113,7 +113,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="city"
-          placeholder={t('city')}
+          placeholder={t('input.placeholders.city')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.city}
         />
@@ -121,7 +121,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           control={control}
           readonly={readonly}
           name="address"
-          placeholder={t('address')}
+          placeholder={t('input.placeholders.address')}
           rules={{ required: { message: tV('required'), value: true } }}
           defaultValue={data?.address}
         />

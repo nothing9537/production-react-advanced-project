@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC, ReactElement } from 'react';
 import { Control, Controller, FieldValues, Path, RegisterOptions } from 'react-hook-form';
 

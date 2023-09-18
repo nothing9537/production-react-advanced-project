@@ -36,6 +36,6 @@ export const OnlyTitle: Story = {
 
 export const OnlyText: Story = {
   args: {
-    title: 'Story title',
+    text: 'Story title',
   },
 };

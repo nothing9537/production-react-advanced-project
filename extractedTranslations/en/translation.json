@@ -38,7 +38,16 @@
       "nick": "nick",
       "nickname": "nickname",
       "state": "state"
-    }
+    },
+    "placeholdersaddress": "placeholdersaddress",
+    "placeholdersage": "placeholdersage",
+    "placeholderscity": "placeholderscity",
+    "placeholderscountry": "placeholderscountry",
+    "placeholderscurrency": "placeholderscurrency",
+    "placeholdersfirstName": "placeholdersfirstName",
+    "placeholderslastName": "placeholderslastName",
+    "placeholdersnickname": "placeholdersnickname",
+    "placeholdersstate": "placeholdersstate"
   },
   "language": "language",
   "lastName": "lastName",
@@ -60,6 +69,7 @@
   "profile-fetch-error": "profile-fetch-error",
   "profile-page": "profile-page",
   "reload-message": "reload-message",
+  "required": "required",
   "save": "save",
   "select-currency": "",
   "state": "state",

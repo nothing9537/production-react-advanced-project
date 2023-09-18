@@ -1,0 +1,38 @@
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { fetchProfileData } from './fetchProfileData';
+import { Profile } from '../../types/profile';
+
+const data: Profile = {
+  firstName: 'Vadym',
+  lastName: 'Monastyrskyi',
+  age: 21,
+  nickname: 'Nothingg9537',
+  country: Country.USA,
+  currency: Currency.USD,
+  city: 'Chicago',
+  state: 'IL',
+  address: 'Some address',
+};
+
+describe('fetchProfileData.spec', () => {
+  test('success', async () => {
+    const thunk = new TestAsyncThunk(fetchProfileData);
+    thunk.API.get.mockReturnValue(Promise.resolve({ data }));
+
+    const result = await thunk.callThunk();
+
+    expect(thunk.API.get).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toBe('fulfilled');
+    expect(result.payload).toEqual(data);
+  });
+
+  test('error', async () => {
+    const thunk = new TestAsyncThunk(fetchProfileData);
+    thunk.API.get.mockReturnValue(Promise.resolve({ status: 403 }));
+
+    const result = await thunk.callThunk();
+    expect(result.meta.requestStatus).toBe('rejected');
+  });
+});

@@ -27,7 +27,7 @@
 	},
 	"exclude": [
 		"./cypress.config.ts",
-		"./config/storybook/webpack.config.ts",
+		"storybook/webpack.config.ts",
 		"node_modules",
 		"cypress",
 		"**/*.cy.tsx"

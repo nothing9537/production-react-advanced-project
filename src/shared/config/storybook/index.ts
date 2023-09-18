@@ -3,6 +3,7 @@ import { WithStyleDecorator } from './WithStyleDecorator/WithStyleDecorator';
 import { WithRouterDecorator } from './WithRouterDecorator/WithRouterDecorator';
 import { WithStoreDecorator } from './WithStoreDecorator/WithStoreDecorator';
 import { WithTranslationDecorator } from './WithTranslationDecorator/WithTranslationDecorator';
+import { WithFormDecorator } from './WithFormDecorator/WithFormDecorator';
 
 export {
   WithRouterDecorator,
@@ -10,9 +11,5 @@ export {
   WithThemeDecorator,
   WithStoreDecorator,
   WithTranslationDecorator,
+  WithFormDecorator,
 };
-
-export enum Layers {
-  SHARED = 'Shared',
-  WIDGETS = 'Widgets',
-}
