@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
+import { THEME_KEY } from 'shared/consts/localStorage';
+import { Theme, ThemeContext } from './ThemeContext';
 
 interface UseThemeResult {
   toggleTheme: () => void;
@@ -18,6 +19,9 @@ export const useTheme = (): UseThemeResult => {
         newTheme = Theme.LIGHT;
         break;
       case Theme.LIGHT:
+        newTheme = Theme.BLUE;
+        break;
+      case Theme.BLUE:
         newTheme = Theme.DARK;
         break;
       default:
@@ -26,7 +30,7 @@ export const useTheme = (): UseThemeResult => {
 
     setTheme(newTheme);
     document.body.className = newTheme;
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    localStorage.setItem(THEME_KEY, newTheme);
   };
 
   return { theme: theme || Theme.DARK, toggleTheme };
