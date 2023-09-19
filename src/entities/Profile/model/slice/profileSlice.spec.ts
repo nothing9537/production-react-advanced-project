@@ -1,0 +1,64 @@
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { Profile, ProfileSchema } from '../types/profile';
+import { profileActions, profileReducer } from './profileSlice';
+
+const data: Profile = {
+  firstName: 'Vadym',
+  lastName: 'Monastyrskyi',
+  age: 21,
+  nickname: 'Nothingg9537',
+  country: Country.USA,
+  currency: Currency.USD,
+  city: 'Chicago',
+  state: 'IL',
+  address: 'Some address',
+};
+
+describe('profileSlice.spec', () => {
+  test('setReadonly should work', () => {
+    const state: DeepPartial<ProfileSchema> = { readonly: false };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.setReadonly(true),
+    )).toEqual({ readonly: true });
+  });
+
+  test('cancelEdit should set readonly to true and form to default data', () => {
+    const state: DeepPartial<ProfileSchema> = { readonly: false, form: { firstName: 'dsadsa', lastName: 'sadasdF' }, data };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.cancelEdit(),
+    )).toEqual({ readonly: true, form: data, data });
+  });
+
+  test('update profile', () => {
+    const state: DeepPartial<ProfileSchema> = { form: { nickname: 'Random nickname' } };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      profileActions.updateProfile({ nickname: 'Changed nickname' }),
+    )).toEqual({ form: { nickname: 'Changed nickname' } });
+  });
+
+  test('test updateProfileData service pending', () => {
+    const state: DeepPartial<ProfileSchema> = { error: 'Some error', isLoading: false };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      updateProfileData.pending,
+    )).toEqual({ error: undefined, isLoading: true });
+  });
+
+  test('test updateProfileData service fulfilled', () => {
+    const state: DeepPartial<ProfileSchema> = { isLoading: true };
+
+    expect(profileReducer(
+      state as ProfileSchema,
+      updateProfileData.fulfilled(data, ''),
+    )).toEqual({ isLoading: false, form: data, data, error: undefined, readonly: true });
+  });
+});

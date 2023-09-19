@@ -20,7 +20,7 @@ describe('getProfileForm.test', () => {
 
     const state: DeepPartial<StateSchema> = {
       profile: {
-        data,
+        form: data,
       },
     };
 
