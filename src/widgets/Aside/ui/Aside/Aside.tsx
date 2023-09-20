@@ -1,9 +1,11 @@
 import { FC, memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { AsideItemsList } from 'widgets/Aside/model/items';
+import { getUserAuthData } from 'entities/User';
 import { AsideItem } from '../AsideItem/AsideItem';
 import cls from './Aside.module.scss';
 
@@ -13,6 +15,7 @@ interface AsideProps {
 
 export const Aside: FC<AsideProps> = memo(({ className }) => {
   const [isCollapsed, setIsCollaped] = useState<boolean>(false);
+  const authData = useAppSelector(getUserAuthData);
 
   const onToggle = () => {
     setIsCollaped((prev) => !prev);
@@ -24,7 +27,8 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
       key={asideItem.path}
       isCollapsed={isCollapsed}
     />
-  )), [isCollapsed]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  )), [isCollapsed, authData]);
 
   return (
     <div data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>

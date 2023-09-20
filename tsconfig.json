@@ -32,7 +32,6 @@
 		"cypress",
 		"**/*.cy.tsx",
 		"./\".fttemplates\"",
-		".fttemplates"
 	],
 	"ts-node": {
 		"compilerOptions": {

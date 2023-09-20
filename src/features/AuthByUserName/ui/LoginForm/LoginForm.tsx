@@ -44,7 +44,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
 
   return (
     <DynamicModuleWrapper reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
+      <form className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('auth-form')} />
         {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
         <Input
@@ -65,10 +65,11 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
           theme={ButtonTheme.OUTLINE}
           onClick={onLogin}
           disabled={isLoading}
+          type="submit"
         >
           {t('login')}
         </Button>
-      </div>
+      </form>
     </DynamicModuleWrapper>
   );
 });
