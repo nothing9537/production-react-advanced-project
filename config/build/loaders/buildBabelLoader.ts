@@ -1,6 +1,7 @@
+/* eslint-disable global-require */
 import { RuleSetRule } from 'webpack';
 
-export function buildBabelLoader(): RuleSetRule {
+export function buildBabelLoader(isDev: boolean): RuleSetRule {
   return {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
@@ -16,7 +17,8 @@ export function buildBabelLoader(): RuleSetRule {
               keyAsDefaultValue: true,
             },
           ],
-        ],
+          isDev && require('react-refresh/babel'),
+        ].filter(Boolean),
       },
     },
   };

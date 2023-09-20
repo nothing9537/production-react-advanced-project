@@ -30,11 +30,13 @@
 		"storybook/webpack.config.ts",
 		"node_modules",
 		"cypress",
-		"**/*.cy.tsx"
+		"**/*.cy.tsx",
+		"./\".fttemplates\"",
+		".fttemplates"
 	],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"
 		}
-	}
+	},
 }

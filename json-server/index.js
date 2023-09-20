@@ -37,7 +37,6 @@ server.post('/login', (req, res) => {
   }
 });
 
-// eslint-disable-next-line
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'AUTH ERROR' });
@@ -49,5 +48,5 @@ server.use((req, res, next) => {
 server.use(router);
 
 server.listen(8000, () => {
-  console.log('server is running on 8000 port');
+  console.log(new Date().toLocaleString(), 'Server is running on 8000 port');
 });
