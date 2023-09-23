@@ -14,11 +14,11 @@ interface AsideProps {
 }
 
 export const Aside: FC<AsideProps> = memo(({ className }) => {
-  const [isCollapsed, setIsCollaped] = useState<boolean>(false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const authData = useAppSelector(getUserAuthData);
 
   const onToggle = () => {
-    setIsCollaped((prev) => !prev);
+    setIsCollapsed((prev) => !prev);
   };
 
   const itemsList = useMemo(() => AsideItemsList.map((asideItem) => (

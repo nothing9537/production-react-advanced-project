@@ -19,7 +19,7 @@ export const userSlice = createSlice({
       }
     },
     logout: (state) => {
-      state.authData = undefined;
+      state.authData = null;
       localStorage.removeItem(AUTH_TOKEN_KEY);
     },
   },

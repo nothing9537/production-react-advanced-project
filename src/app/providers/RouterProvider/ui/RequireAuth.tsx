@@ -1,18 +1,22 @@
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
+import { User } from 'entities/User';
 
-export function RequireAuth({ children }: { children: ReactNode }) {
-  const auth = useAppSelector(getUserAuthData);
+interface RequireAuthProps {
+  children: ReactNode;
+  isAuth: User | undefined | null;
+}
+
+export function RequireAuth({ children, isAuth }: RequireAuthProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!auth) {
+    if (!isAuth) {
       navigate(RoutePath.main);
     }
-  }, [auth, navigate]);
+  }, [isAuth, navigate]);
 
-  return <div>{children}</div>;
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 }

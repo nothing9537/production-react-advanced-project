@@ -3,6 +3,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AboutIcon from 'shared/assets/icons/aside-about-page.svg';
 import MainIcon from 'shared/assets/icons/aside-main-page.svg';
 import ProfileIcon from 'shared/assets/icons/aside-profile-page.svg';
+import ArticlesIcon from 'shared/assets/icons/aside-articles-page.svg';
 
 export interface AsideItemType {
   path: string;
@@ -26,6 +27,12 @@ export const AsideItemsList: AsideItemType[] = [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     text: 'profile-link',
+    authOnly: true,
+  },
+  {
+    path: RoutePath.articles,
+    Icon: ArticlesIcon,
+    text: 'articles-link',
     authOnly: true,
   },
 ];
