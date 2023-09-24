@@ -3,11 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Aside } from 'widgets/Aside';
-import { userActions } from 'entities/User';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
+import { getUserMounted, userActions } from 'entities/User';
 import { AppRouter } from './providers/RouterProvider';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
+  const _mounted = useAppSelector(getUserMounted);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -19,7 +21,7 @@ const App: FC = () => {
         <Navbar />
         <div className="content-page">
           <Aside />
-          <AppRouter />
+          {_mounted && <AppRouter />}
         </div>
       </Suspense>
     </div>
