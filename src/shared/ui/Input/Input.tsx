@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FC, forwardRef, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from '../Text/Text';
 import cls from './Input.module.scss';
@@ -17,9 +17,9 @@ export interface InputProps extends AppInput {
   error?: ValidateComponentError;
 }
 
-export const Input: FC<InputProps> = memo((props) => {
+export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
   const { className, onChange, value, type = 'text', isDirty, error, placeholder, autoFocus, readonly, ...rest } = props;
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(ref as any || null);
 
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [caretPosition, setCaretPosition] = useState<number>(0);
@@ -77,4 +77,4 @@ export const Input: FC<InputProps> = memo((props) => {
       </div>
     </div>
   );
-});
+}));

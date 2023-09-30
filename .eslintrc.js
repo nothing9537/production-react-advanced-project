@@ -78,5 +78,9 @@ module.exports = {
         'max-len': 'off',
       },
     },
+    {
+      files: ['./\.fttemplates\''],
+      rules: 'off'
+    }
   ],
 };

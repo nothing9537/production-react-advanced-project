@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
+import { userActions } from 'entities/User';
 import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, Profile, ProfileCard, profileReducer } from 'entities/Profile';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -26,6 +27,7 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
   const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({ mode: 'all', defaultValues: formData });
 
   useEffect(() => {
+    dispatch(userActions.initAuthData());
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchProfileData());
     }

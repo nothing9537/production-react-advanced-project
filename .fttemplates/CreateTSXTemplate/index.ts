@@ -1,1 +1,1 @@
-export { [FTName] } from './ui/[FTName].tsx';
+export { [FTName] } from './ui/[FTName]';

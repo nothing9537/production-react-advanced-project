@@ -21,7 +21,22 @@ const preview: Preview = {
   decorators: [WithStyleDecorator, WithRouterDecorator, WithTranslationDecorator, WithThemeDecorator(Theme.LIGHT)],
 };
 
-export const globalTypes = {
+export const globalTypes: Preview['globalTypes'] = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'app_dark_theme',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        { value: 'app_light_theme', title: 'Light theme' },
+        { value: 'app_dark_theme', title: 'Dark theme' },
+        { value: 'app_blue_theme', title: 'Blue theme' },
+      ],
+      showName: true,
+      dynamicTitle: true,
+    },
+  },
   locale: {
     name: 'Locale',
     description: 'Internationalization locale',
@@ -33,6 +48,7 @@ export const globalTypes = {
         { value: 'ru', title: 'Russian' },
       ],
       showName: true,
+      dynamicTitle: true,
     },
   },
 };

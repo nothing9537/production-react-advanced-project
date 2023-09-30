@@ -6,6 +6,7 @@
   "about-link": "about-link",
   "address": "address",
   "age": "age",
+  "article-not-found": "article-not-found",
   "aside": {
     "main": "main",
     "main-link": "main-link"
@@ -21,6 +22,8 @@
   "enter-pass": "enter-pass",
   "enter-password": "enter-password",
   "enter-username": "enter-username",
+  "error-fet": "error-fet",
+  "error-fetching-article": "error-fetching-article",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
   "firstName": "firstName",

@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { MappedReducer, StateSchema } from '../config/StateChema';
+import { MappedReducer, StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
 
 interface StoreProviderProps {

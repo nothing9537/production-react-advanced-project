@@ -4,7 +4,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $API } from 'shared/API';
 import { createReducerManager } from './reducerManager';
-import { CreateReduxStoreOptions, MappedReducer, StateSchema, ThunkExtraArg } from './StateChema';
+import { CreateReduxStoreOptions, MappedReducer, StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore({ initialState, asyncReducers, navigate }: CreateReduxStoreOptions) {
   const rootReducers: MappedReducer = {
