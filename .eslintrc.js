@@ -79,8 +79,14 @@ module.exports = {
       },
     },
     {
-      files: ['./\.fttemplates\''],
-      rules: 'off'
-    }
+      files: ['**/src/shared/assets/icons/*.{ts,tsx}'],
+      rules: {
+        'max-len': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'react/jsx-first-prop-new-line': 'off',
+        'react/jsx-closing-bracket-location': 'off',
+        'react/jsx-max-props-per-line': 'off',
+      },
+    },
   ],
 };

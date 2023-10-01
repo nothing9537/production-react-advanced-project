@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { FC, HTMLAttributes } from 'react';
+import { CSSProperties, FC, HTMLAttributes } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
@@ -12,21 +12,26 @@ export enum AvatarSize {
 interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   className?: string;
   alt: string;
-  src: string;
+  src?: string;
   size?: AvatarSize;
   round?: boolean;
+  width?: number | string;
+  height?: number | string;
 }
 
-export const Avatar: FC<AvatarProps> = ({ className, alt, src, size = AvatarSize.NORMAL, round, ...props }) => {
+export const Avatar: FC<AvatarProps> = ({ className, alt, src, size = AvatarSize.NORMAL, round, width, height, ...props }) => {
   const mods: Mods = {
     [cls.round]: round,
   };
+
+  const styles: CSSProperties = { width, height };
 
   return (
     <img
       {...props}
       alt={alt}
       src={src}
+      style={styles}
       className={classNames(cls.Avatar, mods, [className, cls[size]])}
     />
   );

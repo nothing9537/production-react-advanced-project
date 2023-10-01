@@ -27,10 +27,12 @@ export const AsideItem: FC<AsideItemProps> = memo(({ item, isCollapsed }) => {
       className={classNames(cls.link, { [cls.collapsed]: isCollapsed })}
       theme={AppLinkTheme.SECONDARY}
     >
-      <Icon className={cls.icon} />
-      <span className={cls['link-item']}>
-        {t(text)}
-      </span>
+      <div className={cls.item}>
+        {Icon}
+        <span className={cls['link-item']}>
+          {t(text)}
+        </span>
+      </div>
     </AppLink>
   );
 });

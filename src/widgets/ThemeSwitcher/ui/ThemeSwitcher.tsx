@@ -1,17 +1,33 @@
-import { FC, memo } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import LightThemeIcon from 'shared/assets/icons/theme-light.svg';
-import DarkThemeIcon from 'shared/assets/icons/theme-dark.svg';
+import { ThemeDarkIcon, ThemeBlueIcon, ThemeLightIcon } from 'shared/assets/icons';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-	className?: string;
+  className?: string;
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
+
+  let content: ReactNode;
+
+  switch (theme) {
+    case Theme.BLUE:
+      content = <ThemeBlueIcon />;
+      break;
+    case Theme.DARK:
+      content = <ThemeDarkIcon />;
+      break;
+    case Theme.LIGHT:
+      content = <ThemeLightIcon />;
+      break;
+    default:
+      content = null;
+      break;
+  }
 
   return (
     <Button
@@ -20,7 +36,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       onClick={toggleTheme}
       data-testid="theme-switcher"
     >
-      {theme === Theme.LIGHT ? <LightThemeIcon /> : <DarkThemeIcon />}
+      {content}
     </Button>
   );
 });

@@ -1,37 +1,34 @@
-import { SVGProps, VFC } from 'react';
+import { ReactNode } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import AboutIcon from 'shared/assets/icons/aside-about-page.svg';
-import MainIcon from 'shared/assets/icons/aside-main-page.svg';
-import ProfileIcon from 'shared/assets/icons/aside-profile-page.svg';
-import ArticlesIcon from 'shared/assets/icons/aside-articles-page.svg';
+import { MainPageIcon, AboutPageIcon, ProfilePageIcon, ArticlesPageIcon } from 'shared/assets/icons';
 
 export interface AsideItemType {
   path: string;
   text: string;
   authOnly?: boolean;
-  Icon: VFC<SVGProps<SVGSVGElement>>;
+  Icon: ReactNode;
 }
 
 export const AsideItemsList: AsideItemType[] = [
   {
     path: RoutePath.main,
-    Icon: MainIcon,
+    Icon: <MainPageIcon />,
     text: 'main-link',
   },
   {
     path: RoutePath.about,
-    Icon: AboutIcon,
+    Icon: <AboutPageIcon />,
     text: 'about-link',
   },
   {
     path: RoutePath.profile,
-    Icon: ProfileIcon,
+    Icon: <ProfilePageIcon />,
     text: 'profile-link',
     authOnly: true,
   },
   {
     path: RoutePath.articles,
-    Icon: ArticlesIcon,
+    Icon: <ArticlesPageIcon />,
     text: 'articles-link',
     authOnly: true,
   },

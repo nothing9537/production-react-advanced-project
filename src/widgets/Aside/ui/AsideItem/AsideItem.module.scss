@@ -9,13 +9,18 @@
 	transition: .3s opacity;
 }
 
-.icon {
-	fill: var(--inverted-primary-color);
-}
-
 .collapsed {
 	.link-item {
 		opacity: 0;
 		display: none;
+	}
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	svg {
+		fill: var(--inverted-primary-color);
 	}
 }
