@@ -1,10 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 
-interface Props {
-  props?: HTMLAttributes<SVGElement>;
-}
-
-export const CreatedAtIcon: FC<Props> = ({ props }) => {
+export const CreatedAtIcon: FC<HTMLAttributes<SVGElement>> = ({ ...props }) => {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
       <g clipPath="url(#clip0_104_66)">

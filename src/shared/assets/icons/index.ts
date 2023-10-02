@@ -7,3 +7,4 @@ export { ThemeBlueIcon } from './ThemeBlue';
 export { ThemeDarkIcon } from './ThemeDark';
 export { ThemeLightIcon } from './ThemeLight';
 export { ViewsIcon } from './Views';
+export { CopyIcon } from './Copy';

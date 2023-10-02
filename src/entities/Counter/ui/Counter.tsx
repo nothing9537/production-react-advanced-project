@@ -6,11 +6,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 
-interface CounterProps {
-
-}
-
-export const Counter: FC<CounterProps> = () => {
+export const Counter: FC = () => {
   const { t } = useTranslation('main');
   const dispatch = useAppDispatch();
   const counterValue = useAppSelector(getCounterValue);

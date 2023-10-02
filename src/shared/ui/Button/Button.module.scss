@@ -2,9 +2,15 @@
 	cursor: pointer;
 	color: var(--primary-color);
 	padding: 6px 15px;
+	transition: calc(var(--app-transition) / 2);
 
 	&:disabled {
 		opacity: .5;
+	}
+
+	&:hover {
+		opacity: .8;
+		fill-opacity: .8;
 	}
 }
 

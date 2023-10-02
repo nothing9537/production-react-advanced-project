@@ -12,19 +12,19 @@ describe('Counter', () => {
     expect(screen.getByTestId('counter-value')).toHaveTextContent('10');
   });
 
-  test('testing increment value', () => {
+  test('testing increment value', async () => {
     ComponentRender(<Counter />, {
       initialState: { counter: { value: 10 } },
     });
-    userEvent.click(screen.getByTestId('increment-button'));
+    await userEvent.click(screen.getByTestId('increment-button'));
     expect(screen.getByTestId('counter-value')).toHaveTextContent('11');
   });
 
-  test('testing decrement value', () => {
+  test('testing decrement value', async () => {
     ComponentRender(<Counter />, {
       initialState: { counter: { value: 10 } },
     });
-    userEvent.click(screen.getByTestId('decrement-button'));
+    await userEvent.click(screen.getByTestId('decrement-button'));
     expect(screen.getByTestId('counter-value')).toHaveTextContent('9');
   });
 });

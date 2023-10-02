@@ -14,13 +14,13 @@ import { fetchArticleById } from '../../../model/services/fetchArticleById/fetch
 import { ArticleBlock, ArticleBlockType } from '../../../../Article/model/types/article';
 import { ArticleCodeBlockComponent } from '../../ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../../model/selectors/articleDetails';
 import cls from './ArticleDetails.module.scss';
-import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -42,18 +42,20 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent />;
+        return <ArticleCodeBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent />;
+        return <ArticleImageBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent />;
+        return <ArticleTextBlockComponent key={block.id} block={block} />;
       default:
         return null;
     }
   }, []);
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   let content: ReactNode = null;
@@ -98,9 +100,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
         </div>
         <div className={cls['article-info']}>
           <Icon SVG={<CreatedAtIcon />} />
-          <Text text={new Date((data?.views as number) * 1000).toLocaleString()} />
+          <Text text={new Date(data?.views as number).toLocaleString()} />
         </div>
-        {data?.blocks.map(renderBlock)}
+        <div className={cls.blocks}>
+          {data?.blocks.map(renderBlock)}
+        </div>
       </div>
     );
   }

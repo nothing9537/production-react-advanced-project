@@ -29,12 +29,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  // svg {
-  //   fill: var(--primary-color);
-  // }
-  // svg {
-  //   path {
-  //     fill: var(--primary-color);
-  //   }
-  // }
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

@@ -25,7 +25,6 @@ export const globalTypes: Preview['globalTypes'] = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'app_dark_theme',
     toolbar: {
       icon: 'circlehollow',
       items: [
