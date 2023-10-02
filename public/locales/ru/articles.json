@@ -1,4 +1,5 @@
 {
   "article-not-found": "Статья не найдена",
-  "error-fetching-article": "Произошла ошибка при загрузке статьи"
+  "error-fetching-article": "Произошла ошибка при загрузке статьи",
+  "article-comments": "Комментарии"
 }

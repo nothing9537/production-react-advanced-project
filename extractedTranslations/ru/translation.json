@@ -10,6 +10,7 @@
   "about-link": "about-link",
   "address": "address",
   "age": "age",
+  "article-comments": "article-comments",
   "article-not-found": "article-not-found",
   "aside": {
     "main": "main",
@@ -74,6 +75,7 @@
     "main-link": "main-link"
   },
   "nickname": "nickname",
+  "no-comments": "no-comments",
   "page-not-found": "page-not-found",
   "profile": "profile",
   "profile-fetch-error": "profile-fetch-error",

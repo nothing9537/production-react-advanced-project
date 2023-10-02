@@ -1,34 +1,28 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server 1",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server 2",
-      "userId": "2"
-    }
-  ],
   "comments": [
     {
       "id": "1",
-      "text": "Some comment",
+      "text": "Some comment 1",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "2",
-      "text": "Some comment",
+      "text": "Some comment 2 ",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "3",
-      "text": "Some comment",
+      "text": "Some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "id": 4,
+      "text": "Nothingg's comment",
+      "articleId": "1",
+      "userId": "2"
     }
   ],
   "articles": [
@@ -95,13 +89,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
     {
       "id": "2",
       "username": "Nothingg",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     }
   ],
   "profile": {

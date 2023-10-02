@@ -1,0 +1,15 @@
+.CommentCard {
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  height: fit-content;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}

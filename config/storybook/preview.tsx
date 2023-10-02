@@ -18,7 +18,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [WithStyleDecorator, WithRouterDecorator, WithTranslationDecorator, WithThemeDecorator(Theme.LIGHT)],
+  decorators: [WithStyleDecorator, WithRouterDecorator, WithTranslationDecorator, WithThemeDecorator(Theme.BLUE)],
 };
 
 export const globalTypes: Preview['globalTypes'] = {
