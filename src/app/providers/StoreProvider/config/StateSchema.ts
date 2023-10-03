@@ -8,6 +8,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUserName';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments';
+import { AddCommentFormSchema } from 'features/AddNewComment';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
@@ -19,6 +20,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

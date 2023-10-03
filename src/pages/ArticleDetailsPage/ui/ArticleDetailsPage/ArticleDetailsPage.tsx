@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
@@ -10,12 +10,14 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
 import {
+  addCommentForArticle,
   articleDetailsCommentsReducer,
   fetchCommentsByArticleId,
   getArticleComments,
   // getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from 'features/ArticleDetailsComments';
+import { AddNewComment } from 'features/AddNewComment';
 import cls from './ArticleDetailsPage.module.scss';
 
 const reducers: ReducersList = {
@@ -32,9 +34,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading);
   // const commentsError = useAppSelector(getArticleCommentsError);
 
-  useInitialEffect(async () => {
-    await dispatch(fetchCommentsByArticleId(id));
-  });
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  }, [id]);
 
   if (!id) {
     return (
@@ -49,6 +55,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t('article-comments')} />
+        <AddNewComment onSendComment={onSendComment} />
         <CommentsList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleWrapper>

@@ -8,12 +8,13 @@ const data: Profile = {
   firstName: 'Vadym',
   lastName: 'Monastyrskyi',
   age: 21,
-  nickname: 'Nothingg9537',
+  username: 'Nothingg9537',
   country: Country.USA,
   currency: Currency.USD,
   city: 'Chicago',
   state: 'IL',
   address: 'Some address',
+  id: '1',
 };
 
 describe('updateProfileData.spec', () => {

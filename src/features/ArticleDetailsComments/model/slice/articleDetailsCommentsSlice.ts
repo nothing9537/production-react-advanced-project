@@ -6,6 +6,7 @@ import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSch
 
 const articleDetailsCommentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,
+  sortComparer: (a, b) => b.timestamp - a.timestamp,
 });
 
 export const getArticleComments = articleDetailsCommentsAdapter.getSelectors<StateSchema>(

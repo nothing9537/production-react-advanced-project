@@ -1,6 +1,6 @@
 import { DependencyList, useEffect } from 'react';
 
-export const useInitialEffect = (callback: () => Promise<void>, deps: DependencyList = []) => {
+export const useInitialEffect = (callback: () => void, deps: DependencyList = []) => {
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       callback();

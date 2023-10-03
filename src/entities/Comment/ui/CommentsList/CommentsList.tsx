@@ -19,7 +19,7 @@ export const CommentsList: FC<CommentsListProps> = memo(({ className, comments, 
     <div className={classNames(cls.CommentsList, {}, [className])}>
       {comments?.length
         ? comments.map((comment) => (
-          <CommentCard comment={comment} isLoading={isLoading} />
+          <CommentCard comment={comment} key={comment.id} isLoading={isLoading} />
         ))
         : <Text text={t('no-comments')} />}
     </div>

@@ -8,7 +8,7 @@ const data: Profile = {
   firstName: 'Vadym',
   lastName: 'Monastyrskyi',
   age: 21,
-  nickname: 'Nothingg9537',
+  username: 'Nothingg9537',
   country: Country.USA,
   currency: Currency.USD,
   city: 'Chicago',
@@ -36,12 +36,12 @@ describe('profileSlice.spec', () => {
   });
 
   test('update profile', () => {
-    const state: DeepPartial<ProfileSchema> = { form: { nickname: 'Random nickname' } };
+    const state: DeepPartial<ProfileSchema> = { form: { username: 'Random username' } };
 
     expect(profileReducer(
       state as ProfileSchema,
-      profileActions.updateProfile({ nickname: 'Changed nickname' }),
-    )).toEqual({ form: { nickname: 'Changed nickname' } });
+      profileActions.updateProfile({ username: 'Changed username' }),
+    )).toEqual({ form: { username: 'Changed username' } });
   });
 
   test('test updateProfileData service pending', () => {

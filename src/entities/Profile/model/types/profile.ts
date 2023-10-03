@@ -1,10 +1,13 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { UserRole } from 'entities/User';
 
 export interface Profile {
+  id?: string;
+  role?: UserRole;
   firstName?: string;
   lastName?: string;
-  nickname?: string;
+  username?: string;
   age?: number;
   currency?: Currency;
   country?: Country;

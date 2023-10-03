@@ -4,25 +4,43 @@
       "id": "1",
       "text": "Some comment 1",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "timestamp": 1696363269054
     },
     {
       "id": "2",
       "text": "Some comment 2 ",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "timestamp": 1696363269054
     },
     {
       "id": "3",
       "text": "Some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "timestamp": 1696363269054
     },
     {
       "id": 4,
       "text": "Nothingg's comment",
       "articleId": "1",
-      "userId": "2"
+      "userId": "2",
+      "timestamp": 1696363269054
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "New comment from NOthingg",
+      "timestamp": 1696365122753,
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "More comments from Nothingg",
+      "timestamp": 1696365191221,
+      "id": 6
     }
   ],
   "articles": [
@@ -32,7 +50,7 @@
       "subtitle": "What new in JavaScript in 2023?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1024,
-      "createdAt": 1696191879,
+      "createdAt": 1696363269054,
       "type": [
         "IT"
       ],
@@ -100,16 +118,34 @@
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     }
   ],
-  "profile": {
-    "firstName": "Vadym",
-    "lastName": "Monastyrskyi",
-    "nickname": "Nothing9537",
-    "age": "21",
-    "currency": "USD",
-    "country": "USA",
-    "city": "Chicago",
-    "state": "IL",
-    "address": "322 Woodbury Ct. APT B1",
-    "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "role": "ADMIN",
+      "firstName": "AdminFirst",
+      "lastName": "AdminLast",
+      "username": "admin",
+      "age": "21",
+      "currency": "USD",
+      "country": "USA",
+      "city": "Chicago",
+      "state": "IL",
+      "address": "322 Woodbury Ct. APT B1",
+      "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
+    },
+    {
+      "id": "2",
+      "role": "USER",
+      "firstName": "Vadym",
+      "lastName": "Monastyrskyi",
+      "username": "Nothingg",
+      "age": "21",
+      "currency": "USD",
+      "country": "USA",
+      "city": "Chicago",
+      "state": "IL",
+      "address": "322 Woodbury Ct. APT B1",
+      "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
+    }
+  ]
 }

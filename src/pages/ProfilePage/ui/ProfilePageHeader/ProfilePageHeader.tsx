@@ -6,7 +6,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
-import { getProfileReadonly, Profile, profileActions, updateProfileData } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
+import { getProfileData, getProfileReadonly, Profile, profileActions, updateProfileData } from 'entities/Profile';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -19,8 +20,12 @@ interface ProfilePageHeaderProps {
 export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, getValues, reset, isValid }) => {
   const { t } = useTranslation('profile');
 
-  const readonly = useAppSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
+  const readonly = useAppSelector(getProfileReadonly);
+  const userData = useAppSelector(getUserAuthData);
+  const profileData = useAppSelector(getProfileData);
+
+  const canEdit = userData?.id === profileData?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -34,14 +39,14 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, 
 
   const onSave = useCallback(() => {
     dispatch(profileActions.updateProfile(getValues()));
-    dispatch(updateProfileData());
     dispatch(profileActions.setReadonly(true));
+    dispatch(updateProfileData());
   }, [dispatch, getValues]);
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <Text title={t('profile')} />
-      {readonly
+      {canEdit && (readonly
         ? (
           <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
             {t('edit')}
@@ -56,7 +61,8 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, 
               {t('save')}
             </Button>
           </div>
-        )}
+        )
+      )}
     </div>
   );
 });

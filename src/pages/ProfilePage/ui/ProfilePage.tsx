@@ -1,9 +1,11 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { userActions } from 'entities/User';
 import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, Profile, ProfileCard, profileReducer } from 'entities/Profile';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -23,15 +25,14 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
   const isLoading = useAppSelector(getProfileIsLoading);
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
+  const { id } = useParams<{ id: string }>();
 
   const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({ mode: 'all', defaultValues: formData });
 
-  useEffect(() => {
+  useInitialEffect(() => {
+    dispatch(fetchProfileData(id));
     dispatch(userActions.initAuthData());
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  }, [id, dispatch]);
 
   return (
     <DynamicModuleWrapper reducers={reducers}>

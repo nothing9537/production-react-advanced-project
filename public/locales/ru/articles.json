@@ -1,5 +1,7 @@
 {
   "article-not-found": "Статья не найдена",
   "error-fetching-article": "Произошла ошибка при загрузке статьи",
-  "article-comments": "Комментарии"
+  "article-comments": "Комментарии",
+  "add-new-comment": "Введите текст комментария",
+  "send-new-comment": "Отправить"
 }

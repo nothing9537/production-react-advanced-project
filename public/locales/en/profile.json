@@ -4,9 +4,9 @@
   "input": {
     "placeholders": {
       "firstName": "Your name",
-      "lastName": "Yout last name",
+      "lastName": "Your last name",
       "age": "Your age",
-      "nickname": "Your nickname",
+      "username": "Your nickname",
       "country": "Your country",
       "currency": "Your currency",
       "address": "Your address",

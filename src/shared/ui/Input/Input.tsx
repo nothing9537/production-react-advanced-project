@@ -47,7 +47,7 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
   };
 
   return (
-    <div className={classNames('', { [cls.wrapperWithError]: error?.message })}>
+    <div className={cls.wrapperWithError}>
       {error?.message && (
         <Text theme={TextTheme.ERROR} text={error.message} />
       )}

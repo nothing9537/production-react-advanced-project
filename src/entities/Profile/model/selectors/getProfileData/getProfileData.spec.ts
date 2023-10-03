@@ -10,7 +10,7 @@ describe('getProfileData.test', () => {
       firstName: 'Vadym',
       lastName: 'Monastyrskyi',
       age: 21,
-      nickname: 'Nothingg9537',
+      username: 'Nothingg9537',
       country: Country.USA,
       currency: Currency.USD,
       city: 'Chicago',

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 

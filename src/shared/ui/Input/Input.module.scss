@@ -13,6 +13,7 @@
 
 .placeholder {
 	color: var(--primary-color);
+	white-space: nowrap;
 	margin-right: 5px;
 }
 
@@ -23,6 +24,7 @@
 .caretWrapper {
 	flex-grow: 1 ;
 	position: relative;
+	width: 100%;
 }
 
 .caret {
@@ -56,6 +58,7 @@
 .wrapperWithError {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 .errorMessage {

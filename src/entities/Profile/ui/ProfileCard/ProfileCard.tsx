@@ -84,10 +84,10 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
         <ControlledInput
           control={control}
           readonly={readonly}
-          name="nickname"
-          placeholder={t('input.placeholders.nickname')}
+          name="username"
+          placeholder={t('input.placeholders.username')}
           rules={{ required: { message: tV('required'), value: true } }}
-          defaultValue={data?.nickname}
+          defaultValue={data?.username}
         />
         <CountrySelect
           value={data?.country}
