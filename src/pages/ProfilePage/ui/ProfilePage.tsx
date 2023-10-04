@@ -1,24 +1,25 @@
 import { FC, memo } from 'react';
-import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { userActions } from 'entities/User';
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, Profile, ProfileCard, profileReducer } from 'entities/Profile';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { profileReducer } from 'entities/Profile';
+import {
+  EditableProfileCard,
+  fetchProfileData,
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+} from 'features/EditableProfileCard';
 
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-interface ProfilePageProps {
-  className?: string;
-}
-
-const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
+const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
 
   const formData = useAppSelector(getProfileForm);
@@ -27,8 +28,6 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
   const readonly = useAppSelector(getProfileReadonly);
   const { id } = useParams<{ id: string }>();
 
-  const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({ mode: 'all', defaultValues: formData });
-
   useInitialEffect(() => {
     dispatch(fetchProfileData(id));
     dispatch(userActions.initAuthData());
@@ -36,17 +35,12 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }) => {
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <div className={classNames('', {}, [className])}>
-        <ProfilePageHeader getValues={getValues} reset={reset} isValid={isValid} />
-        <ProfileCard
-          control={control}
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          setValue={setValue}
-        />
-      </div>
+      <EditableProfileCard
+        formData={formData}
+        isLoading={isLoading}
+        error={error}
+        readonly={readonly}
+      />
     </DynamicModuleWrapper>
   );
 });
