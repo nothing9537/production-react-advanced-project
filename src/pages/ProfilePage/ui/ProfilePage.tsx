@@ -29,8 +29,8 @@ const ProfilePage: FC = memo(() => {
   const { id } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData(id));
     dispatch(userActions.initAuthData());
+    dispatch(fetchProfileData(id));
   }, [id, dispatch]);
 
   return (

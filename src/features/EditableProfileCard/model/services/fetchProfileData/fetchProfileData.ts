@@ -8,7 +8,7 @@ export const fetchProfileData = createAsyncThunk<Profile, string | undefined, Th
     const { extra, rejectWithValue } = thunkAPI;
 
     if (!profileId) {
-      rejectWithValue('profile-fetch-error');
+      return rejectWithValue('profile-fetch-error');
     }
 
     try {
