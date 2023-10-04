@@ -10,18 +10,16 @@ import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
-  comment: Comment;
+  comment?: Comment;
   isLoading?: boolean;
 }
 
 export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isLoading }) => {
-  const { text, user, timestamp } = comment;
-
   if (isLoading) {
     return (
       <section className={classNames(cls.CommentCard, {}, [className])}>
         <div className={cls['user-header']}>
-          {user?.avatar
+          {comment?.user?.avatar
             ? <Skeleton width={36} height={36} borderRadius="50%" />
             : null}
           <Skeleton width={100} height={16} />
@@ -30,6 +28,12 @@ export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isL
       </section>
     );
   }
+
+  if (!comment) {
+    return null;
+  }
+
+  const { text, user, timestamp } = comment;
 
   return (
     <section className={classNames(cls.CommentCard, {}, [className])}>

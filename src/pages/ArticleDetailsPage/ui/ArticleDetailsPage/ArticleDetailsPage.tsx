@@ -9,15 +9,15 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
+import { AddNewComment } from 'features/AddNewComment';
 import {
   addCommentForArticle,
   articleDetailsCommentsReducer,
   fetchCommentsByArticleId,
   getArticleComments,
-  // getArticleCommentsError,
+  getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from 'features/ArticleDetailsComments';
-import { AddNewComment } from 'features/AddNewComment';
 import cls from './ArticleDetailsPage.module.scss';
 
 const reducers: ReducersList = {
@@ -32,7 +32,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
   const comments = useAppSelector(getArticleComments.selectAll);
   const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading);
-  // const commentsError = useAppSelector(getArticleCommentsError);
+  const commentsError = useAppSelector(getArticleCommentsError);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -56,7 +56,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <ArticleDetails id={id} />
         <Text title={t('article-comments')} />
         <AddNewComment onSendComment={onSendComment} />
-        <CommentsList comments={comments} isLoading={commentsIsLoading} />
+        <CommentsList comments={comments} isLoading={commentsIsLoading} error={commentsError} />
       </div>
     </DynamicModuleWrapper>
   );
