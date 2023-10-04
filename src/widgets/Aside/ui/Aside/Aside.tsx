@@ -4,9 +4,8 @@ import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { AsideItemsList } from 'widgets/Aside/model/items';
-import { getUserAuthData } from 'entities/User';
 import { AsideItem } from '../AsideItem/AsideItem';
+import { getAsideItems } from '../../model/selectors/getAsideItems/getAsideItems';
 import cls from './Aside.module.scss';
 
 interface AsideProps {
@@ -15,20 +14,19 @@ interface AsideProps {
 
 export const Aside: FC<AsideProps> = memo(({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-  const authData = useAppSelector(getUserAuthData);
+  const asideItems = useAppSelector(getAsideItems);
 
   const onToggle = () => {
     setIsCollapsed((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => AsideItemsList.map((asideItem) => (
+  const itemsList = useMemo(() => asideItems.map((asideItem) => (
     <AsideItem
       item={asideItem}
       key={asideItem.path}
       isCollapsed={isCollapsed}
     />
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  )), [isCollapsed, authData]);
+  )), [isCollapsed, asideItems]);
 
   return (
     <div data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>

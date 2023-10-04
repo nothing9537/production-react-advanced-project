@@ -4,7 +4,7 @@ import { getUserAuthData } from 'entities/User';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { AsideItemType } from 'widgets/Aside/model/items';
+import { AsideItemType } from '../../model/types/asideItems';
 import cls from './AsideItem.module.scss';
 
 interface AsideItemProps {
@@ -28,7 +28,7 @@ export const AsideItem: FC<AsideItemProps> = memo(({ item, isCollapsed }) => {
       theme={AppLinkTheme.SECONDARY}
     >
       <div className={cls.item}>
-        {Icon}
+        <Icon />
         <span className={cls['link-item']}>
           {t(text)}
         </span>
