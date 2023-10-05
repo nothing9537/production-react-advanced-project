@@ -8,9 +8,9 @@ import { CreateReduxStoreOptions, MappedReducer, StateSchema, ThunkExtraArg } fr
 
 export function createReduxStore({ initialState, asyncReducers, navigate }: CreateReduxStoreOptions) {
   const rootReducers: MappedReducer = {
-    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    ...asyncReducers,
   };
 
   const reducerManager = createReducerManager(rootReducers);
