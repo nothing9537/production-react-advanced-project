@@ -3,5 +3,7 @@
   "error-fetching-article": "Error when loading an article",
   "article-comments": "Comments",
   "add-new-comment": "Enter comment text",
-  "send-new-comment": "Send"
+  "send-new-comment": "Send",
+  "read-more": "Read more...",
+  "return-back": "Return back"
 }

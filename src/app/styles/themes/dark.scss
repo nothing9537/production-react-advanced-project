@@ -1,7 +1,7 @@
 :root,
 .app_dark_theme {
 	--bg-color: #090949;
-	--inverted-bg-color: #e8e8ea;
+	--inverted-bg-color: #d8d8d8;
 	--primary-color: #04ff04;
 	--secondary-color: #049604;
 	--inverted-primary-color: #0232c2;
@@ -13,4 +13,7 @@
 
 	// * Code
 	--code-bg: #2b2b74;
+
+	// * Card bg
+	--card-bg: #202074;
 }

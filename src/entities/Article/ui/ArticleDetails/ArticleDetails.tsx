@@ -9,17 +9,17 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { articleDetailsReducer } from '../../../model/slices/articleDetailsSlice';
-import { fetchArticleById } from '../../../model/services/fetchArticleById/fetchArticleById';
-import { ArticleBlock, ArticleBlockType } from '../../../../Article/model/types/article';
-import { ArticleCodeBlockComponent } from '../../ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-} from '../../../model/selectors/articleDetails';
+} from '../../model/selectors/articleDetails';
 import cls from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {
@@ -80,7 +80,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     );
   } else {
     content = (
-      <div className={cls.article}>
+      <article className={cls.article}>
         <div className={cls['avatar-wrapper']}>
           <Avatar
             width={200}
@@ -105,7 +105,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
         <div className={cls.blocks}>
           {data?.blocks.map(renderBlock)}
         </div>
-      </div>
+      </article>
     );
   }
 

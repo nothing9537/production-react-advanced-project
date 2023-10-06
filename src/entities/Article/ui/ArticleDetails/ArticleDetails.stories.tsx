@@ -8,6 +8,11 @@ const article: Article = {
   title: 'JavaScript news',
   subtitle: 'What new in JavaScript in 2023?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  user: {
+    id: '1',
+    username: 'admin',
+    avatar: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+  },
   views: 1024,
   createdAt: 1696191879,
   type: [

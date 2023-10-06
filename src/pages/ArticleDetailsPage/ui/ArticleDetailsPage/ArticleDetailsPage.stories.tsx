@@ -10,6 +10,11 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1024,
   createdAt: 1696191879,
+  user: {
+    id: '1',
+    username: 'admin',
+    avatar: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+  },
   type: [
     'IT',
   ],

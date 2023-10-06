@@ -1,0 +1,7 @@
+.Card {
+  border-radius: 12px;
+  padding: 15px;
+  padding-top: 30px;
+  background: var(--card-bg);
+  transition: var(--app-transition) background;
+}

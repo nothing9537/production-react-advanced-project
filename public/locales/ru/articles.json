@@ -3,5 +3,7 @@
   "error-fetching-article": "Произошла ошибка при загрузке статьи",
   "article-comments": "Комментарии",
   "add-new-comment": "Введите текст комментария",
-  "send-new-comment": "Отправить"
+  "send-new-comment": "Отправить",
+  "read-more": "Читать далее...",
+  "return-back": "Вернуться назад"
 }
