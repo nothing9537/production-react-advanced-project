@@ -1,8 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
 import { Article, ArticlesView } from '../../model/types/article';
+import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import cls from './ArticlesList.module.scss';
 
@@ -12,6 +12,35 @@ interface ArticlesListProps {
   isLoading: boolean;
   view?: ArticlesView;
 }
+
+const getSkeletons = (view: ArticlesView) => {
+  switch (view) {
+    case ArticlesView.LIST:
+      return (
+        Array(3)
+          .fill(0)
+          .map((_, index) => (
+            <ArticleListItemSkeleton
+              view={view}
+              key={index}
+            />
+          ))
+      );
+    case ArticlesView.TILE:
+      return (
+        Array(9)
+          .fill(0)
+          .map((_, index) => (
+            <ArticleListItemSkeleton
+              view={view}
+              key={index}
+            />
+          ))
+      );
+    default:
+      return null;
+  }
+};
 
 export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, view = ArticlesView.LIST, isLoading }) => {
   const { t } = useTranslation();
@@ -26,7 +55,9 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, 
 
   if (isLoading) {
     return (
-      <Text title="Loading" />
+      <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+        {getSkeletons(view)}
+      </div>
     );
   }
 

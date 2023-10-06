@@ -1,6 +1,5 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { Article, ArticlesList } from 'entities/Article';
 import cls from './ArticlesPage.module.scss';
 
@@ -8,6 +7,7 @@ interface ArticlesPageProps {
   className?: string;
 }
 
+// es-lint ignore-nest-line
 const article = {
   id: '1',
   title: 'JavaScript newsdasdasdasdasdasd',
@@ -75,13 +75,11 @@ const article = {
 } as Article;
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-  const { t } = useTranslation();
-
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
       <ArticlesList
         articles={Array(10).fill(0).map((_, index) => ({ ...article, id: index.toString() }))}
-        isLoading={false}
+        isLoading
       />
     </div>
   );

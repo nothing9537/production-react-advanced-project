@@ -12,29 +12,22 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className, view }) => {
   if (view === ArticlesView.LIST) {
-    const textBlock = article.blocks.find((b) => b.type === ArticleBlockType.TEXT) as ArticleTextBlock;
-
     return (
       <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
         <Card>
           <div className={cls.header}>
             <div className={cls.avatar}>
-              <Avatar size={AvatarSize.NANO} alt="User Avatar" src={article.user.avatar} />
-              <Text text={article.user.username} />
+              <Skeleton width={30} height={30} borderRadius="50%" />
+              <Skeleton width={150} height={16} />
             </div>
-            {timestamp}
+            <Skeleton width={60} height={16} />
           </div>
-          <Text className={cls.title} title={article.title} />
-          {tags}
-          <img src={article.img} alt={article.title} className={cls.img} />
-          {textBlock && (
-            <ArticleTextBlockComponent block={textBlock} className={cls.text} />
-          )}
-          <div onClick={onArticleOpen} className={cls.footer}>
-            <Button>
-              {t('read-more')}
-            </Button>
-            {views}
+          <Skeleton className={cls.title} width={250} height={24} />
+          <Skeleton className={cls.tags} width={160} height={16} />
+          <Skeleton height={250} className={cls.img} />
+          <div className={cls.footer}>
+            <Skeleton width={260} height={32} />
+            <Skeleton width={60} height={16} />
           </div>
         </Card>
       </div>
@@ -45,13 +38,13 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ clas
     <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
       <Card>
         <div className={cls['image-wrapper']}>
-          <Skeleton width={200} height={200} />
+          <Skeleton width={200} height={250} borderRadius="10px" />
         </div>
         <div className={cls.footer}>
           <div className={cls['additional-data']}>
-            <Skeleton width={130} height={16} />
+            <Skeleton width={120} height={16} />
           </div>
-          <Skeleton width={150} height={16} className={cls.title} />
+          <Skeleton width={200} height={16} className={cls.title} />
         </div>
       </Card>
     </div>
