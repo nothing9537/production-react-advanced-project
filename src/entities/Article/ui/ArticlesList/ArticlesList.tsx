@@ -9,8 +9,8 @@ import cls from './ArticlesList.module.scss';
 interface ArticlesListProps {
   className?: string;
   articles: Article[];
-  isLoading: boolean;
-  view?: ArticlesView;
+  isLoading?: boolean;
+  view: ArticlesView;
 }
 
 const getSkeletons = (view: ArticlesView) => {
@@ -42,8 +42,8 @@ const getSkeletons = (view: ArticlesView) => {
   }
 };
 
-export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, view = ArticlesView.LIST, isLoading }) => {
-  const { t } = useTranslation();
+export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, view, isLoading }) => {
+  const { t } = useTranslation('articles');
 
   const renderArticle = useCallback((article: Article) => (
     <ArticlesListItem

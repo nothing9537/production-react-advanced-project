@@ -1,0 +1,7 @@
+.ViewSelector {
+  .selected {
+    svg, svg > path {
+      fill: var(--red-light);
+    }
+  }
+}
