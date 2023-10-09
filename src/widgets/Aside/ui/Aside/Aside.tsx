@@ -29,7 +29,7 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
   )), [isCollapsed, asideItems]);
 
   return (
-    <div data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
+    <aside data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
       <Button
         data-testid="aside-toggle"
         onClick={onToggle}
@@ -47,6 +47,6 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
         <ThemeSwitcher />
         <LanguageSwitcher short={isCollapsed} />
       </div>
-    </div>
+    </aside>
   );
 });

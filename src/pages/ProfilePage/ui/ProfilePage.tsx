@@ -14,6 +14,7 @@ import {
   getProfileIsLoading,
   getProfileReadonly,
 } from 'features/EditableProfileCard';
+import { PageWrapper } from 'widgets/PageWrapper';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -35,12 +36,14 @@ const ProfilePage: FC = memo(() => {
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <EditableProfileCard
-        formData={formData}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-      />
+      <PageWrapper>
+        <EditableProfileCard
+          formData={formData}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+        />
+      </PageWrapper>
     </DynamicModuleWrapper>
   );
 });

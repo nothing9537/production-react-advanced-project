@@ -4,11 +4,13 @@ import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
+import { PageWrapper } from 'widgets/PageWrapper';
 import { ArticlesList, ArticlesView } from 'entities/Article';
 import {
   articlesListActions,
   articlesListReducer,
   fetchArticlesList,
+  fetchNewArticles,
   getArticlesList,
   getArticlesListIsLoading,
   getArticlesListView,
@@ -34,14 +36,21 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     dispatch(articlesListActions.setView(view));
   }, [dispatch]);
 
+  const onNextArticlesPageLoad = useCallback(() => {
+    dispatch(fetchNewArticles());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, isLoading]);
+
   useInitialEffect(() => {
     dispatch(articlesListActions.initArticlesList());
-    dispatch(fetchArticlesList());
+    dispatch(fetchArticlesList({
+      page: 1,
+    }));
   }, []);
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+      <PageWrapper className={classNames(cls.ArticlesPage, {}, [className])} onScrollEnd={onNextArticlesPageLoad}>
         <ViewSelector
           currentView={view}
           onViewChange={onViewChange}
@@ -49,9 +58,9 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         <ArticlesList
           articles={articles}
           isLoading={isLoading}
-          view={view as ArticlesView}
+          view={view}
         />
-      </div>
+      </PageWrapper>
     </DynamicModuleWrapper>
   );
 };

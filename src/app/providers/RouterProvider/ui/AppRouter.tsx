@@ -16,14 +16,10 @@ export const AppRouter: FC = memo(() => {
       element={(
         authOnly ? (
           <RequireAuth isAuth={isAuth}>
-            <div className="page-wrapper">
-              {element}
-            </div>
+            {element}
           </RequireAuth>
         ) : (
-          <div className="page-wrapper">
-            {element}
-          </div>
+          element
         )
       )}
     />

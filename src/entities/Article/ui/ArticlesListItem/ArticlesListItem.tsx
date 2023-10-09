@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ViewsIcon } from 'shared/assets/icons';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
@@ -43,10 +44,12 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
       <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
         <Card>
           <div className={cls.header}>
-            <div className={cls.avatar}>
-              <Avatar size={AvatarSize.NANO} alt="User Avatar" src={article.user.avatar} />
-              <Text text={article.user.username} />
-            </div>
+            <AppLink to={`${RoutePath.profile}${article.user.id}`}>
+              <div className={cls.avatar}>
+                <Avatar size={AvatarSize.NANO} alt="User Avatar" src={article.user.avatar} />
+                <Text text={article.user.username} />
+              </div>
+            </AppLink>
             {timestamp}
           </div>
           <Text className={cls.title} title={article.title} />

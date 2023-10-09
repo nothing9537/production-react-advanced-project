@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { CSSProperties, FC, HTMLAttributes } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import AvatarImg from './Main_avatar.png';
 import cls from './Avatar.module.scss';
 
 export enum AvatarSize {
@@ -33,7 +32,7 @@ export const Avatar: FC<AvatarProps> = ({ className, alt, src, size = AvatarSize
     <img
       {...props}
       alt={alt}
-      src={src || AvatarImg}
+      src={src}
       style={styles}
       className={classNames(cls.Avatar, mods, [className, cls[size]])}
     />

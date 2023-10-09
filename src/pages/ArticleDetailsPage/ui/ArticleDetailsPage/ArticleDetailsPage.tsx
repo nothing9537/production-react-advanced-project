@@ -8,6 +8,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
+import { PageWrapper } from 'widgets/PageWrapper';
 import { ArticleDetails } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
 import { AddNewComment } from 'features/AddNewComment';
@@ -51,23 +52,25 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Text theme={TextTheme.ERROR} title={t('article-not-found')} />
-      </div>
+      </PageWrapper>
     );
   }
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button onClick={onReturnBackClick}>
           {t('return-back')}
         </Button>
         <ArticleDetails id={id} />
-        <Text title={t('article-comments')} />
-        <AddNewComment onSendComment={onSendComment} />
-        <CommentsList comments={comments} isLoading={commentsIsLoading} error={commentsError} />
-      </div>
+        <div className={cls['comments-block']}>
+          <Text title={t('article-comments')} />
+          <AddNewComment onSendComment={onSendComment} />
+          <CommentsList comments={comments} isLoading={commentsIsLoading} error={commentsError} />
+        </div>
+      </PageWrapper>
     </DynamicModuleWrapper>
   );
 };
