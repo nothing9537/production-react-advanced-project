@@ -2,6 +2,7 @@
 import { CombinedState, configureStore, Reducer } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { scrollRedistributionReducer } from 'features/ScrollRedistribution';
 import { $API } from 'shared/API';
 import { createReducerManager } from './reducerManager';
 import { CreateReduxStoreOptions, MappedReducer, StateSchema, ThunkExtraArg } from './StateSchema';
@@ -10,6 +11,8 @@ export function createReduxStore({ initialState, asyncReducers, navigate }: Crea
   const rootReducers: MappedReducer = {
     counter: counterReducer,
     user: userReducer,
+    scrollRedistribution: scrollRedistributionReducer,
+
     ...asyncReducers,
   };
 

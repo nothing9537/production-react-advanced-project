@@ -10,11 +10,13 @@ import { LoginSchema } from 'features/AuthByUserName';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments';
 import { ArticlesListSchema } from 'features/ArticlesList';
 import { AddCommentFormSchema } from 'features/AddNewComment';
+import { ScrollRedistributionSchema } from 'features/ScrollRedistribution';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollRedistribution: ScrollRedistributionSchema;
 
   // * Async reducers
   loginForm?: LoginSchema;
