@@ -20,18 +20,27 @@ export const DynamicModuleWrapper: FC<DynamicModuleWrapperProps> = ({ children, 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap();
     // * When lazy component will mounting, reducer will be loaded with and mounted with component.
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKey, reducer);
-      dispatch({ type: `@MOUNT ${name} Reducer!!!` });
+      const mounted = mountedReducers[name as StateSchemaKey];
+
+      if (!mounted) {
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@MOUNT ${name} Reducer!!!` });
+      }
     });
 
     return () => {
       // * The same thing, when it will be unmounted.
       if (removeAfterUnmount) {
         Object.entries(reducers).forEach(([name]) => {
-          store.reducerManager.remove(name as StateSchemaKey);
-          dispatch({ type: `@UNMOUNT ${name} Reducer!!!` });
+          const mounted = mountedReducers[name as StateSchemaKey];
+
+          if (mounted) {
+            store.reducerManager.remove(name as StateSchemaKey);
+            dispatch({ type: `@UNMOUNT ${name} Reducer!!!` });
+          }
         });
       }
     };

@@ -9,11 +9,11 @@ import { ArticlesList, ArticlesView } from 'entities/Article';
 import {
   articlesListActions,
   articlesListReducer,
-  fetchArticlesList,
   fetchNewArticles,
   getArticlesList,
   getArticlesListIsLoading,
   getArticlesListView,
+  initArticlesList,
   ViewSelector,
 } from 'features/ArticlesList';
 import cls from './ArticlesPage.module.scss';
@@ -38,18 +38,15 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   const onNextArticlesPageLoad = useCallback(() => {
     dispatch(fetchNewArticles());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, isLoading]);
 
   useInitialEffect(() => {
-    dispatch(articlesListActions.initArticlesList());
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
-  }, []);
+    dispatch(initArticlesList());
+  }, [dispatch]);
 
   return (
-    <DynamicModuleWrapper reducers={reducers}>
+    <DynamicModuleWrapper reducers={reducers} removeAfterUnmount={false}>
       <PageWrapper className={classNames(cls.ArticlesPage, {}, [className])} onScrollEnd={onNextArticlesPageLoad}>
         <ViewSelector
           currentView={view}

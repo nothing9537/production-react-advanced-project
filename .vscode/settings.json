@@ -9,6 +9,7 @@
 	"cSpell.ignoreRegExpList": [
 		"consts",
 		"@reduxjs",
-		"testid"
+		"testid",
+		"inited"
 	],
 }
