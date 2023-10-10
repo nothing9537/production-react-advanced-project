@@ -72,7 +72,7 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
   const tagTabs = useMemo<TabOption[]>(() => [
     { value: 'ALL', content: 'All' },
     { value: 'IT', content: 'IT' },
-    { value: 'POLITICS', content: 'Politics' },
+    { value: 'SCIENCE', content: 'Science' },
     { value: 'ECONOMICS', content: 'Economics' },
   ], []);
 
