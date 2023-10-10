@@ -12,7 +12,7 @@ interface CountrySelectProps {
   placeholder?: string;
 }
 
-const options: SelectOption[] = [
+const options: SelectOption<Country>[] = [
   { label: Country.USA, value: Country.USA },
   { label: Country.Ukraine, value: Country.Ukraine },
   { label: Country.Canada, value: Country.Canada },
@@ -22,12 +22,12 @@ const options: SelectOption[] = [
 export const CountrySelect: FC<CountrySelectProps> = memo(({ className, value, onChange, readonly, placeholder }) => {
   const { t } = useTranslation('main');
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Country);
+  const onChangeHandler = useCallback((value: Country) => {
+    onChange?.(value);
   }, [onChange]);
 
   return (
-    <Select
+    <Select<Country>
       placeholder={placeholder || t('select-currency')}
       className={classNames('', {}, [className])}
       onChange={onChangeHandler}

@@ -6,16 +6,15 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { PageWrapper } from 'widgets/PageWrapper';
-import { ArticlesList, ArticlesView } from 'entities/Article';
 import {
-  articlesListActions,
+  ArticlesListFilters,
   articlesListReducer,
   fetchNewArticles,
   getArticlesList,
   getArticlesListIsLoading,
   getArticlesListView,
   initArticlesList,
-  ViewSelector,
+  ArticlesList,
 } from 'features/ArticlesList';
 import { getScrollRedistributionByPath } from 'features/ScrollRedistribution';
 import cls from './ArticlesPage.module.scss';
@@ -37,17 +36,13 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const view = useAppSelector(getArticlesListView);
   const scrollPosition = useAppSelector((state) => getScrollRedistributionByPath(state, pathname));
 
-  const onViewChange = useCallback((view: ArticlesView) => {
-    dispatch(articlesListActions.setView(view));
-  }, [dispatch]);
-
   const onNextArticlesPageLoad = useCallback(() => {
     dispatch(fetchNewArticles());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, isLoading]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesList());
+    dispatch(initArticlesList(window.location.search));
   }, [dispatch]);
 
   return (
@@ -59,10 +54,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
           position: scrollPosition,
         }}
       >
-        <ViewSelector
-          currentView={view}
-          onViewChange={onViewChange}
-        />
+        <ArticlesListFilters />
         <ArticlesList
           articles={articles}
           isLoading={isLoading}

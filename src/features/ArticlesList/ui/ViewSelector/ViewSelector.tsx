@@ -20,13 +20,13 @@ const views = [
 interface ViewSelectorProps {
   className?: string;
   currentView?: ArticlesView;
-  onViewChange: (view: ArticlesView) => void;
+  onChangeView: (view: ArticlesView) => void;
 }
 
-export const ViewSelector: FC<ViewSelectorProps> = memo(({ className, currentView, onViewChange }) => {
+export const ViewSelector: FC<ViewSelectorProps> = memo(({ className, currentView, onChangeView }) => {
   const onViewChangeClick = useCallback((newView: ArticlesView) => () => {
-    onViewChange?.(newView);
-  }, [onViewChange]);
+    onChangeView?.(newView);
+  }, [onChangeView]);
 
   return (
     <div className={classNames(cls.ViewSelector, {}, [className])}>

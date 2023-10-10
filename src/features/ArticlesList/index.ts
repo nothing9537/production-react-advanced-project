@@ -6,4 +6,7 @@ export { fetchNewArticles } from './model/services/fetchNewArticles/fetchNewArti
 export { initArticlesList } from './model/services/initArticlesList/initArticlesList';
 
 export { ViewSelector } from './ui/ViewSelector/ViewSelector';
+export { ArticlesListFilters } from './ui/ArticlesListFilters/ArticlesListFilters';
+export { ArticlesList } from './ui/ArticlesList/ArticlesList';
+
 export * from './model/selectors/articlesList';

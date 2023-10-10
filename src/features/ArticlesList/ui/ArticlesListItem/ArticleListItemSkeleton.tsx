@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { ArticlesView } from '../../model/types/article';
+import { ArticlesView } from '../../../../entities/Article/model/types/article';
 import cls from './ArticlesListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

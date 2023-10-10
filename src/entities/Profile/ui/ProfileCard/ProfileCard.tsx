@@ -22,8 +22,7 @@ interface ProfileCardProps {
 }
 
 export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, control, readonly, setValue }) => {
-  const { t } = useTranslation<'profile'>('profile');
-  const { t: tV } = useTranslation<'validate'>('validate');
+  const { t } = useTranslation(['profile', 'validate']);
 
   if (isLoading) {
     return (
@@ -61,7 +60,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="firstName"
           placeholder={t('input.placeholders.firstName')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.firstName}
         />
         <ControlledInput
@@ -69,7 +68,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="lastName"
           placeholder={t('input.placeholders.lastName')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.lastName}
         />
         <ControlledInput
@@ -77,7 +76,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="age"
           placeholder={t('input.placeholders.age')}
-          rules={{ required: { message: tV('required'), value: true }, valueAsNumber: true }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true }, valueAsNumber: true }}
           defaultValue={data?.age}
           inputMode="numeric"
         />
@@ -86,7 +85,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="username"
           placeholder={t('input.placeholders.username')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.username}
         />
         <CountrySelect
@@ -106,7 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="state"
           placeholder={t('input.placeholders.state')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.state}
         />
         <ControlledInput
@@ -114,7 +113,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="city"
           placeholder={t('input.placeholders.city')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.city}
         />
         <ControlledInput
@@ -122,7 +121,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
           readonly={readonly}
           name="address"
           placeholder={t('input.placeholders.address')}
-          rules={{ required: { message: tV('required'), value: true } }}
+          rules={{ required: { message: t('required', { ns: 'validate' }), value: true } }}
           defaultValue={data?.address}
         />
       </div>

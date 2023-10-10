@@ -10,8 +10,8 @@ import { Button } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
-import { Article, ArticleBlockType, ArticlesView, ArticleTextBlock } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { Article, ArticleBlockType, ArticlesView, ArticleTextBlock } from '../../../../entities/Article/model/types/article';
+import { ArticleTextBlockComponent } from '../../../../entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticlesListItem.module.scss';
 
 interface ArticlesListItemProps {

@@ -16,7 +16,7 @@ const App: FC = () => {
   }, [dispatch]);
 
   return (
-    <div className={classNames('App', {}, [])}>
+    <div className={classNames('App', {}, ['scroll'])}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">

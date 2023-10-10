@@ -2,6 +2,13 @@
   border-radius: 12px;
   padding: 15px;
   padding-top: 30px;
-  background: var(--card-bg);
   transition: var(--app-transition) background;
+}
+
+.outlined {
+  border: 1px solid var(--primary-color);
+}
+
+.normal {
+  background: var(--card-bg);
 }

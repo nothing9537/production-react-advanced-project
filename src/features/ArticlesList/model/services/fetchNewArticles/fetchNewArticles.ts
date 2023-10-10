@@ -13,12 +13,8 @@ export const fetchNewArticles = createAsyncThunk<void, void, ThunkConfig>(
       const { hasMore, isLoading, page } = state.articlesList;
 
       if (hasMore && !isLoading) {
-        const newPage = page + 1;
-
-        dispatch(articlesListActions.setPage(newPage));
-        dispatch(fetchArticlesList({
-          page: newPage,
-        }));
+        dispatch(articlesListActions.setPage(page + 1));
+        dispatch(fetchArticlesList({}));
       }
     }
   },

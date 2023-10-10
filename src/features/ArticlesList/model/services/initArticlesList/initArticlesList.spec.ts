@@ -18,7 +18,7 @@ describe('initArticlesList.spec', () => {
       },
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk('');
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
     expect(fetchArticlesList).toBeCalled();
@@ -38,7 +38,7 @@ describe('initArticlesList.spec', () => {
       },
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk('');
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(fetchArticlesList).not.toBeCalled();

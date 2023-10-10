@@ -100,7 +100,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
         </div>
         <div className={cls['article-info']}>
           <Icon SVG={<CreatedAtIcon />} />
-          <Text text={new Date(data?.views as number).toLocaleString()} />
+          <Text text={new Date(data?.createdAt as number).toLocaleString()} />
         </div>
         <div className={cls.blocks}>
           {data?.blocks.map(renderBlock)}

@@ -18,3 +18,21 @@ body {
 .content-page {
 	display: flex;
 }
+
+.scroll {
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+	&::-webkit-scrollbar {
+		cursor: pointer;
+		width: .5rem;
+		border: .15rem solid transparent;
+	}
+	
+	&::-webkit-scrollbar-thumb {
+		background: #424651;
+		&:hover {
+			background: rgba(110, 110, 110);
+		}
+	}
+}

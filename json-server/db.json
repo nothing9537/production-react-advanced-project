@@ -31,7 +31,7 @@
     {
       "articleId": "1",
       "userId": "2",
-      "text": "New comment from NOthingg",
+      "text": "New comment from Nothingg",
       "timestamp": 1696365122753,
       "id": 5
     },
@@ -54,13 +54,15 @@
     {
       "id": "1",
       "title": "JavaScript news",
-      "subtitle": "What new in JavaScript in 2023?",
+      "subtitle": "JavaScript topic subtitle",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1024,
-      "createdAt": 1696363269054,
+      "createdAt": 1696875658000,
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -105,11 +107,13 @@
       "title": "Python news",
       "subtitle": "Python topic subtitle",
       "img": "https://pnghq.com/wp-content/uploads/png-image-of-python-logo-no-text-included-7.png",
-      "views": 1024,
-      "createdAt": 1696363869054,
+      "views": 5032,
+      "createdAt": 1696789258000,
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -154,11 +158,13 @@
       "title": "Kotlin news",
       "subtitle": "Kotlin topic subtitle",
       "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
-      "views": 1024,
+      "views": 10341,
       "createdAt": 1696365069054,
       "userId": "2",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -200,14 +206,16 @@
     },
     {
       "id": "4",
-      "title": "JavaScript news",
-      "subtitle": "What new in JavaScript in 2023?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1024,
-      "createdAt": 1696363269054,
+      "title": "TypeScript news",
+      "subtitle": "TypeScript topic subtitle",
+      "img": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
+      "views": 100500,
+      "createdAt": 1696702858000,
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -249,14 +257,16 @@
     },
     {
       "id": "5",
-      "title": "Python news",
-      "subtitle": "Python topic subtitle",
-      "img": "https://pnghq.com/wp-content/uploads/png-image-of-python-logo-no-text-included-7.png",
-      "views": 1024,
-      "createdAt": 1696363869054,
+      "title": "C# news",
+      "subtitle": "C# topic subtitle",
+      "img": "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
+      "views": 7853,
+      "createdAt": 1696616458000,
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -298,14 +308,16 @@
     },
     {
       "id": "6",
-      "title": "Kotlin news",
-      "subtitle": "Kotlin topic subtitle",
-      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
-      "views": 1024,
-      "createdAt": 1696365069054,
+      "title": "Java news",
+      "subtitle": "Java topic subtitle",
+      "img": "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png",
+      "views": 921,
+      "createdAt": 1696530058000,
       "userId": "2",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -347,11 +359,11 @@
     },
     {
       "id": "7",
-      "title": "JavaScript news",
-      "subtitle": "What new in JavaScript in 2023?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1024,
-      "createdAt": 1696363269054,
+      "title": "C++",
+      "subtitle": "C++ topic subtitle",
+      "img": "https://i.redd.it/31b2ii8hchi31.jpg",
+      "views": 568,
+      "createdAt": 1696443658000,
       "userId": "1",
       "type": [
         "IT"
@@ -396,14 +408,14 @@
     },
     {
       "id": "8",
-      "title": "Python news",
-      "subtitle": "Python topic subtitle",
-      "img": "https://pnghq.com/wp-content/uploads/png-image-of-python-logo-no-text-included-7.png",
-      "views": 1024,
-      "createdAt": 1696363869054,
+      "title": "Bitcoin news",
+      "subtitle": "Will bitcoin reach $100k in 2024?",
+      "img": "https://altcoinsbox.com/wp-content/uploads/2023/02/bitcoin-gold-coin-with-BTC-logo-300x300.webp",
+      "views": 5024,
+      "createdAt": 1672600858000,
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -445,14 +457,14 @@
     },
     {
       "id": "9",
-      "title": "Kotlin news",
-      "subtitle": "Kotlin topic subtitle",
-      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
+      "title": "Ethereum news",
+      "subtitle": "Ethereum is now Proof of Stake (POS)",
+      "img": "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=026",
       "views": 1024,
-      "createdAt": 1696365069054,
+      "createdAt": 1659378058000,
       "userId": "2",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -547,7 +559,7 @@
       "subtitle": "Python topic subtitle",
       "img": "https://pnghq.com/wp-content/uploads/png-image-of-python-logo-no-text-included-7.png",
       "views": 1024,
-      "createdAt": 1696363869054,
+      "createdAt": 1696357258000,
       "userId": "1",
       "type": [
         "IT"
@@ -596,7 +608,7 @@
       "subtitle": "Kotlin topic subtitle",
       "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1024,
-      "createdAt": 1696365069054,
+      "createdAt": 1696184458000,
       "userId": "2",
       "type": [
         "IT"

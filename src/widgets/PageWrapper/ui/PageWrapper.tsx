@@ -36,7 +36,6 @@ export const PageWrapper: FC<PageWrapperProps> = ({ className, children, onScrol
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLElement>) => {
-    console.log('SCROLL');
     if (scrollHandling) {
       dispatch(scrollRedistributionActions.setScrollPosition({
         path: pathname,
@@ -46,9 +45,9 @@ export const PageWrapper: FC<PageWrapperProps> = ({ className, children, onScrol
   }, 1000);
 
   return (
-    <main onScroll={onScroll} ref={wrapperRef} className={classNames(cls.PageWrapper, {}, [className])}>
+    <main onScroll={onScroll} ref={wrapperRef} className={classNames(cls.PageWrapper, {}, [className, 'scroll'])}>
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
     </main>
   );
 };

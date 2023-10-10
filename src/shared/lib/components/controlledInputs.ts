@@ -5,7 +5,7 @@ import { Select, SelectProps } from '../../ui/Select/Select';
 
 export const controlledInputsFactory = <T extends FieldValues>() => {
   const ControlledInput = withController<InputProps, T>(Input);
-  const ControlledSelect = withController<SelectProps, T>(Select);
+  const ControlledSelect = withController<SelectProps<string>, T>(Select);
 
   return {
     ControlledInput, ControlledSelect,

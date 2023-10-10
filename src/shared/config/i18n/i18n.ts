@@ -10,7 +10,8 @@ i18n
   .init({
     ns: ['articles', 'about', 'aside', 'main', 'navbar', 'profile', 'translation', 'validate'],
     fallbackLng: 'en',
-    debug: __IS_DEV__,
+    debug: false,
+    defaultNS: 'translation',
     supportedLngs: ['ru', 'en'],
     interpolation: {
       escapeValue: false,

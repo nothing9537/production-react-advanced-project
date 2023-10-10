@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Article, ArticlesView } from 'entities/Article';
 import { ArticlesList } from './ArticlesList';
-import { Article, ArticlesView } from '../../model/types/article';
 
 const article = {
   id: '1',
@@ -69,7 +69,7 @@ const article = {
 } as Article;
 
 const meta: Meta<typeof ArticlesList> = {
-  title: 'entities/Articles/ArticlesList',
+  title: 'features/Articles/ArticlesList',
   component: ArticlesList,
   tags: ['autodocs'],
 };

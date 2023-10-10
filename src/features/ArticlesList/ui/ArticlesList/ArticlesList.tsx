@@ -1,7 +1,8 @@
 import { FC, memo, useCallback } from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticlesView } from '../../model/types/article';
+import { Text } from 'shared/ui/Text';
+import { Article, ArticlesView } from 'entities/Article';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import cls from './ArticlesList.module.scss';
@@ -43,7 +44,7 @@ const getSkeletons = (view: ArticlesView) => {
 };
 
 export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, view, isLoading }) => {
-  // const { t } = useTranslation('articles');
+  const { t } = useTranslation('articles');
 
   const renderArticle = useCallback((article: Article) => (
     <ArticlesListItem
@@ -52,6 +53,14 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, 
       view={view}
     />
   ), [view]);
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+        <Text text={t('articles-not-found')} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>

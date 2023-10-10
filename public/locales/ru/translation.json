@@ -6,5 +6,13 @@
   "page-not-found": "Страница не найдена.",
   "error-message": "Произошла непредвиденная ошибка.",
   "error-message-update-page": "Обновить страницу",
-  "no-comments": "Комментарии отсутствуют"
+  "no-comments": "Комментарии отсутствуют",
+  "sort-by": "Сортировать ПО",
+  "search-filter": "Поиск...",
+  "sort-direction": "ПО",
+  "asc-sort": "возрастанию",
+  "desc-sort": "убыванию",
+  "sort-field-creation-time": "дате создания",
+  "sort-filed-title": "заголовку",
+  "sort-field-views": "просмотрам"
 }

@@ -1,15 +1,21 @@
-import { FC, memo, ReactNode } from 'react';
+import { FC, HTMLAttributes, memo, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Card.module.scss';
 
-interface CardProps {
-  className?: string;
-  children: ReactNode;
+export enum CardTheme {
+  NORMAL = 'normal',
+  OUTLINED = 'outlined',
 }
 
-export const Card: FC<CardProps> = memo(({ className, children }) => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+  children: ReactNode;
+  theme?: CardTheme;
+}
+
+export const Card: FC<CardProps> = memo(({ className, children, theme = CardTheme.NORMAL, ...props }) => {
   return (
-    <div className={classNames(cls.Card, {}, [className])}>
+    <div {...props} className={classNames(cls.Card, {}, [className, cls[theme]])}>
       {children}
     </div>
   );
