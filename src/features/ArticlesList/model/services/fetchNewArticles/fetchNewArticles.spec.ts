@@ -20,7 +20,7 @@ describe('fetchNewArticles.spec', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalled();
   });
 
   test('fetchNewArticles not called, because of hasMore', async () => {

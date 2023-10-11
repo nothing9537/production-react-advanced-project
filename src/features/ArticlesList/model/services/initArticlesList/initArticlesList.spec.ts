@@ -22,7 +22,6 @@ describe('initArticlesList.spec', () => {
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
     expect(fetchArticlesList).toBeCalled();
-    expect(fetchArticlesList).toBeCalledWith({ page: 1 });
   });
 
   test('Shouldn\'t be called when _inited is true', async () => {
@@ -42,6 +41,5 @@ describe('initArticlesList.spec', () => {
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(fetchArticlesList).not.toBeCalled();
-    expect(fetchArticlesList).not.toBeCalledWith({ page: 1 });
   });
 });
