@@ -1,9 +1,10 @@
 import { FC, memo } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
   PRIMARY = 'primary',
+  INVERTED = 'inverted',
   ERROR = 'error',
 }
 
@@ -27,15 +28,11 @@ interface TextProps {
   size?: TextSize;
 }
 
-export const Text: FC<TextProps> = memo(({ className, title, text, size = TextSize.M, theme = TextTheme.PRIMARY, align = TextAlign.LEFT }) => {
-  const mods: Mods = {
-    [cls[theme]]: true,
-    [cls[align]]: true,
-    [cls[size]]: true,
-  };
+export const Text: FC<TextProps> = memo((props) => {
+  const { className, title, text, size = TextSize.M, theme = TextTheme.PRIMARY, align = TextAlign.LEFT } = props;
 
   return (
-    <div className={classNames(cls.Text, mods, [className])}>
+    <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
       {title && <p className={cls.title}>{title}</p>}
       {text && <p className={cls.text}>{text}</p>}
     </div>

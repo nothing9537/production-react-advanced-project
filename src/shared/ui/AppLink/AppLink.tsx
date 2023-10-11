@@ -2,7 +2,7 @@
 import { FC, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -13,12 +13,17 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps {
   className?: string;
   theme?: AppLinkTheme;
+  noUnderline?: boolean;
 }
 
-export const AppLink: FC<AppLinkProps> = memo(({
-  className, children, theme = AppLinkTheme.PRIMARY, ...props
-}) => (
-  <Link {...props} className={classNames(cls.AppLink, {}, [className, cls[theme]])}>
-    {children}
-  </Link>
-));
+export const AppLink: FC<AppLinkProps> = memo(({ className, children, theme = AppLinkTheme.PRIMARY, noUnderline, ...props }) => {
+  const mods: Mods = {
+    [cls['no-underline']]: noUnderline,
+  };
+
+  return (
+    <Link {...props} className={classNames(cls.AppLink, mods, [className, cls[theme]])}>
+      {children}
+    </Link>
+  );
+});

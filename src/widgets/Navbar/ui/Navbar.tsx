@@ -6,6 +6,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,13 +32,28 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
-        <Button
-          className={cls.links}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          onClick={onLogoutHandler}
+        <Text
+          title="Nothingg9537 App"
+          theme={TextTheme.INVERTED}
+          className={cls['app-name']}
+        />
+        <AppLink
+          to={RoutePath.article_create}
+          theme={AppLinkTheme.SECONDARY}
+          noUnderline
         >
-          {t('logout')}
-        </Button>
+          {t('create-article')}
+        </AppLink>
+        <div className={cls.links}>
+          <Text text={authData.username} />
+          |
+          <Button
+            theme={ButtonTheme.CLEAR_INVERTED}
+            onClick={onLogoutHandler}
+          >
+            {t('logout')}
+          </Button>
+        </div>
       </header>
     );
   }

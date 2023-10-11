@@ -33,7 +33,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleWrapper reducers={reducers}>
       <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
+        <ArticleDetailsPageHeader id={id} />
         <ArticleDetails id={id} />
         <ArticleDetailsRecommendations />
         <ArticleDetailsComments id={id} />

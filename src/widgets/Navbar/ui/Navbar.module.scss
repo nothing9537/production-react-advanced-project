@@ -4,6 +4,7 @@
 	background: var(--inverted-bg-color);
 	display: flex;
 	align-items: center;
+	gap: 16px;
 	padding: 20px;
 	transition: var(--app-transition) background;
 }
@@ -13,4 +14,8 @@
 	align-items: center;
 	gap: 15px;
 	margin-left: auto;
+}
+
+.app-name {
+	width: var(--aside-width);
 }

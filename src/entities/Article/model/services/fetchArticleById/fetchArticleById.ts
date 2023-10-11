@@ -8,7 +8,11 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig>(
     const { extra, rejectWithValue } = thunkApi;
 
     try {
-      const response = await extra.API.get<Article>(`/articles/${id}`);
+      const response = await extra.API.get<Article>(`/articles/${id}`, {
+        params: {
+          _expand: 'user',
+        },
+      });
 
       if (!response.data) {
         throw new Error();
@@ -16,7 +20,6 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig>(
 
       return response.data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue('fetch-article-error');
     }
   },
