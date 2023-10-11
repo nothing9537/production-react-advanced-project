@@ -68,6 +68,7 @@
 .option {
   width: 100%;
   cursor: pointer;
+  white-space: nowrap;
   padding: 5px;
   border: 1px solid var(--primary-color);
   background: var(--bg-color);
