@@ -11,6 +11,7 @@ import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments';
 import { ArticlesListSchema } from 'features/ArticlesList';
 import { AddCommentFormSchema } from 'features/AddNewComment';
 import { ScrollRedistributionSchema } from 'features/ScrollRedistribution';
+import { ArticleDetailsRecommendationsSchema } from 'features/ArticleDetailsRecommendations';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
@@ -23,6 +24,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesList?: ArticlesListSchema;
 }

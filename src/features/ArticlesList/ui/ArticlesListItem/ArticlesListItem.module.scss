@@ -1,5 +1,9 @@
 .ArticlesListItem {
   transition: var(--app-transition);
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
 
 .LIST {

@@ -1,6 +1,7 @@
 export { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 export { fetchCommentsByArticleId } from './model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 export { addCommentForArticle } from './model/services/addCommentForArticle/addCommentForArticle';
+export { ArticleDetailsComments } from './ui/ArticleDetailsComments';
 export {
   articleDetailsCommentsReducer,
   articleDetailsCommentsActions,

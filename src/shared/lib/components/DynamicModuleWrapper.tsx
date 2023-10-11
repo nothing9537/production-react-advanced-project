@@ -2,11 +2,11 @@ import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 import { StoreWithReducerManager } from 'app/providers/StoreProvider';
-import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 
 export type ReducersList = {
-  [key in StateSchemaKey]?: Reducer;
+  [key in StateSchemaKey]?: Reducer<NonNullable<StateSchema[key]>>;
 }
 
 interface DynamicModuleWrapperProps {

@@ -1,0 +1,12 @@
+.ArticleDetailsRecommendations {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.list {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

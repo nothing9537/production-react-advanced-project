@@ -66,6 +66,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
         <Skeleton width={200} height={200} borderRadius="50%" className={cls.avatar} />
         <Skeleton width={700} height={30} />
         <Skeleton width={400} height={30} />
+        <Skeleton width={300} height={16} />
+        <Skeleton height={200} />
         <Skeleton height={200} />
         <Skeleton height={200} />
       </div>

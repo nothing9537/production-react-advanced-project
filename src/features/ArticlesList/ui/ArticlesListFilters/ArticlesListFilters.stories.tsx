@@ -8,7 +8,7 @@ const meta: Meta<typeof ArticlesListFilters> = {
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({
     articlesList: {
-      
+
     },
   })],
 };

@@ -48,6 +48,13 @@
       "text": "Комментарий для статьи номер 2",
       "timestamp": 1696869587082,
       "id": 7
+    },
+    {
+      "articleId": "2",
+      "userId": "2",
+      "text": "Comment for Python topic",
+      "timestamp": 1697042181424,
+      "id": 8
     }
   ],
   "articles": [
