@@ -1,4 +1,4 @@
-import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ViewsIcon } from 'shared/assets/icons';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -9,6 +9,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
+import { ARTICLES_SCROLL_ITEM_INDEX } from 'shared/consts/localStorage';
 import {
   Article,
   ArticleBlockType,
@@ -23,9 +24,10 @@ interface ArticlesListItemProps {
   article: Article;
   view: ArticlesView;
   target?: HTMLAttributeAnchorTarget;
+  index: number;
 }
 
-export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, article, view, target }) => {
+export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, article, view, target, index }) => {
   const { t } = useTranslation('articles');
 
   const tags = <Text text={article.type.join(', ')} className={cls.tags} />;
@@ -36,6 +38,10 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
       <Icon SVG={<ViewsIcon />} />
     </div>
   );
+
+  const onReadMoreClick = useCallback(() => {
+    sessionStorage.setItem(ARTICLES_SCROLL_ITEM_INDEX, JSON.stringify(index));
+  }, [index]);
 
   if (view === ArticlesView.LIST) {
     const textBlock = article.blocks.find((b) => b.type === ArticleBlockType.TEXT) as ArticleTextBlock;
@@ -63,7 +69,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
               to={`${RoutePath.articles}/${article.id}`}
               target={target}
             >
-              <Button>
+              <Button onClick={onReadMoreClick}>
                 {t('read-more')}
               </Button>
             </AppLink>

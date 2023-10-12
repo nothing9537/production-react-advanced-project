@@ -22,11 +22,11 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ clas
             </div>
             <Skeleton width={60} height={16} />
           </div>
-          <Skeleton className={cls.title} width={250} height={24} />
+          <Skeleton className={cls.title} width={210} height={24} />
           <Skeleton className={cls.tags} width={160} height={16} />
           <Skeleton height={250} className={cls.img} />
           <div className={cls.footer}>
-            <Skeleton width={260} height={32} />
+            <Skeleton width={180} height={32} />
             <Skeleton width={60} height={16} />
           </div>
         </Card>
