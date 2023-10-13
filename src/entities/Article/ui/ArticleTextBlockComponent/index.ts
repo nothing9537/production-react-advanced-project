@@ -1,0 +1,1 @@
+export { ArticleTextBlockComponent } from './ArticleTextBlockComponent';

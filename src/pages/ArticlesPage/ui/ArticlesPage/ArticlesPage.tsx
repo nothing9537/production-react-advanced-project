@@ -44,6 +44,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         articles={articles}
         isLoading={isLoading}
         onNextArticlesPageLoad={onNextArticlesPageLoad}
+        isVirtualized
         view={view}
       />
     </DynamicModuleWrapper>

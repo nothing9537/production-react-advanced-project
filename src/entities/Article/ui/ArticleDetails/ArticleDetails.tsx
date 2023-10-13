@@ -1,20 +1,22 @@
-import { FC, memo, ReactNode, useCallback, useEffect } from 'react';
+import { FC, memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { CreatedAtIcon, ViewsIcon } from 'shared/assets/icons';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -52,10 +54,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 
   let content: ReactNode = null;
@@ -83,30 +83,32 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   } else {
     content = (
       <article className={cls.article}>
-        <div className={cls['avatar-wrapper']}>
+        <VStack justify="center" align="center" gap={12}>
           <Avatar
             width={200}
             height={200}
             src={data?.img}
             alt="Avatar"
           />
-        </div>
-        <Text
-          title={data?.title}
-          text={data?.subtitle}
-          size={TextSize.L}
-        />
-        <div className={cls['article-info']}>
-          <Icon SVG={<ViewsIcon />} />
-          <Text text={data?.views.toString()} />
-        </div>
-        <div className={cls['article-info']}>
-          <Icon SVG={<CreatedAtIcon />} />
-          <Text text={new Date(data?.createdAt as number).toLocaleString()} />
-        </div>
-        <div className={cls.blocks}>
+        </VStack>
+        <VStack gap={4}>
+          <Text
+            title={data?.title}
+            text={data?.subtitle}
+            size={TextSize.L}
+          />
+          <HStack gap={12}>
+            <Icon SVG={<ViewsIcon />} />
+            <Text text={data?.views.toString()} />
+          </HStack>
+          <HStack gap={12}>
+            <Icon SVG={<CreatedAtIcon />} />
+            <Text text={new Date(data?.createdAt as number).toLocaleString()} />
+          </HStack>
+        </VStack>
+        <VStack gap={16} justify="center" align="center">
           {data?.blocks.map(renderBlock)}
-        </div>
+        </VStack>
       </article>
     );
   }

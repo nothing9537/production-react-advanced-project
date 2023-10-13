@@ -2,6 +2,7 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CommentsList } from 'entities/Comment';
 import { Text, TextSize } from 'shared/ui/Text';
+import { VStack } from 'shared/ui/Stack';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AddNewComment } from 'features/AddNewComment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -35,10 +36,10 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(({ c
   }, [id]);
 
   return (
-    <div className={classNames(cls.comments, {}, [className])}>
+    <VStack gap={16} className={classNames(cls.comments, {}, [className])}>
       <Text size={TextSize.L} title={t('article-comments')} />
       <AddNewComment onSendComment={onSendComment} />
       <CommentsList comments={comments} isLoading={commentsIsLoading} error={commentsError} />
-    </div>
+    </VStack>
   );
 });

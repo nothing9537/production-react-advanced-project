@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
@@ -15,11 +16,11 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
       {block.title && (
         <Text title={block.title} className={cls.title} />
       )}
-      <section className={cls.paragraphs}>
+      <VStack gap={8}>
         {block.paragraphs.map((p) => (
           <Text key={p} text={p} />
         ))}
-      </section>
+      </VStack>
     </div>
   );
 });

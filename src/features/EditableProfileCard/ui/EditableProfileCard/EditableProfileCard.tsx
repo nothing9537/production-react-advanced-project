@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Profile, ProfileCard } from 'entities/Profile';
-import { ProfilePageHeader } from './Header/Header';
+import { VStack } from 'shared/ui/Stack';
+import { ProfilePageHeader } from '../Header/Header';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -16,7 +17,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, f
   const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({ mode: 'all', defaultValues: formData });
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <VStack gap={24} className={classNames('', {}, [className])}>
       <ProfilePageHeader
         profileData={formData}
         readonly={readonly}
@@ -32,6 +33,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, f
         control={control}
         setValue={setValue}
       />
-    </div>
+    </VStack>
   );
 };

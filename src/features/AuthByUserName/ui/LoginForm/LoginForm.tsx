@@ -2,6 +2,7 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -46,7 +47,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
 
   return (
     <DynamicModuleWrapper reducers={initialReducers}>
-      <form className={classNames(cls.LoginForm, {}, [className])}>
+      <VStack component="form" className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('auth-form')} />
         {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
         <Input
@@ -71,7 +72,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
         >
           {t('login')}
         </Button>
-      </form>
+      </VStack>
     </DynamicModuleWrapper>
   );
 });

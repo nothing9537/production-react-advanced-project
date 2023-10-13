@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-unstable-nested-components */
 import { FC, HTMLAttributeAnchorTarget, memo, useCallback, useEffect, useState } from 'react';
 import { Virtuoso, VirtuosoGrid, GridScrollSeekPlaceholderProps } from 'react-virtuoso';
@@ -18,6 +19,7 @@ interface ArticlesListProps {
   view: ArticlesView;
   target?: HTMLAttributeAnchorTarget;
   onNextArticlesPageLoad?: () => void;
+  isVirtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticlesView) => {
@@ -31,7 +33,9 @@ const getSkeletons = (view: ArticlesView) => {
   }
 };
 
-export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, view, isLoading, target, onNextArticlesPageLoad }) => {
+export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
+  const { className, articles, view, isLoading, target, isVirtualized, onNextArticlesPageLoad } = props;
+
   const { t } = useTranslation('articles');
   const [scrollIndex, setScrollIndex] = useState(0);
 
@@ -92,40 +96,49 @@ export const ArticlesList: FC<ArticlesListProps> = memo(({ className, articles, 
 
   return (
     <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-      {view === ArticlesView.LIST ? (
-        <Virtuoso
-          data={articles}
-          totalCount={articles.length}
-          itemContent={renderArticle}
-          style={{ height: '100%', width: '100%' }}
-          endReached={onNextArticlesPageLoad}
-          initialTopMostItemIndex={scrollIndex}
-          className={classNames('', {}, ['scroll', cls[view]])}
-          components={{
-            Header: VirtuosoHeader,
-            Footer: ListFooter,
-          }}
-        />
-      ) : (
-        <VirtuosoGrid
-          data={articles}
-          totalCount={articles.length}
-          style={{ height: '100%', width: '100%' }}
-          className={classNames('', {}, ['scroll', cls[view]])}
-          endReached={onNextArticlesPageLoad}
-          itemContent={renderArticle}
-          listClassName={cls['tile-items-wrapper']}
-          components={{
-            Header: VirtuosoHeader,
-            ScrollSeekPlaceholder: TileItemContainer,
-            Footer: GridFooter,
-          }}
-          scrollSeekConfiguration={{
-            enter: (velocity) => Math.abs(velocity) > 200,
-            exit: (velocity) => Math.abs(velocity) < 30,
-          }}
-        />
-      )}
+      {isVirtualized
+        ? view === ArticlesView.LIST ? (
+          <Virtuoso
+            data={articles}
+            totalCount={articles.length}
+            itemContent={renderArticle}
+            style={{ height: '100%', width: '100%' }}
+            endReached={onNextArticlesPageLoad}
+            initialTopMostItemIndex={scrollIndex}
+            className={classNames('', {}, ['scroll', cls[view]])}
+            components={{
+              Header: VirtuosoHeader,
+              Footer: ListFooter,
+            }}
+          />
+        ) : (
+          <VirtuosoGrid
+            data={articles}
+            totalCount={articles.length}
+            style={{ height: '100%', width: '100%' }}
+            className={classNames('', {}, ['scroll', cls[view]])}
+            endReached={onNextArticlesPageLoad}
+            itemContent={renderArticle}
+            listClassName={cls['tile-items-wrapper']}
+            components={{
+              Header: VirtuosoHeader,
+              ScrollSeekPlaceholder: TileItemContainer,
+              Footer: GridFooter,
+            }}
+            scrollSeekConfiguration={{
+              enter: (velocity) => Math.abs(velocity) > 200,
+              exit: (velocity) => Math.abs(velocity) < 30,
+            }}
+          />
+        )
+        : (
+          <>
+            {articles.length
+              ? articles.map((article, index) => renderArticle(index, article))
+              : null}
+            {isLoading && getSkeletons(view)}
+          </>
+        )}
     </div>
   );
 });

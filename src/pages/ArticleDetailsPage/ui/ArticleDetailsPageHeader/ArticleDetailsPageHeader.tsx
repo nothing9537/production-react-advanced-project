@@ -6,7 +6,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { AppLink } from 'shared/ui/AppLink';
 import { Button } from 'shared/ui/Button';
-import cls from './ArticleDetailsPageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   id?: string;
@@ -23,7 +23,7 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
   }, [navigate]);
 
   return (
-    <div className={cls.ArticleDetailsPageHeader}>
+    <HStack justify="space-between">
       <Button onClick={onReturnBackClick}>
         {t('return-back')}
       </Button>
@@ -34,6 +34,6 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
           </Button>
         </AppLink>
       )}
-    </div>
+    </HStack>
   );
 });

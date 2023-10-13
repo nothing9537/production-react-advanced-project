@@ -5,11 +5,11 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entities/User';
 import { Profile, profileActions } from 'entities/Profile';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import cls from './Header.module.scss';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -45,7 +45,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, 
   }, [dispatch, getValues]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack justify="space-between" className={classNames('', {}, [className])}>
       <Text title={t('profile')} />
       {canEdit && (readonly
         ? (
@@ -54,16 +54,16 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, 
           </Button>
         )
         : (
-          <div className={cls.btns}>
+          <HStack gap={12} width="fit-content">
             <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
               {t('cancel-edit')}
             </Button>
             <Button theme={ButtonTheme.OUTLINE} onClick={onSave} disabled={!isValid}>
               {t('save')}
             </Button>
-          </div>
+          </HStack>
         )
       )}
-    </div>
+    </HStack>
   );
 });

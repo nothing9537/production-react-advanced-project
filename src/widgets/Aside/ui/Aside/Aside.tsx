@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { VStack } from 'shared/ui/Stack';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { AsideItem } from '../AsideItem/AsideItem';
 import { getAsideItems } from '../../model/selectors/getAsideItems/getAsideItems';
@@ -40,9 +41,9 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
       >
         {isCollapsed ? '>' : '<'}
       </Button>
-      <div className={cls.links}>
+      <VStack gap={12} className={cls.links}>
         {itemsList}
-      </div>
+      </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher short={isCollapsed} />

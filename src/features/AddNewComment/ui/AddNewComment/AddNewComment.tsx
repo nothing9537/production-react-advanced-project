@@ -6,6 +6,7 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { addCommentActions, addCommentReducer } from '../../model/slice/addCommentSlice';
 import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import cls from './AddNewComment.module.scss';
@@ -36,7 +37,7 @@ const AddNewComment: FC<AddNewCommentProps> = memo(({ className, onSendComment }
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <form className={classNames(cls.AddNewComment, {}, [className])} onSubmit={onSendHandler}>
+      <HStack component="form" className={classNames(cls.AddNewComment, {}, [className])} onSubmit={onSendHandler}>
         <Input
           placeholder={t('add-new-comment')}
           onChange={onCommentTextChange}
@@ -45,7 +46,7 @@ const AddNewComment: FC<AddNewCommentProps> = memo(({ className, onSendComment }
         <Button type="submit">
           {t('send-new-comment')}
         </Button>
-      </form>
+      </HStack>
     </DynamicModuleWrapper>
   );
 });
