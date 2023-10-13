@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18.x ]
+        node-version: [ 20.x ]
     steps:
       - uses: actions/checkout@v3
       
@@ -21,8 +21,8 @@ jobs:
         run: npm i
       - name: Production build
         run: npm run build:prod
-      # - name: Linting TypeScript
-      #   run: npm run lint:ts
+      - name: Linting TypeScript
+        run: npm run lint:ts
       - name: Unit testing JEST
         if: always()
         run: npm run test:unit
