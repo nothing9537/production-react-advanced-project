@@ -1,9 +1,8 @@
-import { FC } from 'react';
 import { Flex, FlexProps } from '../Flex/Flex';
 
-type VStackProps = Omit<FlexProps, 'direction'>;
+type VStackProps<T extends HTMLTag> = Omit<FlexProps<T>, 'direction'>;
 
-export const VStack: FC<VStackProps> = (props) => {
+export const VStack = <T extends HTMLTag>(props: VStackProps<T>) => {
   const { align = 'flex-start' } = props;
 
   return (

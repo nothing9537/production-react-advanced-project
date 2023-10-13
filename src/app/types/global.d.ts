@@ -32,6 +32,8 @@ type ValidateComponentError = {
   }
 }
 
+type HTMLTag = keyof HTMLElementTagNameMap;
+
 type OptionalRecord<K extends keyof any, T> = {
   [P in K]?: T;
 };

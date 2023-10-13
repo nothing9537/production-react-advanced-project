@@ -15,6 +15,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -28,12 +29,20 @@ interface TextProps {
   size?: TextSize;
 }
 
+const tagMapper: Record<TextSize, HTMLTag> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
+};
+
 export const Text: FC<TextProps> = memo((props) => {
   const { className, title, text, size = TextSize.M, theme = TextTheme.PRIMARY, align = TextAlign.LEFT } = props;
 
+  const Title = tagMapper[size];
+
   return (
     <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title && <p className={cls.title}>{title}</p>}
+      {title && <Title className={cls.title}>{title}</Title>}
       {text && <p className={cls.text}>{text}</p>}
     </div>
   );

@@ -1,10 +1,10 @@
-import { CSSProperties, FC, HTMLAttributes, ReactNode } from 'react';
+import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
 export type FlexDirection = 'row' | 'column';
 
-export interface FlexProps extends HTMLAttributes<HTMLElement> {
+export interface FlexProps<T extends HTMLTag> extends HTMLAttributes<HTMLElementTagNameMap[T]> {
   className?: string;
   children: ReactNode;
   justify?: CSSProperties['justifyContent'];
@@ -12,10 +12,10 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   direction: FlexDirection;
   gap?: string | number;
   width?: (string | number) | 'fit-content';
-  component?: keyof HTMLElementTagNameMap;
+  component?: HTMLTag;
 }
 
-export const Flex: FC<FlexProps> = (props) => {
+export const Flex = <T extends HTMLTag>(props: FlexProps<T>): ReactElement<T> => {
   const component = props?.component || 'div';
 
   const {
@@ -27,7 +27,7 @@ export const Flex: FC<FlexProps> = (props) => {
     gap,
     width,
     ...restProps
-  } = props as FlexProps & HTMLAttributes<HTMLElementTagNameMap[typeof component]>;
+  } = props as FlexProps<T> & HTMLAttributes<HTMLElementTagNameMap[typeof component]>;
 
   const ComponentWrapper = component;
 

@@ -30,7 +30,7 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
   )), [isCollapsed, asideItems]);
 
   return (
-    <aside data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
+    <section data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
       <Button
         data-testid="aside-toggle"
         onClick={onToggle}
@@ -41,13 +41,13 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
       >
         {isCollapsed ? '>' : '<'}
       </Button>
-      <VStack gap={12} className={cls.links}>
+      <VStack component="nav" gap={12} className={cls.links}>
         {itemsList}
       </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher short={isCollapsed} />
       </div>
-    </aside>
+    </section>
   );
 });
