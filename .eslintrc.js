@@ -25,6 +25,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'nothingg9537-plugin',
   ],
   rules: {
     'no-tabs': 'off',
@@ -65,6 +66,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
+    'nothingg9537-plugin/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

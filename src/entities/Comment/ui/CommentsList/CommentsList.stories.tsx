@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Comment } from 'entities/Comment/model/types/comment';
 import { WithStoreDecorator } from 'shared/config/storybook';
+import { Comment } from '../../model/types/comment';
 import { CommentsList } from './CommentsList';
 
 const comments: Comment[] = [

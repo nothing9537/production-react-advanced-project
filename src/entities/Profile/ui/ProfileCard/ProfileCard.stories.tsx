@@ -4,7 +4,7 @@ import Avatar from 'shared/ui/Avatar/Main_avatar.png';
 import { WithThemeDecorator, WithFormDecorator } from 'shared/config/storybook';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { Profile } from 'entities/Profile';
+import { Profile } from '../../model/types/profile';
 import { ProfileCard } from './ProfileCard';
 
 const data: Profile = {
