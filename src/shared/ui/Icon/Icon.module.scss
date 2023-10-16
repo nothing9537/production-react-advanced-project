@@ -1,4 +1,10 @@
 .Icon {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   svg {
     fill: var(--primary-color);
 

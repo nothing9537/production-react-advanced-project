@@ -8,7 +8,9 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Text, TextTheme } from 'shared/ui/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
+import { Dropdown } from 'shared/ui/Dropdown';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar';
+import { HStack } from 'shared/ui/Stack';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -37,22 +39,26 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
           theme={TextTheme.INVERTED}
           className={cls['app-name']}
         />
-        <AppLink
-          to={RoutePath.article_create}
-          theme={AppLinkTheme.SECONDARY}
-          noUnderline
-        >
-          {t('create-article')}
-        </AppLink>
         <div className={cls.links}>
-          <Text text={authData.username} />
-          |
-          <Button
-            theme={ButtonTheme.CLEAR_INVERTED}
-            onClick={onLogoutHandler}
-          >
-            {t('logout')}
-          </Button>
+          <Dropdown
+            position="bottom right"
+            component={(
+              <HStack gap={8}>
+                <Text text={authData?.username} />
+                <Avatar src={authData.avatar} alt="Avatar" borderRadius="50%" size={AvatarSize.NANO} />
+              </HStack>
+            )}
+            items={[
+              {
+                label: t('logout'),
+                action: onLogoutHandler,
+              },
+              {
+                label: t('create-article'),
+                href: RoutePath.article_create,
+              },
+            ]}
+          />
         </div>
       </header>
     );

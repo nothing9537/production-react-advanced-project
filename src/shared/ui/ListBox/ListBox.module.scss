@@ -6,7 +6,7 @@
   background: none;
   margin: 0;
   padding: 0;
-  outline: none;
+  outline-color: transparent;
   border: none;
 }
 
@@ -17,15 +17,27 @@
   z-index: 20;
   width: 100%;
   max-width: fit-content;
+  overflow: hidden;
 
   &:active {
-    outline: none; 
+    outline-color: transparent; 
   }
+}
+
+.top-rounding {
+  border-radius: 12px 12px 0 0;
+}
+
+.bottom-rounding {
+  border-radius: 0 0 12px 12px;
 }
 
 .option {
   padding: 10px 20px;
   cursor: pointer;
+  color: var(--primary-color);
+  overflow: hidden;
+  font: var(--font-m);
 }
 
 .active {
@@ -34,4 +46,24 @@
 
 .disabled {
   opacity: .5;
+}
+
+.bottom-right {
+  top: 100%;
+  right: 0;
+}
+
+.bottom-left {
+  top: 100%;
+  left: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  right: 0;
+}
+
+.top-left {
+  bottom: 100%;
+  left: 0;
 }
