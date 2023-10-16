@@ -10,7 +10,8 @@
 		"consts",
 		"@reduxjs",
 		"testid",
-		"inited"
+		"inited",
+		"headlessui"
 	],
 	"cSpell.words": [
 		"Nothingg"

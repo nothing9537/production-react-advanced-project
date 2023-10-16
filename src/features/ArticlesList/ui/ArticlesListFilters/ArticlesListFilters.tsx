@@ -20,6 +20,7 @@ import {
   getArticlesListView,
 } from '../../model/selectors/articlesList';
 import cls from './ArticlesListFilters.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticlesListFiltersProps {
   className?: string;
@@ -77,7 +78,7 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
   ], []);
 
   return (
-    <div className={classNames(cls.ArticlesListFilters, {}, [className])}>
+    <VStack gap={16} className={classNames('', {}, [className])}>
       <div className={cls['sort-filters']}>
         <ArticlesSortSelector
           order={order}
@@ -101,6 +102,6 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
         onTabClick={onChangeTag}
         value={tag}
       />
-    </div>
+    </VStack>
   );
 });

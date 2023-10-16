@@ -11,7 +11,10 @@ import {
   getArticlesListView,
   initArticlesList,
   ArticlesList,
+  ArticlesListFilters,
 } from 'features/ArticlesList';
+import { VStack } from 'shared/ui/Stack';
+import { PageWrapper } from 'widgets/PageWrapper';
 
 interface ArticlesPageProps {
   className?: string;
@@ -23,6 +26,7 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
+  const isVirtualized = false;
 
   const articles = useAppSelector(getArticlesList.selectAll);
   const isLoading = useAppSelector(getArticlesListIsLoading);
@@ -39,14 +43,32 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleWrapper reducers={reducers} removeAfterUnmount={false}>
-      <ArticlesList
-        className={className}
-        articles={articles}
-        isLoading={isLoading}
-        onNextArticlesPageLoad={onNextArticlesPageLoad}
-        isVirtualized
-        view={view}
-      />
+      {isVirtualized ? (
+        <ArticlesList
+          className={className}
+          articles={articles}
+          isLoading={isLoading}
+          onNextArticlesPageLoad={onNextArticlesPageLoad}
+          isVirtualized
+          view={view}
+        />
+      ) : (
+        <PageWrapper
+          onScrollEnd={onNextArticlesPageLoad}
+        >
+          <VStack>
+            <ArticlesListFilters />
+            <ArticlesList
+              className={className}
+              articles={articles}
+              isLoading={isLoading}
+              onNextArticlesPageLoad={onNextArticlesPageLoad}
+              isVirtualized={false}
+              view={view}
+            />
+          </VStack>
+        </PageWrapper>
+      )}
     </DynamicModuleWrapper>
   );
 };

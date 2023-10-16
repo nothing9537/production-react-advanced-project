@@ -14,5 +14,6 @@
   "desc-sort": "descending",
   "sort-field-creation-time": "creation time",
   "sort-filed-title": "title",
-  "sort-field-views": "views"
+  "sort-field-views": "views",
+  "select-value": "Choose a value"
 }
