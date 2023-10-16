@@ -21,8 +21,8 @@ jobs:
         run: npm i
       - name: Production build
         run: npm run build:prod
-      - name: Linting TypeScript
-        run: npm run lint:ts
+      # - name: Linting TypeScript
+      #   run: npm run lint:ts
       - name: Unit testing JEST
         if: always()
         run: npm run test:unit

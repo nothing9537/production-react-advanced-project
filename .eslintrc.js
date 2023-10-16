@@ -91,5 +91,11 @@ module.exports = {
         'react/jsx-max-props-per-line': 'off',
       },
     },
+    {
+      files: ['./scripts/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
   ],
 };

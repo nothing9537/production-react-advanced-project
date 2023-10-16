@@ -18,7 +18,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "export-svg-icons": "node ./scripts/export-svg-icons.js",
-    "export-ui-components": "node ./scripts/export-ui-components.js"
+    "export-ui-components": "node ./scripts/export-ui-components.js",
+    "generate:layer:template": "node ./scripts/create-slice/index.js"
   },
   "repository": {
     "type": "git",
