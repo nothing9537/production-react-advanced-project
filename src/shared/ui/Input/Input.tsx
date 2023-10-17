@@ -15,6 +15,8 @@ export interface InputProps extends AppInput {
   readonly?: boolean;
   isDirty?: boolean;
   error?: ValidateComponentError;
+  'data-testid-error'?: string;
+  'data-testid'?: string;
 }
 
 export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
@@ -49,7 +51,7 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
   return (
     <div className={cls.wrapperWithError}>
       {error?.message && (
-        <Text theme={TextTheme.ERROR} text={error.message} />
+        <Text data-testid={props['data-testid-error'] || ''} theme={TextTheme.ERROR} text={error.message} />
       )}
       <div className={classNames(cls.InputWrapper, mods, [className])}>
         {placeholder && (
@@ -59,7 +61,6 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
         )}
         <div className={cls.caretWrapper}>
           <input
-            {...rest}
             ref={inputRef}
             type={type}
             value={value}
@@ -69,6 +70,8 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
             onBlur={onBlur}
             onSelect={onSelect}
             readOnly={readonly}
+            data-testid={props['data-testid'] || ''}
+            {...rest}
           />
           {isKaretVisible && (
             <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />

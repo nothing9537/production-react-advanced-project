@@ -56,6 +56,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoa
     <VStack gap={16} className={classNames(cls.ProfileCard, mods, [className])}>
       {data?.avatar && <Avatar src={data.avatar} alt="Avatar" size={AvatarSize.LARGE} />}
       <ControlledInput
+        data-testid="ProfileCard.firstName"
+        data-testid-error="ProfileCard.firstName.error"
         control={control}
         readonly={readonly}
         name="firstName"
@@ -64,6 +66,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoa
         defaultValue={data?.firstName}
       />
       <ControlledInput
+        data-testid="ProfileCard.lastName"
+        data-testid-error="ProfileCard.lastName.error"
         control={control}
         readonly={readonly}
         name="lastName"

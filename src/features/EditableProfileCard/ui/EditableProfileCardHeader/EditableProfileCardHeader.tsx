@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { UseFormGetValues, UseFormReset } from 'react-hook-form';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entities/User';
-import { Profile, profileActions } from 'entities/Profile';
+import { Profile } from 'entities/Profile';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string;
   getValues: UseFormGetValues<Profile>;
   reset: UseFormReset<Profile>;
@@ -20,9 +20,10 @@ interface ProfilePageHeaderProps {
   readonly?: boolean;
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, getValues, reset, isValid, profileData, readonly }) => {
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = memo((props) => {
   const { t } = useTranslation('profile');
 
+  const { className, getValues, reset, isValid, profileData, readonly } = props;
   const dispatch = useAppDispatch();
   const userData = useAppSelector(getUserAuthData);
 
@@ -45,20 +46,33 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo(({ className, 
   }, [dispatch, getValues]);
 
   return (
-    <HStack justify="space-between" className={classNames('', {}, [className])}>
+    <HStack justify="space-between" className={className}>
       <Text title={t('profile')} />
       {canEdit && (readonly
         ? (
-          <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+          <Button
+            theme={ButtonTheme.OUTLINE}
+            onClick={onEdit}
+            data-testid="EditableProfileCardHeader.EditButton"
+          >
             {t('edit')}
           </Button>
         )
         : (
           <HStack gap={12} width="fit-content">
-            <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
+            <Button
+              theme={ButtonTheme.OUTLINE_RED}
+              onClick={onCancelEdit}
+              data-testid="EditableProfileCardHeader.CancelButton"
+            >
               {t('cancel-edit')}
             </Button>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onSave} disabled={!isValid}>
+            <Button
+              theme={ButtonTheme.OUTLINE}
+              onClick={onSave}
+              disabled={!isValid}
+              data-testid="EditableProfileCardHeader.SaveButton"
+            >
               {t('save')}
             </Button>
           </HStack>

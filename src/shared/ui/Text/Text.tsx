@@ -27,6 +27,7 @@ interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+  'data-testid'?: string;
 }
 
 const tagMapper: Record<TextSize, HTMLTag> = {
@@ -36,14 +37,30 @@ const tagMapper: Record<TextSize, HTMLTag> = {
 };
 
 export const Text: FC<TextProps> = memo((props) => {
-  const { className, title, text, size = TextSize.M, theme = TextTheme.PRIMARY, align = TextAlign.LEFT } = props;
+  const {
+    className,
+    title,
+    text,
+    size = TextSize.M,
+    theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
+    'data-testid': dataTestId = '',
+  } = props;
 
   const Title = tagMapper[size];
 
   return (
     <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title && <Title className={cls.title}>{title}</Title>}
-      {text && <p className={cls.text}>{text}</p>}
+      {title && (
+        <Title className={cls.title} data-testid={`${dataTestId}.Title`}>
+          {title}
+        </Title>
+      )}
+      {text && (
+        <p data-testid={`${dataTestId}.Text`} className={cls.text}>
+          {text}
+        </p>
+      )}
     </div>
   );
 });
