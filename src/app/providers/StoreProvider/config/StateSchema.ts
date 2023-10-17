@@ -11,20 +11,20 @@ import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments';
 import { ArticlesListSchema } from 'features/ArticlesList';
 import { AddCommentFormSchema } from 'features/AddNewComment';
 import { ScrollRedistributionSchema } from 'features/ScrollRedistribution';
-import { ArticleDetailsRecommendationsSchema } from 'features/ArticleDetailsRecommendations';
+import { rtkAPI } from 'shared/API/rtkAPI';
 import { createReduxStore } from './store';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollRedistribution: ScrollRedistributionSchema;
+  [rtkAPI.reducerPath]: ReturnType<typeof rtkAPI.reducer>;
 
   // * Async reducers
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
-  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesList?: ArticlesListSchema;
 }

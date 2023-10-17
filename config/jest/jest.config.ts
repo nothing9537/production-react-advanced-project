@@ -41,8 +41,16 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-dom.setup.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestMockSvg.tsx') 
+    '\\.svg': path.resolve(__dirname, 'jestMockSvg.tsx')
   },
+  reporters: [
+    'default',
+    ["jest-html-reporters", {
+      "publicPath": "<rootDir>/reports/unit",
+      "filename": "report.html",
+      "openReport": true
+    }]
+  ]
 }
 
 export default config

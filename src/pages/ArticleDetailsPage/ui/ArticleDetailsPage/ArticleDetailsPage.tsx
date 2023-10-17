@@ -6,14 +6,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { PageWrapper } from 'widgets/PageWrapper';
 import { ArticleDetails } from 'entities/Article';
-import { ArticleDetailsRecommendations, articleDetailsRecommendationsReducer } from 'features/ArticleDetailsRecommendations';
+import { ArticleDetailsRecommendations } from 'features/ArticleDetailsRecommendations';
 import { ArticleDetailsComments, articleDetailsCommentsReducer } from 'features/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
-  articleDetailsRecommendations: articleDetailsRecommendationsReducer,
 };
 interface ArticleDetailsPageProps {
   className?: string;

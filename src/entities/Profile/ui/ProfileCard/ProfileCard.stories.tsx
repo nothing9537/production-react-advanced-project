@@ -32,7 +32,7 @@ type Story = StoryObj<typeof ProfileCard>;
 
 export const Root: Story = {
   args: {
-    data,
+    // data,
   },
 };
 

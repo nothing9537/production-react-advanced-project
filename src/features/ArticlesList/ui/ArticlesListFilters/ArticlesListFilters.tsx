@@ -8,6 +8,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { TabOption, Tabs } from 'shared/ui/Tabs';
 import { SortOrder } from 'shared/types';
 import { ArticlesSortFields, ArticlesView } from 'entities/Article';
+import { VStack } from 'shared/ui/Stack';
 import { articlesListActions } from '../../model/slices/articlesListSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { ViewSelector } from '../ViewSelector/ViewSelector';
@@ -20,7 +21,6 @@ import {
   getArticlesListView,
 } from '../../model/selectors/articlesList';
 import cls from './ArticlesListFilters.module.scss';
-import { VStack } from 'shared/ui/Stack';
 
 interface ArticlesListFiltersProps {
   className?: string;

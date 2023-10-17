@@ -14,15 +14,15 @@ import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
   className?: string;
-  data?: Profile;
   error?: string;
   readonly?: boolean;
   isLoading?: boolean;
   control: Control<Profile>;
   setValue: UseFormSetValue<Profile>;
+  data?: Profile;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error, isLoading, control, readonly, setValue }) => {
+export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoading, control, readonly, setValue, data }) => {
   const { t } = useTranslation(['profile', 'validate']);
 
   if (isLoading) {
@@ -92,13 +92,17 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, data, error,
         value={data?.country}
         placeholder={t('input.placeholders.country')}
         readonly={readonly}
-        onChange={(value) => setValue('country', value)}
+        onChange={(value) => {
+          setValue('country', value);
+        }}
       />
       <CurrencySelect
         value={data?.currency}
         placeholder={t('input.placeholders.currency')}
-        onChange={(value) => setValue('currency', value)}
         readonly={readonly}
+        onChange={(value) => {
+          setValue('currency', value);
+        }}
       />
       <ControlledInput
         control={control}
