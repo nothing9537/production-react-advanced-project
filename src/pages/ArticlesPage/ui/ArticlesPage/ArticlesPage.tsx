@@ -33,7 +33,9 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const view = useAppSelector(getArticlesListView);
 
   const onNextArticlesPageLoad = useCallback(() => {
-    dispatch(fetchNewArticles());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNewArticles());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, isLoading]);
 

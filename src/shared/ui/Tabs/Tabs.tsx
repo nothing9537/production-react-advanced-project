@@ -18,7 +18,7 @@ interface TabsProps {
 export const Tabs: FC<TabsProps> = memo(({ className, tabs, value, onTabClick }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
-  const onClick = useCallback((tab: TabOption, index) => () => {
+  const onClick = useCallback((tab: TabOption, index: number) => () => {
     if (activeTab !== index) {
       setActiveTab(index);
       onTabClick(tab);

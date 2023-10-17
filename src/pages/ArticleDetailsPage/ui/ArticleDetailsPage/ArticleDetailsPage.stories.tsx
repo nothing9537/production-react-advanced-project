@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Article, ArticleBlockType } from 'entities/Article/model/types/article';
+import { WithStoreDecorator } from 'shared/config/storybook';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -70,6 +71,12 @@ const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'Pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
   tags: ['autodocs'],
+  decorators: [WithStoreDecorator({
+    articleDetails: {
+      data: article,
+      isLoading: false,
+    },
+  })],
 };
 
 export default meta;

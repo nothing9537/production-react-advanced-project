@@ -1,11 +1,12 @@
 import { Decorator } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
-import { loginReducer } from 'features/AuthByUserName/model/slices/loginSlice';
-import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
-import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
-import { addCommentReducer } from 'features/AddNewComment/model/slice/addCommentSlice';
-import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slice/articleDetailsCommentsSlice';
+import { articlesListReducer } from 'features/ArticlesList';
+import { loginReducer } from 'features/AuthByUserName';
+import { profileReducer } from 'features/EditableProfileCard';
+import { addCommentReducer } from 'features/AddNewComment';
+import { articleDetailsReducer } from 'entities/Article';
+import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -13,6 +14,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
+  articlesList: articlesListReducer,
 };
 
 export const WithStoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList): Decorator => function Render(Story) {

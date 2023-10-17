@@ -1,4 +1,4 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
@@ -10,4 +10,14 @@ import 'shared/config/i18n/i18n';
 
 const componentsTree = [BrowserRouter, StoreProvider, ErrorBoundary, ThemeProvider, App];
 
-render(renderComponents(componentsTree), document.getElementById('root'));
+const container = document.getElementById('root');
+
+if (!container) {
+  throw new Error('Root node wasn\'t found');
+}
+
+const root = createRoot(container);
+
+root.render(
+  renderComponents(componentsTree),
+);
