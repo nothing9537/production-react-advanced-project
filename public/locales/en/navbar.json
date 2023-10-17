@@ -6,5 +6,6 @@
   "auth-form": "Auth form",
   "auth-error": "Incorrect username or password",
   "server-error": "Error on server. Please try later",
-  "create-article": "Create article"
+  "create-article": "Create article",
+  "admin-panel": "Admin panel"
 }

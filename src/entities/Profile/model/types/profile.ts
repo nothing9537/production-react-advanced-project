@@ -4,7 +4,6 @@ import { UserRole } from 'entities/User';
 
 export interface Profile {
   id?: string;
-  role?: UserRole;
   firstName?: string;
   lastName?: string;
   username?: string;
@@ -15,6 +14,7 @@ export interface Profile {
   state?: string;
   address?: string;
   avatar?: string;
+  roles?: UserRole[];
 }
 
 export interface ProfileSchema {

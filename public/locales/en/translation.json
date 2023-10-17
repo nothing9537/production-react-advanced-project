@@ -15,5 +15,7 @@
   "sort-field-creation-time": "creation time",
   "sort-filed-title": "title",
   "sort-field-views": "views",
-  "select-value": "Choose a value"
+  "select-value": "Choose a value",
+  "access-denied": "Access denied",
+  "return-to-main": "Return to main page"
 }

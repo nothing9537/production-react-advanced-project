@@ -5,18 +5,18 @@ import { User } from 'entities/User';
 
 interface RequireAuthProps {
   children: ReactNode;
-  isAuth: User | undefined | null;
+  authData: User | undefined | null;
 }
 
-export function RequireAuth({ children, isAuth }: RequireAuthProps) {
+export const RequireAuth = ({ children, authData }: RequireAuthProps) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) {
+    if (!authData) {
       navigate(RoutePath.main);
     }
-  }, [isAuth, navigate]);
+  }, [authData, navigate]);
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
-}
+};

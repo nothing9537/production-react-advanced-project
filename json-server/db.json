@@ -1266,21 +1266,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN",
+        "USER"
+      ],
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
     {
       "id": "2",
       "username": "Nothingg",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
+    },
+    {
+      "id": "3",
+      "username": "Manager",
+      "password": "123",
+      "roles": [
+        "MANAGER",
+        "USER"
+      ],
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN",
+        "USER"
+      ],
       "firstName": "AdminFirst",
       "lastName": "AdminLast",
       "username": "admin",
@@ -1289,12 +1307,14 @@
       "country": "USA",
       "city": "Chicago",
       "state": "IL",
-      "address": "322 Woodbury Ct. APT B1",
+      "address": "Lorem ipsum",
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
     {
       "id": "2",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "firstName": "Vadym",
       "lastName": "Monastyrskyi",
       "username": "Nothingg",
@@ -1303,7 +1323,24 @@
       "country": "USA",
       "city": "Chicago",
       "state": "IL",
-      "address": "322 Woodbury Ct. APT B1",
+      "address": "Lorem ipsum",
+      "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
+    },
+    {
+      "id": "3",
+      "roles": [
+        "MANAGER",
+        "USER"
+      ],
+      "firstName": "John",
+      "lastName": "Doe",
+      "username": "Manager",
+      "age": "35",
+      "currency": "USD",
+      "country": "USA",
+      "city": "Chicago",
+      "state": "IL",
+      "address": "Lorem ipsum",
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     }
   ]

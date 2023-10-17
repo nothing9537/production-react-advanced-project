@@ -50,7 +50,7 @@ export const Dropdown: FC<DropdownProps> = ({ className, items, component, onCha
       </Menu.Button>
       <Menu.Items className={classNames(cls.options, optionsMods, [positionMapper[position]])}>
         {items.map((option, index) => (
-          <Menu.Item as={Fragment} key={option.value + index} disabled={option.disabled}>
+          <Menu.Item as={Fragment} key={index} disabled={option.disabled}>
             {({ active, disabled }) => {
               const mods: Mods = { [cls.active]: active, [cls.disabled]: disabled };
 

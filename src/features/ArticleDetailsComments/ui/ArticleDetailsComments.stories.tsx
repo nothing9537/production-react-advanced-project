@@ -13,7 +13,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '1',
       username: 'admin',
-      role: 'ADMIN' as UserRole,
+      roles: ['ADMIN'] as UserRole[],
       avatar: 'https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a',
     },
   },
@@ -25,7 +25,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '1',
       username: 'admin',
-      role: 'ADMIN' as UserRole,
+      roles: ['ADMIN'] as UserRole[],
       avatar: 'https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a',
     },
   },
@@ -37,7 +37,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '1',
       username: 'admin',
-      role: 'ADMIN' as UserRole,
+      roles: ['ADMIN'] as UserRole[],
       avatar: 'https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a',
     },
   },
@@ -49,7 +49,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '2',
       username: 'Nothingg',
-      role: 'USER' as UserRole,
+      roles: ['USER'] as UserRole[],
       avatar: 'https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png',
     },
   },
@@ -61,7 +61,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '2',
       username: 'Nothingg',
-      role: 'USER' as UserRole,
+      roles: ['USER'] as UserRole[],
       avatar: 'https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png',
     },
   },
@@ -73,7 +73,7 @@ const entities: { [key: string]: Comment } = {
     user: {
       id: '2',
       username: 'Nothingg',
-      role: 'USER' as UserRole,
+      roles: ['USER'] as UserRole[],
       avatar: 'https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png',
     },
   },

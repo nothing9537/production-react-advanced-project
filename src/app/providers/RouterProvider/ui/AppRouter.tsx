@@ -1,29 +1,44 @@
-import { FC, memo, Suspense, useMemo } from 'react';
+import { FC, memo, ReactNode, Suspense, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { getUserAuthData } from 'entities/User';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
+import { RequireRole } from './RequireRole';
 
 export const AppRouter: FC = memo(() => {
-  const isAuth = useAppSelector(getUserAuthData);
+  const authData = useAppSelector(getUserAuthData);
 
-  const routes = useMemo(() => routeConfig.map(({ element, path, authOnly }) => (
-    <Route
-      key={path}
-      path={path}
-      element={(
-        authOnly ? (
-          <RequireAuth isAuth={isAuth}>
+  const routes = useMemo(() => routeConfig.map(({ element, path, authOnly, roles }) => {
+    let content: ReactNode = element;
+
+    if (authOnly) {
+      content = (
+        <RequireAuth authData={authData}>
+          {element}
+        </RequireAuth>
+      );
+    }
+
+    if (roles) {
+      content = (
+        <RequireAuth authData={authData}>
+          <RequireRole authData={authData} roles={roles}>
             {element}
-          </RequireAuth>
-        ) : (
-          element
-        )
-      )}
-    />
-  )), [isAuth]);
+          </RequireRole>
+        </RequireAuth>
+      );
+    }
+
+    return (
+      <Route
+        key={path}
+        path={path}
+        element={content}
+      />
+    );
+  }), [authData]);
 
   return (
     <Suspense fallback={<PageLoader />}>

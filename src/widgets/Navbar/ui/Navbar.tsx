@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -20,8 +20,11 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation('navbar');
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
-  const authData = useAppSelector(getUserAuthData);
   const dispatch = useAppDispatch();
+
+  const authData = useAppSelector(getUserAuthData);
+  const isAdmin = useAppSelector(isUserAdmin);
+  const isManager = useAppSelector(isUserManager);
 
   const onLoginHandler = useCallback(() => {
     setIsAuthModal(true);
@@ -30,6 +33,8 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
   const onLogoutHandler = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -49,6 +54,10 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
               </HStack>
             )}
             items={[
+              ...(isAdminPanelAvailable ? [{
+                label: t('admin-panel'),
+                href: RoutePath.admin_panel,
+              }] : []),
               {
                 label: t('logout'),
                 action: onLogoutHandler,

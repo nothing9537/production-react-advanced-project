@@ -12,6 +12,7 @@ export interface FlexProps<T extends HTMLTag> extends HTMLAttributes<HTMLElement
   direction: FlexDirection;
   gap?: string | number;
   width?: (string | number) | 'fit-content';
+  height?: (string | number) | 'fit-content';
   component?: HTMLTag;
 }
 
@@ -26,6 +27,7 @@ export const Flex = <T extends HTMLTag>(props: FlexProps<T>): ReactElement<T> =>
     direction,
     gap,
     width,
+    height = 'fit-content',
     ...restProps
   } = props as FlexProps<T> & HTMLAttributes<HTMLElementTagNameMap[typeof component]>;
 
@@ -34,7 +36,7 @@ export const Flex = <T extends HTMLTag>(props: FlexProps<T>): ReactElement<T> =>
   return (
     <ComponentWrapper
       {...restProps}
-      style={{ justifyContent: justify, alignItems: align, gap, width }}
+      style={{ justifyContent: justify, alignItems: align, gap, width, height }}
       className={classNames(cls.Flex, {}, [className, cls[direction]])}
     >
       {children}

@@ -15,5 +15,7 @@
   "sort-field-creation-time": "дате создания",
   "sort-filed-title": "заголовку",
   "sort-field-views": "просмотрам",
-  "select-value": "Выберите значение"
+  "select-value": "Выберите значение",
+  "access-denied": "Доступ запрещён",
+  "return-to-main": "Вернуться на гланую страницу"
 }
