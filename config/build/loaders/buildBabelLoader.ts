@@ -1,9 +1,15 @@
 /* eslint-disable global-require */
 import { RuleSetRule } from 'webpack';
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
+import { BuildOptions } from '../types/config';
 
-export function buildBabelLoader(isDev: boolean): RuleSetRule {
+interface BuildBabelLoaderOptions extends BuildOptions {
+  isTsx?: boolean;
+}
+
+export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderOptions): RuleSetRule {
   return {
-    test: /\.(js|jsx|tsx)$/,
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -15,6 +21,19 @@ export function buildBabelLoader(isDev: boolean): RuleSetRule {
             {
               locales: ['ru', 'en'],
               keyAsDefaultValue: true,
+            },
+          ],
+          [
+            '@babel/plugin-transform-typescript',
+            {
+              isTsx,
+            },
+          ],
+          '@babel/plugin-transform-runtime',
+          isTsx && [
+            babelRemovePropsPlugin,
+            {
+              props: ['data-testid'],
             },
           ],
           isDev && require('react-refresh/babel'),
