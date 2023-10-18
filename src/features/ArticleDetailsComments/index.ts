@@ -1,4 +1,4 @@
-export { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
+export type { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 export { fetchCommentsByArticleId } from './model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 export { addCommentForArticle } from './model/services/addCommentForArticle/addCommentForArticle';
 export { ArticleDetailsComments } from './ui/ArticleDetailsComments';

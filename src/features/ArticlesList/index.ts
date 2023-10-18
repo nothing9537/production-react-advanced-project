@@ -1,4 +1,4 @@
-export { ArticlesListSchema } from './model/types/articlesListSchema';
+export type { ArticlesListSchema } from './model/types/articlesListSchema';
 export { articlesListReducer, articlesListActions, getArticlesList } from './model/slices/articlesListSlice';
 
 export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArticlesList';

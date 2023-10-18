@@ -1,14 +1,7 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
-export {
-  Article,
-  ArticlesView,
-  ArticlesSortFields,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleCodeBlock,
-  ArticleImageBlock,
-} from './model/types/article';
+export type { Article, ArticleTextBlock, ArticleCodeBlock, ArticleImageBlock } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export { ArticlesSortFields, ArticleBlockType, ArticlesView } from './model/consts';
 
 export { ArticleTextBlockComponent } from './ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 export { ArticleImageBlockComponent } from './ui/ArticleImageBlockComponent/ArticleImageBlockComponent';

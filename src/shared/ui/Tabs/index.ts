@@ -1,1 +1,2 @@
-export { Tabs, TabOption } from './Tabs';
+export { Tabs } from './Tabs';
+export type { TabOption } from './Tabs';

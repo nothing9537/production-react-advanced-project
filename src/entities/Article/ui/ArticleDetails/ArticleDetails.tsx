@@ -13,10 +13,11 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
+import { ArticleBlockType } from '../../model/consts';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
