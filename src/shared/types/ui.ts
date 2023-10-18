@@ -1,1 +1,1 @@
-export type Direction = 'top left' | 'top right' | 'bottom left' | 'bottom right';
+export type Position = 'top left' | 'top right' | 'bottom left' | 'bottom right';

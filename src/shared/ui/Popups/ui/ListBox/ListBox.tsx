@@ -2,10 +2,12 @@ import { Fragment, ReactElement, ReactNode, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Listbox } from '@headlessui/react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Direction } from 'shared/types/ui';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import { Position } from 'shared/types/ui';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
+import { roundingModsMapper, positionMapper } from '../../style';
 import cls from './ListBox.module.scss';
+import popupCls from '../../style/Popup.module.scss';
 
 export interface ListBoxOption<T> {
   content: ReactNode;
@@ -20,15 +22,8 @@ interface ListBoxProps<T extends string> {
   value?: T;
   onChange?: (value: T) => void;
   readonly?: boolean;
-  position?: Direction;
+  position?: Position;
 }
-
-const positionMapper: Record<Direction, string> = {
-  'bottom left': cls['bottom-left'],
-  'bottom right': cls['bottom-right'],
-  'top left': cls['top-left'],
-  'top right': cls['top-right'],
-};
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<ListBoxProps<T>> => {
   const { t } = useTranslation('translation');
@@ -42,11 +37,6 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<
     onChange?.(option.value);
   }, [onChange]);
 
-  const optionsMods: Mods = {
-    [cls['top-rounding']]: position === 'top left' || position === 'top right',
-    [cls['bottom-rounding']]: position === 'bottom left' || position === 'bottom right',
-  };
-
   return (
     <HStack gap={4}>
       {placeholder && <span>{`${placeholder}>`}</span>}
@@ -54,22 +44,22 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<
         as="div"
         onChange={onChangeHandler}
         value={selectedValue}
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(popupCls.Popup, {}, [className])}
         disabled={readonly}
       >
-        <Listbox.Button className={cls.trigger}>
+        <Listbox.Button className={popupCls.trigger}>
           <Button disabled={readonly}>
             {selectedValue?.content}
           </Button>
         </Listbox.Button>
-        <Listbox.Options className={classNames(cls.options, optionsMods, [positionMapper[position]])}>
+        <Listbox.Options className={classNames(cls.options, roundingModsMapper(position), [positionMapper[position]])}>
           {options.map((option, index) => (
             <Listbox.Option value={option} key={index + option.value} as={Fragment} disabled={option.disabled}>
               {({ active, selected, disabled }) => {
                 const mods: Mods = {
-                  [cls.active]: active,
-                  [cls.selected]: selected,
-                  [cls.disabled]: disabled,
+                  [popupCls.active]: active,
+                  [popupCls.selected]: selected,
+                  [popupCls.disabled]: disabled,
                 };
 
                 return (

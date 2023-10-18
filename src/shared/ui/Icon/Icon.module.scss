@@ -4,12 +4,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
+.clickable {
+  cursor: pointer;
+}
+
+.primary {
   svg {
     fill: var(--primary-color);
 
     path {
       fill: var(--primary-color);
+    }
+  }
+}
+
+.inverted {
+  svg {
+    fill: var(--inverted-primary-color);
+
+    path {
+      fill: var(--inverted-primary-color);
     }
   }
 }

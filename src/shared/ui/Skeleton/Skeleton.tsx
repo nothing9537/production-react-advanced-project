@@ -6,7 +6,7 @@ interface SkeletonProps {
   className?: string;
   height?: string | number;
   width?: string | number;
-  borderRadius?: string;
+  borderRadius?: string | number;
 }
 
 export const Skeleton: FC<SkeletonProps> = memo(({ className, height, width, borderRadius }) => {

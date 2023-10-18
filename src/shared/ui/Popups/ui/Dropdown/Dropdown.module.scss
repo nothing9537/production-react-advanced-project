@@ -1,0 +1,26 @@
+.options {
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 10;
+  border-radius: 0 0 4px 4px;
+  border: 2px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.option {
+  padding: 8px 24px;
+  padding-left: 12px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  gap: 8px;
+}

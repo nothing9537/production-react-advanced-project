@@ -2,7 +2,7 @@ import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 import ArrowIcon from './arrow.svg';
-import { Portal } from '../Portal/Portal';
+import { Portal } from '../../../Portal/Portal';
 
 export interface SelectOption<T> {
   label: string;

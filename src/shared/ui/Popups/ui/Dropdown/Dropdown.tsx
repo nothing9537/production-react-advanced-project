@@ -1,10 +1,12 @@
 import { FC, Fragment, ReactNode, useCallback } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Direction } from 'shared/types/ui';
-import { Icon } from '../Icon';
-import { AppLink } from '../AppLink';
+import { Position } from 'shared/types/ui';
+import { Icon } from '../../../Icon';
+import { AppLink } from '../../../AppLink';
 import cls from './Dropdown.module.scss';
+import popupCls from '../../style/Popup.module.scss';
+import { positionMapper, roundingModsMapper } from '../../style';
 
 type DropdownAction = (index?: number) => void;
 
@@ -22,15 +24,8 @@ interface DropdownProps {
   items: DropdownItem[];
   component: ReactNode;
   onChange?: (v: any) => void;
-  position?: Direction;
+  position?: Position;
 }
-
-const positionMapper: Record<Direction, string> = {
-  'bottom left': cls['bottom-left'],
-  'bottom right': cls['bottom-right'],
-  'top left': cls['top-left'],
-  'top right': cls['top-right'],
-};
 
 export const Dropdown: FC<DropdownProps> = ({ className, items, component, onChange, position = 'bottom left' }) => {
   const onChangeHandler = useCallback((value: any, index: number, action?: DropdownAction) => () => {
@@ -38,21 +33,19 @@ export const Dropdown: FC<DropdownProps> = ({ className, items, component, onCha
     action?.(index);
   }, [onChange]);
 
-  const optionsMods: Mods = {
-    [cls['top-rounding']]: position === 'top left' || position === 'top right',
-    [cls['bottom-rounding']]: position === 'bottom left' || position === 'bottom right',
-  };
-
   return (
-    <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-      <Menu.Button as="button" className={cls.trigger}>
+    <Menu as="div" className={classNames(popupCls.Popup, {}, [className])}>
+      <Menu.Button as="button" className={popupCls.trigger}>
         {component}
       </Menu.Button>
-      <Menu.Items className={classNames(cls.options, optionsMods, [positionMapper[position]])}>
+      <Menu.Items className={classNames(cls.options, roundingModsMapper(position), [positionMapper[position]])}>
         {items.map((option, index) => (
           <Menu.Item as={Fragment} key={index} disabled={option.disabled}>
             {({ active, disabled }) => {
-              const mods: Mods = { [cls.active]: active, [cls.disabled]: disabled };
+              const mods: Mods = {
+                [popupCls.active]: active,
+                [popupCls.disabled]: disabled,
+              };
 
               return (option.href
                 ? (

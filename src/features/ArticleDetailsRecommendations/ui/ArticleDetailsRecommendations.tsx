@@ -5,7 +5,7 @@ import { ArticlesList } from 'features/ArticlesList';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text';
 import { VStack } from 'shared/ui/Stack';
-import { useGetArticleRecommendationsQuery } from '../api/articleRecommendationsAPI';
+import { useGetArticleRecommendationsQuery } from '../api';
 import cls from './ArticleDetailsRecommendations.module.scss';
 
 interface ArticleDetailsRecommendationsProps {

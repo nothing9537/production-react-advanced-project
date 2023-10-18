@@ -1,4 +1,63 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Notification 1",
+      "description": "Something happened 1 for user 1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Notification 2",
+      "description": "Something happened 2 for user 1",
+      "userId": "1",
+      "href": "http://localhost:6006/admin-panel"
+    },
+    {
+      "id": "3",
+      "title": "Notification 3",
+      "description": "Something happened 3 for user 1",
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "title": "Notification 4",
+      "description": "Something happened 4 for user 2",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Notification 5",
+      "description": "Something happened 5 for user 2",
+      "userId": "2",
+      "href": "http://localhost:6006/admin-panel"
+    },
+    {
+      "id": "6",
+      "title": "Notification 6",
+      "description": "Something happened 6 for user 2",
+      "userId": "2"
+    },
+    {
+      "id": "7",
+      "title": "Notification 7",
+      "description": "Something happened 7 for user 3",
+      "userId": "3"
+    },
+    {
+      "id": "8",
+      "title": "Notification 8",
+      "description": "Something happened 8 for user 3",
+      "userId": "3",
+      "href": "http://localhost:6006/admin-panel"
+    },
+    {
+      "id": "9",
+      "title": "Notification 9",
+      "description": "Something happened 9 for user 3",
+      "userId": "3"
+    }
+  ],
   "comments": [
     {
       "id": "1",

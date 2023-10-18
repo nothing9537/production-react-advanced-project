@@ -4,6 +4,7 @@ export { CopyIcon } from './Copy';
 export { CreatedAtIcon } from './CreatedAt';
 export { ListIcon } from './List';
 export { MainPageIcon } from './MainPage';
+export { NotificationIcon } from './Notification';
 export { ProfilePageIcon } from './ProfilePage';
 export { ThemeBlueIcon } from './ThemeBlue';
 export { ThemeDarkIcon } from './ThemeDark';

@@ -1,6 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
+import { FC, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -8,16 +6,21 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Text, TextTheme } from 'shared/ui/Text';
-import { Dropdown } from 'shared/ui/Dropdown';
+import { Icon } from 'shared/ui/Icon';
+import { Dropdown, Popover } from 'shared/ui/Popups';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import { HStack } from 'shared/ui/Stack';
+import { NotificationIcon } from 'shared/assets/icons';
+import { NotificationList } from 'entities/Notification';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
+import { LoginModal } from 'features/AuthByUserName';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
+export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation('navbar');
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -44,7 +47,18 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
           theme={TextTheme.INVERTED}
           className={cls['app-name']}
         />
-        <div className={cls.links}>
+        <HStack width="fit-content" className={cls.links}>
+          <Popover
+            component={(
+              <Icon
+                clickable
+                theme="inverted"
+                SVG={<NotificationIcon />}
+              />
+            )}
+          >
+            <NotificationList className={cls.notifications} />
+          </Popover>
           <Dropdown
             position="bottom right"
             component={(
@@ -58,17 +72,11 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 label: t('admin-panel'),
                 href: RoutePath.admin_panel,
               }] : []),
-              {
-                label: t('logout'),
-                action: onLogoutHandler,
-              },
-              {
-                label: t('create-article'),
-                href: RoutePath.article_create,
-              },
+              { label: t('logout'), action: onLogoutHandler },
+              { label: t('create-article'), href: RoutePath.article_create },
             ]}
           />
-        </div>
+        </HStack>
       </header>
     );
   }
