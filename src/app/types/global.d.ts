@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
@@ -7,11 +9,12 @@ declare module '*.scss' {
 }
 
 declare module '*.svg' {
-  import { VFC, SVGProps } from 'react';
+  import { FC, HTMLAttributes } from 'react';
 
-  const SVG: VFC<SVGProps<SVGSVGElement>>;
+  const SVG: FC<HTMLAttributes<SVGElement>>;
   export default SVG;
 }
+
 declare module '*.png'
 declare module '*.jpg'
 declare module '*.jpeg'

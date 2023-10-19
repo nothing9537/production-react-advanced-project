@@ -24,6 +24,9 @@
 					"allowUnknownClassnames": true
 				}
 			}
+		],
+		"lib": [
+			"WebWorker"
 		]
 	},
 	"exclude": [

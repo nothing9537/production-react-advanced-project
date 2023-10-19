@@ -3,7 +3,6 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { NotificationList } from '@/entities/Notification';
 import { NotificationIcon } from '@/shared/assets/icons';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer';
@@ -32,11 +31,9 @@ export const OpenNotificationsList: FC<OpenNotificationsListProps> = memo(({ cla
   return (
     <>
       <MobileView>
-        <AnimationProvider>
-          <Drawer component={drawerComponent}>
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer component={drawerComponent}>
+          <NotificationList />
+        </Drawer>
       </MobileView>
       <BrowserView>
         <Popover component={drawerComponent}>

@@ -1,7 +1,7 @@
-import { cloneElement, FC, memo, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
+import { cloneElement, FC, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useAnimationModules } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationModules } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import cls from './Drawer.module.scss';
@@ -91,7 +91,7 @@ export const DrawerContent: FC<DrawerProps> = ({ className, children, onClose, c
   );
 };
 
-export const Drawer: FC<DrawerProps> = memo((props) => {
+export const DrawerAsync: FC<DrawerProps> = (props) => {
   const { isLoaded } = useAnimationModules();
 
   if (!isLoaded) {
@@ -99,4 +99,12 @@ export const Drawer: FC<DrawerProps> = memo((props) => {
   }
 
   return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer: FC<DrawerProps> = (props) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
+};
