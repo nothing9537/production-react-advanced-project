@@ -1,19 +1,14 @@
 import { FC, memo, useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useAppTranslation } from 'shared/lib/hooks/useAppTranslation';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Text, TextTheme } from 'shared/ui/Text';
-import { Icon } from 'shared/ui/Icon';
-import { Dropdown, Popover } from 'shared/ui/Popups';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import { HStack } from 'shared/ui/Stack';
-import { NotificationIcon } from 'shared/assets/icons';
-import { NotificationList } from 'entities/Notification';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
+import { getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
+import { OpenNotificationsList } from 'features/OpenNotificationsList';
+import { AvatarDropdown } from 'features/AvatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -21,23 +16,14 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = memo(({ className }) => {
-  const { t } = useTranslation('navbar');
+  const { t } = useAppTranslation('navbar');
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
-  const dispatch = useAppDispatch();
 
   const authData = useAppSelector(getUserAuthData);
-  const isAdmin = useAppSelector(isUserAdmin);
-  const isManager = useAppSelector(isUserManager);
 
   const onLoginHandler = useCallback(() => {
     setIsAuthModal(true);
   }, []);
-
-  const onLogoutHandler = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -48,34 +34,8 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
           className={cls['app-name']}
         />
         <HStack width="fit-content" className={cls.links}>
-          <Popover
-            component={(
-              <Icon
-                clickable
-                theme="inverted"
-                SVG={<NotificationIcon />}
-              />
-            )}
-          >
-            <NotificationList className={cls.notifications} />
-          </Popover>
-          <Dropdown
-            position="bottom right"
-            component={(
-              <HStack gap={8}>
-                <Text text={authData?.username} />
-                <Avatar src={authData.avatar} alt="Avatar" borderRadius="50%" size={AvatarSize.NANO} />
-              </HStack>
-            )}
-            items={[
-              ...(isAdminPanelAvailable ? [{
-                label: t('admin-panel'),
-                href: RoutePath.admin_panel,
-              }] : []),
-              { label: t('logout'), action: onLogoutHandler },
-              { label: t('create-article'), href: RoutePath.article_create },
-            ]}
-          />
+          <OpenNotificationsList />
+          <AvatarDropdown translationNamespace="navbar" />
         </HStack>
       </header>
     );
