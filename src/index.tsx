@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
-import { renderComponents } from 'shared/lib/components/drawComponentsTree';
+import { RenderComponents } from 'shared/lib/components/DrawComponentsTree';
 import App from './app/App';
 import 'app/styles/index.scss';
 import 'shared/config/i18n/i18n';
@@ -18,6 +18,4 @@ if (!container) {
 
 const root = createRoot(container);
 
-root.render(
-  renderComponents(componentsTree),
-);
+root.render(RenderComponents(componentsTree));

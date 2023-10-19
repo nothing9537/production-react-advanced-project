@@ -4,38 +4,21 @@
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0;
-  pointer-events: none;
   z-index: -1;
   display: flex;
   align-items: flex-end;
 }
 
-.content {
-  height: 65%;
-  background-color: var(--bg-color);
-  bottom: 0;
-  border-radius: 12px 12px 0 0;
-  position: relative;
-  width: 100%;
-  min-height: 100px;
+.sheet {
+  z-index: 100;
+  position: fixed;
+  left: 2vw;
+  height: calc(100vh + 100px);
+  width: 96vw;
+  border-radius: 12px 12px 0;
+  background: var(--card-bg);
+  touch-action: none;
   padding: 20px;
-  transition: var(--app-transition) transform;
-  transform: translateY(100%);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.content::before {
-  content: "";
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 10px;
-  background: var(--bg-color);
-  margin: auto;
-  bottom: 40px;
-  border-radius: 12px;
 }
 
 .opened {
