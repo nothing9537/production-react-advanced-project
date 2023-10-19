@@ -12,7 +12,7 @@ interface ThemeSwitcherProps {
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
 
-  let content: ReactNode;
+  let content: ReactNode = null;
 
   switch (theme) {
     case Theme.BLUE:
