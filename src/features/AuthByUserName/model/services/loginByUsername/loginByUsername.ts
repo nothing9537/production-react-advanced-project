@@ -1,8 +1,8 @@
 import { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User, userActions } from 'entities/User';
-import { AUTH_TOKEN_KEY } from 'shared/consts/localStorage';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { User, userActions } from '@/entities/User';
+import { AUTH_TOKEN_KEY } from '@/shared/consts/localStorage';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 interface LoginByUsernameOptions {
   username: string;

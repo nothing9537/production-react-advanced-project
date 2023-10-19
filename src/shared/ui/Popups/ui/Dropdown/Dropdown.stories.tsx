@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AboutPageIcon, ArticlesPageIcon } from 'shared/assets/icons';
 import { action } from '@storybook/addon-actions';
+import { AboutPageIcon, ArticlesPageIcon } from '@/shared/assets/icons';
 import { Button } from '../../../Button';
 import { Dropdown } from './Dropdown';
 

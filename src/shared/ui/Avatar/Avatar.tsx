@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { CSSProperties, FC, HTMLAttributes } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
 export enum AvatarSize {

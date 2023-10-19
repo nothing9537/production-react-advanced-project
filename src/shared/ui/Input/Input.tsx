@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ChangeEvent, FC, forwardRef, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Text, TextTheme } from '../Text/Text';
 import cls from './Input.module.scss';
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { parseQueryParams } from 'shared/lib/queryParams/queryParams';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { parseQueryParams } from '@/shared/lib/queryParams/queryParams';
 import { articlesListActions } from '../../slices/articlesListSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 

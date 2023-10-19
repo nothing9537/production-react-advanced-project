@@ -1,13 +1,13 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { UseFormGetValues, UseFormReset } from 'react-hook-form';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
-import { getUserAuthData } from 'entities/User';
-import { Profile } from 'entities/Profile';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text/Text';
+import { getUserAuthData } from '@/entities/User';
+import { Profile } from '@/entities/Profile';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 

@@ -1,8 +1,8 @@
 import { Fragment, ReactElement, ReactNode, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Listbox } from '@headlessui/react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Position } from 'shared/types/ui';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Position } from '@/shared/types/ui';
 import { Button } from '../../../Button';
 import { HStack } from '../../../Stack';
 import { roundingModsMapper, positionMapper } from '../../style';

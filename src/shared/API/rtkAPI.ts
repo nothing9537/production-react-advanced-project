@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { AUTH_TOKEN_KEY } from 'shared/consts/localStorage';
+import { AUTH_TOKEN_KEY } from '@/shared/consts/localStorage';
 
 export const rtkAPI = createApi({
   reducerPath: 'nothinggApi',

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import { Button } from '../Button';
 import { VStack } from '../Stack';
 import { Text } from '../Text';
@@ -8,6 +9,13 @@ const meta: Meta<typeof Drawer> = {
   title: 'shared/Drawer',
   component: Drawer,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <AnimationProvider>
+        <Story />
+      </AnimationProvider>
+    ),
+  ],
 };
 
 export default meta;

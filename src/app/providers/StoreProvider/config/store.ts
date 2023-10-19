@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { CombinedState, configureStore, Reducer } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { scrollRedistributionReducer } from 'features/ScrollRedistribution';
-import { $API } from 'shared/API';
-import { rtkAPI } from 'shared/API/rtkAPI';
+import { scrollRedistributionReducer } from '@/features/ScrollRedistribution';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { $API } from '@/shared/API';
+import { rtkAPI } from '@/shared/API/rtkAPI';
 import { createReducerManager } from './reducerManager';
 import { CreateReduxStoreOptions, MappedReducer, StateSchema, ThunkExtraArg } from './StateSchema';
 

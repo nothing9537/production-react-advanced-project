@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, UserRole } from 'entities/User';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { User, UserRole } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface RequireRoleProps {
   roles: UserRole[];

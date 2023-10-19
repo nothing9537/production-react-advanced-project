@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { PageWrapper } from 'widgets/PageWrapper';
 import { useTranslation } from 'react-i18next';
-import { VStack } from 'shared/ui/Stack';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text';
-import { Button } from 'shared/ui/Button';
-import { AppLink } from 'shared/ui/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { PageWrapper } from '@/widgets/PageWrapper';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/Button';
+import { AppLink } from '@/shared/ui/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface ForbiddenPageProps {
   className?: string;

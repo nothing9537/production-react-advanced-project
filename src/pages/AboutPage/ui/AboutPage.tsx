@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'widgets/PageWrapper';
+import { PageWrapper } from '@/widgets/PageWrapper';
 
 interface AboutPageProps {
 

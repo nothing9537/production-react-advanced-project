@@ -1,10 +1,10 @@
 import { FC, Suspense, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Navbar } from 'widgets/Navbar';
-import { Aside } from 'widgets/Aside';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { getUserMounted, userActions } from 'entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Navbar } from '@/widgets/Navbar';
+import { Aside } from '@/widgets/Aside';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { getUserMounted, userActions } from '@/entities/User';
 import { AppRouter } from './providers/RouterProvider';
 
 const App: FC = () => {

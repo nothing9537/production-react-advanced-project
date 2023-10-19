@@ -1,12 +1,12 @@
 import { Decorator } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
-import { articlesListReducer } from 'features/ArticlesList';
-import { loginReducer } from 'features/AuthByUserName';
-import { profileReducer } from 'features/EditableProfileCard';
-import { addCommentReducer } from 'features/AddNewComment';
-import { articleDetailsReducer } from 'entities/Article';
-import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments';
+import { articlesListReducer } from '@/features/ArticlesList';
+import { loginReducer } from '@/features/AuthByUserName';
+import { profileReducer } from '@/features/EditableProfileCard';
+import { addCommentReducer } from '@/features/AddNewComment';
+import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments';
+import { articleDetailsReducer } from '@/entities/Article';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,

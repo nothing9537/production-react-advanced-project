@@ -1,5 +1,5 @@
 import { Dispatch, FC, ReactNode, SetStateAction, useCallback, useEffect, useState } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';

@@ -1,5 +1,5 @@
 import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
 export type FlexDirection = 'row' | 'column';

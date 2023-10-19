@@ -1,6 +1,6 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { UserRole } from 'entities/User';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { UserRole } from '@/entities/User';
 
 export interface Profile {
   id?: string;

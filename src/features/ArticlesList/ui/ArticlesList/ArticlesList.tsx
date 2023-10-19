@@ -3,10 +3,10 @@
 import { FC, HTMLAttributeAnchorTarget, memo, useCallback, useEffect, useState } from 'react';
 import { Virtuoso, VirtuosoGrid, GridScrollSeekPlaceholderProps } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
-import { ARTICLES_SCROLL_ITEM_INDEX } from 'shared/consts/localStorage';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text';
-import { Article, ArticlesView } from 'entities/Article';
+import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import { Article, ArticlesView } from '@/entities/Article';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { VirtuosoHeader } from '../ArticlesListItem/VirtuosoHeader';

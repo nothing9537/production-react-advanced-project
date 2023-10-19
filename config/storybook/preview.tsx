@@ -1,8 +1,8 @@
 import type { Preview } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { WithRouterDecorator, WithStyleDecorator, WithThemeDecorator, WithTranslationDecorator } from 'shared/config/storybook';
-import i18n from 'shared/config/i18n/i18n';
-import { WithSuspenseDecorator } from 'shared/config/storybook/WithSuspenseDecorator/WithSuspenseDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { WithRouterDecorator, WithStyleDecorator, WithThemeDecorator, WithTranslationDecorator } from '@/shared/config/storybook';
+import { WithSuspenseDecorator } from '@/shared/config/storybook/WithSuspenseDecorator/WithSuspenseDecorator';
+import i18n from '@/shared/config/i18n/i18n';
 
 i18n.on('languageChanged', (locale) => {
   const direction = i18n.dir(locale);

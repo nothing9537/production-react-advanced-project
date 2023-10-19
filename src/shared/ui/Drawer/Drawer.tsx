@@ -1,7 +1,7 @@
 import { cloneElement, FC, memo, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useAnimationModules } from 'shared/lib/components/AnimationProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useAnimationModules } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import cls from './Drawer.module.scss';

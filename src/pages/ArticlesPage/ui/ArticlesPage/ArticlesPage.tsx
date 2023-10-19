@@ -1,8 +1,4 @@
 import { FC, memo, useCallback } from 'react';
-import { DynamicModuleWrapper, ReducersList } from 'shared/lib/components/DynamicModuleWrapper';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import {
   articlesListReducer,
   fetchNewArticles,
@@ -12,9 +8,13 @@ import {
   initArticlesList,
   ArticlesList,
   ArticlesListFilters,
-} from 'features/ArticlesList';
-import { VStack } from 'shared/ui/Stack';
-import { PageWrapper } from 'widgets/PageWrapper';
+} from '@/features/ArticlesList';
+import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { VStack } from '@/shared/ui/Stack';
+import { PageWrapper } from '@/widgets/PageWrapper';
 
 interface ArticlesPageProps {
   className?: string;

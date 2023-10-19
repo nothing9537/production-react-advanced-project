@@ -1,10 +1,10 @@
 import { FC, memo, useMemo, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { VStack } from 'shared/ui/Stack';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
+import { VStack } from '@/shared/ui/Stack';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { AsideItem } from '../AsideItem/AsideItem';
 import { getAsideItems } from '../../model/selectors/getAsideItems/getAsideItems';
 import cls from './Aside.module.scss';

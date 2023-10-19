@@ -1,13 +1,13 @@
 import { FC, memo } from 'react';
-import { NotificationList } from 'entities/Notification';
-import { NotificationIcon } from 'shared/assets/icons';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Icon } from 'shared/ui/Icon';
-import { Popover } from 'shared/ui/Popups';
-import { Drawer } from 'shared/ui/Drawer';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { NotificationList } from '@/entities/Notification';
+import { NotificationIcon } from '@/shared/assets/icons';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
+import { Icon } from '@/shared/ui/Icon';
+import { Popover } from '@/shared/ui/Popups';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import cls from './OpenNotificationsList.module.scss';
 
 interface OpenNotificationsListProps {
@@ -30,7 +30,7 @@ export const OpenNotificationsList: FC<OpenNotificationsListProps> = memo(({ cla
   );
 
   return (
-    <div>
+    <>
       <MobileView>
         <AnimationProvider>
           <Drawer component={drawerComponent}>
@@ -43,6 +43,6 @@ export const OpenNotificationsList: FC<OpenNotificationsListProps> = memo(({ cla
           <NotificationList className={classNames(cls.OpenNotificationsList, {}, [className])} />
         </Popover>
       </BrowserView>
-    </div>
+    </>
   );
 });

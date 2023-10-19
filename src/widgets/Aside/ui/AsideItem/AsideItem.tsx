@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getUserAuthData } from 'entities/User';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { AsideItemType } from '../../model/types/asideItems';
 import cls from './AsideItem.module.scss';
 

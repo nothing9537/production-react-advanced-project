@@ -1,14 +1,14 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { TranslationNamespacesKeys } from 'shared/types';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { TranslationNamespacesKeys } from '@/shared/types';
+import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 
 interface AvatarDropdownProps {
   className?: string;

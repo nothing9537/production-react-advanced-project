@@ -1,4 +1,4 @@
-import { Position } from 'shared/types/ui';
+import { Position } from '@/shared/types/ui';
 import cls from './Popup.module.scss';
 
 export const roundingModsMapper = (position: Position) => {

@@ -1,14 +1,14 @@
 import { FC, memo, useCallback, useState } from 'react';
-import { useAppTranslation } from 'shared/lib/hooks/useAppTranslation';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { HStack } from 'shared/ui/Stack';
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
-import { OpenNotificationsList } from 'features/OpenNotificationsList';
-import { AvatarDropdown } from 'features/AvatarDropdown';
+import { LoginModal } from '@/features/AuthByUserName';
+import { OpenNotificationsList } from '@/features/OpenNotificationsList';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

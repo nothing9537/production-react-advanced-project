@@ -2,7 +2,7 @@
 import { FC, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {

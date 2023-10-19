@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from 'entities/User';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { MainPageIcon, AboutPageIcon, ProfilePageIcon, ArticlesPageIcon } from 'shared/assets/icons';
+import { getUserAuthData } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { MainPageIcon, AboutPageIcon, ProfilePageIcon, ArticlesPageIcon } from '@/shared/assets/icons';
 import { AsideItemType } from '../../types/asideItems';
 
 export const getAsideItems = createSelector(

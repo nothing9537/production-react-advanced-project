@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticleBlockType } from 'entities/Article';
-import { WithStoreDecorator } from 'shared/config/storybook';
+import { Article, ArticleBlockType } from '@/entities/Article';
+import { WithStoreDecorator } from '@/shared/config/storybook';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

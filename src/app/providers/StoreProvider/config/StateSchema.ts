@@ -2,16 +2,16 @@ import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
 import { configureStore, Reducer } from '@reduxjs/toolkit';
 import { AnyAction, CombinedState, ReducersMapObject } from 'redux';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUserName';
-import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments';
-import { ArticlesListSchema } from 'features/ArticlesList';
-import { AddCommentFormSchema } from 'features/AddNewComment';
-import { ScrollRedistributionSchema } from 'features/ScrollRedistribution';
-import { rtkAPI } from 'shared/API/rtkAPI';
+import { LoginSchema } from '@/features/AuthByUserName';
+import { ArticleDetailsCommentsSchema } from '@/features/ArticleDetailsComments';
+import { ArticlesListSchema } from '@/features/ArticlesList';
+import { AddCommentFormSchema } from '@/features/AddNewComment';
+import { ScrollRedistributionSchema } from '@/features/ScrollRedistribution';
+import { UserSchema } from '@/entities/User';
+import { ProfileSchema } from '@/entities/Profile';
+import { CounterSchema } from '@/entities/Counter';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { rtkAPI } from '@/shared/API/rtkAPI';
 import { createReduxStore } from './store';
 
 export interface StateSchema {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Notification } from 'entities/Notification';
-import { WithStoreDecorator } from 'shared/config/storybook';
+import { Notification } from '@/entities/Notification';
+import { WithStoreDecorator } from '@/shared/config/storybook';
 import { OpenNotificationsList } from './OpenNotificationsList';
 
 const notification: Notification = {

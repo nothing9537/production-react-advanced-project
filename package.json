@@ -19,7 +19,8 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "export-svg-icons": "node ./scripts/export-svg-icons.js",
     "export-ui-components": "node ./scripts/export-ui-components.js",
-    "generate:layer": "node ./scripts/create-slice/index.js"
+    "generate:layer": "node ./scripts/create-slice/index.js",
+    "update-imports": "ts-node ./scripts/updateImports.ts"
   },
   "repository": {
     "type": "git",
@@ -94,6 +95,7 @@
     "style-loader": "^3.3.2",
     "stylelint-config-standard-scss": "^9.0.0",
     "ts-loader": "^9.2.6",
+    "ts-morph": "^20.0.0",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
     "typescript-plugin-css-modules": "^5.0.1",

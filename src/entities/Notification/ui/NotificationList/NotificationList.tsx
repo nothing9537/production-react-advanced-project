@@ -1,9 +1,9 @@
-import { getUserAuthData } from 'entities/User';
 import { FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { VStack } from 'shared/ui/Stack';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
 import { useGetNotificationsQuery } from '../../api';
 import { Notification } from '../../model/types';
 import { NotificationCard } from '../NotificationCard/NotificationCard';

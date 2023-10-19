@@ -1,6 +1,6 @@
-import { ArticlesView } from 'entities/Article';
 import { FC, memo } from 'react';
 import { GridScrollSeekPlaceholderProps } from 'react-virtuoso';
+import { ArticlesView } from '@/entities/Article';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import cls from './ArticlesListItem.module.scss';
 

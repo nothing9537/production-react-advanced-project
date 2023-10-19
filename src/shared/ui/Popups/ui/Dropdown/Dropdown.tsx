@@ -1,7 +1,7 @@
 import { FC, Fragment, ReactNode, useCallback } from 'react';
 import { Menu } from '@headlessui/react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Position } from 'shared/types/ui';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Position } from '@/shared/types/ui';
 import { Icon } from '../../../Icon';
 import { AppLink } from '../../../AppLink';
 import cls from './Dropdown.module.scss';

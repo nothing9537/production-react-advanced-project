@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticlesView } from 'entities/Article';
+import { Article, ArticlesView } from '@/entities/Article';
 import { ArticlesList } from './ArticlesList';
 
 const article = {
