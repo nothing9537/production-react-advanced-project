@@ -8,6 +8,7 @@ import { PageWrapper } from '@/widgets/PageWrapper';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -23,6 +24,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsPageHeader id={id} />
         <ArticleDetails id={id!} />
+        <ArticleRating id={id!} />
         <ArticleDetailsRecommendations />
         <ArticleDetailsComments id={id} />
       </PageWrapper>

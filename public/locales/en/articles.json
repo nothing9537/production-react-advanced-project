@@ -8,5 +8,8 @@
   "return-back": "Return back",
   "articles-not-found": "Articles not found",
   "recommendations": "Recommend to read",
-  "can-edit": "Edit"
+  "can-edit": "Edit",
+  "rate-article": "Article rate",
+  "feedback": "Your feedback",
+  "leave-your-feedback": "Please, rate an article to improve service quality!"
 }

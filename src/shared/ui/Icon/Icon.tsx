@@ -11,7 +11,7 @@ interface IconProps extends HTMLAttributes<HTMLDivElement> {
   isFill?: boolean;
 }
 
-export const Icon: FC<IconProps> = memo(({ className, SVG, clickable = false, theme = 'primary', isFill = false, ...props }) => {
+export const Icon: FC<IconProps> = memo(({ className, SVG, clickable = false, theme = 'primary', isFill = true, ...props }) => {
   const mods: Mods = {
     [cls[theme]]: isFill,
     [cls.clickable]: clickable,

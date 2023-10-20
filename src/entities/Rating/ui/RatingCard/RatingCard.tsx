@@ -15,45 +15,46 @@ import cls from './RatingCard.module.scss';
 interface RatingCardProps {
   className?: string;
   title: string;
+  rate?: number;
   feedback?: {
     title: string;
     placeholder: string;
   }
-  onAcceptFeedback?: (actionRating: number, feedback?: string) => void;
-  onCancelFeedback?: (actionRating: number) => void;
+  onAccept?: (actionRating: number, feedback?: string) => void;
+  onCancel?: (actionRating: number) => void;
 }
 
 export const RatingCard: FC<RatingCardProps> = memo((props) => {
   const { t } = useAppTranslation('translation');
-  const { className, title, onCancelFeedback, onAcceptFeedback, feedback } = props;
+  const { className, title, onCancel, onAccept, feedback, rate = 0 } = props;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
-  const [starsCount, setStarsCount] = useState<number>(0);
+  const [starsCount, setStarsCount] = useState<number>(rate);
 
   const onSelectStars = useCallback((rating: number) => {
     setStarsCount(rating);
     if (feedback) {
       setIsModalOpen(true);
     } else {
-      onAcceptFeedback?.(starsCount);
+      onAccept?.(starsCount);
     }
-  }, [feedback, onAcceptFeedback, starsCount]);
+  }, [feedback, onAccept, starsCount]);
 
   const onClose = useCallback(() => {
-    onCancelFeedback?.(starsCount);
+    onCancel?.(starsCount);
     setIsModalOpen(false);
-  }, [onCancelFeedback, starsCount]);
+  }, [onCancel, starsCount]);
 
   const onSend = useCallback(() => {
-    onAcceptFeedback?.(starsCount, feedbackMessage);
+    onAccept?.(starsCount, feedbackMessage);
     setIsModalOpen(false);
-  }, [feedbackMessage, onAcceptFeedback, starsCount]);
+  }, [feedbackMessage, onAccept, starsCount]);
 
   const ratingContent = (
     <>
-      <Text title={title} />
-      <StarRating onSelect={onSelectStars} />
+      <Text title={starsCount ? t('thanks-for-rate') : title} />
+      <StarRating selectedStars={starsCount} onSelect={onSelectStars} />
     </>
   );
 
@@ -73,7 +74,7 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
         <>
           <BrowserView>
             <Modal isOpen={isModalOpen} onClose={setIsModalOpen} onCloseCallback={onClose}>
-              <VStack gap={16} width={300}>
+              <VStack gap={16} width={550}>
                 {feedbackContent}
                 <HStack width="100%" gap={16} justify="flex-end">
                   <Button onClick={onSend}>

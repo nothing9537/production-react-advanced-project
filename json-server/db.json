@@ -1402,5 +1402,104 @@
       "address": "Lorem ipsum",
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Отличная статья статья",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 3,
+      "feedback": "Средняя статья",
+      "userId": "3",
+      "articleId": "1"
+    },
+    {
+      "id": "4",
+      "rate": 2,
+      "feedback": "Плохая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "5",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "6",
+      "rate": 5,
+      "feedback": "Отличная статья статья",
+      "userId": "2",
+      "articleId": "2"
+    },
+    {
+      "id": "7",
+      "rate": 3,
+      "feedback": "Средняя статья",
+      "userId": "3",
+      "articleId": "2"
+    },
+    {
+      "id": "8",
+      "rate": 2,
+      "feedback": "Плохая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "9",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "3"
+    },
+    {
+      "id": "10",
+      "rate": 5,
+      "feedback": "Отличная статья статья",
+      "userId": "2",
+      "articleId": "3"
+    },
+    {
+      "id": "11",
+      "rate": 3,
+      "feedback": "Средняя статья",
+      "userId": "3",
+      "articleId": "3"
+    },
+    {
+      "id": "12",
+      "rate": 2,
+      "feedback": "Плохая статья",
+      "userId": "1",
+      "articleId": "3"
+    },
+    {
+      "feedback": "Ether to the moon!",
+      "rate": 5,
+      "userId": "2",
+      "articleId": "9",
+      "id": "eJzbpQM"
+    },
+    {
+      "rate": 3,
+      "userId": "2",
+      "articleId": "8",
+      "id": "fDlTRRh"
+    }
   ]
 }
