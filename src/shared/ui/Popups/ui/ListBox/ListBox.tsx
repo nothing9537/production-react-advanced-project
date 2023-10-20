@@ -47,7 +47,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<
         className={classNames(popupCls.Popup, {}, [className])}
         disabled={readonly}
       >
-        <Listbox.Button className={popupCls.trigger}>
+        <Listbox.Button as="div" className={popupCls.trigger}>
           <Button disabled={readonly}>
             {selectedValue?.content}
           </Button>

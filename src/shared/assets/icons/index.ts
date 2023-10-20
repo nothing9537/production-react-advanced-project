@@ -6,6 +6,7 @@ export { ListIcon } from './List';
 export { MainPageIcon } from './MainPage';
 export { NotificationIcon } from './Notification';
 export { ProfilePageIcon } from './ProfilePage';
+export { StarIcon } from './Star';
 export { ThemeBlueIcon } from './ThemeBlue';
 export { ThemeDarkIcon } from './ThemeDark';
 export { ThemeLightIcon } from './ThemeLight';

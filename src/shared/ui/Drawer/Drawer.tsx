@@ -1,4 +1,4 @@
-import { cloneElement, FC, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
+import { cloneElement, FC, FormEvent, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationModules } from '@/shared/lib/components/AnimationProvider';
@@ -10,13 +10,15 @@ interface DrawerProps {
   className?: string;
   children: ReactNode;
   onClose?: () => void;
+  closeCallback?: () => void;
   component: ReactElement;
+  root?: HTMLTag;
   lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
 
-export const DrawerContent: FC<DrawerProps> = ({ className, children, onClose, component }) => {
+export const DrawerContent: FC<DrawerProps> = ({ className, children, onClose, component, root = 'div' }) => {
   const { Spring, Gesture } = useAnimationModules();
 
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -72,20 +74,29 @@ export const DrawerContent: FC<DrawerProps> = ({ className, children, onClose, c
 
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
+  const RootWrapper = root;
+
+  const onSubmit = useCallback((e: FormEvent) => {
+    if (root === 'form') {
+      e.preventDefault();
+      onCloseDrawer();
+    }
+  }, [root, onCloseDrawer]);
+
   return (
     <>
       {clonedTrigger}
       <Portal>
-        <div className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
+        <RootWrapper onSubmit={onSubmit} className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
           <Overlay onClick={onCloseDrawer} />
           <Spring.a.div
-            style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+            style={{ display, bottom: `calc(-100vh + ${height - 200}px)`, y }}
             className={classNames(cls.sheet, {}, ['scroll'])}
             {...bind()}
           >
             {children}
           </Spring.a.div>
-        </div>
+        </RootWrapper>
       </Portal>
     </>
   );

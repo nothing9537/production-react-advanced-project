@@ -14,7 +14,7 @@ interface NotificationProps {
 }
 
 const getSkeletons = () => {
-  return Array(3).fill(0).map(() => <Skeleton width="100%" height={100} borderRadius={12} />);
+  return Array(3).fill(0).map((_, index) => <Skeleton width="100%" height={100} borderRadius={12} key={index} />);
 };
 
 export const NotificationList: FC<NotificationProps> = memo(({ className }) => {

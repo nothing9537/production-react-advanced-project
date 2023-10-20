@@ -7,6 +7,7 @@ import { AppLink } from '../../../AppLink';
 import cls from './Dropdown.module.scss';
 import popupCls from '../../style/Popup.module.scss';
 import { positionMapper, roundingModsMapper } from '../../style';
+import { Button } from '@/shared/ui/Button';
 
 type DropdownAction = (index?: number) => void;
 
@@ -35,7 +36,7 @@ export const Dropdown: FC<DropdownProps> = ({ className, items, component, onCha
 
   return (
     <Menu as="div" className={classNames(popupCls.Popup, {}, [className])}>
-      <Menu.Button as="button" className={popupCls.trigger}>
+      <Menu.Button as={Button} className={popupCls.trigger}>
         {component}
       </Menu.Button>
       <Menu.Items className={classNames(cls.options, roundingModsMapper(position), [positionMapper[position]])}>

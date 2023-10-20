@@ -9,10 +9,11 @@ interface ModalProps {
   children: ReactNode;
   isOpen?: boolean;
   onClose?: Dispatch<SetStateAction<boolean>>;
+  onCloseCallback?: () => void;
   lazy?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, lazy }) => {
+export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, onCloseCallback, lazy }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   const mods: Mods = {
@@ -20,10 +21,9 @@ export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, la
   };
 
   const onCloseHandler = useCallback(() => {
-    if (onClose) {
-      onClose(false);
-    }
-  }, [onClose]);
+    onClose?.(false);
+    onCloseCallback?.();
+  }, [onClose, onCloseCallback]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {

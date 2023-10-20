@@ -17,5 +17,8 @@
   "sort-field-views": "views",
   "select-value": "Choose a value",
   "access-denied": "Access denied",
-  "return-to-main": "Return to main page"
+  "return-to-main": "Return to main page",
+  "send": "Send",
+  "close": "Close",
+  "let-your-feedback": "Let your feedback!"
 }

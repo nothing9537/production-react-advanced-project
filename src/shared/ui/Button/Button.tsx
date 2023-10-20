@@ -1,6 +1,6 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/button-has-type */
-/* eslint-disable react/jsx-props-no-spreading */
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -24,22 +24,33 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   size?: ButtonSize;
   square?: boolean;
+  fullWidth?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo(({
-  children, className, theme = ButtonTheme.OUTLINE, square, size = ButtonSize.M, type = 'button', ...props
-}) => {
+export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const { children,
+    fullWidth,
+    className,
+    theme = ButtonTheme.OUTLINE,
+    square,
+    size = ButtonSize.M,
+    type = 'button',
+    ...restProps
+  } = props;
+
   const mods: Mods = {
     [cls.square]: square,
+    [cls.fullWidth]: fullWidth,
   };
 
   return (
     <button
-      {...props}
+      {...restProps}
       type={type}
+      ref={ref}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
     >
       {children}
     </button>
   );
-});
+}));

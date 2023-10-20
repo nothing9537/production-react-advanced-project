@@ -23,7 +23,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
   const isAdmin = useAppSelector(isUserAdmin);
   const isManager = useAppSelector(isUserManager);
 
-  const isAdminPanelAvailable = isAdmin || isManager;
+  const isAdminPanelAvailable = isAdmin && isManager;
 
   const onLogoutHandler = useCallback(() => {
     dispatch(userActions.logout());
