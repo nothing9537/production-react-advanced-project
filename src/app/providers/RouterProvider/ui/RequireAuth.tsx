@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { User } from '@/entities/User';
+import { RoutePath } from '@/shared/consts/router';
 
 interface RequireAuthProps {
   children: ReactNode;
