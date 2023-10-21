@@ -23,7 +23,8 @@
     "export-svg-icons": "node ./scripts/export-svg-icons.js",
     "export-ui-components": "node ./scripts/export-ui-components.js",
     "generate:layer": "node ./scripts/create-slice/index.js",
-    "update-imports": "ts-node ./scripts/updateImports.ts"
+    "update-imports": "ts-node ./scripts/updateImports.ts",
+    "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest"
   },
   "repository": {
     "type": "git",
@@ -77,7 +78,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-i18next": "^6.0.1",
-    "eslint-plugin-nothingg9537-plugin": "^0.0.4",
+    "eslint-plugin-nothingg9537-plugin": "^0.0.5",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",

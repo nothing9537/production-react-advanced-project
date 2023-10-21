@@ -4,10 +4,10 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
 import { Icon } from '../../../Icon';
 import { AppLink } from '../../../AppLink';
+import { Button } from '../../../Button';
 import cls from './Dropdown.module.scss';
 import popupCls from '../../style/Popup.module.scss';
 import { positionMapper, roundingModsMapper } from '../../style';
-import { Button } from '@/shared/ui/Button';
 
 type DropdownAction = (index?: number) => void;
 

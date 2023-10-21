@@ -66,7 +66,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
-    'nothingg9537-plugin/path-checker': 'error',
+    'nothingg9537-plugin/path-checker': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
