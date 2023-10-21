@@ -67,7 +67,12 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
     'nothingg9537-plugin/path-checker': ['error', { alias: '@' }],
-    'nothingg9537-plugin/public-api-imports': ['error', { alias: '@' }],
+    'nothingg9537-plugin/public-api-imports': ['error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.spec.*', '**/WithStoreDecorator.tsx'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

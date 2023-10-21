@@ -1,10 +1,12 @@
 import { Decorator } from '@storybook/react';
-import { articlesListReducer } from '@/features/ArticlesList';
-import { loginReducer } from '@/features/AuthByUserName';
-import { profileReducer } from '@/features/EditableProfileCard';
-import { addCommentReducer } from '@/features/AddNewComment';
-import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments';
-import { articleDetailsReducer } from '@/entities/Article';
+
+import { articlesListReducer } from '@/features/ArticlesList/testing';
+import { loginReducer } from '@/features/AuthByUserName/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
+import { addCommentReducer } from '@/features/AddNewComment/testing';
+import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments/testing';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+
 import { ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
