@@ -245,7 +245,7 @@ const entities: Record<string, Article> = {
 const ids = ['9', '8', '12', '11'];
 
 const meta: Meta<typeof ArticlesPage> = {
-  title: 'Pages/ArticlesPage',
+  title: 'Pages/Article/ArticlesPage',
   component: ArticlesPage,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({

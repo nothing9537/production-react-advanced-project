@@ -51,6 +51,7 @@
   "error-fetching-article": "error-fetching-article",
   "error-message": "error-message",
   "error-message-update-page": "error-message-update-page",
+  "feedback": "feedback",
   "field-creation-time": "field-creation-time",
   "filed-creation-time": "filed-creation-time",
   "firstName": "firstName",
@@ -85,6 +86,7 @@
   },
   "language": "language",
   "lastName": "lastName",
+  "leave-your-feedback": "leave-your-feedback",
   "let": "let",
   "let-your-feedback": "let-your-feedback",
   "login": "login",
@@ -106,6 +108,7 @@
   "profile": "profile",
   "profile-fetch-error": "profile-fetch-error",
   "profile-page": "profile-page",
+  "rate-article": "rate-article",
   "read-more": "read-more",
   "recommendations": "",
   "reload-message": "reload-message",
@@ -127,5 +130,6 @@
   "sort-filed-title": "sort-filed-title",
   "state": "state",
   "text": "text",
+  "thanks-for-rate": "thanks-for-rate",
   "title": "title"
 }

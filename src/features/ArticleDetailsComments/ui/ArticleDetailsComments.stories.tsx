@@ -82,7 +82,7 @@ const entities: { [key: string]: Comment } = {
 const ids = ['6', '5', '1', '2', '3', '4'];
 
 const meta: Meta<typeof ArticleDetailsComments> = {
-  title: 'features/ArticleDetails/ArticleDetailsComments',
+  title: 'features/article/ArticleDetails/ArticleDetailsComments',
   component: ArticleDetailsComments,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({

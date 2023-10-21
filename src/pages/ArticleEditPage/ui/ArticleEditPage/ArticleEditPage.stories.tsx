@@ -3,7 +3,7 @@ import { WithStoreDecorator } from '@/shared/config/storybook';
 import ArticleEditPage from './ArticleEditPage';
 
 const meta: Meta<typeof ArticleEditPage> = {
-  title: 'pages/ArticleEditPage',
+  title: 'pages/article/ArticleEditPage',
   component: ArticleEditPage,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({})],

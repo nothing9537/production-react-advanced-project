@@ -3,7 +3,7 @@ import { WithStoreDecorator } from '@/shared/config/storybook';
 import { ArticlesListFilters } from './ArticlesListFilters';
 
 const meta: Meta<typeof ArticlesListFilters> = {
-  title: 'features/Articles/ArticlesListFilters',
+  title: 'features/Article/ArticlesListFilters',
   component: ArticlesListFilters,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({

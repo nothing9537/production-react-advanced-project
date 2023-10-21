@@ -3,7 +3,7 @@ import { WithStoreDecorator } from '@/shared/config/storybook';
 import ArticleCreatePage from './ArticleCreatePage';
 
 const meta: Meta<typeof ArticleCreatePage> = {
-  title: 'pages/ArticleCreatePage',
+  title: 'pages/article/ArticleCreatePage',
   component: ArticleCreatePage,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({})],

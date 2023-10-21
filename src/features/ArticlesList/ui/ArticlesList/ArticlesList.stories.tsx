@@ -69,7 +69,7 @@ const article = {
 } as Article;
 
 const meta: Meta<typeof ArticlesList> = {
-  title: 'features/Articles/ArticlesList',
+  title: 'features/Article/ArticlesList',
   component: ArticlesList,
   tags: ['autodocs'],
 };

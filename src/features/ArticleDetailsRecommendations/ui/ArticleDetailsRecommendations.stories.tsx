@@ -67,7 +67,7 @@ const article: Article = {
 };
 
 const meta: Meta<typeof ArticleDetailsRecommendations> = {
-  title: 'features/ArticleDetails/ArticleDetailsRecommendations',
+  title: 'features/Article/ArticleDetails/ArticleDetailsRecommendations',
   component: ArticleDetailsRecommendations,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({})],
