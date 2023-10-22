@@ -73,6 +73,12 @@ module.exports = {
         testFilesPatterns: ['**/*.test.*', '**/*.spec.*', '**/WithStoreDecorator.tsx'],
       },
     ],
+    'nothingg9537-plugin/layer-imports': ['error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

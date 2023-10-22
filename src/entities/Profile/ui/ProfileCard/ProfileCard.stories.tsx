@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import Avatar from '@/shared/ui/Avatar/Main_avatar.png';
 import { WithThemeDecorator, WithFormDecorator } from '@/shared/config/storybook';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { Theme } from '@/shared/consts/theme';
 import { Profile } from '../../model/types/profile';
 import { ProfileCard } from './ProfileCard';
 

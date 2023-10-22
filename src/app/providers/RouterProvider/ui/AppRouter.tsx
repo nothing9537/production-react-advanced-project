@@ -1,11 +1,11 @@
 import { FC, memo, ReactNode, Suspense, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { getUserAuthData } from '@/entities/User';
-import { routeConfig } from '@/app/providers/RouterProvider/config/routeConfig';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { PageLoader } from '@/widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
+import { routeConfig } from '../config/routeConfig';
 
 export const AppRouter: FC = memo(() => {
   const authData = useAppSelector(getUserAuthData);

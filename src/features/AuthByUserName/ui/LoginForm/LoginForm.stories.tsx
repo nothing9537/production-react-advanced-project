@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { WithStoreDecorator, WithThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/consts/theme';
 import { LoginFormLazy } from './LoginForm.lazy';
 
 const meta: Meta<typeof LoginFormLazy> = {
