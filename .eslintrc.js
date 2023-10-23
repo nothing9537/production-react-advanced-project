@@ -26,6 +26,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'nothingg9537-plugin',
+    'unused-imports'
   ],
   rules: {
     'no-tabs': 'off',
@@ -35,6 +36,7 @@ module.exports = {
     ],
     'no-undef': 'off',
     'no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-empty-interface': 'off',
     'import/no-unresolved': 'off',
