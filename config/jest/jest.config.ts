@@ -41,7 +41,8 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-dom.setup.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestMockSvg.tsx')
+    '\\.svg': path.resolve(__dirname, 'jestMockSvg.tsx'),
+    '^@/(.*)$': '<rootDir>/src/$1'
   },
   reporters: [
     'default',

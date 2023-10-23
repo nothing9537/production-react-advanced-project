@@ -23,6 +23,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    layout: 'fullscreen',
   },
   decorators: [
     WithStyleDecorator,
