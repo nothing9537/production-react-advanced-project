@@ -5,7 +5,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteMain } from '@/shared/consts/router';
 
 interface ForbiddenPageProps {
   className?: string;
@@ -22,7 +22,7 @@ const ForbiddenPage: FC<ForbiddenPageProps> = () => {
           theme={TextTheme.ERROR}
           size={TextSize.L}
         />
-        <AppLink to={RoutePath.main}>
+        <AppLink to={getRouteMain()}>
           <Button>
             {t('return-to-main')}
           </Button>

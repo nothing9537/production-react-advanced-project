@@ -1,6 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteAdminPanel, getRouteArticleCreate } from '@/shared/consts/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { TranslationNamespacesKeys } from '@/shared/types';
@@ -42,10 +42,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
       items={[
         ...(isAdminPanelAvailable ? [{
           label: t('admin-panel'),
-          href: RoutePath.admin_panel,
+          href: getRouteAdminPanel(),
         }] : []),
         { label: t('logout'), action: onLogoutHandler },
-        { label: t('create-article'), href: RoutePath.article_create },
+        { label: t('create-article'), href: getRouteArticleCreate() },
       ]}
     />
   );

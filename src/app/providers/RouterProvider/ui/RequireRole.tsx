@@ -2,7 +2,7 @@
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User, UserRole } from '@/entities/User';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteForbidden } from '@/shared/consts/router';
 
 interface RequireRoleProps {
   roles: UserRole[];
@@ -23,7 +23,7 @@ export const RequireRole = ({ roles, authData, children }: RequireRoleProps) => 
     });
 
     if (!canVisit) {
-      navigate(RoutePath.forbidden);
+      navigate(getRouteForbidden());
     }
   }, [authData, navigate, roles]);
 

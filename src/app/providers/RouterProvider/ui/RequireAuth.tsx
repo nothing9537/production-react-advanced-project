@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from '@/entities/User';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteMain } from '@/shared/consts/router';
 
 interface RequireAuthProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export const RequireAuth = ({ children, authData }: RequireAuthProps) => {
 
   useEffect(() => {
     if (!authData) {
-      navigate(RoutePath.main);
+      navigate(getRouteMain());
     }
   }, [authData, navigate]);
 

@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteProfile } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
@@ -38,7 +38,7 @@ export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isL
   return (
     <section className={classNames(cls.CommentCard, {}, [className])}>
       <div className={cls['with-timestamp']}>
-        <AppLink to={`${RoutePath.profile}${user.id}`}>
+        <AppLink to={getRouteProfile(user.id)}>
           <div className={cls['user-header']}>
             {user?.avatar
               ? <Avatar src={user?.avatar} alt="User Avatar" size={AvatarSize.NANO} borderRadius="50%" />

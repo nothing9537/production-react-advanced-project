@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ViewsIcon } from '@/shared/assets/icons';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
@@ -50,7 +50,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
       <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
         <Card>
           <div className={cls.header}>
-            <AppLink to={`${RoutePath.profile}${article.user.id}`}>
+            <AppLink to={getRouteProfile(article.user.id)}>
               <div className={cls.avatar}>
                 <Avatar size={AvatarSize.NANO} alt="User Avatar" src={article.user.avatar} />
                 <Text text={article.user.username} />
@@ -66,7 +66,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
           )}
           <div className={cls.footer}>
             <AppLink
-              to={`${RoutePath.articles}/${article.id}`}
+              to={getRouteArticleDetails(article.id)}
               target={target}
             >
               <Button onClick={onReadMoreClick}>
@@ -82,7 +82,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
 
   return (
     <AppLink
-      to={`${RoutePath.articles}/${article.id}`}
+      to={getRouteArticleDetails(article.id)}
       target={target}
       className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}
     >
