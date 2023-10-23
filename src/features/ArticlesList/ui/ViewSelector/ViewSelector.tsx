@@ -1,8 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import { ListIcon, TileIcon } from '@/shared/assets/icons';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticlesView } from '@/entities/Article';
 import cls from './ViewSelector.module.scss';
 

@@ -4,6 +4,7 @@ import { WithRouterDecorator } from './WithRouterDecorator/WithRouterDecorator';
 import { WithStoreDecorator } from './WithStoreDecorator/WithStoreDecorator';
 import { WithTranslationDecorator } from './WithTranslationDecorator/WithTranslationDecorator';
 import { WithFormDecorator } from './WithFormDecorator/WithFormDecorator';
+import { WithSuspenseDecorator } from './WithSuspenseDecorator/WithSuspenseDecorator';
 
 export {
   WithRouterDecorator,
@@ -12,4 +13,5 @@ export {
   WithStoreDecorator,
   WithTranslationDecorator,
   WithFormDecorator,
+  WithSuspenseDecorator,
 };

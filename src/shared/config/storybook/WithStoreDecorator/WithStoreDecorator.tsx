@@ -4,7 +4,7 @@ import { articlesListReducer } from '@/features/ArticlesList/testing';
 import { loginReducer } from '@/features/AuthByUserName/testing';
 import { profileReducer } from '@/features/EditableProfileCard/testing';
 import { addCommentReducer } from '@/features/AddNewComment/testing';
-import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments/testing';
+import { articleDetailsCommentsReducer } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsComments';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 
 import { ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';

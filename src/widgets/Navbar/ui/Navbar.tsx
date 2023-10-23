@@ -5,7 +5,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';

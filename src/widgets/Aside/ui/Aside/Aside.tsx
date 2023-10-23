@@ -1,6 +1,6 @@
 import { FC, memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { VStack } from '@/shared/ui/Stack';

@@ -1,6 +1,6 @@
 import { FC, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ThemeDarkIcon, ThemeBlueIcon, ThemeLightIcon } from '@/shared/assets/icons';
 import { Theme } from '@/shared/consts/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
