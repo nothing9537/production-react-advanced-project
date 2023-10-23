@@ -25,7 +25,8 @@
     "generate:layer": "node ./scripts/create-slice/index.js",
     "update-imports": "ts-node ./scripts/refactoring/updateImports.ts",
     "create-public-shared-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUI.ts",
-    "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest"
+    "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest",
+    "postinstall": "rimraf ./node_modules/.cache"
   },
   "repository": {
     "type": "git",
