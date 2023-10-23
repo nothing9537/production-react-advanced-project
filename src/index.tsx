@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { RenderComponents } from './shared/lib/components/DrawComponentsTree';
+import { DrawComponentsTree } from './shared/lib/components/DrawComponentsTree';
 import { StoreProvider } from './app/providers/StoreProvider';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { ThemeProvider } from './app/providers/ThemeProvider';
@@ -18,4 +18,4 @@ if (!container) {
 
 const root = createRoot(container);
 
-root.render(RenderComponents(componentsTree));
+root.render(DrawComponentsTree(componentsTree));

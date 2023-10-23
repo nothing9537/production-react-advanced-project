@@ -4,6 +4,7 @@ import { RuleSetRule } from 'webpack';
 export function buildCSSLoader(isDev: boolean): RuleSetRule {
   return {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {

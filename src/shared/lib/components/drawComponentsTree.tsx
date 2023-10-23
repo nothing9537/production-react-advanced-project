@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-useless-fragment */
-export function RenderComponents(components: any[], currentIndex = 0) {
+export const DrawComponentsTree = (components: any[], currentIndex = 0) => {
   if (currentIndex === components.length) {
     return <></>;
   }
@@ -9,7 +9,7 @@ export function RenderComponents(components: any[], currentIndex = 0) {
 
   return (
     <CurrentComponent>
-      {RenderComponents(components, currentIndex + 1)}
+      {DrawComponentsTree(components, currentIndex + 1)}
     </CurrentComponent>
   );
-}
+};

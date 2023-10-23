@@ -3,7 +3,6 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCSSLoader } from './loaders/buildCSSLoader';
 import { buildFileLoader } from './loaders/buildFileLoader';
 import { buildSVGLoader } from './loaders/buildSVGLoader';
-// import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): RuleSetRule[] {
@@ -14,7 +13,6 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
   const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
   const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
   const cssLoader = buildCSSLoader(isDev);
-  // const typescriptLoader = buildTypescriptLoader();
 
   return [
     fileLoader,
