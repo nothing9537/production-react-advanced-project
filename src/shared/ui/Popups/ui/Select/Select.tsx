@@ -1,8 +1,9 @@
 import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { typedMemo } from '@/shared/lib/hooks/useTypedMemo';
+import { Portal } from '../../../Portal/Portal';
 import cls from './Select.module.scss';
 import ArrowIcon from './arrow.svg?react';
-import { Portal } from '../../../Portal/Portal';
 
 export interface SelectOption<T> {
   label: string;
@@ -19,7 +20,7 @@ export interface SelectProps<T> {
   readonly?: boolean;
 }
 
-export const Select = <T extends string>(props: SelectProps<T>): ReactElement<SelectProps<T>> => {
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>): ReactElement<SelectProps<T>> => {
   const { className, placeholder, defaultValue, options, onChange, value, readonly } = props;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -103,4 +104,4 @@ export const Select = <T extends string>(props: SelectProps<T>): ReactElement<Se
       </div>
     </>
   );
-};
+});

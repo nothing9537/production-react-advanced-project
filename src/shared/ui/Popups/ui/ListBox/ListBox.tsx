@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Listbox } from '@headlessui/react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
+import { typedMemo } from '@/shared/lib/hooks/useTypedMemo';
 import { Button } from '../../../Button';
 import { HStack } from '../../../Stack';
 import { roundingModsMapper, positionMapper } from '../../style';
@@ -25,7 +26,7 @@ interface ListBoxProps<T extends string> {
   position?: Position;
 }
 
-export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<ListBoxProps<T>> => {
+export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): ReactElement<ListBoxProps<T>> => {
   const { t } = useTranslation('translation');
   const { className, options, value, onChange, readonly, placeholder, position = 'bottom left' } = props;
 
@@ -74,4 +75,4 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>): ReactElement<
       </Listbox>
     </HStack>
   );
-};
+});
