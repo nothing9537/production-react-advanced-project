@@ -26,7 +26,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'nothingg9537-plugin',
-    'unused-imports'
+    'unused-imports',
   ],
   rules: {
     'no-tabs': 'off',
