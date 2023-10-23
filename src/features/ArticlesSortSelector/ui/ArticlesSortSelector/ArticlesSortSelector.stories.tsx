@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { WithStoreDecorator } from '@/shared/config/storybook';
-import { ArticlesListFilters } from './ArticlesListFilters';
+import { ArticlesSortSelector } from './ArticlesSortSelector';
 
-const meta: Meta<typeof ArticlesListFilters> = {
-  title: 'features/Article/ArticlesListFilters',
-  component: ArticlesListFilters,
+const meta: Meta<typeof ArticlesSortSelector> = {
+  title: 'features/Article/ArticlesSortSelector',
+  component: ArticlesSortSelector,
   tags: ['autodocs'],
   decorators: [WithStoreDecorator({
     articlesList: {
@@ -14,7 +14,7 @@ const meta: Meta<typeof ArticlesListFilters> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesListFilters>;
+type Story = StoryObj<typeof ArticlesSortSelector>;
 
 export const Root: Story = {
   args: {

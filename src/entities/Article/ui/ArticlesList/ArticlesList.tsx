@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
-import { Article, ArticlesView } from '@/entities/Article';
+import { ArticlesView } from '../../model/consts';
+import { Article } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
-import { VirtuosoHeader } from '../ArticlesListItem/VirtuosoHeader';
 import cls from './ArticlesList.module.scss';
 
 interface ArticlesListProps {
@@ -58,13 +58,12 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
     />
   ), [view, target]);
 
-  if (!isLoading && !articles.length) {
+  const Header = memo(() => {
     return (
-      <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-        <Text text={t('articles-not-found')} />
-      </div>
+      // <ArticlesListFilters />
+      null
     );
-  }
+  });
 
   const TileItemContainer: FC<GridScrollSeekPlaceholderProps> = memo(({ index }) => {
     return (
@@ -94,6 +93,14 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
     );
   });
 
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+        <Text text={t('articles-not-found')} />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
       {isVirtualized
@@ -107,7 +114,7 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
             initialTopMostItemIndex={scrollIndex}
             className={classNames('', {}, ['scroll', cls[view]])}
             components={{
-              Header: VirtuosoHeader,
+              Header,
               Footer: ListFooter,
             }}
           />
@@ -121,7 +128,7 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
             itemContent={renderArticle}
             listClassName={cls['tile-items-wrapper']}
             components={{
-              Header: VirtuosoHeader,
+              Header,
               ScrollSeekPlaceholder: TileItemContainer,
               Footer: GridFooter,
             }}

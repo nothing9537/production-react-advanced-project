@@ -9,10 +9,10 @@ import { TabOption, Tabs } from '@/shared/ui/Tabs';
 import { SortOrder } from '@/shared/types';
 import { ArticlesSortFields, ArticlesView } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
 import { articlesListActions } from '../../model/slices/articlesListSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { ViewSelector } from '../ViewSelector/ViewSelector';
-import { ArticlesSortSelector } from '../ArticlesSortSelector/ArticlesSortSelector';
 import {
   getArticlesListOrder,
   getArticlesListSearch,
@@ -86,7 +86,7 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
         />
-        <ViewSelector
+        <ArticleViewSelector
           onChangeView={onChangeView}
           currentView={view}
         />

@@ -128,6 +128,13 @@
       "text": "Ethereum article comment!",
       "timestamp": 1697551266903,
       "id": 10
+    },
+    {
+      "articleId": "9",
+      "userId": "2",
+      "text": "Ethereum to the moon!",
+      "timestamp": 1698094897968,
+      "id": 11
     }
   ],
   "articles": [

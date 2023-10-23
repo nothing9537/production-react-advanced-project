@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { ArticlesView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { ArticlesView } from '../../model/consts';
 import cls from './ArticlesListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

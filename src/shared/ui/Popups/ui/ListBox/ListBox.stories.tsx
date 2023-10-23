@@ -26,7 +26,7 @@ const options = [
 ];
 
 const meta: Meta<typeof ListBox> = {
-  title: 'shared/ListBox',
+  title: 'shared/Popups/ListBox',
   component: ListBox,
   tags: ['autodocs'],
 };

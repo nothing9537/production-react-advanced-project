@@ -1,22 +1,18 @@
 import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ViewsIcon } from '@/shared/assets/icons';
 import { getRouteArticleDetails, getRouteProfile } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink';
+import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
+import { ViewsIcon } from '@/shared/assets/icons';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text } from '@/shared/ui/Text';
-import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
-import {
-  Article,
-  ArticleBlockType,
-  ArticlesView,
-  ArticleTextBlock,
-  ArticleTextBlockComponent,
-} from '@/entities/Article';
+import { ArticleBlockType, ArticlesView } from '../../model/consts';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticlesListItem.module.scss';
 
 interface ArticlesListItemProps {

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { GridScrollSeekPlaceholderProps } from 'react-virtuoso';
-import { ArticlesView } from '@/entities/Article';
-import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
+import { ArticlesView } from '../../model/consts';
+import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 import cls from './ArticlesListItem.module.scss';
 
 interface TileItemContainerProps extends GridScrollSeekPlaceholderProps {

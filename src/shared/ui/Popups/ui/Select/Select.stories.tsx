@@ -4,7 +4,7 @@ import { WithThemeDecorator } from '@/shared/config/storybook';
 import { Select } from './Select';
 
 const meta: Meta<typeof Select> = {
-  title: 'Shared/Select',
+  title: 'Shared/Popups/Select',
   component: Select,
   tags: ['autodocs'],
   decorators: [WithThemeDecorator(Theme.LIGHT)],

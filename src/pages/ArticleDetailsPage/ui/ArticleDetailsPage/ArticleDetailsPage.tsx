@@ -5,9 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { PageWrapper } from '@/widgets/PageWrapper';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
+import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { ArticleDetailsComments, articleDetailsCommentsReducer } from '../ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleDetailsRecommendations } from '../ArticleDetailsRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 
 const reducers: ReducersList = {
@@ -25,7 +25,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <ArticleDetailsPageHeader id={id} />
         <ArticleDetails id={id!} />
         <ArticleRating id={id!} />
-        <ArticleDetailsRecommendations />
+        <ArticleRecommendations />
         <ArticleDetailsComments id={id} />
       </PageWrapper>
     </DynamicModuleWrapper>

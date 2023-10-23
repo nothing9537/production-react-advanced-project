@@ -6,6 +6,7 @@ export { ArticlesSortFields, ArticleBlockType, ArticlesView } from './model/cons
 export { ArticleTextBlockComponent } from './ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 export { ArticleImageBlockComponent } from './ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 export { ArticleCodeBlockComponent } from './ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+export { ArticlesList } from './ui/ArticlesList/ArticlesList';
 export { articleDetailsReducer } from './model/slices/articleDetailsSlice';
 
 export * from './model/selectors/articleDetails';

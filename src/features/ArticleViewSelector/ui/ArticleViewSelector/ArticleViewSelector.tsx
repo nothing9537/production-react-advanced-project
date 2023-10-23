@@ -4,7 +4,7 @@ import { Icon } from '@/shared/ui/Icon';
 import { ListIcon, TileIcon } from '@/shared/assets/icons';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticlesView } from '@/entities/Article';
-import cls from './ViewSelector.module.scss';
+import cls from './ArticleViewSelector.module.scss';
 
 const views = [
   {
@@ -23,7 +23,7 @@ interface ViewSelectorProps {
   onChangeView: (view: ArticlesView) => void;
 }
 
-export const ViewSelector: FC<ViewSelectorProps> = memo(({ className, currentView, onChangeView }) => {
+export const ArticleViewSelector: FC<ViewSelectorProps> = memo(({ className, currentView, onChangeView }) => {
   const onViewChangeClick = useCallback((newView: ArticlesView) => () => {
     onChangeView?.(newView);
   }, [onChangeView]);

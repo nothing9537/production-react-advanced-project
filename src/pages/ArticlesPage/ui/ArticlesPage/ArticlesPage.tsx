@@ -1,20 +1,14 @@
 import { FC, memo, useCallback } from 'react';
-import {
-  articlesListReducer,
-  fetchNewArticles,
-  getArticlesList,
-  getArticlesListIsLoading,
-  getArticlesListView,
-  initArticlesList,
-  ArticlesList,
-  ArticlesListFilters,
-} from '@/features/ArticlesList';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { VStack } from '@/shared/ui/Stack';
 import { PageWrapper } from '@/widgets/PageWrapper';
+import { getArticlesListIsLoading } from '../../model/selectors/articlesList';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { articlesListReducer } from '../../model/slices/articlesListSlice';
+import { fetchNewArticles } from '../../model/services/fetchNewArticles/fetchNewArticles';
+import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 
 interface ArticlesPageProps {
   className?: string;
@@ -26,11 +20,8 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
-  const isVirtualized = false;
 
-  const articles = useAppSelector(getArticlesList.selectAll);
   const isLoading = useAppSelector(getArticlesListIsLoading);
-  const view = useAppSelector(getArticlesListView);
 
   const onNextArticlesPageLoad = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -45,32 +36,14 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleWrapper reducers={reducers} removeAfterUnmount={false}>
-      {isVirtualized ? (
-        <ArticlesList
-          className={className}
-          articles={articles}
-          isLoading={isLoading}
+      <PageWrapper
+        onScrollEnd={onNextArticlesPageLoad}
+        className={className}
+      >
+        <ArticleInfiniteList
           onNextArticlesPageLoad={onNextArticlesPageLoad}
-          isVirtualized
-          view={view}
         />
-      ) : (
-        <PageWrapper
-          onScrollEnd={onNextArticlesPageLoad}
-        >
-          <VStack>
-            <ArticlesListFilters />
-            <ArticlesList
-              className={className}
-              articles={articles}
-              isLoading={isLoading}
-              onNextArticlesPageLoad={onNextArticlesPageLoad}
-              isVirtualized={false}
-              view={view}
-            />
-          </VStack>
-        </PageWrapper>
-      )}
+      </PageWrapper>
     </DynamicModuleWrapper>
   );
 };
