@@ -89,9 +89,9 @@ For development project has 2 configs:
 
 The project configuration is stored in [/config](/config/)
 
-- *config/babel* - babel configuration
+- */config/babel* - babel configuration
 - */config/build* - Webpack configuration. Resolvers, plugins, DevServer, Loaders are stored here
-- *config/jest* - jest environment config 
+- */config/jest* - jest environment config 
 - */config/storybook* - storybook configuration
 
 ----
