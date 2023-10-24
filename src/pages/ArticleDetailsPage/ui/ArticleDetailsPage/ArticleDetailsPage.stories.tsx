@@ -76,7 +76,33 @@ const meta: Meta<typeof ArticleDetailsPage> = {
       data: article,
       isLoading: false,
     },
+    user: {
+      authData: {
+        id: '1',
+        username: 'Nothingg9537',
+      },
+    },
   })],
+  parameters: {
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=5`,
+        method: 'GET',
+        status: 200,
+        response: [
+          { ...article, id: '1' },
+          { ...article, id: '2' },
+          { ...article, id: '3' },
+        ],
+      },
+      {
+        url: `${__API__}/article-ratings?userId=1`,
+        method: 'GET',
+        status: 200,
+        response: [],
+      },
+    ],
+  },
 };
 
 export default meta;

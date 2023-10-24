@@ -28,4 +28,31 @@ export const UserAuth: Story = {
     },
   }),
   ],
+  parameters: {
+    mockData: [
+      {
+        url: `${__API__}/notifications?userId=1`,
+        method: 'GET',
+        status: 200,
+        delay: 5000,
+        response: [
+          {
+            id: '1',
+            title: 'Event 1 for user 1',
+            description: 'Description of event',
+          },
+          {
+            id: '1',
+            title: 'Event 2 for user 1',
+            description: 'Description of event',
+          },
+          {
+            id: '1',
+            title: 'Event 3 for user 1',
+            description: 'Description of event',
+          },
+        ],
+      },
+    ],
+  },
 };
