@@ -44,11 +44,11 @@
   justify-content: space-between;
   gap: 8px;
 
-  @media (max-width: 1024px) {
+  @media (width <= 1024px) {
     width: 50%;
   }
 
-  @media (max-width: 300px) {
+  @media (width <= 300px) {
     width: 100%;
   }
 }

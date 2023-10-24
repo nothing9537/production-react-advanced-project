@@ -1,20 +1,20 @@
 .AppLink {
-	color: var(--primary-color);
-	width: fit-content;
+  color: var(--primary-color);
+  width: fit-content;
 
-	&:hover {
-		opacity: .8;
-	}
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .primary {
-	color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .secondary {
-	color: var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 }
 
 .no-underline {
-	text-decoration: none;
+  text-decoration: none;
 }

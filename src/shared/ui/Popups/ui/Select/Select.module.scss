@@ -30,6 +30,7 @@
 
   svg {
     transition: var(--app-transition);
+
     path {
       fill: var(--primary-color);
     }
@@ -73,6 +74,7 @@
   border: 1px solid var(--primary-color);
   background: var(--bg-color);
   color: var(--primary-color);
+
   &:hover {
     color: var(--inverted-primary-color);
     background: var(--inverted-bg-color);

@@ -1,26 +1,27 @@
 .link {
-	display: flex;
-	align-items: center;
-	gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .link-item {
-	opacity: 1;
-	transition: .3s opacity;
+  opacity: 1;
+  transition: .3s opacity;
 }
 
 .collapsed {
-	.link-item {
-		opacity: 0;
-		display: none;
-	}
+  .link-item {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .item {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	svg {
-		fill: var(--inverted-primary-color);
-	}
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    fill: var(--inverted-primary-color);
+  }
 }

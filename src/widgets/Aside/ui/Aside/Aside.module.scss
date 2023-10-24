@@ -1,43 +1,43 @@
 .Aside {
-	height: calc(100vh - var(--navbar-height));
-	width: var(--aside-width);
-	background: var(--inverted-bg-color);
-	position: relative;
-	flex-shrink: 0;
-	transition: var(--app-transition);
+  height: calc(100vh - var(--navbar-height));
+  width: var(--aside-width);
+  background: var(--inverted-bg-color);
+  position: relative;
+  flex-shrink: 0;
+  transition: var(--app-transition);
 }
 
 .switchers {
-	position: absolute;
-	bottom: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .collapseBtn {
-	position: absolute;
-	right: -32px;
-	bottom: 32px;
-	z-index: 10;
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+  z-index: 10;
 }
 
 .links {
-	margin-left: 30px;
-	margin-top: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
 }
 
 .collapsed {
-	width: var(--aside-width-collapsed);
+  width: var(--aside-width-collapsed);
 	
-	.switchers {
-		flex-direction: column;
-	}
+  .switchers {
+    flex-direction: column;
+  }
 
-	.link-item {
-		opacity: 0;
-		display: none;
-	}
+  .link-item {
+    opacity: 0;
+    display: none;
+  }
 }

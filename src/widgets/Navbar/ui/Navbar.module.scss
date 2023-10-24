@@ -1,21 +1,21 @@
 .navbar {
-	width: 100%;
-	height: var(--navbar-height);
-	background: var(--inverted-bg-color);
-	display: flex;
-	align-items: center;
-	gap: 16px;
-	padding: 20px;
-	transition: var(--app-transition) background;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--inverted-bg-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  transition: var(--app-transition) background;
 }
 
 .links {
-	display: flex;
-	align-items: center;
-	gap: 15px;
-	margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
 }
 
 .app-name {
-	width: var(--aside-width);
+  width: var(--aside-width);
 }

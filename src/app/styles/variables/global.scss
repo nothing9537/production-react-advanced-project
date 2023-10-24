@@ -1,45 +1,43 @@
 :root {
+  // * Fonts
 
-	// * Fonts
+  --font-family-main: 'Consolas', 'Times New Roman', serif;
+  --font-size-s: 10px;
+  --font-line-s: 18px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
 
-	--font-family-main: 'Consolas', 'Times New Roman', serif;
+  // * m
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
 
-	--font-size-s: 10px;
-	--font-line-s: 18px;
-	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+  // * l
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-	// * m
-	--font-size-m: 16px;
-	--font-line-m: 24px;
-	--font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  // * xl
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-	// * l
-	--font-size-l: 24px;
-	--font-line-l: 32px;
-	--font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  // * Sizes
 
-	// * xl
-	--font-size-xl: 32px;
-	--font-line-xl: 40px;
-	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --navbar-height: 50px;
+  --aside-width: 300px;
+  --aside-width-collapsed: 80px;
 
-	// * Sizes
+  // * z - Indexes
 
-	--navbar-height: 50px;
-	--aside-width: 300px;
-	--aside-width-collapsed: 80px;
+  --modal-z-index: 10;
+  --overlay-z-index: 9;
 
-	// * z - Indexes
+  // * Colors
 
-	--modal-z-index: 10;
-	--overlay-z-index: 9;
+  --overlay-color: rgba( 0 0 0 / 60%);
+  --red-light: rgb(252 23 53);
+  --red-dark: rgb(216 19 45);
 
-	// * Colors
-
-	--overlay-color: rgba( 0 0 0 / .6);
-	--red-light: rgb(252, 23, 53);
-	--red-dark: rgb(216, 19, 45);
-
-	// * Animation
-	--app-transition: .3s;
+  // * Animation
+  --app-transition: .3s;
 }

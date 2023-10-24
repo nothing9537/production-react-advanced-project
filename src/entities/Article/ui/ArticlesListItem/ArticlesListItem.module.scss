@@ -1,6 +1,7 @@
 .ArticlesListItem {
   transition: var(--app-transition);
   text-decoration: none;
+
   a {
     text-decoration: none;
   }
@@ -78,6 +79,7 @@
   .image-wrapper {
     position: relative;
     padding: 10px;
+
     img {
       width: 200px;
       height: 200px;

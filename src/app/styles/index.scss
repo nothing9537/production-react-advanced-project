@@ -5,38 +5,40 @@
 @import 'themes/blue';
 
 body {
-	font: var(--font-m);
-	color: var(--primary-color);
+  font: var(--font-m);
+  color: var(--primary-color);
 }
 
 .App {
-	background: var(--bg-color);
-	transition: var(--app-transition) background;
-	min-height: 100vh; 
+  background: var(--bg-color);
+  transition: var(--app-transition) background;
+  min-height: 100vh; 
 }
 
 .content-page {
-	display: flex;
+  display: flex;
 }
 
 iframe#webpack-dev-server-client-overlay{
-	display: none !important;
+  display: none !important;
 }
 
 .scroll {
-	overflow-y: auto;
-	overflow-x: hidden;
-	scrollbar-width: thin;
-	&::-webkit-scrollbar {
-		cursor: pointer;
-		width: .5rem;
-		border: .15rem solid transparent;
-	}
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    cursor: pointer;
+    width: .5rem;
+    border: .15rem solid transparent;
+  }
 	
-	&::-webkit-scrollbar-thumb {
-		background: #424651;
-		&:hover {
-			background: rgba(110, 110, 110);
-		}
-	}
+  &::-webkit-scrollbar-thumb {
+    background: #424651;
+
+    &:hover {
+      background: rgb(110 110 110);
+    }
+  }
 }
