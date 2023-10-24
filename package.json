@@ -20,6 +20,7 @@
     "test:cypress": "cypress open",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki test approve",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
