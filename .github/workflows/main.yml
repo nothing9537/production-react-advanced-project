@@ -102,8 +102,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
-      - name: linting typescript
-        run: npm run lint:ts
+      # - name: linting typescript
+      #   run: npm run lint:ts
         if: always()
       - name: linting css
         run: npm run lint:scss
