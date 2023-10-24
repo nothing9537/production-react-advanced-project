@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { getRouteAdminPanel, getRouteArticleCreate } from '@/shared/consts/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { TranslationNamespacesKeys } from '@/shared/types';
+import { TranslationNamespacesKeys } from '@/shared/types/translation';
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { HStack } from '@/shared/ui/Stack';

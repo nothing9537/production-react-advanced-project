@@ -12,7 +12,7 @@ export const NotFoundPage: FC<NotFoundPageProps> = memo(({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <PageWrapper className={classNames(cls.NotFoundPage, {}, [className])}>
+    <PageWrapper data-testid="NotFoundPage" className={classNames(cls.NotFoundPage, {}, [className])}>
       {t('page-not-found')}
     </PageWrapper>
   );

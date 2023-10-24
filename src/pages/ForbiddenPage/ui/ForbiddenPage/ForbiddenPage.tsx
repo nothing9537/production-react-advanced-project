@@ -15,7 +15,7 @@ const ForbiddenPage: FC<ForbiddenPageProps> = () => {
   const { t } = useTranslation();
 
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="ForbiddenPage">
       <VStack gap={16} align="center" justify="center" height="100%">
         <Text
           title={t('access-denied')}

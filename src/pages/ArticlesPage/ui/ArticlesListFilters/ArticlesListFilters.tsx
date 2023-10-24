@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { Input } from '@/shared/ui/Input';
 import { TabOption, Tabs } from '@/shared/ui/Tabs';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { ArticlesSortFields, ArticlesView } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';

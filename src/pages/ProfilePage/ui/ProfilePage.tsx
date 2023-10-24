@@ -7,7 +7,7 @@ const ProfilePage: FC = memo(() => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="ProfilePage">
       <EditableProfileCard id={id} />
     </PageWrapper>
   );

@@ -10,7 +10,7 @@ const AboutPage: FC<AboutPageProps> = memo(() => {
   const { t } = useTranslation('about');
 
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="AboutPage">
       {t('title')}
     </PageWrapper>
   );
