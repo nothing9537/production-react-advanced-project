@@ -9,7 +9,7 @@ import { Text } from '@/shared/ui/Text';
 import { getUserAuthData } from '@/entities/User';
 import { Profile } from '@/entities/Profile';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { profileActions } from '../../model/slice/profileSlice';
+import { useProfileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -24,26 +24,27 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
   const { t } = useTranslation('profile');
 
   const { className, getValues, reset, isValid, profileData, readonly } = props;
+  const { updateProfile, setReadonly, cancelEdit } = useProfileActions();
   const dispatch = useAppDispatch();
   const userData = useAppSelector(getUserAuthData);
 
   const canEdit = userData?.id === profileData?.id;
 
   const onEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(false));
-  }, [dispatch]);
+    setReadonly(false);
+  }, [setReadonly]);
 
   const onCancelEdit = useCallback(() => {
     reset();
-    dispatch(profileActions.setReadonly(true));
-    dispatch(profileActions.cancelEdit());
-  }, [dispatch, reset]);
+    setReadonly(true);
+    cancelEdit();
+  }, [cancelEdit, reset, setReadonly]);
 
   const onSave = useCallback(() => {
-    dispatch(profileActions.updateProfile(getValues()));
-    dispatch(profileActions.setReadonly(true));
+    updateProfile(getValues());
+    setReadonly(true);
     dispatch(updateProfileData());
-  }, [dispatch, getValues]);
+  }, [dispatch, getValues, setReadonly, updateProfile]);
 
   return (
     <HStack justify="space-between" className={className}>

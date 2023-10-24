@@ -7,8 +7,8 @@ import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Loader } from '@/shared/ui/Loader';
-import { CountrySelect } from '@/entities/Country';
-import { CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -20,9 +20,12 @@ interface ProfileCardProps {
   control: Control<Profile>;
   setValue: UseFormSetValue<Profile>;
   data?: Profile;
+  onChangeCountry?: (value: Country) => void;
+  onChangeCurrency?: (value: Currency) => void;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoading, control, readonly, setValue, data }) => {
+export const ProfileCard: FC<ProfileCardProps> = memo((props) => {
+  const { className, error, isLoading, control, readonly, setValue, data, onChangeCountry, onChangeCurrency } = props;
   const { t } = useTranslation(['profile', 'validate']);
 
   if (isLoading) {
@@ -106,6 +109,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoa
         placeholder={t('input.placeholders.country')}
         readonly={readonly}
         onChange={(value) => {
+          onChangeCountry?.(value);
           setValue('country', value);
         }}
       />
@@ -114,6 +118,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoa
         placeholder={t('input.placeholders.currency')}
         readonly={readonly}
         onChange={(value) => {
+          onChangeCurrency?.(value);
           setValue('currency', value);
         }}
       />

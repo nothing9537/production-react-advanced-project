@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/no-unused-prop-types */
 import { ChangeEvent, FC, forwardRef, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Text, TextTheme } from '../Text/Text';
@@ -19,9 +19,9 @@ export interface InputProps extends AppInput {
   'data-testid'?: string;
 }
 
-export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
+export const Input: FC<InputProps> = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { className, onChange, value, type = 'text', isDirty, error, placeholder, autoFocus, readonly, ...rest } = props;
-  const inputRef = useRef<HTMLInputElement>(ref as any || null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [caretPosition, setCaretPosition] = useState<number>(0);
@@ -61,7 +61,8 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
         )}
         <div className={cls.caretWrapper}>
           <input
-            ref={inputRef}
+            {...rest}
+            ref={ref || inputRef}
             type={type}
             value={value}
             onChange={onChangeHandler}
@@ -71,7 +72,6 @@ export const Input: FC<InputProps> = memo(forwardRef((props, ref) => {
             onSelect={onSelect}
             readOnly={readonly}
             data-testid={props['data-testid'] || ''}
-            {...rest}
           />
           {isKaretVisible && (
             <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />

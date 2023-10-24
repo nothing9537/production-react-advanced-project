@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { Profile, ProfileCard } from '@/entities/Profile';
@@ -10,7 +10,9 @@ import { VStack } from '@/shared/ui/Stack';
 import { getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly } from '../../model/selectors';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileReducer } from '../../model/slice/profileSlice';
+import { profileReducer, useProfileActions } from '../../model/slice/profileSlice';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -29,13 +31,21 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
 
+  const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>();
+
+  const { updateProfile } = useProfileActions();
+
   useInitialEffect(() => {
-    dispatch(fetchProfileData(id));
+    dispatch(fetchProfileData({ id, setValue }));
   }, [id, dispatch]);
 
-  const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({
-    mode: 'all',
-  });
+  const onChangeCountry = useCallback((value: Country) => {
+    updateProfile({ ...formData, country: value });
+  }, [updateProfile, formData]);
+
+  const onChangeCurrency = useCallback((value: Currency) => {
+    updateProfile({ ...formData, currency: value });
+  }, [updateProfile, formData]);
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
@@ -54,6 +64,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
           readonly={readonly}
           control={control}
           setValue={setValue}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
         />
       </VStack>
     </DynamicModuleWrapper>
