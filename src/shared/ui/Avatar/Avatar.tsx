@@ -1,7 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { CSSProperties, FC, HTMLAttributes } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '../AppImage';
+import { ProfileIcon } from '@/shared/assets/icons';
 import cls from './Avatar.module.scss';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
 
 export enum AvatarSize {
   NANO = 'nano',
@@ -28,11 +31,20 @@ export const Avatar: FC<AvatarProps> = ({ className, alt, src, size = AvatarSize
 
   const styles: CSSProperties = { width, height, borderRadius };
 
+  const fallback = (
+    <Skeleton width={width} height={height} borderRadius="50%" />
+  );
+  const errorFallback = (
+    <Icon theme="inverted" SVG={<ProfileIcon />} />
+  );
+
   return (
-    <img
+    <AppImage
       {...props}
       alt={alt}
       src={src}
+      errorFallback={errorFallback}
+      fallback={fallback}
       style={styles}
       className={classNames(cls.Avatar, mods, [className, cls[size]])}
     />

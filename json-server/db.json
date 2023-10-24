@@ -135,6 +135,13 @@
       "text": "Ethereum to the moon!",
       "timestamp": 1698094897968,
       "id": 11
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "text": "Some comment",
+      "timestamp": 1698151754989,
+      "id": 12
     }
   ],
   "articles": [
@@ -1513,6 +1520,13 @@
       "userId": "2",
       "articleId": "13",
       "id": "0NpBDog"
+    },
+    {
+      "feedback": "Some feedback",
+      "rate": 4,
+      "userId": "2",
+      "articleId": "6",
+      "id": "-24oJtW"
     }
   ]
 }

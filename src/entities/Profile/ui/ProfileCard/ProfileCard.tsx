@@ -54,7 +54,16 @@ export const ProfileCard: FC<ProfileCardProps> = memo(({ className, error, isLoa
 
   return (
     <VStack gap={16} className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.avatar && <Avatar src={data.avatar} alt="Avatar" size={AvatarSize.LARGE} />}
+      {data?.avatar && (
+        <Avatar
+          src={data.avatar}
+          alt="Avatar"
+          size={AvatarSize.LARGE}
+          width={196}
+          height={196}
+          borderRadius="50%"
+        />
+      )}
       <ControlledInput
         data-testid="ProfileCard.firstName"
         data-testid-error="ProfileCard.firstName.error"

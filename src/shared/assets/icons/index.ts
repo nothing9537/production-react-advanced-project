@@ -5,6 +5,7 @@ export { CreatedAtIcon } from './CreatedAt';
 export { ListIcon } from './List';
 export { MainPageIcon } from './MainPage';
 export { NotificationIcon } from './Notification';
+export { ProfileIcon } from './Profile';
 export { ProfilePageIcon } from './ProfilePage';
 export { StarIcon } from './Star';
 export { ThemeBlueIcon } from './ThemeBlue';

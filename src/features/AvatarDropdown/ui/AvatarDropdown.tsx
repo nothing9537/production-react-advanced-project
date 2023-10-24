@@ -7,7 +7,7 @@ import { TranslationNamespacesKeys } from '@/shared/types';
 import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { HStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 
 interface AvatarDropdownProps {
@@ -35,8 +35,15 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
       position="bottom right"
       component={(
         <HStack gap={8}>
-          <Text text={authData?.username} />
-          <Avatar src={authData?.avatar} alt="Avatar" borderRadius="50%" size={AvatarSize.NANO} />
+          <Text theme={TextTheme.INVERTED} text={authData?.username} />
+          <Avatar
+            src={authData?.avatar}
+            alt="Avatar"
+            borderRadius="50%"
+            size={AvatarSize.NANO}
+            width={32}
+            height={32}
+          />
         </HStack>
       )}
       items={[
