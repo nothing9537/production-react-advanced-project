@@ -36,9 +36,9 @@
 name: Linting, testing, building pipeline
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 permissions:
   contents: write
   pages: write
@@ -55,11 +55,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [ 18.x ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
@@ -73,8 +73,14 @@ jobs:
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
+      - name: unit testing
+        if: always()
+        run: npm run test:unit
       - name: Generate HTML report
         run: npm run test:ui:report
+        if: always()
+      - name: move loki
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -83,7 +89,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: '.loki'
+          path: 'reports'
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
@@ -93,11 +99,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [ 17.x ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
@@ -107,6 +113,4 @@ jobs:
         if: always()
       - name: linting css
         run: npm run lint:scss
-      - name: unit testing
-        if: always()
-        run: npm run test:unit
+

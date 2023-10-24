@@ -2,5 +2,5 @@
 /build
 /storybook-static
 /extractedTranslations
-/reports
+/reports/unit
 /dist
