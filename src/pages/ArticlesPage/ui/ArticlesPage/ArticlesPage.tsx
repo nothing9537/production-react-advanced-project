@@ -39,6 +39,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       <PageWrapper
         onScrollEnd={onNextArticlesPageLoad}
         className={className}
+        data-testid="ArticlesPage"
       >
         <ArticleInfiniteList
           onNextArticlesPageLoad={onNextArticlesPageLoad}

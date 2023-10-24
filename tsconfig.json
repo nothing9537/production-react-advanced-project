@@ -31,10 +31,8 @@
 	},
 	"exclude": [
 		"./cypress.config.ts",
-		"storybook/webpack.config.ts",
+		"./cypress",
 		"node_modules",
-		"cypress",
-		"**/*.cy.tsx",
 		"./\".fttemplates\"",
 	],
 	"ts-node": {
