@@ -21,7 +21,7 @@ describe('fetchProfileData.spec', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.API.get.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk({ id: '1' });
+    const result = await thunk.callThunk('1');
 
     expect(thunk.API.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -32,7 +32,7 @@ describe('fetchProfileData.spec', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.API.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const result = await thunk.callThunk({ id: '1' });
+    const result = await thunk.callThunk('1');
     expect(result.meta.requestStatus).toBe('rejected');
   });
 });

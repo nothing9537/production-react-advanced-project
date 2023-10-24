@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
-// import { $API } from 'shared/API';
+// import { $API } from '@/shared/API';
 import { ComponentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
@@ -83,6 +83,7 @@ describe('features/EditableProfileCard', () => {
     ComponentRender(<EditableProfileCard id="1" />, testOptions);
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
+    await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
     await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'test enter firstName');
 
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));

@@ -3,6 +3,7 @@ import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { Profile, ProfileCard } from '@/entities/Profile';
+import { $API } from '@/shared/API';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
@@ -31,12 +32,19 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const error = useAppSelector(getProfileError);
   const readonly = useAppSelector(getProfileReadonly);
 
-  const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>();
+  const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({
+    mode: 'all',
+    defaultValues: async () => {
+      const response = await $API.get<Profile>(`/profile/${id}`);
+
+      return response.data;
+    },
+  });
 
   const { updateProfile } = useProfileActions();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData({ id, setValue }));
+    dispatch(fetchProfileData(id));
   }, [id, dispatch]);
 
   const onChangeCountry = useCallback((value: Country) => {

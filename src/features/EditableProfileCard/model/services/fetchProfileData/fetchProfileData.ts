@@ -1,35 +1,21 @@
-import { UseFormSetValue } from 'react-hook-form';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
 
-interface fetchProfileDataParams {
-  id: string | undefined;
-  setValue?: UseFormSetValue<Profile>;
-}
-
-export const fetchProfileData = createAsyncThunk<Profile, fetchProfileDataParams, ThunkConfig>(
+export const fetchProfileData = createAsyncThunk<Profile, string | undefined, ThunkConfig>(
   'profile/fetchProfileData',
-  async ({ id, setValue }, thunkAPI) => {
+  async (profileId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
 
-    if (!id) {
+    if (!profileId) {
       return rejectWithValue('profile-fetch-error');
     }
 
     try {
-      const response = await extra.API.get<Profile>(`/profile/${id}`);
+      const response = await extra.API.get<Profile>(`/profile/${profileId}`);
 
       if (!response.data) {
         throw new Error();
-      }
-
-      if (response.data) {
-        console.log('set value');
-        Object.keys(response.data).forEach((key) => {
-          console.log(key);
-          setValue?.(key as keyof Profile, response.data[key as keyof Profile]);
-        });
       }
 
       return response.data;
