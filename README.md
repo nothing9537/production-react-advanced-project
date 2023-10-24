@@ -42,10 +42,11 @@ i18next docs - [https://react.i18next.com/latest/using-with-hooks](https://react
 
 ## Testing
 
-Project has 3 types of tests:
+Project has 4 types of tests:
 1) Default unit tests - `npm run test:unit`
 2) Integration testing with React Testing Library - `npm run test:unit`
 3) e2e tests with Cypress - `npm run test:e2e`
+4) regression screenshot storybook testing - `npm run test:ui`
 
 
 ----
