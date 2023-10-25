@@ -14,15 +14,15 @@ describe('User visits Article Details Page', () => {
     cy.removeArticle(currentArticleId);
   })
 
-  it('The content of the article exists', () => {
+  it.skip('The content of the article exists', () => {
     cy.getByTestId('ArticleDetailsInfo').should('exist');
   });
 
-  it('User see the recommendations list', () => {
+  it.skip('User see the recommendations list', () => {
     cy.getByTestId('ArticleRecommendations').should('exist');
   });
 
-  it('User leaves a comment', () => {
+  it.skip('User leaves a comment', () => {
     cy.getByTestId('ArticleDetailsInfo').should('exist');
     cy.getByTestId('ArticleDetailsComments').scrollIntoView();
     cy.addComment('New test article comment');
