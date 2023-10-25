@@ -43,7 +43,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
     const textBlock = article.blocks.find((b) => b.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
     return (
-      <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
+      <div data-testid="ArticleListItem" className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
         <Card>
           <div className={cls.header}>
             <AppLink to={getRouteProfile(article.user.id)}>
@@ -81,6 +81,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
       to={getRouteArticleDetails(article.id)}
       target={target}
       className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}
+      data-testid="ArticleListItem"
     >
       <Card>
         <div className={cls['image-wrapper']}>

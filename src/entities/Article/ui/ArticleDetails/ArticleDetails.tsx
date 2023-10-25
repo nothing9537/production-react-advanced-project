@@ -92,7 +92,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
             alt="Avatar"
           />
         </VStack>
-        <VStack gap={4}>
+        <VStack gap={4} data-testid="ArticleDetailsInfo">
           <Text
             title={data?.title}
             text={data?.subtitle}
@@ -116,7 +116,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <div className={classNames(cls.ArticleDetails, {}, [className])} data-testid="ArticleDetails">
         {content}
       </div>
     </DynamicModuleWrapper>

@@ -36,7 +36,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(({ c
   }, [id]);
 
   return (
-    <VStack gap={16} className={classNames(cls.comments, {}, [className])}>
+    <VStack gap={16} className={classNames(cls.comments, {}, [className])} data-testid="ArticleDetailsComments">
       <Text size={TextSize.L} title={t('article-comments')} />
       <AddNewComment onSendComment={onSendComment} />
       <CommentsList comments={comments} isLoading={commentsIsLoading} error={commentsError} />

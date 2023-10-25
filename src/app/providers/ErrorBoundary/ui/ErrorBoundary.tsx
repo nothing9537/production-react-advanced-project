@@ -1,6 +1,5 @@
-import {
-  Component, ErrorInfo, ReactNode, Suspense,
-} from 'react';
+/* eslint-disable no-console */
+import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from '@/widgets/PageError';
 
 interface ErrorBoundaryProps {

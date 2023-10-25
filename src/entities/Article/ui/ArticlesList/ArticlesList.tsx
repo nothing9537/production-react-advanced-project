@@ -102,7 +102,7 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
   }
 
   return (
-    <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+    <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])} data-testid="ArticleList">
       {isVirtualized
         ? view === ArticlesView.LIST ? (
           <Virtuoso

@@ -39,11 +39,12 @@ const AddNewComment: FC<AddNewCommentProps> = memo(({ className, onSendComment }
     <DynamicModuleWrapper reducers={reducers}>
       <HStack component="form" className={classNames(cls.AddNewComment, {}, [className])} onSubmit={onSendHandler}>
         <Input
+          data-testid="AddNewComment.Input"
           placeholder={t('add-new-comment')}
           onChange={onCommentTextChange}
           value={commentText || ''}
         />
-        <Button type="submit">
+        <Button type="submit" data-testid="AddNewComment.SubmitButton">
           {t('send-new-comment')}
         </Button>
       </HStack>

@@ -50,6 +50,8 @@ export const StarRating: FC<StarRatingProps> = memo(({ className, onSelect, size
               onMouseLeave={onLeave}
               onMouseEnter={onHover(rating)}
               onClick={onSelectRating(rating)}
+              data-testid={`StarRating.${rating}`}
+              data-selected={currentStarsCount >= rating}
             />
           )}
           key={rating}

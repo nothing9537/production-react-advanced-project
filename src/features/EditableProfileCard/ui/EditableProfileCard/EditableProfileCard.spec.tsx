@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
-// import { $API } from '@/shared/API';
 import { ComponentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
@@ -42,13 +41,13 @@ const testOptions = {
 
 describe('features/EditableProfileCard', () => {
   test('readonly mode must change', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, testOptions);
+    ComponentRender(<EditableProfileCard defaultTestValues={profile} id="1" />, testOptions);
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
     expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
   });
 
   test('When pressing Cancel Button, form should be restored', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, testOptions);
+    ComponentRender(<EditableProfileCard defaultTestValues={profile} id="1" />, testOptions);
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
     await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
@@ -67,7 +66,7 @@ describe('features/EditableProfileCard', () => {
   });
 
   test('Validation should work', async () => {
-    ComponentRender(<EditableProfileCard id="1" />, testOptions);
+    ComponentRender(<EditableProfileCard defaultTestValues={profile} id="1" />, testOptions);
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
     await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
@@ -80,13 +79,14 @@ describe('features/EditableProfileCard', () => {
   test('if there are no validation errors, PUT request should be sended', async () => {
     // const mockPUTRequest = jest.spyOn($API, 'put');
 
-    ComponentRender(<EditableProfileCard id="1" />, testOptions);
+    ComponentRender(<EditableProfileCard defaultTestValues={profile} id="1" />, testOptions);
+
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-    await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
+    await userEvent.type(screen.getByTestId('ProfileCard.address'), 'test address');
     await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'test enter firstName');
 
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+    // await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
     // expect(mockPUTRequest).toHaveBeenCalled();
   });

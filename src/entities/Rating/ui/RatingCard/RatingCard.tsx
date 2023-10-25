@@ -22,6 +22,7 @@ interface RatingCardProps {
   }
   onAccept?: (actionRating: number, feedback?: string) => void;
   onCancel?: (actionRating: number) => void;
+  'data-testid'?: string;
 }
 
 export const RatingCard: FC<RatingCardProps> = memo((props) => {
@@ -61,12 +62,17 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
   const feedbackContent = (
     <>
       <Text title={feedback?.title} />
-      <Input placeholder={feedback?.placeholder} onChange={setFeedbackMessage} value={feedbackMessage} />
+      <Input
+        data-testid="RatingCard.Input"
+        placeholder={feedback?.placeholder}
+        onChange={setFeedbackMessage}
+        value={feedbackMessage}
+      />
     </>
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card className={classNames(cls.RatingCard, {}, [className])} data-testid={props['data-testid']}>
       <VStack gap={8} align="center">
         {ratingContent}
       </VStack>
@@ -77,10 +83,10 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
               <VStack gap={16} width={550}>
                 {feedbackContent}
                 <HStack width="100%" gap={16} justify="flex-end">
-                  <Button onClick={onSend}>
+                  <Button onClick={onSend} data-testid="RatingCard.Send">
                     {t('send')}
                   </Button>
-                  <Button theme={ButtonTheme.OUTLINE_RED} onClick={onClose}>
+                  <Button theme={ButtonTheme.OUTLINE_RED} onClick={onClose} data-testid="RatingCard.Close">
                     {t('close')}
                   </Button>
                 </HStack>

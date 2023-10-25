@@ -44,6 +44,7 @@ const ArticleRating: FC<ArticleRatingProps> = memo(({ className, id }) => {
 
   return (
     <RatingCard
+      data-testid="RatingCard.Article"
       onCancel={onCancel}
       onAccept={onAccept}
       rate={rating?.rate}

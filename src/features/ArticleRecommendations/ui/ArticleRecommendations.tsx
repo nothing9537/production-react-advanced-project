@@ -17,7 +17,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo(({ c
   const { data: recommendations, isLoading } = useGetArticleRecommendationsQuery(5);
 
   return (
-    <VStack gap={16} className={classNames(cls.ArticleRecommendations, {}, [className])}>
+    <VStack gap={16} className={classNames(cls.ArticleRecommendations, {}, [className])} data-testid="ArticleRecommendations">
       <Text size={TextSize.L} title={t('recommendations')} />
       <ArticlesList
         articles={recommendations || []}

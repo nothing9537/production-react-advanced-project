@@ -2,8 +2,8 @@
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
-import { Profile, ProfileCard } from '@/entities/Profile';
 import { $API } from '@/shared/API';
+import { Profile, ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
@@ -18,13 +18,15 @@ import { Currency } from '@/entities/Currency';
 interface EditableProfileCardProps {
   className?: string;
   id?: string;
+
+  defaultTestValues?: Profile;
 }
 
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, id }) => {
+export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, id, defaultTestValues }) => {
   const dispatch = useAppDispatch();
 
   const formData = useAppSelector(getProfileForm);
@@ -35,9 +37,13 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
   const { control, setValue, getValues, reset, formState: { isValid } } = useForm<Profile>({
     mode: 'all',
     defaultValues: async () => {
-      const response = await $API.get<Profile>(`/profile/${id}`);
+      if (__PROJECT__ === 'frontend') {
+        const response = await $API.get<Profile>(`/profile/${id}`);
 
-      return response.data;
+        return response.data;
+      }
+
+      return defaultTestValues as Profile;
     },
   });
 

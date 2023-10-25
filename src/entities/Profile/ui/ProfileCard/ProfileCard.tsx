@@ -139,6 +139,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props) => {
         defaultValue={data?.city}
       />
       <ControlledInput
+        data-testid="ProfileCard.address"
+        data-testid-error="ProfileCard.address.error"
         control={control}
         readonly={readonly}
         name="address"

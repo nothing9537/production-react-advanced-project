@@ -17,7 +17,7 @@ interface CommentCardProps {
 export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isLoading }) => {
   if (isLoading) {
     return (
-      <section className={classNames(cls.CommentCard, {}, [className])}>
+      <section data-testid="CommentCard.loading" className={classNames(cls.CommentCard, {}, [className])}>
         <div className={cls['user-header']}>
           {comment?.user?.avatar
             ? <Skeleton width={36} height={36} borderRadius="50%" />
@@ -36,7 +36,7 @@ export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isL
   const { text, user, timestamp } = comment;
 
   return (
-    <section className={classNames(cls.CommentCard, {}, [className])}>
+    <section data-testid="CommentCard.content" className={classNames(cls.CommentCard, {}, [className])}>
       <div className={cls['with-timestamp']}>
         <AppLink to={getRouteProfile(user.id)}>
           <div className={cls['user-header']}>
