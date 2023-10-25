@@ -1,0 +1,16 @@
+{
+  "id": "4",
+  "roles": [
+    "USER"
+  ],
+  "firstName": "TestFirstName",
+  "lastName": "TestLastName",
+  "username": "testuser",
+  "age": "35",
+  "currency": "USD",
+  "country": "USA",
+  "city": "Chicago",
+  "state": "IL",
+  "address": "Lorem ipsum",
+  "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
+}
