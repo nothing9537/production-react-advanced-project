@@ -1,17 +1,16 @@
 import { useContext } from 'react';
-import { THEME_KEY } from '@/shared/consts/localStorage';
 import { ThemeContext } from '../context/ThemeContext';
 import { Theme } from '../../consts/theme';
 
 interface UseThemeResult {
-  toggleTheme: () => void;
+  toggleTheme: (saveAction: (theme: Theme) => void) => void;
   theme: Theme;
 }
 
 export const useTheme = (): UseThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
+  const toggleTheme = (saveAction: (theme: Theme) => void) => {
     let newTheme: Theme;
 
     switch (theme) {
@@ -30,7 +29,8 @@ export const useTheme = (): UseThemeResult => {
 
     setTheme(newTheme);
     document.body.className = newTheme;
-    localStorage.setItem(THEME_KEY, newTheme);
+
+    saveAction?.(newTheme);
   };
 
   return { theme: theme || Theme.DARK, toggleTheme };

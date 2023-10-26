@@ -6,14 +6,17 @@ import { Aside } from '@/widgets/Aside';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserMounted, userActions } from '@/entities/User';
 import { AppRouter } from './providers/RouterProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
   const _mounted = useAppSelector(getUserMounted);
+  const { theme } = useTheme();
 
   useEffect(() => {
+    document.body.className = theme;
     dispatch(userActions.initAuthData());
-  }, [dispatch]);
+  }, [dispatch, theme]);
 
   return (
     <div className={classNames('App', {}, ['scroll'])}>

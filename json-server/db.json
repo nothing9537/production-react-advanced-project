@@ -1200,6 +1200,9 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app_blue_theme"
+      },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
     {
@@ -1212,6 +1215,9 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme"
       },
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     },
@@ -1227,6 +1233,9 @@
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
       },
+      "jsonSettings": {
+        "theme": "app_blue_theme"
+      },
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     },
     {
@@ -1239,6 +1248,9 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_blue_theme"
       },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     }
