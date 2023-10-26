@@ -8,7 +8,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
-import { userActions } from '@/entities/User';
 import { loginActions, loginReducer } from '../../model/slices/loginSlice';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -40,7 +39,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
     const result = await dispatch(loginByUsername({ username, password }));
 
     if (result.meta.requestStatus === 'fulfilled') {
-      dispatch(userActions.initAuthData());
+      // dispatch(initAuthData());
       onSuccess();
     }
   }, [dispatch, username, password, onSuccess]);

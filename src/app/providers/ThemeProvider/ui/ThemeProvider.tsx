@@ -9,12 +9,12 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-  const defaultTheme = useJsonSettings()?.theme || Theme.DARK;
+  const defaultTheme = useJsonSettings()?.theme;
   const [themeInited, setThemeInited] = useState<boolean>(false);
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.BLUE);
 
   useEffect(() => {
-    if (!themeInited) {
+    if (!themeInited && defaultTheme) {
       setTheme(defaultTheme);
       setThemeInited(true);
     }

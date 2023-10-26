@@ -3,6 +3,7 @@ import { AUTH_TOKEN_KEY } from '@/shared/consts/localStorage';
 import { User, UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings/saveJsonSettings';
+import { initAuthData } from '../services/initAuthData/initAuthData';
 
 const initialState: UserSchema = {
   _mounted: false,
@@ -13,20 +14,9 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
-      localStorage.setItem(AUTH_TOKEN_KEY, JSON.stringify(action.payload));
       state.authData = action.payload;
       setFeatureFlags(action.payload?.features);
-    },
-    initAuthData: (state) => {
-      const authData = localStorage.getItem(AUTH_TOKEN_KEY);
-
-      if (authData) {
-        const parsedUser = JSON.parse(authData) as User;
-        state.authData = parsedUser;
-        setFeatureFlags(parsedUser?.features);
-      }
-
-      state._mounted = true;
+      localStorage.setItem(AUTH_TOKEN_KEY, JSON.stringify(action.payload.id));
     },
     logout: (state) => {
       state.authData = undefined;
@@ -39,6 +29,14 @@ export const userSlice = createSlice({
         if (state.authData) {
           state.authData.jsonSettings = payload;
         }
+      })
+      .addCase(initAuthData.fulfilled, (state, { payload }) => {
+        state._mounted = true;
+        state.authData = payload;
+        setFeatureFlags(payload.features);
+      })
+      .addCase(initAuthData.rejected, (state) => {
+        state._mounted = true;
       });
   },
 });

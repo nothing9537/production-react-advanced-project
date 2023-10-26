@@ -4,6 +4,7 @@
   flex-grow: 1;
   overflow-y: auto;
   height: calc(100vh - var(--navbar-height));
+  transition: var(--app-transition);
   width: 100%;
 }
 
