@@ -32,7 +32,7 @@
     "update-shared-imports": "ts-node ./scripts/refactoring/updateImports.ts",
     "create-public-shared-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUI.ts",
     "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest",
-    "remove-feature": "ts-node ./scripts/refactoring/remove-feature.ts",
+    "remove-feature": "ts-node ./scripts/refactoring/removeFeature.ts",
     "postinstall": "rimraf ./node_modules/.cache"
   },
   "repository": {
