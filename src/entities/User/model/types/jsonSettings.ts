@@ -1,7 +1,8 @@
 import { Theme } from '@/shared/consts/theme';
 
 export interface JsonSettings {
-  theme: Theme;
+  theme?: Theme;
+  isArticlesPageWasOpenedOnce?: boolean;
 }
 
 export type JsonSettingsKey = keyof JsonSettings;

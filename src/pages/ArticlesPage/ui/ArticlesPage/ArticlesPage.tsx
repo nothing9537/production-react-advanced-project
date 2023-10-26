@@ -9,6 +9,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { articlesListReducer } from '../../model/slices/articlesListSlice';
 import { fetchNewArticles } from '../../model/services/fetchNewArticles/fetchNewArticles';
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
+import { ArticlePageGreetings } from '@/features/ArticlePageGreetings';
 
 interface ArticlesPageProps {
   className?: string;
@@ -44,6 +45,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         <ArticleInfiniteList
           onNextArticlesPageLoad={onNextArticlesPageLoad}
         />
+        <ArticlePageGreetings />
       </PageWrapper>
     </DynamicModuleWrapper>
   );

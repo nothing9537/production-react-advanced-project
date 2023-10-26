@@ -131,5 +131,7 @@
   "state": "state",
   "text": "text",
   "thanks-for-rate": "thanks-for-rate",
-  "title": "title"
+  "title": "title",
+  "welcome": "welcome",
+  "welcome-message-description": "welcome-message-description"
 }

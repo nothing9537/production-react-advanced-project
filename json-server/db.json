@@ -1201,7 +1201,8 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_blue_theme"
+        "theme": "app_blue_theme",
+        "isArticlesPageWasOpenedOnce": true
       },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
@@ -1217,7 +1218,8 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme"
+        "theme": "app_light_theme",
+        "isArticlesPageWasOpenedOnce": true
       },
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     },

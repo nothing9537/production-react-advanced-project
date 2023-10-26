@@ -11,5 +11,7 @@
   "can-edit": "Edit",
   "rate-article": "Article rate",
   "feedback": "Your feedback",
-  "leave-your-feedback": "Please, rate an article to improve service quality!"
+  "leave-your-feedback": "Please, rate an article to improve service quality!",
+  "welcome": "Welcome to the articles page!",
+  "welcome-message-description": "Here you can serve an articles to different interests!"
 }
