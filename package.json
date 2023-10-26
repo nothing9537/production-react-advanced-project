@@ -29,9 +29,10 @@
     "export-svg-icons": "node ./scripts/export-svg-icons.js",
     "export-ui-components": "node ./scripts/export-ui-components.js",
     "generate:layer": "node ./scripts/create-slice/index.js",
-    "update-imports": "ts-node ./scripts/refactoring/updateImports.ts",
+    "update-shared-imports": "ts-node ./scripts/refactoring/updateImports.ts",
     "create-public-shared-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUI.ts",
     "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest",
+    "remove-feature": "ts-node ./scripts/refactoring/remove-feature.ts",
     "postinstall": "rimraf ./node_modules/.cache"
   },
   "repository": {

@@ -17,8 +17,5 @@ export const buildSlice = <
     return useMemo(() => bindActionCreators(slice.actions, dispatch), [dispatch]);
   };
 
-  return {
-    ...slice,
-    useActions,
-  };
+  return { ...slice, useActions };
 };

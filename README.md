@@ -22,9 +22,13 @@
 - `npm run test:unit - ` run unit and integration testing using `jest` for all **.test.** or **.spec.** files. You can run specific test file, by adding test filename, for ex. **npm run test:unit Counter.spec.tsx**
 - `npm run storybook - ` run storybook
 - `npm run storybook:build - ` create storybook build
+- `npm run export-svg-icons - ` Exports all SVG icons contained in the assets directory, which have been converted to JSX format for easier use, to an index.ts file.
+- `npm run generate:layer - ` Automatically creates a slice and segment for the given layer that was requested when the script was called according to the described template of project folders and files. 
+- `npm run update-shared-imports - ` During development it was deliberately made a mistake not to create a public API for shared/ui layer. After writing this script, it automatically creates an **index.ts** file in each UI element of the component, and exports all exported content. Moreover, the script edits all ui component imports in the project.
 ----
 
 ## Project architecture
+
 Project was written depends on Feature Sliced Design methodology.
 
 Docs link - [Features Sliced Design](https://feature-sliced.design/ru/docs/get-started/overview)
@@ -32,6 +36,7 @@ Docs link - [Features Sliced Design](https://feature-sliced.design/ru/docs/get-s
 ----
 
 ## Work with translation
+
 Project using `i18next` library for translations. The translation files are stored in [public/locales](./public/locales/). A convenient file system of translations is provided, which makes it easy to introduce a new language: create a directory with the desired language, edit the [i18next configuration](./src/shared/config/i18n/i18n.ts) a bit and create translations manually using the appropriate keys
 
 For comfortable working with translations strongly recommend to install vscode/webstorm extension. For vscode link provided: [click me](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
@@ -48,6 +53,7 @@ Project has 4 types of tests:
 3) e2e tests with Cypress - `npm run test:e2e`
 4) regression screenshot storybook testing - `npm run test:ui`
 
+[More about test](/docs/testing.md)
 
 ----
 
@@ -61,11 +67,12 @@ Own plugin - [npm](https://www.npmjs.com/package/eslint-plugin-nothingg9537-plug
 Plugin rules description:
 1) **path-checker** - restricts using absolute imports within one module
 2) **layer-imports** - verifies that imports are correct from an FSD architecture (For example, you can't use a `Features` layer in another `Features` layer), or use an overlying layer in an underlying layer. (For example, use a `Features` layer in an `Entities` layer, or `Pages` in `Widgets`, and so on). 
-3) **public-api-imports** - allows imports only from public API (index.ts) file of module. Has autofix 
+3) **public-api-imports** - allows imports only from public API (index.ts) file of module. Has auto-fix 
 
 ----
 
 ## Storybook
+
 Project using storybook to describe components views. 
 The storybook-addon-mock is used for mock requests from backend.
 
@@ -98,6 +105,7 @@ The project configuration is stored in [/config](/config/)
 ----
 
 ## CI Pipeline
+
 The project has CI Pipeline and Github Actions configured at a basic level. The github configuration can be found [here.](/.github/workflows/main.yml)
 
 ----
@@ -115,3 +123,23 @@ It allows asynchronous loading of reducers, thus getting rid of them in the main
 [Code example](/docs/dynamic-module-wrapper.md)
 
 ----
+
+## Environment
+
+There are a lot of custom solutions in the project. Handy scripts, hooks, scss structure allows to easily introduce new themes/styles. For even more comfortable development, you can integrate some CSS-IN-JS library like [styled-components](https://styled-components.com/docs). 
+
+A lot of helpers to handle redux/hooks (useDispatch -> [buildSlice](/src/shared/lib/store/buildSlide.ts), useSelector -> [buildSelector](/src/shared/lib/store/buildSelector.ts)), class names, query parameters.
+
+Several scripts for automated refactoring with [ts-morph](https://ts-morph.com/) have been written, which allow to work with AST code tree, parse and modify it. 
+
+----
+
+## Feature flags
+
+The project implemented the concept of Feature Flags, which will be used for the redesign of the project and the simultaneous existence of the old, and new design of the application.
+
+----
+
+## Working with forms
+
+One of the best solutions at the time of writing the project for working with forms - [react-hook-form](https://react-hook-form.com/get-started) - is pre-integrated into the project. [More about](/docs/form.md)
