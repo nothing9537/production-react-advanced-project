@@ -9,6 +9,12 @@
   transition: var(--app-transition) background;
 }
 
+.NavbarRedesigned {
+  gap: 16px;
+  padding: 16px;
+  transition: var(--app-transition) background;
+}
+
 .links {
   display: flex;
   align-items: center;

@@ -10,6 +10,7 @@ import { Text, TextTheme } from '@/shared/ui/Text';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -25,19 +26,39 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
     setIsAuthModal(true);
   }, []);
 
+  /**
+   * @deprecated
+   */
+  const AuthDataNavBarDeprecated = (
+    <header className={classNames(cls.navbar, {}, [className])}>
+      <Text
+        title="Nothingg9537 App"
+        theme={TextTheme.INVERTED}
+        className={cls['app-name']}
+      />
+      <HStack width="fit-content" className={cls.links}>
+        <OpenNotificationsList />
+        <AvatarDropdown translationNamespace="navbar" />
+      </HStack>
+    </header>
+  );
+
+  const AuthDataNavbar = (
+    <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+      <HStack width="fit-content" className={cls.links}>
+        <OpenNotificationsList />
+        <AvatarDropdown translationNamespace="navbar" />
+      </HStack>
+    </header>
+  );
+
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, {}, [className])}>
-        <Text
-          title="Nothingg9537 App"
-          theme={TextTheme.INVERTED}
-          className={cls['app-name']}
-        />
-        <HStack width="fit-content" className={cls.links}>
-          <OpenNotificationsList />
-          <AvatarDropdown translationNamespace="navbar" />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        name="isAppRedesigned"
+        off={AuthDataNavBarDeprecated}
+        on={AuthDataNavbar}
+      />
     );
   }
 

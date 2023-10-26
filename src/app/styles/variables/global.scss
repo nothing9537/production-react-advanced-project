@@ -2,8 +2,12 @@
   // * Fonts
 
   --font-family-main: 'Consolas', 'Times New Roman', serif;
-  --font-size-s: 10px;
-  --font-line-s: 18px;
+  --font-family-text-redesigned: 'Nunito Sans', sans-serif;
+  --font-family-header-redesigned: 'Roboto', sans-serif;
+
+  // * s
+  --font-size-s: 12px;
+  --font-line-s: 20px;
   --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
 
   // * m
@@ -40,4 +44,18 @@
 
   // * Animation
   --app-transition: .3s;
+
+  // ! Fonts redesigned
+
+  // * s
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+
+  // * m
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+
+  // * l
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-header-redesigned);
+
+  // * xl
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 }

@@ -7,6 +7,7 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import cls from './PageWrapper.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageWrapperProps extends HTMLAttributes<HTMLElement> {
   className?: string;
@@ -44,8 +45,14 @@ export const PageWrapper: FC<PageWrapperProps> = ({ className, children, onScrol
     }
   }, 1000);
 
+  const pageClassName = toggleFeatures<string>({
+    name: 'isAppRedesigned',
+    on: () => cls.PageWrapperRedesigned,
+    off: () => cls.PageWrapper,
+  });
+
   return (
-    <main {...restProps} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.PageWrapper, {}, [className, 'scroll'])}>
+    <main {...restProps} onScroll={onScroll} ref={wrapperRef} className={classNames(pageClassName, {}, [className, 'scroll'])}>
       {children}
       {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
     </main>

@@ -7,7 +7,9 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserMounted, initAuthData } from '@/entities/User';
 import { AppRouter } from './providers/RouterProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
@@ -31,15 +33,32 @@ const App: FC = () => {
   }
 
   return (
-    <div className={classNames('App', {}, ['scroll'])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <Aside />
-          {_mounted && <AppRouter />}
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={(
+        <div className={classNames('App_redesigned', {}, ['scroll'])}>
+          <Suspense fallback="">
+            <MainLayout
+              header={<Navbar />}
+              aside={<Aside />}
+              content={<AppRouter />}
+              toolbar={<div>asdasdasd</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      )}
+      off={(
+        <div className={classNames('App', {}, ['scroll'])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Aside />
+              <AppRouter />
+            </div>
+          </Suspense>
+        </div>
+      )}
+    />
   );
 };
 

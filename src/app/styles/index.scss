@@ -12,7 +12,18 @@ body {
 .App {
   background: var(--bg-color);
   transition: var(--app-transition) background;
-  min-height: 100vh; 
+  // width: 100%;
+  // height: 100%;
+}
+
+.App_redesigned {
+  background: var(--bg);
+  transition: var(--app-transition) background;
+  width: 100vw;
+  height: 100vh;
+
+  font: var(--font-m-redesigned);
+  color: var(--test-redesigned);
 }
 
 .content-page {

@@ -1,4 +1,5 @@
 export { AboutPageIcon } from './AboutPage';
+export { AppLogoIcon } from './AppLogo';
 export { ArticlesPageIcon } from './ArticlesPage';
 export { CopyIcon } from './Copy';
 export { CreatedAtIcon } from './CreatedAt';

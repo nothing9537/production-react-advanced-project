@@ -3,11 +3,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { AsideItem } from '../AsideItem/AsideItem';
 import { getAsideItems } from '../../model/selectors/getAsideItems/getAsideItems';
 import cls from './Aside.module.scss';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface AsideProps {
   className?: string;
@@ -29,7 +31,10 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
     />
   )), [isCollapsed, asideItems]);
 
-  return (
+  /**
+   * @deprecated
+   */
+  const AsideDeprecated = (
     <section data-testid="aside" className={classNames(cls.Aside, { [cls.collapsed]: isCollapsed }, [className])}>
       <Button
         data-testid="aside-toggle"
@@ -49,5 +54,19 @@ export const Aside: FC<AsideProps> = memo(({ className }) => {
         <LanguageSwitcher short={isCollapsed} />
       </div>
     </section>
+  );
+
+  const AsideRedesigned = (
+    <section data-testid="aside" className={classNames(cls.AsideRedesigned, { [cls.collapsed]: isCollapsed }, [className])}>
+      <AppLogo />
+    </section>
+  );
+
+  return (
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={AsideRedesigned}
+      off={AsideDeprecated}
+    />
   );
 });

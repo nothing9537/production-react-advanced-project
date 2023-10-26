@@ -1,0 +1,39 @@
+.MainLayout {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas: 'aside content rightbar';
+  grid-template-columns: 284px 1fr 176px;
+}
+
+.aside {
+  grid-area: aside;
+  justify-self: center;
+  padding: 32px;
+}
+
+.content {
+  grid-area: content;
+  max-width: 1200px;
+  justify-self: center;
+  padding: 32px;
+}
+
+.rightbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rightbar, .aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.header {
+  // justify-self: end;
+}
+
+.toolbar {
+  height: 100%;
+}
