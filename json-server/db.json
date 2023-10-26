@@ -1196,6 +1196,10 @@
         "ADMIN",
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     },
     {
@@ -1205,6 +1209,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     },
     {
@@ -1215,6 +1223,10 @@
         "MANAGER",
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cdn.discordapp.com/attachments/341701512155758594/1136485169189105714/Main_avatar.png"
     },
     {
@@ -1224,6 +1236,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
     }
   ],
