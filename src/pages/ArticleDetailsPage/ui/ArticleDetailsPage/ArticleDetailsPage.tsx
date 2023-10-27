@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/deprecated/Card';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { PageWrapper } from '@/widgets/PageWrapper';
 import { ArticleDetails } from '@/entities/Article';

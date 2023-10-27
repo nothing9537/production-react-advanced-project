@@ -8,7 +8,7 @@ import { getUserMounted, initAuthData } from '@/entities/User';
 import { AppRouter } from './providers/RouterProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App: FC = () => {

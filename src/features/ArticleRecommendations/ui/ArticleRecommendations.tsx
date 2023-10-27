@@ -2,8 +2,8 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList, ArticlesView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
-import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useGetArticleRecommendationsQuery } from '../api';
 import cls from './ArticleRecommendations.module.scss';
 

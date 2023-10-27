@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
-import Avatar from '@/shared/ui/Avatar/Main_avatar.png';
+import Avatar from '@/shared/ui/deprecated/Avatar/Main_avatar.png';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import ProfilePage from './ProfilePage';
 

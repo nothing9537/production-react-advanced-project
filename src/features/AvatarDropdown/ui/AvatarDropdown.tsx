@@ -4,10 +4,10 @@ import { getRouteAdminPanel, getRouteArticleCreate } from '@/shared/consts/route
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { TranslationNamespacesKeys } from '@/shared/types/translation';
-import { Avatar, AvatarSize } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
-import { HStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 
 interface AvatarDropdownProps {

@@ -5,7 +5,7 @@ import { Virtuoso, VirtuosoGrid, GridScrollSeekPlaceholderProps } from 'react-vi
 import { useTranslation } from 'react-i18next';
 import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticlesView } from '../../model/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';

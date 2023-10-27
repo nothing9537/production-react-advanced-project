@@ -33,6 +33,7 @@
     "create-public-shared-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUI.ts",
     "update-eslint-plugin": "npm i -D eslint-plugin-nothingg9537-plugin@latest",
     "remove-feature": "ts-node ./scripts/refactoring/removeFeature.ts",
+    "update-deprecated-imports": "ts-node ./scripts/refactoring/updateDeprecatedImports.ts",
     "postinstall": "rimraf ./node_modules/.cache"
   },
   "repository": {

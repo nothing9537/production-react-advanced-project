@@ -7,7 +7,7 @@ import { Profile, ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly } from '../../model/selectors';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';

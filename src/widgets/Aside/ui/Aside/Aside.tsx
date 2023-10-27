@@ -1,15 +1,15 @@
 import { FC, memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { AsideItem } from '../AsideItem/AsideItem';
 import { getAsideItems } from '../../model/selectors/getAsideItems/getAsideItems';
 import cls from './Aside.module.scss';
-import { AppLogo } from '@/shared/ui/AppLogo';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 
 interface AsideProps {
   className?: string;

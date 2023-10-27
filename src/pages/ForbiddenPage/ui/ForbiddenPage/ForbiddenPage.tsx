@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '@/widgets/PageWrapper';
-import { VStack } from '@/shared/ui/Stack';
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
-import { Button } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { getRouteMain } from '@/shared/consts/router';
 
 interface ForbiddenPageProps {

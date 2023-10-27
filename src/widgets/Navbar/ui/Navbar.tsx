@@ -5,10 +5,10 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import cls from './Navbar.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 

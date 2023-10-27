@@ -4,7 +4,7 @@ import { RatingCard } from '@/entities/Rating';
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 export interface ArticleRatingProps {
   className?: string;

@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Select, SelectOption } from '@/shared/ui/Popups';
+import { Select, SelectOption } from '@/shared/ui/deprecated/Popups';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticlesSortFields } from '@/entities/Article';
 import cls from './ArticlesSortSelector.module.scss';

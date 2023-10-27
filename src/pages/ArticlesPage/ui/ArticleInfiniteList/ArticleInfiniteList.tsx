@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticlesListFilters } from '../ArticlesListFilters/ArticlesListFilters';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getArticlesList } from '../../model/slices/articlesListSlice';

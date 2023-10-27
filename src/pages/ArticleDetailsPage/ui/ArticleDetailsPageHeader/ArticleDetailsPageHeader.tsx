@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { getCanEditArticle } from '@/entities/Article';
 import { getRouteArticleEdit } from '@/shared/consts/router';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { AppLink } from '@/shared/ui/AppLink';
-import { Button } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   id?: string;
