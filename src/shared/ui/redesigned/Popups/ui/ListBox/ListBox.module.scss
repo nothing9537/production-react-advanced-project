@@ -3,7 +3,7 @@
   background: var(--dark-bg);
   z-index: 20;
   width: 100%;
-  max-width: fit-content;
+  min-width: 160px;
   overflow: hidden;
 
   &:active {
@@ -12,6 +12,7 @@
 }
 
 .option {
+  display: flex;
   padding: 10px 20px;
   cursor: pointer;
   color: var(--text);

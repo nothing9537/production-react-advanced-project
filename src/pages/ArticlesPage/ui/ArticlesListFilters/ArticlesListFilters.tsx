@@ -1,25 +1,15 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { TabOption, Tabs } from '@/shared/ui/deprecated/Tabs';
-import { SortOrder } from '@/shared/types/sort';
-import { ArticlesSortFields, ArticlesView } from '@/entities/Article';
+import { Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
-import { articlesListActions } from '../../model/slices/articlesListSlice';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import {
-  getArticlesListOrder,
-  getArticlesListSearch,
-  getArticlesListSort,
-  getArticlesListTag,
-  getArticlesListView,
-} from '../../model/selectors/articlesList';
+
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
+import { useArticleFilters } from '../../lib/hooks/userArticleFilters';
 import cls from './ArticlesListFilters.module.scss';
 
 interface ArticlesListFiltersProps {
@@ -28,54 +18,20 @@ interface ArticlesListFiltersProps {
 
 export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ className }) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
 
-  const view = useAppSelector(getArticlesListView);
-  const order = useAppSelector(getArticlesListOrder);
-  const sort = useAppSelector(getArticlesListSort);
-  const search = useAppSelector(getArticlesListSearch);
-  const tag = useAppSelector(getArticlesListTag);
-
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
-
-  const debouncedFetchData = useDebounce(fetchData, 1000);
-
-  const onChangeSearch = useCallback((newSearch: string) => {
-    dispatch(articlesListActions.setSearch(newSearch));
-    dispatch(articlesListActions.setPage(1));
-    debouncedFetchData();
-  }, [dispatch, debouncedFetchData]);
-
-  const onChangeSort = useCallback((newSort: ArticlesSortFields) => {
-    dispatch(articlesListActions.setSort(newSort));
-    dispatch(articlesListActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeOrder = useCallback((newOrder: SortOrder) => {
-    dispatch(articlesListActions.setOrder(newOrder));
-    dispatch(articlesListActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeTag = useCallback((tab: TabOption) => {
-    dispatch(articlesListActions.setTag(tab.value));
-    dispatch(articlesListActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeView = useCallback((view: ArticlesView) => {
-    dispatch(articlesListActions.setView(view));
-  }, [dispatch]);
-
-  const tagTabs = useMemo<TabOption[]>(() => [
-    { value: 'ALL', content: 'All' },
-    { value: 'IT', content: 'IT' },
-    { value: 'SCIENCE', content: 'Science' },
-    { value: 'ECONOMICS', content: 'Economics' },
-  ], []);
+  const {
+    sort,
+    order,
+    search,
+    view,
+    tag,
+    onChangeOrder,
+    onChangeSearch,
+    onChangeSort,
+    onChangeTag,
+    onChangeView,
+    tagTabs,
+  } = useArticleFilters();
 
   return (
     <VStack gap={16} className={classNames('', {}, [className])}>
@@ -97,10 +53,22 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
         placeholder={t('search-filter')}
         className={cls['search-filters']}
       />
-      <Tabs
-        tabs={tagTabs}
-        onTabClick={onChangeTag}
-        value={tag}
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={(
+          <Tabs
+            tabs={tagTabs}
+            onTabClick={onChangeTag}
+            value={tag}
+          />
+        )}
+        off={(
+          <TabsDeprecated
+            tabs={tagTabs}
+            onTabClick={onChangeTag}
+            value={tag}
+          />
+        )}
       />
     </VStack>
   );

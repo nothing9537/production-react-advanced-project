@@ -51,7 +51,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): Rea
         disabled={readonly}
       >
         <Listbox.Button as="div" className={popupCls.trigger}>
-          <Button disabled={readonly}>
+          <Button variant="contained" disabled={readonly}>
             {selectedValue?.content}
           </Button>
         </Listbox.Button>

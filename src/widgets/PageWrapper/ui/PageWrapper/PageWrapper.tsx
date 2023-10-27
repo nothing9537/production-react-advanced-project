@@ -26,7 +26,11 @@ export const PageWrapper: FC<PageWrapperProps> = ({ className, children, onScrol
 
   useInfiniteScroll<HTMLDivElement, HTMLElement>({
     callback: onScrollEnd,
-    wrapperRef,
+    wrapperRef: toggleFeatures(({
+      name: 'isAppRedesigned',
+      on: () => undefined,
+      off: () => wrapperRef,
+    })),
     triggerRef,
   });
 

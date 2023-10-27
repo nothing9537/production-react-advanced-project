@@ -20,9 +20,13 @@
   border-radius: 0 0 8px 8px;
 }
 
+.selected {
+  background: var(--light-bg) !important;
+}
+
 .menu {
   border-radius: 18px;
-  border: 1px solid var(--accent);
+  border: 2px solid var(--accent);
   overflow: hidden;
 }
 

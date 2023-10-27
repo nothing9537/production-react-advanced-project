@@ -1,4 +1,5 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, PayloadAction } from '@reduxjs/toolkit';
+import { buildSlice } from '@/shared/lib/store';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article, ArticlesSortFields, ArticlesView } from '@/entities/Article';
 import { ARTICLES_VIEW_KEY } from '@/shared/consts/localStorage';
@@ -13,7 +14,7 @@ export const getArticlesList = articlesListAdapter.getSelectors<StateSchema>((st
   state?.articlesList || articlesListAdapter.getInitialState()
 ));
 
-const articlesListSlice = createSlice({
+const articlesListSlice = buildSlice({
   name: 'articlesList',
   initialState: articlesListAdapter.getInitialState<ArticlesListSchema>({
     isLoading: false,
@@ -94,4 +95,8 @@ const articlesListSlice = createSlice({
   },
 });
 
-export const { reducer: articlesListReducer, actions: articlesListActions } = articlesListSlice;
+export const {
+  reducer: articlesListReducer,
+  actions: articlesListActions,
+  useActions: useArticlesListActions,
+} = articlesListSlice;

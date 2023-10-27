@@ -1,8 +1,7 @@
-import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getRouteArticleDetails, getRouteProfile } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
 import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
 import { ViewsIcon } from '@/shared/assets/deprecated-icons';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
@@ -10,6 +9,7 @@ import { Button } from '@/shared/ui/deprecated/Button';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Text } from '@/shared/ui/deprecated/Text';
+
 import { ArticleBlockType, ArticlesView } from '../../model/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
@@ -20,10 +20,9 @@ interface ArticlesListItemProps {
   article: Article;
   view: ArticlesView;
   target?: HTMLAttributeAnchorTarget;
-  index: number;
 }
 
-export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, article, view, target, index }) => {
+export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, article, view, target }) => {
   const { t } = useTranslation('articles');
 
   const tags = <Text text={article.type.join(', ')} className={cls.tags} />;
@@ -34,10 +33,6 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
       <Icon SVG={<ViewsIcon />} />
     </div>
   );
-
-  const onReadMoreClick = useCallback(() => {
-    sessionStorage.setItem(ARTICLES_SCROLL_ITEM_INDEX, JSON.stringify(index));
-  }, [index]);
 
   if (view === ArticlesView.LIST) {
     const textBlock = article.blocks.find((b) => b.type === ArticleBlockType.TEXT) as ArticleTextBlock;
@@ -65,7 +60,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = memo(({ className, ar
               to={getRouteArticleDetails(article.id)}
               target={target}
             >
-              <Button onClick={onReadMoreClick}>
+              <Button>
                 {t('read-more')}
               </Button>
             </AppLink>

@@ -2,7 +2,10 @@ import { FC, ReactNode, memo, useCallback, useEffect, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../Button';
 import cls from './Tabs.module.scss';
-
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export interface TabOption {
   value: string;
   content: ReactNode;

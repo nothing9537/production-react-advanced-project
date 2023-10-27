@@ -14,7 +14,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ clas
   if (view === ArticlesView.LIST) {
     return (
       <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
-        <Card>
+        <Card fullWidth>
           <div className={cls.header}>
             <div className={cls.avatar}>
               <Skeleton width={30} height={30} borderRadius="50%" />

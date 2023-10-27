@@ -6,3 +6,5 @@ export { InfoIcon } from './Info';
 export { ChevronIcon } from './Chevron';
 export { ThemeIcon } from './Theme';
 export { NotificationIcon } from './Notification';
+export { GridViewIcon } from './GridView';
+export { ListViewIcon } from './ListView';

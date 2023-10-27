@@ -1,0 +1,37 @@
+.ViewSelector {
+  border-radius: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-bg);
+  overflow: hidden;
+}
+
+.left-rounding {
+  border-radius: 43px 0 0 43px;
+}
+
+.right-rounding {
+  border-radius: 0 43px 43px 0;
+}
+
+.viewButton {
+  border: 2px solid var(--dark-bg);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  svg {
+    color: var(--light-bg);
+  }
+}
+
+.selected {
+  background: var(--light-bg);
+  svg {
+    color: var(--icon);
+  }
+}

@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'contained';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -14,6 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   square?: boolean;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -22,8 +23,8 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
     className,
     variant = 'outline',
     square,
+    type,
     size = 'm',
-    type = 'button',
     ...restProps
   } = props;
 
@@ -35,7 +36,7 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
   return (
     <button
       {...restProps}
-      type={type}
+      type={type || 'button'}
       ref={ref}
       className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
     >
