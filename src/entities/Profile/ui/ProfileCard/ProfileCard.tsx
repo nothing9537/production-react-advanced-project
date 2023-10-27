@@ -5,7 +5,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { controlledInputsFactory } from '@/shared/lib/components/controlledInputs';
 import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';

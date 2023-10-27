@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '@/shared/consts/theme';
 import { WithThemeDecorator } from '@/shared/config/storybook';
 import { CountrySelect } from './CountrySelect';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CountrySelect> = {
   title: 'Entities/CountrySelect',

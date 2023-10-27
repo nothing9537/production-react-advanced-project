@@ -4,7 +4,7 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';

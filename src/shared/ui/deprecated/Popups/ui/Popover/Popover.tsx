@@ -3,8 +3,8 @@ import { Popover as HeadlessPopover } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
 import { positionMapper, roundingModsMapper } from '../../style';
-import cls from './Popover.module.scss';
 import popupCls from '../../style/Popup.module.scss';
+import cls from './Popover.module.scss';
 
 interface PopoverProps {
   className?: string;

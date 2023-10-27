@@ -6,7 +6,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Button } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { addCommentActions, addCommentReducer } from '../../model/slice/addCommentSlice';
 import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import cls from './AddNewComment.module.scss';

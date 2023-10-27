@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import { ArticlesSortSelector } from './ArticlesSortSelector';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ArticlesSortSelector> = {
   title: 'features/Article/ArticlesSortSelector',

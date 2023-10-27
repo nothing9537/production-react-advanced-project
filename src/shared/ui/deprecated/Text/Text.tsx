@@ -1,19 +1,28 @@
 import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
-
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export enum TextTheme {
   PRIMARY = 'primary',
   INVERTED = 'inverted',
   ERROR = 'error',
 }
-
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export enum TextAlign {
   LEFT = 'left',
   RIGHT = 'right',
   CENTER = 'center',
 }
-
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export enum TextSize {
   S = 'size_s',
   M = 'size_m',

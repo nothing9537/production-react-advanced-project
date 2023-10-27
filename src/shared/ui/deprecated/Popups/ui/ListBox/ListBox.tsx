@@ -5,10 +5,10 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
 import { typedMemo } from '@/shared/lib/hooks/useTypedMemo';
 import { Button } from '../../../Button';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import { roundingModsMapper, positionMapper } from '../../style';
-import cls from './ListBox.module.scss';
 import popupCls from '../../style/Popup.module.scss';
+import cls from './ListBox.module.scss';
 /**
  * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
  * @deprecated

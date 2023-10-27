@@ -8,9 +8,9 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/deprecated/Stack';
-import cls from './Navbar.module.scss';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;

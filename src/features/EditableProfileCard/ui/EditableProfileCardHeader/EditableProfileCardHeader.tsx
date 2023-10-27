@@ -4,7 +4,7 @@ import { UseFormGetValues, UseFormReset } from 'react-hook-form';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData } from '@/entities/User';
 import { Profile } from '@/entities/Profile';

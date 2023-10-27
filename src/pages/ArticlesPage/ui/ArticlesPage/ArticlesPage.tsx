@@ -5,11 +5,11 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 // import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { PageWrapper } from '@/widgets/PageWrapper';
 // import { getArticlesListIsLoading } from '../../model/selectors/articlesList';
+import { ArticlePageGreetings } from '@/features/ArticlePageGreetings';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { articlesListReducer } from '../../model/slices/articlesListSlice';
 import { fetchNewArticles } from '../../model/services/fetchNewArticles/fetchNewArticles';
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
-import { ArticlePageGreetings } from '@/features/ArticlePageGreetings';
 
 interface ArticlesPageProps {
   className?: string;

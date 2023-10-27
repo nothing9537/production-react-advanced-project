@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Article, ArticleBlockType } from '@/entities/Article';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import { ArticleRecommendations } from './ArticleRecommendations';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const article: Article = {
   id: '1',

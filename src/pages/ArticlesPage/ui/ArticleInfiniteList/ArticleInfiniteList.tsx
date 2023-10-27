@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { VStack } from '@/shared/ui/deprecated/Stack';
-import { ArticlesListFilters } from '../ArticlesListFilters/ArticlesListFilters';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { ArticlesList } from '@/entities/Article';
+import { ArticlesListFilters } from '../ArticlesListFilters/ArticlesListFilters';
 import { getArticlesList } from '../../model/slices/articlesListSlice';
 import { getArticlesListIsLoading, getArticlesListView } from '../../model/selectors/articlesList';
-import { ArticlesList } from '@/entities/Article';
 
 interface ArticleInfiniteListProps {
   className?: string;

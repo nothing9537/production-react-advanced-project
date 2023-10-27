@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { getUserAuthData } from '@/entities/User';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { PageLoader } from '@/widgets/PageLoader';
+import { routeConfig } from '../config/routeConfig';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
-import { routeConfig } from '../config/routeConfig';
 
 export const AppRouter: FC = memo(() => {
   const authData = useAppSelector(getUserAuthData);

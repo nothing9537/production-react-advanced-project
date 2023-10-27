@@ -1,10 +1,10 @@
 import { FC, memo, useCallback } from 'react';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { RatingCard } from '@/entities/Rating';
-import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api';
 
 export interface ArticleRatingProps {
   className?: string;

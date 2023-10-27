@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import AddNewComment from './AddNewComment';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AddNewComment> = {
   title: 'features/AddNewComment',

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLogoIcon } from '@/shared/assets/deprecated-icons';
-import { HStack } from '../../deprecated/Stack';
+import { HStack } from '../../redesigned/Stack';
 import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {

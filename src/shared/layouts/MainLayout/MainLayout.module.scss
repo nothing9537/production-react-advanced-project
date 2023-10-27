@@ -2,12 +2,14 @@
   min-height: 100%;
   display: grid;
   grid-template-areas: 'aside content rightbar';
-  grid-template-columns: 284px 1fr 100px;
+  grid-template-columns: min-content 1fr 100px;
 }
 
 .aside {
   grid-area: aside;
   padding: 32px;
+  max-width: 284px;
+  width: 100%;
 }
 
 .content {

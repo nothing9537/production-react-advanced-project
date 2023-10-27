@@ -4,11 +4,14 @@ import { getRouteAdminPanel, getRouteArticleCreate } from '@/shared/consts/route
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { TranslationNamespacesKeys } from '@/shared/types/translation';
-import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
-import { HStack } from '@/shared/ui/deprecated/Stack';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Avatar as AvatarDeprecated, AvatarSize as AvatarSizeDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextDeprecated, TextTheme as TextThemeDeprecated } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -29,31 +32,51 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const items = [
+    ...(isAdminPanelAvailable ? [{
+      label: t('admin-panel'),
+      href: getRouteAdminPanel(),
+    }] : []),
+    { label: t('logout'), action: onLogoutHandler },
+    { label: t('create-article'), href: getRouteArticleCreate() },
+  ];
+
   return (
-    <Dropdown
-      className={className}
-      position="bottom right"
-      component={(
-        <HStack gap={8}>
-          <Text theme={TextTheme.INVERTED} text={authData?.username} />
-          <Avatar
-            src={authData?.avatar}
-            alt="Avatar"
-            borderRadius="50%"
-            size={AvatarSize.NANO}
-            width={32}
-            height={32}
-          />
-        </HStack>
+    <ToggleFeatures
+      name="isAppRedesigned"
+      off={(
+        <DropdownDeprecated
+          className={className}
+          position="bottom right"
+          component={(
+            <HStack gap={8}>
+              <TextDeprecated theme={TextThemeDeprecated.INVERTED} text={authData?.username} />
+              <AvatarDeprecated
+                src={authData?.avatar}
+                alt="Avatar"
+                borderRadius="50%"
+                size={AvatarSizeDeprecated.NANO}
+                width={32}
+                height={32}
+              />
+            </HStack>
+          )}
+          items={items}
+        />
       )}
-      items={[
-        ...(isAdminPanelAvailable ? [{
-          label: t('admin-panel'),
-          href: getRouteAdminPanel(),
-        }] : []),
-        { label: t('logout'), action: onLogoutHandler },
-        { label: t('create-article'), href: getRouteArticleCreate() },
-      ]}
+      on={(
+        <Dropdown
+          className={className}
+          position="bottom right"
+          component={(
+            <HStack gap={8}>
+              <TextDeprecated theme={TextThemeDeprecated.INVERTED} text={authData?.username} />
+              <Avatar src={authData?.avatar} alt="Avatar" size={40} />
+            </HStack>
+          )}
+          items={items}
+        />
+      )}
     />
   );
 });

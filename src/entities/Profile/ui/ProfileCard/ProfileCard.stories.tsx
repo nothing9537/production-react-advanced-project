@@ -1,4 +1,3 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import Avatar from '@/shared/ui/deprecated/Avatar/Main_avatar.png';
 import { WithThemeDecorator, WithFormDecorator } from '@/shared/config/storybook';
 import { Country } from '@/entities/Country';
@@ -6,6 +5,7 @@ import { Currency } from '@/entities/Currency';
 import { Theme } from '@/shared/consts/theme';
 import { Profile } from '../../model/types/profile';
 import { ProfileCard } from './ProfileCard';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const data: Profile = {
   firstName: 'Vadym',

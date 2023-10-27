@@ -9,7 +9,7 @@ import { CreatedAtIcon, ViewsIcon } from '@/shared/assets/deprecated-icons';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Comment } from '@/entities/Comment';
 import { UserRole } from '@/entities/User';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const entities: { [key: string]: Comment } = {
   1: {

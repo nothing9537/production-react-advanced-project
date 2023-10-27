@@ -8,7 +8,7 @@ import { Input } from '@/shared/ui/deprecated/Input';
 import { TabOption, Tabs } from '@/shared/ui/deprecated/Tabs';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticlesSortFields, ArticlesView } from '@/entities/Article';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
 import { articlesListActions } from '../../model/slices/articlesListSlice';

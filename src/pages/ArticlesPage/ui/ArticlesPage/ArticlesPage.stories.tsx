@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Article, ArticlesView } from '@/entities/Article';
 import { WithStoreDecorator } from '@/shared/config/storybook';
 import ArticlesPage from './ArticlesPage';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const entities: Record<string, Article> = {
   8: {

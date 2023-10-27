@@ -6,8 +6,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import cls from './PageWrapper.module.scss';
 import { toggleFeatures } from '@/shared/lib/features';
+import cls from './PageWrapper.module.scss';
 
 interface PageWrapperProps extends HTMLAttributes<HTMLElement> {
   className?: string;

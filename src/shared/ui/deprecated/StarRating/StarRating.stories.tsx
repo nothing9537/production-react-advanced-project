@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { StarRating } from './StarRating';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof StarRating> = {
   title: 'shared/deprecated/StarRating',

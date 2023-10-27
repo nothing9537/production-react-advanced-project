@@ -6,7 +6,7 @@ import { getRouteArticleEdit } from '@/shared/consts/router';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Button } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   id?: string;

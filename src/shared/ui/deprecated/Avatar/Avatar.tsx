@@ -1,11 +1,14 @@
 import { CSSProperties, FC, HTMLAttributes } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { AppImage } from '../AppImage';
 import { ProfileIcon } from '@/shared/assets/deprecated-icons';
-import cls from './Avatar.module.scss';
+import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
-
+import cls from './Avatar.module.scss';
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export enum AvatarSize {
   NANO = 'nano',
   SMALL = 'small',
@@ -27,6 +30,10 @@ interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   borderRadius?: number | string;
 }
 
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export const Avatar: FC<AvatarProps> = ({ className, alt, src, size = AvatarSize.NORMAL, round, width, height, borderRadius, ...props }) => {
   const mods: Mods = {
     [cls.round]: round,

@@ -1,5 +1,5 @@
-import { Project } from 'ts-morph';
 import path from 'path';
+import { Project } from 'ts-morph';
 
 const project = new Project({});
 

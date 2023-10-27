@@ -2,7 +2,7 @@ import { FC, memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { StarIcon } from '@/shared/assets/deprecated-icons';
 import { Icon } from '../Icon';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 import cls from './StarRating.module.scss';
 
 interface StarRatingProps {

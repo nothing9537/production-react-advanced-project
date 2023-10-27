@@ -1,7 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { Modal } from '@/shared/ui/deprecated/Modal';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';

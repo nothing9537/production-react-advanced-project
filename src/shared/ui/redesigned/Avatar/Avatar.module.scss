@@ -1,0 +1,29 @@
+.Avatar {
+  img {
+    object-fit: fill;
+  }
+}
+
+.nano {
+  width: 32px;
+  height: 32px;
+}
+
+.small {
+  width: 64px;
+  height: 64px;
+}
+
+.normal {
+  width: 128px;
+  height: 128px;
+}
+
+.large {
+  width: 196px;
+  height: 196px;
+}
+
+.round {
+  border-radius: 8px;
+}

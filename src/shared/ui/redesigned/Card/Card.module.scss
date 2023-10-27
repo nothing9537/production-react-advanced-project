@@ -1,0 +1,16 @@
+.Card {
+  border-radius: 12px;
+  transition: var(--app-transition) background;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.outlined {
+  border: 1px solid var(--accent);
+}
+
+.normal {
+  background: var(--dark-bg);
+}

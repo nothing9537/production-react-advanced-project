@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../Button';
-import { VStack } from '../Stack';
+import { VStack } from '../../redesigned/Stack';
 import { Text } from '../Text';
 import { Drawer } from './Drawer';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Drawer> = {
   title: 'shared/deprecated/Drawer',

@@ -2,8 +2,8 @@ import { cloneElement, FC, FormEvent, ReactElement, ReactNode, useCallback, useE
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationModules } from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Overlay } from '../Overlay';
-import { Portal } from '../Portal';
+import { Overlay } from '../../redesigned/Overlay';
+import { Portal } from '../../redesigned/Portal';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {

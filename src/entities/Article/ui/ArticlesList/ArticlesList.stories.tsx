@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { ArticlesView } from '../../model/consts';
 import { Article } from '../../model/types/article';
 import { ArticlesList } from './ArticlesList';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const article = {
   id: '1',

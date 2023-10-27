@@ -15,8 +15,8 @@ import {
   ProfileIcon,
 } from '@/shared/assets/redesigned-icons';
 
-import { AsideItemType } from '../../types/asideItems';
 import { toggleFeatures } from '@/shared/lib/features';
+import { AsideItemType } from '../../types/asideItems';
 
 export const getAsideItems = createSelector(
   getUserAuthData,

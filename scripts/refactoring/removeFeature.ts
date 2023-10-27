@@ -122,11 +122,11 @@ function replaceToggleComponent(node: Node) {
 files.forEach((sourceFile) => {
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isNodeToggleFunction(node)) {
-      replaceToggleFunction(node);
+      return replaceToggleFunction(node);
     }
 
     if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isNodeToggleComponent(node)) {
-      replaceToggleComponent(node);
+      return replaceToggleComponent(node);
     }
   });
 });

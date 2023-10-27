@@ -5,11 +5,11 @@ import { Navbar } from '@/widgets/Navbar';
 import { Aside } from '@/widgets/Aside';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserMounted, initAuthData } from '@/entities/User';
-import { AppRouter } from './providers/RouterProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppRouter } from './providers/RouterProvider';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();

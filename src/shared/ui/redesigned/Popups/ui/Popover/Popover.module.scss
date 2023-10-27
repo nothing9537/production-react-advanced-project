@@ -1,0 +1,13 @@
+.Popover {
+  outline: none;
+  height: fit-content;
+  display: flex;
+  width: fit-content;
+}
+
+.panel {
+  background: var(--dark-bg);
+  position: absolute;
+  z-index: 10;
+  padding: 20px;
+}

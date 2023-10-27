@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react';
 import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
 import { ComponentRender } from '@/shared/lib/tests/componentRender/componentRender';
-import { AppRouter } from './AppRouter';
 import { UserRole } from '@/entities/User';
+import { AppRouter } from './AppRouter';
 
 describe('app/router/AppRouter', () => {
   test('Page should be in the Document', async () => {
