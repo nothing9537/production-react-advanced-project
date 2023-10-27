@@ -4,47 +4,25 @@ import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
-export enum ButtonTheme {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outlineRed',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
-}
+export type ButtonVariant = 'clear' | 'outline';
 
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
-export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
-}
+export type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ButtonTheme;
+  variant?: ButtonVariant;
   size?: ButtonSize;
   square?: boolean;
   fullWidth?: boolean;
 }
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
+
 export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children,
     fullWidth,
     className,
-    theme = ButtonTheme.OUTLINE,
+    variant = 'outline',
     square,
-    size = ButtonSize.M,
+    size = 'm',
     type = 'button',
     ...restProps
   } = props;
@@ -59,7 +37,7 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
       {...restProps}
       type={type}
       ref={ref}
-      className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
+      className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
     >
       {children}
     </button>

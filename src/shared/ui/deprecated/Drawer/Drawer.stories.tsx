@@ -5,7 +5,7 @@ import { Text } from '../Text';
 import { Drawer } from './Drawer';
 
 const meta: Meta<typeof Drawer> = {
-  title: 'shared/Drawer',
+  title: 'shared/deprecated/Drawer',
   component: Drawer,
   tags: ['autodocs'],
 };

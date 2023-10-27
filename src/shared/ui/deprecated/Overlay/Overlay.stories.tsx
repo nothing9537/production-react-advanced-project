@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Overlay } from './Overlay';
 
 const meta: Meta<typeof Overlay> = {
-  title: 'shared/Overlay',
+  title: 'shared/deprecated/Overlay',
   component: Overlay,
   tags: ['autodocs'],
 };

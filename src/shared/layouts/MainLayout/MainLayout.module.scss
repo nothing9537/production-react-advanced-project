@@ -2,18 +2,18 @@
   min-height: 100%;
   display: grid;
   grid-template-areas: 'aside content rightbar';
-  grid-template-columns: 284px 1fr 176px;
+  grid-template-columns: 284px 1fr 100px;
 }
 
 .aside {
   grid-area: aside;
-  justify-self: center;
   padding: 32px;
 }
 
 .content {
   grid-area: content;
   max-width: 1200px;
+  width: 100%;
   justify-self: center;
   padding: 32px;
 }
@@ -31,7 +31,7 @@
 }
 
 .header {
-  // justify-self: end;
+
 }
 
 .toolbar {

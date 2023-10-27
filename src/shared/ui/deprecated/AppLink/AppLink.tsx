@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { FC, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
-
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export enum AppLinkTheme {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',

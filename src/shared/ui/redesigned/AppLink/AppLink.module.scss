@@ -1,0 +1,18 @@
+.primary {
+  color: var(--text);
+  // width: fit-content;
+  transition: var(--app-transition);
+  font: var(--font-m-redesigned);
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.secondary {
+  color: var(--inverted-primary-color);
+}
+
+.no-underline {
+  text-decoration: none;
+}

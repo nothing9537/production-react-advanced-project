@@ -1,0 +1,36 @@
+.link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: var(--app-transition);
+  padding-left: 16px;
+
+  &:hover {
+    svg {
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+
+  span {
+    transition: var(--app-transition);
+    margin-left: 10px;
+  }
+}
+
+.collapsed {
+  padding-left: 0;
+
+  span {
+    width: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.active {
+  border-left: 2px solid var(--accent);
+  background: linear-gradient(90deg, rgba(29, 89, 255, 0.30) 1.15%, rgba(94, 211, 243, 0.00) 99.97%);
+}

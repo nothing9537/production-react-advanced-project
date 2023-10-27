@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { StarRating } from './StarRating';
 
 const meta: Meta<typeof StarRating> = {
-  title: 'shared/StarRating',
+  title: 'shared/deprecated/StarRating',
   component: StarRating,
   tags: ['autodocs'],
 };

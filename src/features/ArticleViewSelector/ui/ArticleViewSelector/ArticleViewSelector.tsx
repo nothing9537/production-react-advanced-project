@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { ListIcon, TileIcon } from '@/shared/assets/icons';
+import { ListIcon, TileIcon } from '@/shared/assets/deprecated-icons';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { ArticlesView } from '@/entities/Article';
 import cls from './ArticleViewSelector.module.scss';

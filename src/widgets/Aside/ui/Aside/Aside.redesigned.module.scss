@@ -1,0 +1,61 @@
+.AsideRedesigned {
+  width: 220px;
+  background: var(--light-bg);
+  transition: var(--app-transition);
+  height: 100%;
+  border-radius: 32px;
+  padding-top: 24px;
+  position: relative;
+}
+
+.collapsed {
+  padding: 10px;
+  width: 50px;
+
+  .links {
+    align-items: center;
+    justify-content: center;
+    gap: 8px !important;
+
+    .item {
+      padding-left: 0;
+    }
+  }
+
+  .collapse-button {
+    right: 15%;
+  }
+
+  .switchers {
+    flex-direction: column;
+    right: 0;
+  }
+}
+
+.switchers {
+  transition: var(--app-transition);
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.links {
+  margin-top: 40px;
+  gap: 12px !important;
+}
+
+.collapse-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transition: var(--app-transition);
+  transform: rotate(90deg);
+}
+
+.is-button-collapsed {
+  transform: rotate(-90deg);
+}

@@ -1,8 +1,22 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
 import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
-import { MainPageIcon, AboutPageIcon, ProfilePageIcon, ArticlesPageIcon } from '@/shared/assets/icons';
+import {
+  MainPageIcon as MainPageIconDeprecated,
+  AboutPageIcon as AboutPageIconDeprecated,
+  ProfilePageIcon as ProfilePageIconDeprecated,
+  ArticlesPageIcon as ArticlesPageIconDeprecated,
+} from '@/shared/assets/deprecated-icons';
+
+import {
+  ArticlesIcon,
+  HomeIcon,
+  InfoIcon,
+  ProfileIcon,
+} from '@/shared/assets/redesigned-icons';
+
 import { AsideItemType } from '../../types/asideItems';
+import { toggleFeatures } from '@/shared/lib/features';
 
 export const getAsideItems = createSelector(
   getUserAuthData,
@@ -10,12 +24,20 @@ export const getAsideItems = createSelector(
     const asideItemsList: AsideItemType[] = [
       {
         path: getRouteMain(),
-        Icon: MainPageIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => HomeIcon,
+          off: () => MainPageIconDeprecated,
+        }),
         text: 'main-link',
       },
       {
         path: getRouteAbout(),
-        Icon: AboutPageIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => InfoIcon,
+          off: () => AboutPageIconDeprecated,
+        }),
         text: 'about-link',
       },
     ];
@@ -24,13 +46,21 @@ export const getAsideItems = createSelector(
       asideItemsList.push(
         {
           path: getRouteProfile(userData.id),
-          Icon: ProfilePageIcon,
+          Icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => ProfileIcon,
+            off: () => ProfilePageIconDeprecated,
+          }),
           text: 'profile-link',
           authOnly: true,
         },
         {
           path: getRouteArticles(),
-          Icon: ArticlesPageIcon,
+          Icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => ArticlesIcon,
+            off: () => ArticlesPageIconDeprecated,
+          }),
           text: 'articles-link',
           authOnly: true,
         },

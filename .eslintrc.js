@@ -95,7 +95,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/src/shared/assets/icons/*.{ts,tsx}'],
+      files: ['**/src/shared/assets/**/*.{ts,tsx}'],
       rules: {
         'max-len': 'off',
         'react/jsx-props-no-spreading': 'off',

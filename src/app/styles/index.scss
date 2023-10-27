@@ -23,16 +23,16 @@ body {
   height: 100vh;
 
   font: var(--font-m-redesigned);
-  color: var(--test-redesigned);
+  color: var(--text);
 }
 
 .content-page {
   display: flex;
 }
 
-iframe#webpack-dev-server-client-overlay{
-  display: none !important;
-}
+// iframe#webpack-dev-server-client-overlay{
+//   display: none !important;
+// }
 
 .scroll {
   overflow-y: auto;

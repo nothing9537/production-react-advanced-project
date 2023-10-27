@@ -1,0 +1,26 @@
+.Icon {
+  color: var(--icon);
+  * {
+    transition: var(--app-transition);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  cursor: pointer;
+}
+
+.button:hover .Icon {
+  color: var(--accent);
+}

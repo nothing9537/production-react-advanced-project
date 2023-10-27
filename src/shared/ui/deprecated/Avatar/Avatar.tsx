@@ -1,7 +1,7 @@
 import { CSSProperties, FC, HTMLAttributes } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '../AppImage';
-import { ProfileIcon } from '@/shared/assets/icons';
+import { ProfileIcon } from '@/shared/assets/deprecated-icons';
 import cls from './Avatar.module.scss';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';

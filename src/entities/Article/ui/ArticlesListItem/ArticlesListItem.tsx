@@ -4,7 +4,7 @@ import { getRouteArticleDetails, getRouteProfile } from '@/shared/consts/router'
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ARTICLES_SCROLL_ITEM_INDEX } from '@/shared/consts/localStorage';
 import { Avatar, AvatarSize } from '@/shared/ui/deprecated/Avatar';
-import { ViewsIcon } from '@/shared/assets/icons';
+import { ViewsIcon } from '@/shared/assets/deprecated-icons';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Card } from '@/shared/ui/deprecated/Card';

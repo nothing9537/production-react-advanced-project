@@ -5,7 +5,7 @@ import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/Dyna
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { CreatedAtIcon, ViewsIcon } from '@/shared/assets/icons';
+import { CreatedAtIcon, ViewsIcon } from '@/shared/assets/deprecated-icons';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
