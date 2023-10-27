@@ -15,14 +15,15 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   theme?: CardTheme;
+  fullWidth?: boolean;
 }
 /**
  * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
  * @deprecated
  */
-export const Card: FC<CardProps> = memo(({ className, children, theme = CardTheme.NORMAL, ...props }) => {
+export const Card: FC<CardProps> = memo(({ className, children, theme = CardTheme.NORMAL, fullWidth, ...props }) => {
   return (
-    <div {...props} className={classNames(cls.Card, {}, [className, cls[theme]])}>
+    <div {...props} className={classNames(cls.Card, { [cls.fullWidth]: fullWidth }, [className, cls[theme]])}>
       {children}
     </div>
   );
