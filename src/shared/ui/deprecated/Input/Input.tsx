@@ -6,6 +6,10 @@ import cls from './Input.module.scss';
 
 type AppInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'placeholder' | 'readOnly'>;
 
+/**
+ * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
+ * @deprecated
+ */
 export interface InputProps extends AppInput {
   className?: string;
   value?: string | number;

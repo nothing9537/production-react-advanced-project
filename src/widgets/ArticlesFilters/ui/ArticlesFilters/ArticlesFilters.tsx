@@ -6,10 +6,13 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticlesSortFields } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { TabOption, Tabs } from '@/shared/ui/redesigned/Tabs';
-import { Input } from '@/shared/ui/deprecated/Input';
 import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { SearchIcon } from '@/shared/assets/redesigned-icons';
+
 import cls from './ArticlesFilters.module.scss';
 
 interface ArticlesFiltersProps {
@@ -32,11 +35,26 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props) => {
   return (
     <Card className={classNames(cls.ArticlesFilters, {}, [className])} padding="24">
       <VStack gap={32}>
-        <Input
-          value={search}
-          onChange={onChangeSearch}
-          placeholder={t('search-filter')}
-          className={cls['search-filters']}
+        <ToggleFeatures
+          name="isAppRedesigned"
+          on={(
+            <Input
+              value={search}
+              onChange={onChangeSearch}
+              placeholder={t('search-filter')}
+              className={cls['search-filters']}
+              addonRight={<SearchIcon />}
+              // label="Some"
+            />
+          )}
+          off={(
+            <InputDeprecated
+              value={search}
+              onChange={onChangeSearch}
+              placeholder={t('search-filter')}
+              className={cls['search-filters']}
+            />
+          )}
         />
         <ToggleFeatures
           name="isAppRedesigned"
