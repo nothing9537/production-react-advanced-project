@@ -1,7 +1,12 @@
 import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+
 import { ArticlesView } from '../../model/consts';
 import cls from './ArticlesListItem.module.scss';
 
@@ -11,26 +16,41 @@ interface ArticleListItemSkeletonProps {
 }
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className, view }) => {
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  });
+
+  const Card = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => CardRedesigned,
+    off: () => CardDeprecated,
+  });
+
   if (view === ArticlesView.LIST) {
     return (
-      <div className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
-        <Card fullWidth>
-          <div className={cls.header}>
-            <div className={cls.avatar}>
+      <Card
+        padding="24"
+        fullWidth
+        className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}
+      >
+        <VStack gap={16}>
+          <HStack>
+            <HStack gap={12}>
               <Skeleton width={30} height={30} borderRadius="50%" />
               <Skeleton width={150} height={16} />
-            </div>
-            <Skeleton width={60} height={16} />
-          </div>
+            </HStack>
+          </HStack>
           <Skeleton className={cls.title} width={210} height={24} />
           <Skeleton className={cls.tags} width={160} height={16} />
           <Skeleton height={250} className={cls.img} />
-          <div className={cls.footer}>
+          <HStack justify="space-between">
             <Skeleton width={180} height={32} />
             <Skeleton width={60} height={16} />
-          </div>
-        </Card>
-      </div>
+          </HStack>
+        </VStack>
+      </Card>
     );
   }
 

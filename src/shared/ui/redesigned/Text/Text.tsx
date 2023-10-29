@@ -17,6 +17,7 @@ interface TextProps {
   size?: TextSize;
   textNoWrap?: boolean;
   titleNoWrap?: boolean;
+  bold?: boolean;
   'data-testid'?: string;
 }
 
@@ -36,6 +37,7 @@ export const Text: FC<TextProps> = memo((props) => {
     align = 'left',
     textNoWrap = false,
     titleNoWrap = false,
+    bold = false,
     'data-testid': dataTestId = '',
   } = props;
 
@@ -44,10 +46,12 @@ export const Text: FC<TextProps> = memo((props) => {
 
   const titleMods: Mods = {
     [cls['no-wrap']]: titleNoWrap,
+    [cls.bold]: bold,
   };
 
   const textMods: Mods = {
     [cls['no-wrap']]: textNoWrap,
+    [cls.bold]: bold,
   };
 
   return (

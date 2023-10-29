@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, FC, forwardRef, memo, ReactElement } from 'react'
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline' | 'contained';
+export type ButtonVariant = 'clear' | 'outlined' | 'contained';
 
 export type ButtonSize = 's' | 'm' | 'l';
 

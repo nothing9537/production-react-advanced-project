@@ -12,7 +12,7 @@ body {
 
 .App {
   background: var(--bg-color);
-  transition: var(--app-transition) background;
+  transition: background var(--app-transition);
 
   // width: 100%;
   // height: 100%;
@@ -20,7 +20,7 @@ body {
 
 .App_redesigned {
   background: var(--bg);
-  transition: var(--app-transition) background;
+  transition: background var(--app-transition);
   width: 100vw;
   height: 100vh;
   font: var(--font-m-redesigned);
@@ -47,10 +47,10 @@ body {
   }
 	
   &::-webkit-scrollbar-thumb {
-    background: #424651;
+    background: var(--hint) !important;
 
     &:hover {
-      background: rgb(110 110 110);
+      background: rgb(110, 110, 110);
     }
   }
 }

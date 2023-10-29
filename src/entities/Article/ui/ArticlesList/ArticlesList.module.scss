@@ -1,12 +1,10 @@
 .ArticlesList {
-  margin-top: 12px;
   width: 100%;
   padding: 0 12px;
   height: fit-content;
 }
 
 .skeletons {
-  margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -27,28 +25,4 @@
 
 .list-item {
   margin-top: 12px;
-}
-
-.tile-items-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 16px;
-  row-gap: 32px;
-  margin: 0 30px;
-}
-
-.tile-item-container {
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-
-  @media (width <= 1024px) {
-    width: 50%;
-  }
-
-  @media (width <= 300px) {
-    width: 100%;
-  }
 }

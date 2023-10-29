@@ -28,7 +28,16 @@
 }
 
 .outlined {
-  border: 2px solid var(--accent);
+  border: 1px solid var(--icon) !important;
+
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 32px;
+
+  &:hover {
+    border: 1px solid var(--accent) !important;
+  }
 }
 
 .addon-left, .addon-right {
@@ -41,11 +50,6 @@
   border: none;
   outline: none;
   border-radius: 32px;
-  padding: 8px 16px;
-
-  // &:hover {
-  //   background: var(--hint);
-  // }
 }
 
 .square.m {
@@ -72,15 +76,12 @@
 
 .s {
   height: 32px;
-  font: var(--font-m-redesigned);
 }
 
 .m {
   height: 38px;
-  font: var(--font-l-redesigned);
 }
 
 .l {
   height: 44px;
-  font: var(--font-xl-redesigned);
 }

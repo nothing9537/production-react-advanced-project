@@ -1,0 +1,91 @@
+.ArticlesListItem {
+  transition: var(--app-transition);
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.LIST {
+  width: 100%;
+
+  .text {
+    max-height: 200px;
+    overflow-y: hidden;
+    margin: 16px 0;
+  }
+
+  .img {
+    object-fit: contain;
+    max-height: 250px;
+    width: 100%;
+    user-select: none;
+  }
+
+  .text {
+    max-height: 72px;
+    overflow: hidden;
+  }
+
+}
+
+.TILE {
+  cursor: pointer;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  height: 100%;
+
+  .timestamp {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: .8;
+
+    .timestamp {
+      display: block;
+    }
+  }
+
+  .image-wrapper {
+    position: relative;
+    padding: 10px;
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      user-select: none;
+    }
+  }
+
+  .tags p, .title p {
+    width: 115px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .title p {
+    width: 200px;
+  }
+  
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .additional-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
