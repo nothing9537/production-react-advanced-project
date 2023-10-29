@@ -19,18 +19,6 @@
   padding: 0 16px !important;
 }
 
-.s {
-  height: 32px;
-}
-
-.m {
-  height: 38px;
-}
-
-.l {
-  height: 44px;
-}
-
 .clear {
   padding: 0;
   border: none;
@@ -82,14 +70,17 @@
   width: 100%;
 }
 
-.m {
+.s {
+  height: 32px;
   font: var(--font-m-redesigned);
 }
 
-.l {
+.m {
+  height: 38px;
   font: var(--font-l-redesigned);
 }
 
-.xl {
+.l {
+  height: 44px;
   font: var(--font-xl-redesigned);
 }

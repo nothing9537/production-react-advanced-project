@@ -8,30 +8,6 @@
   position: relative;
 }
 
-.collapsed {
-  padding: 10px;
-  width: 50px;
-
-  .links {
-    align-items: center;
-    justify-content: center;
-    gap: 8px !important;
-
-    .item {
-      padding-left: 0;
-    }
-  }
-
-  .collapse-button {
-    right: 15%;
-  }
-
-  .switchers {
-    flex-direction: column;
-    right: 0;
-  }
-}
-
 .switchers {
   transition: var(--app-transition);
   position: absolute;
@@ -54,6 +30,30 @@
   top: 50%;
   transition: var(--app-transition);
   transform: rotate(90deg);
+}
+
+.collapsed {
+  padding: 10px;
+  width: 50px;
+
+  .links {
+    align-items: center;
+    justify-content: center;
+    gap: 8px !important;
+
+    .item {
+      padding-left: 0;
+    }
+  }
+
+  .collapse-button {
+    right: 15%;
+  }
+
+  .switchers {
+    flex-direction: column;
+    right: 0;
+  }
 }
 
 .is-button-collapsed {

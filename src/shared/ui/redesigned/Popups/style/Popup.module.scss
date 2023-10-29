@@ -3,6 +3,10 @@
   width: fit-content;
 }
 
+.opened svg {
+  transform: rotate(-180deg);
+}
+
 .trigger {
   cursor: pointer;
   outline-color: transparent;
@@ -15,10 +19,8 @@
     transition: transform var(--app-transition), color var(--app-transition);
   }
 
-  &:hover {
-    svg {
-      color: var(--accent);
-    }
+  &:hover svg {
+    color: var(--accent);
   }
 }
 
@@ -38,12 +40,6 @@
   border-radius: 18px;
   border: 2px solid var(--accent);
   overflow: hidden;
-}
-
-.opened {
-  svg {
-    transform: rotate(-180deg);
-  }
 }
 
 .active {

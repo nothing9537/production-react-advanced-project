@@ -24,6 +24,7 @@
   height: 50px;
   width: 50px;
   cursor: pointer;
+
   svg {
     color: var(--light-bg);
   }
@@ -31,6 +32,7 @@
 
 .selected {
   background: var(--light-bg);
+
   svg {
     color: var(--icon);
   }
