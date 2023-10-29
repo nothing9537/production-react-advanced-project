@@ -42,7 +42,7 @@ const App: FC = () => {
               header={<Navbar />}
               aside={<Aside />}
               content={<AppRouter />}
-              toolbar={<div>asdasdasd</div>}
+              // toolbar={<div>asdasdasd</div>}
             />
           </Suspense>
         </div>

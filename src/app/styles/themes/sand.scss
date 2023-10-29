@@ -1,0 +1,34 @@
+:root,
+.app_sand_theme {
+  --bg-color: #e8e8ea;
+  --inverted-bg-color: #090949;
+  --primary-color: #0232c2;
+  --secondary-color: #0449e0;
+  --inverted-primary-color: #04ff04;
+  --inverted-secondary-color: #049604;
+
+  // ! Redesign
+  
+  --dark-bg: #FFF3D6;
+  --bg: #F0C048;
+  --light-bg: #F2D791;
+  --text: #1B1311;
+  --hint: #B8B2A2;
+  --cancel: #FF5E5E;
+  --save: #52FA81;
+  --icon: #4875F0;
+  --accent: #1D59FF;
+
+  // * Skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  // * Code
+  --code-bg: #fff;
+
+  // * Card bg
+  --card-bg: #d3d3d3;
+
+  // * ListBox bg
+  --list-box-bg: #d3d3d3;
+}
