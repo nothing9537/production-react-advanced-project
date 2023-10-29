@@ -8,10 +8,7 @@ interface SkeletonProps {
   width?: string | number;
   borderRadius?: string | number;
 }
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
+
 export const Skeleton: FC<SkeletonProps> = memo(({ className, height, width, borderRadius }) => {
   const styles: CSSProperties = { borderRadius, width, height };
 

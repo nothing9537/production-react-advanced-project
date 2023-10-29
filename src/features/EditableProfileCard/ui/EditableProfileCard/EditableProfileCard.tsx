@@ -63,7 +63,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <VStack gap={24} className={className}>
+      <VStack gap={24} className={className} height="90vh">
         <EditableProfileCardHeader
           profileData={formData}
           readonly={readonly}

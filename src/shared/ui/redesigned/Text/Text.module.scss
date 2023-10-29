@@ -8,6 +8,10 @@
   color: var(--text);
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .error {
   .title {
     color: var(--cancel);

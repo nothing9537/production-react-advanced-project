@@ -9,6 +9,7 @@ import { Button } from '../../../Button';
 import { HStack } from '../../../../redesigned/Stack';
 import { roundingModsMapper, positionMapper } from '../../style';
 import popupCls from '../../style/Popup.module.scss';
+import { ButtonSize } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxOption<T> {
@@ -25,11 +26,12 @@ interface ListBoxProps<T extends string> {
   onChange?: (value: T) => void;
   readonly?: boolean;
   position?: Position;
+  controllerSize?: ButtonSize;
 }
 
 export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): ReactElement<ListBoxProps<T>> => {
   const { t } = useTranslation('translation');
-  const { className, options, value, onChange, readonly, placeholder, position = 'bottom left' } = props;
+  const { className, options, value, onChange, readonly, placeholder, position = 'bottom left', controllerSize = 'm' } = props;
 
   const defaultLabel = options.find((o) => o.value === value) || { content: t('select-value'), value: '' as T };
   const [selectedValue, setSelectedValue] = useState<ListBoxOption<T>>(defaultLabel);
@@ -58,6 +60,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): Rea
               className={open ? popupCls.opened : ''}
               disabled={readonly}
               addonRight={<ChevronIcon />}
+              size={controllerSize}
             >
               {selectedValue?.content}
             </Button>

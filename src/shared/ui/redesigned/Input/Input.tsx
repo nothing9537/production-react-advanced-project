@@ -1,10 +1,12 @@
 import { ChangeEvent, FC, forwardRef, HTMLAttributes, InputHTMLAttributes, ReactElement, useId, useRef } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Text } from '../Text';
+import { HStack, VStack } from '../Stack';
 import cls from './Input.module.scss';
 
-type AppInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'placeholder' | 'readOnly'>;
+type AppInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'placeholder' | 'readOnly' | 'size'>;
 
+type InputSize = 's' | 'm' | 'l';
 export interface InputProps extends AppInput {
   className?: string
   error?: ValidateComponentError;
@@ -17,6 +19,7 @@ export interface InputProps extends AppInput {
   labelProps?: HTMLAttributes<HTMLLabelElement>;
   width?: string | number;
   height?: string | number;
+  size?: InputSize;
 
   addonLeft?: ReactElement;
   addonRight?: ReactElement;
@@ -35,9 +38,10 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((p
     fullWidth,
     labelProps,
     width,
-    height = 32,
+    height,
     addonLeft,
     addonRight,
+    size = 's',
     ...restProps
   } = props;
 
@@ -56,14 +60,13 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((p
 
   const id = useId();
 
-  return (
+  const input = (
     <label
       style={{ width, height }}
-      className={classNames(cls['label-wrapper'], labelMods, [className])}
+      className={classNames(cls['label-wrapper'], labelMods, [className, cls[size]])}
       htmlFor={id}
       {...labelProps}
     >
-      {label && <Text text={label} />}
       {addonLeft && <span className={cls['addon-left']}>{addonLeft}</span>}
       <input
         {...restProps}
@@ -79,8 +82,20 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((p
       {addonRight && <span className={cls['addon-right']}>{addonRight}</span>}
     </label>
   );
-});
 
-// {error?.message && (
-//   <Text variant="error" text={error.message} />
-// )}
+  if (label) {
+    return (
+      <HStack gap={8} align="center">
+        {label && <Text text={label} textNoWrap />}
+        <VStack gap={8}>
+          {error?.message && (
+            <Text variant="error" text={error.message} />
+          )}
+          {input}
+        </VStack>
+      </HStack>
+    );
+  }
+
+  return input;
+});

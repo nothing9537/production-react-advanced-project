@@ -1,3 +1,4 @@
 cypress/*
 json-server/*
 config/storybook/*
+build/*

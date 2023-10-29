@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 type TextVariant = 'primary' | 'error' | 'accent';
@@ -15,6 +15,8 @@ interface TextProps {
   variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;
+  textNoWrap?: boolean;
+  titleNoWrap?: boolean;
   'data-testid'?: string;
 }
 
@@ -32,21 +34,31 @@ export const Text: FC<TextProps> = memo((props) => {
     size = 'm',
     variant = 'primary',
     align = 'left',
+    textNoWrap = false,
+    titleNoWrap = false,
     'data-testid': dataTestId = '',
   } = props;
 
   const Title = tagMapper[size];
   const textClassNames = [className, cls[variant], cls[align], cls[size]];
 
+  const titleMods: Mods = {
+    [cls['no-wrap']]: titleNoWrap,
+  };
+
+  const textMods: Mods = {
+    [cls['no-wrap']]: textNoWrap,
+  };
+
   return (
     <div className={classNames(cls.Text, {}, textClassNames)}>
       {title && (
-        <Title className={cls.title} data-testid={`${dataTestId}.Title`}>
+        <Title className={classNames(cls.title, titleMods)} data-testid={`${dataTestId}.Title`}>
           {title}
         </Title>
       )}
       {text && (
-        <p data-testid={`${dataTestId}.Text`} className={cls.text}>
+        <p data-testid={`${dataTestId}.Text`} className={classNames(cls.text, textMods)}>
           {text}
         </p>
       )}

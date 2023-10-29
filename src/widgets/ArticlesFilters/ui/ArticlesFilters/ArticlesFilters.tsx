@@ -44,7 +44,6 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props) => {
               placeholder={t('search-filter')}
               className={cls['search-filters']}
               addonLeft={<SearchIcon />}
-              // label="Some"
             />
           )}
           off={(
