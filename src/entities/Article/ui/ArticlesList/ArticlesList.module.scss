@@ -1,7 +1,6 @@
 .ArticlesList {
   width: 100%;
   padding: 0 12px;
-  height: fit-content;
 }
 
 .skeletons {
@@ -19,10 +18,7 @@
 
 .LIST {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 32px;
-}
-
-.list-item {
-  margin-top: 12px;
+  gap: 16px;
 }

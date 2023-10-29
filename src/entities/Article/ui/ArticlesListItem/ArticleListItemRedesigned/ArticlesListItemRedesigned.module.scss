@@ -31,12 +31,12 @@
 }
 
 .TILE {
-  cursor: pointer;
-  width: 240px;
-  display: flex;
-  flex-direction: column;
-  max-height: 300px;
-  height: 100%;
+  .title {
+    width: 200px;
+    p {
+      word-break: break-all;
+    }
+  }
 
   .timestamp {
     position: absolute;
@@ -54,38 +54,31 @@
     }
   }
 
-  .image-wrapper {
-    position: relative;
-    padding: 10px;
-
-    img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      user-select: none;
-    }
-  }
-
-  .tags p, .title p {
-    width: 115px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  .card {
+    width: 240px;
+    min-height: 350px;
     overflow: hidden;
-  }
-
-  .title p {
-    width: 200px;
-  }
-  
-  .footer {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-  }
-  
-  .additional-data {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
   }
+
+  .img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  .info {
+    padding: 8px 8px 16px 8px;
+    height: 100%;
+  }
+
+  .footer {
+    height: 100%;
+    justify-content: flex-end;
+  }
+
 }

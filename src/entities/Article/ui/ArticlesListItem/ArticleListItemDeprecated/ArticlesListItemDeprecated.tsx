@@ -18,7 +18,9 @@ import { ArticleTextBlock } from '../../../model/types/article';
 import { ArticlesListItemProps } from '../../../model/types/component';
 import cls from './ArticlesListItem.deprecated.module.scss';
 
-
+/**
+ * @deprecated
+ */
 export const ArticlesListItemDeprecated: FC<ArticlesListItemProps> = memo(({ className, article, view, target }) => {
   const { t } = useTranslation('articles');
 
