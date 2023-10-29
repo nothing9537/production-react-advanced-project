@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/button-has-type */
-import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
+import { ButtonHTMLAttributes, FC, forwardRef, memo, ReactElement } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -15,6 +15,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   fullWidth?: boolean;
   disabled?: boolean;
+  addonLeft?: ReactElement;
+  addonRight?: ReactElement;
 }
 
 export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -25,12 +27,15 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
     square,
     type,
     size = 'm',
+    addonLeft,
+    addonRight,
     ...restProps
   } = props;
 
   const mods: Mods = {
     [cls.square]: square,
     [cls.fullWidth]: fullWidth,
+    [cls['with-addon']]: Boolean(addonLeft) || Boolean(addonRight),
   };
 
   return (
@@ -40,7 +45,9 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
       ref={ref}
       className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
     >
+      {addonLeft && <span className={cls['addon-left']}>{addonLeft}</span>}
       {children}
+      {addonRight && <span className={cls['addon-right']}>{addonRight}</span>}
     </button>
   );
 }));

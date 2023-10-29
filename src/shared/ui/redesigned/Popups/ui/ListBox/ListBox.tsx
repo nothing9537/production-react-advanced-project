@@ -4,6 +4,7 @@ import { Listbox } from '@headlessui/react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
 import { typedMemo } from '@/shared/lib/hooks/useTypedMemo';
+import { ChevronIcon } from '@/shared/assets/redesigned-icons';
 import { Button } from '../../../Button';
 import { HStack } from '../../../../redesigned/Stack';
 import { roundingModsMapper, positionMapper } from '../../style';
@@ -51,9 +52,16 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): Rea
         disabled={readonly}
       >
         <Listbox.Button as="div" className={popupCls.trigger}>
-          <Button variant="contained" disabled={readonly}>
-            {selectedValue?.content}
-          </Button>
+          {({ open }) => (
+            <Button
+              variant="contained"
+              className={open ? popupCls.opened : ''}
+              disabled={readonly}
+              addonRight={<ChevronIcon />}
+            >
+              {selectedValue?.content}
+            </Button>
+          )}
         </Listbox.Button>
         <Listbox.Options className={classNames(cls.options, roundingModsMapper(position), classes)}>
           {options.map((option, index) => (

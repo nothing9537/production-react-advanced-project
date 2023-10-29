@@ -10,6 +10,16 @@
   padding: 0;
   border: none;
   background: none;
+
+  svg {
+    transition: transform var(--app-transition), color var(--app-transition);
+  }
+
+  &:hover {
+    svg {
+      color: var(--accent);
+    }
+  }
 }
 
 .top-rounding {
@@ -28,6 +38,12 @@
   border-radius: 18px;
   border: 2px solid var(--accent);
   overflow: hidden;
+}
+
+.opened {
+  svg {
+    transform: rotate(-180deg);
+  }
 }
 
 .active {

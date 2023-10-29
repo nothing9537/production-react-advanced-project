@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, forwardRef, Fragment, HTMLAttributes, InputHTMLAttributes, ReactElement, useId, useRef } from 'react';
+import { ChangeEvent, FC, forwardRef, HTMLAttributes, InputHTMLAttributes, ReactElement, useId, useRef } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Text } from '../Text';
 import cls from './Input.module.scss';

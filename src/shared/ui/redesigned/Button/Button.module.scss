@@ -1,8 +1,10 @@
 .Button {
   cursor: pointer;
   color: var(--text);
-  padding: 6px 15px;
+  padding: 8px 16px;
   transition: calc(var(--app-transition) / 2);
+  display: flex;
+  align-items: center;
 
   &:disabled {
     opacity: .5;
@@ -13,12 +15,25 @@
   }
 }
 
+.with-addon {
+  padding: 0 16px !important;
+}
+
 .clear {
   padding: 0;
   border: none;
   background: none;
   outline-color: transparent;
   display: flex;
+}
+
+.outlined {
+  border: 2px solid var(--accent);
+}
+
+.addon-left, .addon-right {
+  display: flex;
+  color: var(--hint);
 }
 
 .contained {
@@ -28,9 +43,9 @@
   border-radius: 32px;
   padding: 8px 16px;
 
-  &:hover {
-    background: var(--hint);
-  }
+  // &:hover {
+  //   background: var(--hint);
+  // }
 }
 
 .square.m {
