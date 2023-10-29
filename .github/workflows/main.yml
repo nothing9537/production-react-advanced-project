@@ -69,18 +69,18 @@ jobs:
         if: always()
       - name: build storybook
         run: npm run storybook:build
-      #   if: always()
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
+        if: always()
+      - name: screenshot testing
+        run: npm run test:ui:ci
         if: always()
       - name: unit testing
         if: always()
         run: npm run test:unit
-      # - name: Generate HTML report
-      #   run: npm run test:ui:report
-      #   if: always()
-      # - name: move loki
-      #   run: mv .loki reports/
+      - name: Generate HTML report
+        run: npm run test:ui:report
+        if: always()
+      - name: move loki
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
