@@ -45,6 +45,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
 
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
+      window.location.reload();
     }
   }, [dispatch, username, password, onSuccess]);
 

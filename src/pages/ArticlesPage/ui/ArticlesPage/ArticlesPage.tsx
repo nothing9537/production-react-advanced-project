@@ -14,6 +14,7 @@ import { initArticlesList } from '../../model/services/initArticlesList/initArti
 import { ArticlesListFilters } from '../ArticlesListFilters/ArticlesListFilters';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
+import { useArticlesListIsLoading } from '../../model/selectors/articlesList';
 
 import cls from './ArticlesPage.module.scss';
 
@@ -27,12 +28,14 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
+  const isLoading = useArticlesListIsLoading();
 
   const onNextArticlesPageLoad = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchNewArticles());
     }
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, isLoading]);
 
   useInitialEffect(() => {
     dispatch(initArticlesList(window.location.search));
