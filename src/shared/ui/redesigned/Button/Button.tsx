@@ -5,7 +5,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outlined' | 'contained';
-export type ButtonColor = 'success' | 'cancel';
+export type ButtonColor = 'success' | 'cancel' | 'normal';
 export type ButtonSize = 's' | 'm' | 'l';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,7 +31,7 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
     size = 'm',
     addonLeft,
     addonRight,
-    color,
+    color = 'normal',
     ...restProps
   } = props;
 
@@ -46,7 +46,7 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
       {...restProps}
       type={type || 'button'}
       ref={ref}
-      className={classNames(cls.Button, mods, [className, cls[variant], cls[size], cls[color || '']])}
+      className={classNames(cls.Button, mods, [className, cls[variant], cls[size], cls[color]])}
     >
       {addonLeft && <span className={cls['addon-left']}>{addonLeft}</span>}
       {children}

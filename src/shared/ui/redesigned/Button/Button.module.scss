@@ -28,22 +28,25 @@
 }
 
 .outlined {
-  border: 2px solid var(--icon);
   background: transparent;
   outline: none;
   border-radius: 32px;
 
+  &.normal {
+    border: 2px solid var(--icon);
+  }
+
   &:hover {
     border: 2px solid var(--accent) !important;
   }
-}
 
-.success {
-  border: 2px solid var(--save) !important;
-}
-
-.cancel {
-  border: 2px solid var(--cancel) !important;
+  &.success {
+    border: 2px solid var(--save);
+  }
+  
+  &.cancel {
+    border: 2px solid var(--cancel);
+  }
 }
 
 .addon-left, .addon-right {

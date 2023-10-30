@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
@@ -63,7 +62,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, i
 
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <VStack gap={24} className={className} height="90vh">
+      <VStack gap={16} className={className}>
         <EditableProfileCardHeader
           profileData={formData}
           readonly={readonly}
