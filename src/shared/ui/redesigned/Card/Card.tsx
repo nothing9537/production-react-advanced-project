@@ -12,10 +12,22 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   padding?: CardPadding;
   fullWidth?: boolean;
   maxWidth?: string | number;
+  borderRadius?: string | number;
+  width?: number | string;
 }
 
 export const Card: FC<CardProps> = memo((props) => {
-  const { className, children, variant = 'normal', padding = '8', fullWidth, maxWidth, ...restProps } = props;
+  const {
+    className,
+    children,
+    variant = 'normal',
+    padding = '8',
+    fullWidth,
+    maxWidth,
+    borderRadius,
+    width,
+    ...restProps
+  } = props;
 
   const mods: Mods = {
     [cls.fullWidth]: fullWidth,
@@ -25,7 +37,7 @@ export const Card: FC<CardProps> = memo((props) => {
     <div
       {...restProps}
       className={classNames(cls.Card, mods, [className, cls[variant]])}
-      style={{ padding: `${padding}px`, maxWidth }}
+      style={{ padding: `${padding}px`, maxWidth, borderRadius, width }}
     >
       {children}
     </div>

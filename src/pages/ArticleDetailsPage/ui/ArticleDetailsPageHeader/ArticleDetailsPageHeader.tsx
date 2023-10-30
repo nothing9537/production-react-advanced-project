@@ -9,7 +9,7 @@ import { Button } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsPageHeaderProps {
-  id?: string;
+  id: string;
 }
 
 export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(({ id }) => {
@@ -28,7 +28,7 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
         {t('return-back')}
       </Button>
       {canEdit && (
-        <AppLink to={getRouteArticleEdit(id!)}>
+        <AppLink to={getRouteArticleEdit(id)}>
           <Button>
             {t('can-edit')}
           </Button>

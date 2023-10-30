@@ -2,7 +2,7 @@
   min-height: 100%;
   display: grid;
   grid-template-areas: 'aside content rightbar';
-  grid-template-columns: min-content 1fr 100px;
+  grid-template-columns: min-content 1fr min-content;
 }
 
 .aside {
@@ -21,6 +21,7 @@
 }
 
 .rightbar {
+  min-width: 176px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

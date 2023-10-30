@@ -72,7 +72,11 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])} data-testid={props['data-testid']}>
+    <Card
+      className={classNames(cls.RatingCard, {}, [className])}
+      data-testid={props['data-testid']}
+      fullWidth
+    >
       <VStack gap={8} align="center">
         {ratingContent}
       </VStack>

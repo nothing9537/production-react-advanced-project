@@ -23,7 +23,7 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
   const { children,
     fullWidth,
     className,
-    variant = 'outline',
+    variant = 'contained',
     square,
     type,
     size = 'm',

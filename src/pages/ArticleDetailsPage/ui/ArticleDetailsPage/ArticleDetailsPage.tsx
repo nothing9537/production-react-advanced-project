@@ -1,15 +1,18 @@
-/* eslint-disable i18next/no-literal-string */
 import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleWrapper, ReducersList } from '@/shared/lib/components/DynamicModuleWrapper';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { PageWrapper } from '@/widgets/PageWrapper';
 import { ArticleDetails } from '@/entities/Article';
-import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
+import { ArticleRating } from '@/features/ArticleRating';
+import { PageWrapper } from '@/widgets/PageWrapper';
+
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { ArticleDetailsComments, articleDetailsCommentsReducer } from '../ArticleDetailsComments';
+import { ArticleDetailsAdditionalInfo } from '../ArticleDetailsAdditionalInfo/ArticleDetailsAdditionalInfo';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -22,23 +25,39 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
 
+  const ArticleDetailsPageDeprecated = (
+    <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <ArticleDetailsPageHeader id={id!} />
+      <ArticleDetails id={id!} />
+      <ArticleRating id={id!} />
+      <ArticleRecommendations />
+      <ArticleDetailsComments id={id} />
+    </PageWrapper>
+  );
+
+  const ArticleDetailsPageRedesigned = (
+    <StickyContentLayout
+      content={(
+        <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+          <VStack gap={16}>
+            <DetailsContainer />
+            <ArticleRating id={id!} />
+            <ArticleRecommendations />
+            <ArticleDetailsComments id={id} />
+          </VStack>
+        </PageWrapper>
+      )}
+      right={<ArticleDetailsAdditionalInfo />}
+    />
+  );
+
   return (
     <DynamicModuleWrapper reducers={reducers}>
-      <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader id={id} />
-        <ArticleDetails id={id!} />
-        <ToggleFeatures
-          name="isArticleRatingEnabled"
-          on={<ArticleRating id={id!} />}
-          off={(
-            <Card>
-              New feature coming soon!
-            </Card>
-          )}
-        />
-        <ArticleRecommendations />
-        <ArticleDetailsComments id={id} />
-      </PageWrapper>
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={ArticleDetailsPageRedesigned}
+        off={ArticleDetailsPageDeprecated}
+      />
     </DynamicModuleWrapper>
   );
 };

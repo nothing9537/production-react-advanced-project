@@ -13,5 +13,8 @@
   "feedback": "Your feedback",
   "leave-your-feedback": "Please, rate an article to improve service quality!",
   "welcome": "Welcome to the articles page!",
-  "welcome-message-description": "Here you can serve an articles to different interests!"
+  "welcome-message-description": "Here you can serve an articles to different interests!",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

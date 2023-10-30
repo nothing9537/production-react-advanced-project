@@ -141,5 +141,8 @@
   "thanks-for-rate": "thanks-for-rate",
   "title": "title",
   "welcome": "welcome",
-  "welcome-message-description": "welcome-message-description"
+  "welcome-message-description": "welcome-message-description",
+  "{{count}}": "{{count}}",
+  "{{count}} views": "{{count}} views",
+  "{{count}} views_plural": "{{count}} views_plural"
 }
