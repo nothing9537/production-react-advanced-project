@@ -23,7 +23,6 @@
 }
 
 .TILE {
-
   &:hover {
     transform: scale(1.05);
     opacity: .8;
@@ -52,7 +51,7 @@
   }
 
   .info {
-    padding: 8px 8px 16px 8px;
+    padding: 8px 8px 16px;
     height: 100%;
   }
 
@@ -60,6 +59,7 @@
     height: 100%;
     justify-content: flex-end;
   }
+
   .avatar {
     margin-left: 8px;
   }

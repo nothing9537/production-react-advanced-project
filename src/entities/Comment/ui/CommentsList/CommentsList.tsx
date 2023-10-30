@@ -2,7 +2,14 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import {
+  Text as TextDeprecated,
+  TextAlign as TextAlignDeprecated,
+  TextTheme as TextThemeDeprecated,
+} from '@/shared/ui/deprecated/Text';
+
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
@@ -18,7 +25,17 @@ export const CommentsList: FC<CommentsListProps> = memo(({ className, comments, 
 
   if (error) {
     return (
-      <Text title={error} theme={TextTheme.ERROR} align={TextAlign.CENTER} />
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={<Text title={error} variant="error" align="center" />}
+        off={(
+          <TextDeprecated
+            title={error}
+            theme={TextThemeDeprecated.ERROR}
+            align={TextAlignDeprecated.CENTER}
+          />
+        )}
+      />
     );
   }
 

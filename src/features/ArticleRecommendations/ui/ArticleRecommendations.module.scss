@@ -1,10 +1,15 @@
-.ArticleRecommendations {
-  margin-top: 16px;
-}
-
 .list {
   height: 350px;
   flex-wrap: nowrap;
   overflow-y: hidden;
   overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.list-redesigned {
+  height: 400px;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-top: 20px;
 }

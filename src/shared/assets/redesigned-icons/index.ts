@@ -10,3 +10,6 @@ export { GridViewIcon } from './GridView';
 export { ListViewIcon } from './ListView';
 export { SearchIcon } from './Search';
 export { CopyIcon } from './Copy';
+export { StarIcon } from './Star';
+export { StarFilledIcon } from './StarFilled';
+export { SendIcon } from './Send';

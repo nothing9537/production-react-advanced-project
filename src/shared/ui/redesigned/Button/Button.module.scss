@@ -28,19 +28,35 @@
 }
 
 .outlined {
-  border: 1px solid var(--icon) !important;
+  border: 2px solid var(--icon);
   background: transparent;
   outline: none;
   border-radius: 32px;
 
   &:hover {
-    border: 1px solid var(--accent) !important;
+    border: 2px solid var(--accent) !important;
   }
+}
+
+.success {
+  border: 2px solid var(--save) !important;
+}
+
+.cancel {
+  border: 2px solid var(--cancel) !important;
 }
 
 .addon-left, .addon-right {
   display: flex;
   color: var(--hint);
+}
+
+.addon-left {
+  margin-right: 8px;
+}
+
+.addon-right {
+  margin-left: 8px;
 }
 
 .contained {

@@ -3,7 +3,10 @@ import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { RatingCard } from '@/entities/Rating';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api';
 
 export interface ArticleRatingProps {
@@ -38,7 +41,11 @@ const ArticleRating: FC<ArticleRatingProps> = memo(({ className, id }) => {
 
   if (isLoading) {
     return (
-      <Skeleton width="100%" height={64} />
+      <ToggleFeatures
+        name="isAppRedesigned"
+        on={<Skeleton width="100%" height={64} />}
+        off={<SkeletonDeprecated width="100%" height={64} />}
+      />
     );
   }
 

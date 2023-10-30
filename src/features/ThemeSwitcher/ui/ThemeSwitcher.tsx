@@ -24,7 +24,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
-  let content: ReactNode = null;
+  let content: ReactNode;
 
   const onToggleThemeHandler = useCallback(() => {
     toggleTheme((theme) => {
@@ -36,6 +36,9 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
     case Theme.BLUE:
       content = <ThemeBlueIconDeprecated />;
       break;
+    case Theme.SAND:
+      content = <ThemeBlueIconDeprecated />;
+      break;
     case Theme.DARK:
       content = <ThemeDarkIconDeprecated />;
       break;
@@ -43,7 +46,6 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       content = <ThemeLightIconDeprecated />;
       break;
     default:
-      content = null;
       break;
   }
 

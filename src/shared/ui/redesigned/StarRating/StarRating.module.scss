@@ -1,0 +1,27 @@
+.star {
+  cursor: pointer;
+}
+
+.star-redesigned {
+  cursor: pointer;
+
+  path {
+    fill: none;
+    stroke: var(--icon);
+    stroke-width: 3;
+  }
+}
+
+.hovered {
+  fill: var(--primary-color);
+}
+
+.hovered-redesigned {
+  path {
+    fill: var(--icon);
+  }
+}
+
+.selected {
+  cursor: auto;
+}
