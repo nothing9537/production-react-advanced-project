@@ -10,12 +10,6 @@
 .LIST {
   width: 100%;
 
-  .text {
-    max-height: 200px;
-    overflow-y: hidden;
-    margin: 16px 0;
-  }
-
   .img {
     object-fit: contain;
     max-height: 250px;
@@ -33,6 +27,7 @@
 .TILE {
   .title {
     width: 200px;
+
     p {
       word-break: break-all;
     }
@@ -72,7 +67,7 @@
   }
 
   .info {
-    padding: 8px 8px 16px 8px;
+    padding: 8px 8px 16px;
     height: 100%;
   }
 

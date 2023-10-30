@@ -16,7 +16,7 @@ export const NotificationCard: FC<NotificationCardProps> = memo(({ className, no
     <ToggleFeatures
       name="isAppRedesigned"
       on={(
-        <Card className={className}>
+        <Card fullWidth className={className}>
           <Text title={notification.title} text={notification.description} />
         </Card>
       )}

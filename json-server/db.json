@@ -1265,8 +1265,8 @@
         "ADMIN",
         "USER"
       ],
-      "firstName": "AdminFirst",
-      "lastName": "AdminLast",
+      "firstName": "New first name",
+      "lastName": "New last name",
       "username": "admin",
       "age": "21",
       "currency": "USD",

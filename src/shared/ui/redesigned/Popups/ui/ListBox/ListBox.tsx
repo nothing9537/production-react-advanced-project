@@ -44,8 +44,8 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): Rea
   const classes = [positionMapper[position], popupCls.menu];
 
   return (
-    <HStack gap={4}>
-      {placeholder && <span>{`${placeholder}>`}</span>}
+    <HStack gap={8}>
+      {placeholder && <span>{placeholder}</span>}
       <Listbox
         as="div"
         onChange={onChangeHandler}

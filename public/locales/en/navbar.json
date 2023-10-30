@@ -7,5 +7,6 @@
   "auth-error": "Incorrect username or password",
   "server-error": "Error on server. Please try later",
   "create-article": "Create article",
-  "admin-panel": "Admin panel"
+  "admin-panel": "Admin panel",
+  "settings": "Settings"
 }

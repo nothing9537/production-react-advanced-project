@@ -1,1 +1,9 @@
-export type TranslationNamespacesKeys = 'articles' | 'about' | 'aside' | 'main' | 'navbar' | 'profile' | 'translation' | 'validate';
+export type TranslationNamespacesKeys = 'articles'
+  | 'about'
+  | 'aside'
+  | 'main'
+  | 'navbar'
+  | 'profile'
+  | 'translation'
+  | 'validate'
+  | 'settings';

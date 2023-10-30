@@ -2,8 +2,11 @@ import { FC, memo, useCallback } from 'react';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+
 import { useGetNotificationsQuery } from '../../api';
 import { Notification } from '../../model/types';
 import { NotificationCard } from '../NotificationCard/NotificationCard';
@@ -14,7 +17,13 @@ interface NotificationProps {
 }
 
 const getSkeletons = () => {
-  return Array(3).fill(0).map((_, index) => <Skeleton width="100%" height={100} borderRadius={12} key={index} />);
+  return Array(3).fill(0).map((_, index) => (
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={<Skeleton width="100%" height={72} borderRadius={12} key={index} />}
+      off={<SkeletonDeprecated width="100%" height={100} borderRadius={12} key={index} />}
+    />
+  ));
 };
 
 export const NotificationList: FC<NotificationProps> = memo(({ className }) => {

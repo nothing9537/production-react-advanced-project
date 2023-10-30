@@ -20,7 +20,9 @@ import {
   getRouteAdminPanel,
   getRouteArticleDetails,
   getRouteForbidden,
+  getRouteSettings,
 } from '@/shared/consts/router';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: AppRouteProps[] = [
   {
@@ -60,6 +62,11 @@ export const routeConfig: AppRouteProps[] = [
   {
     path: getRouteForbidden(),
     element: <ForbiddenPage />,
+    authOnly: true,
+  },
+  {
+    path: getRouteSettings(),
+    element: <SettingsPage />,
     authOnly: true,
   },
   {

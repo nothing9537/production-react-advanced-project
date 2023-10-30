@@ -8,4 +8,6 @@ export const setFeatureFlags = (newFeatureFlags?: FeatureFlags) => {
   }
 };
 
-export const getFeatureFlags = (flag: FeatureFlagsKeys) => featureFlags?.[flag];
+export const getFeatureFlags = (flag: FeatureFlagsKeys): boolean | undefined => featureFlags?.[flag];
+
+export const getAllFeatureFlags = (): FeatureFlags => featureFlags;

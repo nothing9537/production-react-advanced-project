@@ -1,6 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getRouteAdminPanel, getRouteArticleCreate } from '@/shared/consts/router';
+import { getRouteAdminPanel, getRouteArticleCreate, getRouteSettings } from '@/shared/consts/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { TranslationNamespacesKeys } from '@/shared/types/translation';
@@ -39,6 +39,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
     }] : []),
     { label: t('logout'), action: onLogoutHandler },
     { label: t('create-article'), href: getRouteArticleCreate() },
+    { label: t('settings'), href: getRouteSettings() },
   ];
 
   return (
