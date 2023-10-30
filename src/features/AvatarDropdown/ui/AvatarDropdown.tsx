@@ -12,6 +12,7 @@ import { Text as TextDeprecated, TextTheme as TextThemeDeprecated } from '@/shar
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -71,7 +72,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className, transl
           position="bottom right"
           component={(
             <HStack gap={8}>
-              <TextDeprecated theme={TextThemeDeprecated.INVERTED} text={authData?.username} />
+              <Text text={authData?.username} />
               <Avatar src={authData?.avatar} alt="Avatar" size={40} />
             </HStack>
           )}

@@ -1,6 +1,6 @@
-import { Button } from '../Button';
-import { VStack } from '../../redesigned/Stack';
-import { Text } from '../Text';
+import { Button } from '../../deprecated/Button';
+import { VStack } from '../Stack';
+import { Text } from '../../deprecated/Text';
 import { Drawer } from './Drawer';
 import type { Meta, StoryObj } from '@storybook/react';
 

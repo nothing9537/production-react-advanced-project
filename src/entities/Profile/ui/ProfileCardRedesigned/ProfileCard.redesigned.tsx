@@ -75,7 +75,7 @@ export const ProfileCardRedesigned: FC<ProfileCardComponentProps> = (props) => {
       <VStack gap={32}>
         {data?.avatar && (
           <HStack justify="center">
-            <Avatar src={data.avatar} alt="Profile Avatar" />
+            <Avatar size={128} src={data.avatar} alt="Profile Avatar" />
           </HStack>
         )}
         <HStack gap={32}>

@@ -5,11 +5,13 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Button as ButtonDeprecated, ButtonTheme as ButtonThemeDeprecated } from '@/shared/ui/deprecated/Button';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { ToggleFeatures } from '@/shared/lib/features';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -43,7 +45,7 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
     </header>
   );
 
-  const AuthDataNavbar = (
+  const AuthDataNavbarRedesigned = (
     <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
       <HStack width="fit-content" className={cls.links}>
         <OpenNotificationsList />
@@ -57,16 +59,39 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
       <ToggleFeatures
         name="isAppRedesigned"
         off={AuthDataNavBarDeprecated}
-        on={AuthDataNavbar}
+        on={AuthDataNavbarRedesigned}
       />
     );
   }
 
-  return (
-    <header className={classNames(cls.navbar, {}, [className])}>
-      <Button
+  /**
+   * @deprecated
+   */
+  const NonAuthDataNavbarDeprecated = (
+    <header
+      className={classNames(cls.navbar, {}, [className])}
+    >
+      <ButtonDeprecated
         className={cls.links}
-        theme={ButtonTheme.CLEAR_INVERTED}
+        theme={ButtonThemeDeprecated.CLEAR_INVERTED}
+        onClick={onLoginHandler}
+      >
+        {t('login')}
+      </ButtonDeprecated>
+      <LoginModal
+        isOpen={isAuthModal}
+        onClose={setIsAuthModal}
+      />
+    </header>
+  );
+
+  const NonAuthDataNavbarRedesigned = (
+    <header
+      className={classNames(cls.NavbarRedesigned, {}, [className])}
+    >
+      <Button
+        variant="contained"
+        className={cls.links}
         onClick={onLoginHandler}
       >
         {t('login')}
@@ -76,5 +101,13 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
         onClose={setIsAuthModal}
       />
     </header>
+  );
+
+  return (
+    <ToggleFeatures
+      name="isAppRedesigned"
+      on={NonAuthDataNavbarRedesigned}
+      off={NonAuthDataNavbarDeprecated}
+    />
   );
 });

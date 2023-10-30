@@ -1,6 +1,6 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';

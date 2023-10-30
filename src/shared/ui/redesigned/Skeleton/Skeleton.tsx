@@ -7,10 +7,11 @@ interface SkeletonProps {
   height?: string | number;
   width?: string | number;
   borderRadius?: string | number;
+  margin?: string;
 }
 
-export const Skeleton: FC<SkeletonProps> = memo(({ className, height, width, borderRadius }) => {
-  const styles: CSSProperties = { borderRadius, width, height };
+export const Skeleton: FC<SkeletonProps> = memo(({ className, height, width, borderRadius, margin }) => {
+  const styles: CSSProperties = { borderRadius, width, height, margin };
 
   return (
     <section className={classNames(cls.Skeleton, {}, [className])} style={styles} />

@@ -24,6 +24,8 @@ export const updateFeatureFlags = createAsyncThunk<void, UpdateFeatureFlagsOptio
       }));
 
       window.location.reload();
+
+      return undefined;
     } catch (error) {
       console.log(error);
 

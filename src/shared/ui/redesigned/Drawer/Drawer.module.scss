@@ -13,7 +13,6 @@
   height: calc(100vh + 100px);
   width: 96vw;
   border-radius: 12px 12px 0;
-  background: var(--card-bg);
   touch-action: none;
   padding: 20px;
 }
@@ -25,5 +24,17 @@
   
   .content {
     transform: translateY(0%);
+  }
+}
+
+.drawer-new {
+  .sheet {
+    background: var(--light-bg);
+  }
+}
+
+.drawer-old {
+  .sheet {
+    background: var(--card-bg);
   }
 }

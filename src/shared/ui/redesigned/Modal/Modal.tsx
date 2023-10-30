@@ -1,7 +1,8 @@
 import { Dispatch, FC, ReactNode, SetStateAction, useCallback, useEffect, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Overlay } from '../../redesigned/Overlay';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -12,10 +13,7 @@ interface ModalProps {
   onCloseCallback?: () => void;
   lazy?: boolean;
 }
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
+
 export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, onCloseCallback, lazy }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -54,9 +52,18 @@ export const Modal: FC<ModalProps> = ({ children, className, isOpen, onClose, on
     return null;
   }
 
+  const modalRootClasses = classNames(cls.Modal, mods, [
+    className,
+    toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => cls['modal-new'],
+      off: () => cls['modal-old'],
+    }),
+  ]);
+
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={modalRootClasses}>
         <Overlay onClick={onCloseHandler} />
         <div className={classNames(cls.content)}>
           {children}

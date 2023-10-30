@@ -18,6 +18,20 @@
   max-width: 50%;
 }
 
+.modal-old {
+  .content {
+    color: var(--primary-color);
+    background: var(--bg-color);
+  }
+}
+
+.modal-new {
+  .content {
+    color: var(--primary-color);
+    background: var(--light-bg);
+  }
+}
+
 .opened {
   pointer-events: all;
   transition: var(--app-transition);

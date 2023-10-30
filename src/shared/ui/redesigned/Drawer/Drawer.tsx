@@ -2,8 +2,9 @@ import { cloneElement, FC, FormEvent, ReactElement, ReactNode, useCallback, useE
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationModules } from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Overlay } from '../../redesigned/Overlay';
-import { Portal } from '../../redesigned/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
@@ -83,11 +84,20 @@ export const DrawerContent: FC<DrawerProps> = ({ className, children, onClose, c
     }
   }, [root, onCloseDrawer]);
 
+  const rootClasses = [className, theme, 'app_drawer', toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls['drawer-new'],
+    off: () => cls['drawer-old'],
+  })];
+
   return (
     <>
       {clonedTrigger}
       <Portal>
-        <RootWrapper onSubmit={onSubmit} className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
+        <RootWrapper
+          onSubmit={onSubmit}
+          className={classNames(cls.Drawer, mods, rootClasses)}
+        >
           <Overlay onClick={onCloseDrawer} />
           <Spring.a.div
             style={{ display, bottom: `calc(-100vh + ${height - 200}px)`, y }}
@@ -111,10 +121,7 @@ export const DrawerAsync: FC<DrawerProps> = (props) => {
 
   return <DrawerContent {...props} />;
 };
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
+
 export const Drawer: FC<DrawerProps> = (props) => {
   return (
     <AnimationProvider>
