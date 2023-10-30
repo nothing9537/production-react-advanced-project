@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { getCanEditArticle } from '@/entities/Article';
-import { User } from '@/entities/User';
+import { isUserAdmin, User } from '@/entities/User';
 
 interface ArticleDetailsWidgetProps {
   className?: string;
@@ -23,7 +23,7 @@ export const ArticleDetailsWidget: FC<ArticleDetailsWidgetProps> = memo((props) 
   const { className, author, createdAt, views, translationNamespace, onEdit, onReturnBack } = props;
   const { t } = useAppTranslation(translationNamespace);
 
-  const canEdit = useAppSelector((state) => getCanEditArticle(state));
+  const canEdit = useAppSelector((state) => getCanEditArticle(state)) || isUserAdmin;
 
   return (
     <VStack gap={16} className={className}>

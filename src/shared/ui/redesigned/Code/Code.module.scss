@@ -7,6 +7,16 @@
   color: var(--primary-color);
 }
 
+.CodeRedesigned {
+  padding: 20px;
+  position: relative;
+  background: var(--light-bg);
+  overflow: auto;
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  font: var(--font-m-redesigned);
+}
+
 .copy-btn {
   position: absolute;
   right: 20px;

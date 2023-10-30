@@ -37,6 +37,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   const ArticleDetailsPageRedesigned = (
     <StickyContentLayout
+      right={<ArticleDetailsAdditionalInfo />}
       content={(
         <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
           <VStack gap={16}>
@@ -47,7 +48,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
           </VStack>
         </PageWrapper>
       )}
-      right={<ArticleDetailsAdditionalInfo />}
     />
   );
 

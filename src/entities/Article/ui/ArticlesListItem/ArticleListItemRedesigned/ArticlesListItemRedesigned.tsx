@@ -87,19 +87,16 @@ export const ArticlesListItemRedesigned: FC<ArticlesListItemProps> = memo(({ cla
       data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
-      className={classNames(cls.ArticleListItem, {}, [
-        className,
-        cls[view],
-      ])}
+      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card}>
+      <Card className={cls.card} padding="0" borderRadius={32}>
         <AppImage
           fallback={<Skeleton width={200} height={200} />}
           alt={article.title}
           src={article.img}
           className={cls.img}
         />
-        <VStack className={cls.info} gap={4}>
+        <VStack className={cls.info} justify="space-between" height="100%" gap={4}>
           <Text title={article.title} className={cls.title} />
           <VStack gap={4} className={cls.footer}>
             <HStack justify="between">

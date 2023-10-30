@@ -17,7 +17,7 @@ interface TextProps {
   size?: TextSize;
   textNoWrap?: boolean;
   titleNoWrap?: boolean;
-  bold?: boolean;
+  bold?: boolean | { text: boolean, title: boolean };
   'data-testid'?: string;
 }
 
@@ -46,12 +46,12 @@ export const Text: FC<TextProps> = memo((props) => {
 
   const titleMods: Mods = {
     [cls['no-wrap']]: titleNoWrap,
-    [cls.bold]: bold,
+    [cls.bold]: typeof bold === 'object' ? bold.title : bold,
   };
 
   const textMods: Mods = {
     [cls['no-wrap']]: textNoWrap,
-    [cls.bold]: bold,
+    [cls.bold]: typeof bold === 'object' ? bold.text : bold,
   };
 
   return (

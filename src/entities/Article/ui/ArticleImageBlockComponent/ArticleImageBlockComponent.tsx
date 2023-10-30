@@ -1,7 +1,11 @@
 import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 
@@ -17,9 +21,13 @@ export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = m
       align="center"
       className={classNames(cls.ArticleImageBlockComponent, {}, [className])}
     >
-      <img src={block.src} alt={block.title} />
+      <AppImage src={block.src} alt={block.title} />
       {block.title && (
-        <Text title={block.title} />
+        <ToggleFeatures
+          name="isAppRedesigned"
+          on={<Text title={block.title} size="m" />}
+          off={<TextDeprecated title={block.title} />}
+        />
       )}
     </VStack>
   );

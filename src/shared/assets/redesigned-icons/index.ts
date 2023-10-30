@@ -9,3 +9,4 @@ export { NotificationIcon } from './Notification';
 export { GridViewIcon } from './GridView';
 export { ListViewIcon } from './ListView';
 export { SearchIcon } from './Search';
+export { CopyIcon } from './Copy';

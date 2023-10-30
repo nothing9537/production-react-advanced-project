@@ -34,7 +34,7 @@ export const ArticlesListFilters: FC<ArticlesListFiltersProps> = memo(({ classNa
   } = useArticleFilters();
 
   return (
-    <VStack gap={16} className={classNames('', {}, [className])}>
+    <VStack gap={16} className={classNames(cls.ArticlesListFilters, {}, [className])}>
       <div className={cls['sort-filters']}>
         <ArticlesSortSelector
           order={order}

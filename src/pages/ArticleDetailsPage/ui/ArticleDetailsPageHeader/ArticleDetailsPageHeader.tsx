@@ -7,6 +7,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { isUserAdmin } from '@/entities/User';
 
 interface ArticleDetailsPageHeaderProps {
   id: string;
@@ -16,7 +17,7 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
   const { t } = useTranslation('articles');
   const navigate = useNavigate();
 
-  const canEdit = useAppSelector((state) => getCanEditArticle(state));
+  const canEdit = useAppSelector((state) => getCanEditArticle(state)) || isUserAdmin;
 
   const onReturnBackClick = useCallback(() => {
     navigate(-1);

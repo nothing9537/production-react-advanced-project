@@ -8,8 +8,6 @@
 }
 
 .LIST {
-  width: 100%;
-
   .img {
     object-fit: contain;
     max-height: 250px;
@@ -25,49 +23,36 @@
 }
 
 .TILE {
-  .title {
-    width: 200px;
-
-    p {
-      word-break: break-all;
-    }
-  }
-
-  .timestamp {
-    position: absolute;
-    top: -20px;
-    right: 0;
-    display: none;
-  }
 
   &:hover {
     transform: scale(1.05);
     opacity: .8;
+  }
 
-    .timestamp {
-      display: block;
-    }
+  .title {
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .card {
     width: 240px;
-    min-height: 350px;
+    height: 350px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 8px;
+    padding-top: 8px !important;
   }
 
   .img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     object-fit: contain;
-    user-select: none;
+    min-height: 140px;
+    max-height: 140px;
   }
 
   .info {
-    padding: 8px 8px 16px;
+    padding: 8px 8px 16px 8px;
     height: 100%;
   }
 
@@ -75,5 +60,7 @@
     height: 100%;
     justify-content: flex-end;
   }
-
+  .avatar {
+    margin-left: 8px;
+  }
 }
