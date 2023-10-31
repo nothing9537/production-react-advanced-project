@@ -124,6 +124,8 @@ Data interaction is handled by @reduxjs/toolkit. Reusable entities can be normal
 
 Requests to the backend are sent using both [axios](https://axios-http.com/en/docs/intro) and [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 
+JSON-server was used for backend in the application, as well as the basic data in the form of filling articles, comments, notifications, users and profiles were filled manually, due to the absence of backend. Can write a full-fledged backend in NestJS, for example, together with the editor of articles with the help of some library.
+
 For async reducers loading, used [DynamicModuleWrapper](/src/shared/lib/components/DynamicModuleWrapper.tsx)
 
 It allows asynchronous loading of reducers, thus getting rid of them in the main bundle
