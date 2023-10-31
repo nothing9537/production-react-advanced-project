@@ -86,7 +86,7 @@ const meta: Meta<typeof ArticleDetailsPage> = {
   parameters: {
     mockData: [
       {
-        url: `${__API__}/articles?_limit=5`,
+        url: `${__API__}/articles?_limit=5&_expand=user`,
         method: 'GET',
         status: 200,
         response: [
