@@ -36,6 +36,10 @@ body {
   display: flex;
 }
 
+input, button, textarea {
+  font-family: inherit;
+}
+
 // iframe#webpack-dev-server-client-overlay{
 //   display: none !important;
 // }
