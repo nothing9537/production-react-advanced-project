@@ -13,3 +13,4 @@ export { CopyIcon } from './Copy';
 export { StarIcon } from './Star';
 export { StarFilledIcon } from './StarFilled';
 export { SendIcon } from './Send';
+export { ScrollToTopIcon } from './ScrollToTop';

@@ -13,10 +13,12 @@ import { Navbar } from '@/widgets/Navbar';
 import { Aside } from '@/widgets/Aside';
 
 import { AppRouter } from './providers/RouterProvider';
+import { useAppToolbar } from './lib/hooks/useAppToolbar';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
   const _mounted = useAppSelector(getUserMounted);
+  const toolbar = useAppToolbar();
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -68,6 +70,7 @@ const App: FC = () => {
           header={<Navbar />}
           aside={<Aside />}
           content={<AppRouter />}
+          toolbar={toolbar}
         />
       </Suspense>
     </div>

@@ -1,0 +1,14 @@
+.ScrollToolbar {
+  width: 94px;
+  margin-left: auto;
+  transition: var(--app-transition);
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      g {
+        opacity: 1;
+      }
+    }
+  }
+}

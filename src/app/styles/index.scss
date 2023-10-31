@@ -20,8 +20,8 @@ body {
 .App_redesigned {
   background: var(--bg);
   transition: background var(--app-transition);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font: var(--font-m-redesigned);
   color: var(--text);
 }
@@ -34,24 +34,17 @@ body {
 //   display: none !important;
 // }
 
-.scroll {
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-  &::-webkit-scrollbar {
-    cursor: pointer;
-    width: .5rem;
-    border: .15rem solid transparent;
-    background: var(--light-bg) !important;
-  }
-	
-  &::-webkit-scrollbar-thumb {
-    background: var(--icon) !important;
-    border-radius: 36px;
+*::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
 
-    &:hover {
-      background: rgb(110 110 110);
-    }
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: var(--icon);
+  border-radius: 20px;
+  border: 1px solid var(--accent);
 }

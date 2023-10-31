@@ -3,13 +3,12 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { MainLayout } from '../MainLayout';
-import cls from './AppLoaderLayout.module.scss';
 
 export const AppLoaderLayout: FC = () => {
   return (
     <MainLayout
       header={(
-        <HStack className={cls.header}>
+        <HStack>
           <Skeleton width={40} height={40} borderRadius="50%" margin="16px 16px 0 0" />
         </HStack>
       )}

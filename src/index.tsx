@@ -11,18 +11,6 @@ import '@/shared/config/i18n/i18n';
 
 const componentsTree = [BrowserRouter, StoreProvider, ErrorBoundary, ThemeProvider, ForceUpdateProvider, App];
 
-// const componentsTree = (
-//   <BrowserRouter>
-//     <StoreProvider>
-//       <ErrorBoundary>
-//         <ThemeProvider>
-//           <App />
-//         </ThemeProvider>
-//       </ErrorBoundary>
-//     </StoreProvider>
-//   </BrowserRouter>
-// );
-
 const container = document.getElementById('root');
 
 if (!container) {
@@ -31,5 +19,4 @@ if (!container) {
 
 const root = createRoot(container);
 
-// root.render(componentsTree);
 root.render(DrawComponentsTree(componentsTree));
