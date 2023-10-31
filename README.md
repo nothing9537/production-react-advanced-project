@@ -134,7 +134,9 @@ It allows asynchronous loading of reducers, thus getting rid of them in the main
 
 ## Environment
 
-There are a lot of custom solutions in the project. Handy scripts, hooks, scss structure allows to easily introduce new themes/styles. For even more comfortable development could be used some CSS-IN-JS library like [styled-components](https://styled-components.com/docs). 
+There are a lot of custom solutions in the project. Handy scripts, hooks, scss structure allows to easily introduce new themes/styles. The app supports 4 themes - dark and light for two design options, blue and sand for old and new design respectively. 
+
+For even more comfortable development could be used some CSS-IN-JS library like [styled-components](https://styled-components.com/docs). 
 
 A lot of helpers to handle redux/hooks (useDispatch -> [buildSlice](/src/shared/lib/store/buildSlide.ts), useSelector -> [buildSelector](/src/shared/lib/store/buildSelector.ts)), class names, query parameters feature-flags handlers.
 
