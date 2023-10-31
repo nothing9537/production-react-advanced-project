@@ -1,11 +1,15 @@
-import { Button } from '../../deprecated/Button';
+import { WithFeatureFlagsDecorator, WithThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/consts/theme';
+import { Button as ButtonRedesigned } from '../../deprecated/Button';
 import { VStack } from '../Stack';
-import { Text } from '../../deprecated/Text';
+import { Text as TextDeprecated } from '../../deprecated/Text';
+import { Button } from '../Button';
+import { Text } from '../Text';
 import { Drawer } from './Drawer';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Drawer> = {
-  title: 'shared/deprecated/Drawer',
+  title: 'shared/redesigned/Drawer',
   component: Drawer,
   tags: ['autodocs'],
 };
@@ -13,10 +17,32 @@ const meta: Meta<typeof Drawer> = {
 export default meta;
 type Story = StoryObj<typeof Drawer>;
 
-export const Root: Story = {
+export const RootDeprecated: Story = {
   args: {
     component: (
-      <Button>
+      <ButtonRedesigned>
+        Open drawer
+      </ButtonRedesigned>
+    ),
+    children: (
+      <VStack gap={16}>
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+        <TextDeprecated title="Drawer body title" text="Drawer body text" />
+      </VStack>
+    ),
+  },
+};
+
+export const RootRedesigned: Story = {
+  args: {
+    component: (
+      <Button variant="outlined">
         Open drawer
       </Button>
     ),
@@ -33,4 +59,5 @@ export const Root: Story = {
       </VStack>
     ),
   },
+  decorators: [WithThemeDecorator(Theme.DARK, 'App_redesigned'), WithFeatureFlagsDecorator({ isAppRedesigned: true })],
 };

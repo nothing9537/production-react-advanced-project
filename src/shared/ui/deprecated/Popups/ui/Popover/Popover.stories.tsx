@@ -2,7 +2,7 @@ import { Popover } from './Popover';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Popover> = {
-  title: 'shared/Popups/Popover',
+  title: 'shared/deprecated/Popups/Popover',
   component: Popover,
   tags: ['autodocs'],
 };

@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import {
+  WithFeatureFlagsDecorator,
   WithRouterDecorator,
   WithStyleDecorator,
   WithSuspenseDecorator,
@@ -30,7 +31,8 @@ const preview: Preview = {
     WithRouterDecorator,
     WithTranslationDecorator,
     WithThemeDecorator(Theme.BLUE),
-    WithSuspenseDecorator
+    WithSuspenseDecorator,
+    WithFeatureFlagsDecorator({ isAppRedesigned: false })
   ],
 };
 
@@ -43,7 +45,7 @@ export const globalTypes: Preview['globalTypes'] = {
       items: [
         { value: 'app_light_theme', title: 'Light theme' },
         { value: 'app_dark_theme', title: 'Dark theme' },
-        { value: 'app_blue_theme', title: 'Blue theme' },
+        { value: 'app_blue_theme', title: 'Blue theme / Sand theme' },
       ],
       showName: true,
       dynamicTitle: true,

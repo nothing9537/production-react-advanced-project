@@ -4,7 +4,7 @@ import { Select } from './Select';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Select> = {
-  title: 'Shared/Popups/Select',
+  title: 'Shared/deprecated/Popups/Select',
   component: Select,
   tags: ['autodocs'],
   decorators: [WithThemeDecorator(Theme.LIGHT)],

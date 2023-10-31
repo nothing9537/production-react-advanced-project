@@ -4,7 +4,7 @@ import { Text, TextSize, TextTheme } from './Text';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Text> = {
-  title: 'Shared/Text',
+  title: 'Shared/deprecated/Text',
   component: Text,
   tags: ['autodocs'],
   decorators: [WithThemeDecorator(Theme.DARK)],

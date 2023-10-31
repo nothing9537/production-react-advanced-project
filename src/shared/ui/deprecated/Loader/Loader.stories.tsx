@@ -2,7 +2,7 @@ import { Loader } from './Loader';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Loader> = {
-  title: 'Shared/Loader',
+  title: 'Shared/deprecated/Loader',
   component: Loader,
   tags: ['autodocs'],
 };

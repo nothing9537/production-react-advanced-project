@@ -5,7 +5,7 @@ import AvatarImg from './Main_avatar.png';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Shared/Avatar',
+  title: 'Shared/deprecated/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   decorators: [WithThemeDecorator(Theme.DARK)],

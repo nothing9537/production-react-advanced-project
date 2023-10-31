@@ -1,13 +1,13 @@
 import { Theme } from '@/shared/consts/theme';
-import { WithThemeDecorator } from '@/shared/config/storybook';
+import { WithFeatureFlagsDecorator, WithThemeDecorator } from '@/shared/config/storybook';
 import { Modal } from './Modal';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Modal> = {
-  title: 'Shared/Modal',
+  title: 'Shared/redesigned/Modal',
   component: Modal,
   tags: ['autodocs'],
-  decorators: [WithThemeDecorator(Theme.DARK)],
+  decorators: [WithThemeDecorator(Theme.DARK), WithFeatureFlagsDecorator({ isAppRedesigned: true })],
 };
 
 export default meta;

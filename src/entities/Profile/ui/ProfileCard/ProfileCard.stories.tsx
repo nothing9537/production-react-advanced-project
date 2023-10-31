@@ -1,5 +1,5 @@
 import Avatar from '@/shared/ui/deprecated/Avatar/Main_avatar.png';
-import { WithThemeDecorator, WithFormDecorator } from '@/shared/config/storybook';
+import { WithThemeDecorator, WithFormDecorator, WithFeatureFlagsDecorator } from '@/shared/config/storybook';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Theme } from '@/shared/consts/theme';
@@ -32,8 +32,15 @@ type Story = StoryObj<typeof ProfileCard>;
 
 export const Root: Story = {
   args: {
-    // data,
+
   },
+};
+
+export const RootRedesigned: Story = {
+  args: {
+
+  },
+  decorators: [WithFeatureFlagsDecorator({ isAppRedesigned: true })],
 };
 
 export const Loading: Story = {

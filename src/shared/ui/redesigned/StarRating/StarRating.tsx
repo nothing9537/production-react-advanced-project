@@ -15,10 +15,7 @@ interface StarRatingProps {
 }
 
 const starRating = Array(5).fill(null).map((_, index) => index + 1);
-/**
- * Deprecated component. Please use updated version in `@/shared/ui/redesigned`
- * @deprecated
- */
+
 export const StarRating: FC<StarRatingProps> = memo(({ className, onSelect, size = 30, selectedStars = 0 }) => {
   const [currentStarsCount, setCurrentStarsCount] = useState<number>(selectedStars);
   const [isSelected, setIsSelected] = useState<boolean>(Boolean(selectedStars));

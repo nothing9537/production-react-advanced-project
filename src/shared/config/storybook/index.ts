@@ -1,17 +1,9 @@
-import { WithThemeDecorator } from './WithThemeDecorator/WithThemeDecorator';
-import { WithStyleDecorator } from './WithStyleDecorator/WithStyleDecorator';
-import { WithRouterDecorator } from './WithRouterDecorator/WithRouterDecorator';
-import { WithStoreDecorator } from './WithStoreDecorator/WithStoreDecorator';
-import { WithTranslationDecorator } from './WithTranslationDecorator/WithTranslationDecorator';
-import { WithFormDecorator } from './WithFormDecorator/WithFormDecorator';
-import { WithSuspenseDecorator } from './WithSuspenseDecorator/WithSuspenseDecorator';
-
-export {
-  WithRouterDecorator,
-  WithStyleDecorator,
-  WithThemeDecorator,
-  WithStoreDecorator,
-  WithTranslationDecorator,
-  WithFormDecorator,
-  WithSuspenseDecorator,
-};
+export { WithThemeDecorator } from './WithThemeDecorator/WithThemeDecorator';
+export { WithStyleDecorator } from './WithStyleDecorator/WithStyleDecorator';
+export { WithRouterDecorator } from './WithRouterDecorator/WithRouterDecorator';
+export { WithStoreDecorator } from './WithStoreDecorator/WithStoreDecorator';
+export { WithTranslationDecorator } from './WithTranslationDecorator/WithTranslationDecorator';
+export { WithFormDecorator } from './WithFormDecorator/WithFormDecorator';
+export { WithSuspenseDecorator } from './WithSuspenseDecorator/WithSuspenseDecorator';
+export { WithFeatureFlagsDecorator } from './WithFeatureFlagsDecorator/WithFeatureFlagsDecorator';
+export { WithNewDesignDecorator } from './WithNewDesignDecorator/WithNewDesignDecorator';

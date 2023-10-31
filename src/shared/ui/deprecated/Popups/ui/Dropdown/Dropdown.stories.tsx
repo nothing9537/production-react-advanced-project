@@ -5,7 +5,7 @@ import { Dropdown } from './Dropdown';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'shared/Popups/Dropdown',
+  title: 'shared/deprecated/Popups/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
 };

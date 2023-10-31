@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { ScrollToolbar } from './ScrollToolbar';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ScrollToolbar> = {
-  title: '/ScrollToolbar',
+  title: 'widgets/ScrollToolbar',
   component: ScrollToolbar,
   tags: ['autodocs'],
 };

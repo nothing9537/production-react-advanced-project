@@ -5,11 +5,13 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Position } from '@/shared/types/ui';
 import { typedMemo } from '@/shared/lib/hooks/useTypedMemo';
 import { ChevronIcon } from '@/shared/assets/redesigned-icons';
+
 import { Button } from '../../../Button';
 import { HStack } from '../../../../redesigned/Stack';
 import { roundingModsMapper, positionMapper } from '../../style';
 import popupCls from '../../style/Popup.module.scss';
 import { ButtonSize } from '../../../Button/Button';
+import { Text } from '../../../Text';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxOption<T> {
@@ -45,7 +47,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>): Rea
 
   return (
     <HStack gap={8}>
-      {placeholder && <span>{placeholder}</span>}
+      {placeholder && <Text text={placeholder} />}
       <Listbox
         as="div"
         onChange={onChangeHandler}

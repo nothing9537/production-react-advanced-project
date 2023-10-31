@@ -1,4 +1,4 @@
-import { FC, Suspense, useEffect } from 'react';
+import { FC, memo, Suspense, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
@@ -14,8 +14,9 @@ import { Aside } from '@/widgets/Aside';
 
 import { AppRouter } from './providers/RouterProvider';
 import { useAppToolbar } from './lib/hooks/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/lib/hoc/withTheme';
 
-const App: FC = () => {
+const App: FC = memo(() => {
   const dispatch = useAppDispatch();
   const _mounted = useAppSelector(getUserMounted);
   const toolbar = useAppToolbar();
@@ -83,6 +84,6 @@ const App: FC = () => {
       off={AppDeprecated}
     />
   );
-};
+});
 
-export default App;
+export default withTheme(App);
