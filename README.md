@@ -1,3 +1,10 @@
+## Link 
+[Link to an IP address with a working application.](http://216.128.146.136/)
+
+For login to the application, you can use 2 profiles with different levels of access. More details - here.
+
+A server was rented on Debian operating system, nginx was configured at the basic level, as well as distribution of static files, as well as gzip.
+
 ## Project running
 
 ```
@@ -146,3 +153,11 @@ The project implemented the concept of Feature Flags, which will be used for the
 ## Working with forms
 
 One of the best solutions at the time of writing the project for working with forms - [react-hook-form](https://react-hook-form.com/get-started) - is pre-integrated into the project. [More about](/docs/form.md)
+
+## New design
+
+At the end of development, the application was completely redesigned to match the Figma layout, using [ToggleFeatures](/src/shared/lib/features/component/ToggleFeatures/ToggleFeatures.tsx) handler functions for components and [toggleFeatures](/src/shared/lib/features/lib/toggleFeatures.ts) for functions that return void or something that is not a component.
+
+To switch the design, you need to click on the user avatar, go to settings and select the new design version there.
+
+----
