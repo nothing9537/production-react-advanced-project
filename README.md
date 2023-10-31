@@ -24,7 +24,8 @@
 - `npm run storybook:build - ` create storybook build
 - `npm run export-svg-icons - ` Exports all SVG icons contained in the assets directory, which have been converted to JSX format for easier use, to an index.ts file.
 - `npm run generate:layer - ` Automatically creates a slice and segment for the given layer that was requested when the script was called according to the described template of project folders and files. 
-- `npm run update-shared-imports - ` During development it was deliberately made a mistake not to create a public API for shared/ui layer. After writing this script, it automatically creates an **index.ts** file in each UI element of the component, and exports all exported content. Moreover, the script edits all ui component imports in the project.
+- `npm run update-shared-imports - ` During development it was deliberately made a mistake not to create a public API for shared/ui layer. After writing this script, it automatically creates an **index.ts**, if not exists, file in each UI element of the component, and exports all exported content. Moreover, the script edits all ui component imports in the project.
+- `npm run update-eslint-plugin - ` Updates the custom eslint plugin to the current version
 ----
 
 ## Project architecture
@@ -39,7 +40,7 @@ Docs link - [Features Sliced Design](https://feature-sliced.design/ru/docs/get-s
 
 Project using `i18next` library for translations. The translation files are stored in [public/locales](./public/locales/). A convenient file system of translations is provided, which makes it easy to introduce a new language: create a directory with the desired language, edit the [i18next configuration](./src/shared/config/i18n/i18n.ts) a bit and create translations manually using the appropriate keys
 
-For comfortable working with translations strongly recommend to install vscode/webstorm extension. For vscode link provided: [click me](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+For comfortable working with translations strongly recommend to install vscode/web-storm extension. For vscode link provided: [click me](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
 
 i18next docs - [https://react.i18next.com/latest/using-with-hooks](https://react.i18next.com/latest/using-with-hooks)
 
@@ -126,9 +127,9 @@ It allows asynchronous loading of reducers, thus getting rid of them in the main
 
 ## Environment
 
-There are a lot of custom solutions in the project. Handy scripts, hooks, scss structure allows to easily introduce new themes/styles. For even more comfortable development, you can integrate some CSS-IN-JS library like [styled-components](https://styled-components.com/docs). 
+There are a lot of custom solutions in the project. Handy scripts, hooks, scss structure allows to easily introduce new themes/styles. For even more comfortable development could be used some CSS-IN-JS library like [styled-components](https://styled-components.com/docs). 
 
-A lot of helpers to handle redux/hooks (useDispatch -> [buildSlice](/src/shared/lib/store/buildSlide.ts), useSelector -> [buildSelector](/src/shared/lib/store/buildSelector.ts)), class names, query parameters.
+A lot of helpers to handle redux/hooks (useDispatch -> [buildSlice](/src/shared/lib/store/buildSlide.ts), useSelector -> [buildSelector](/src/shared/lib/store/buildSelector.ts)), class names, query parameters feature-flags handlers.
 
 Several scripts for automated refactoring with [ts-morph](https://ts-morph.com/) have been written, which allow to work with AST code tree, parse and modify it. 
 
@@ -137,6 +138,8 @@ Several scripts for automated refactoring with [ts-morph](https://ts-morph.com/)
 ## Feature flags
 
 The project implemented the concept of Feature Flags, which will be used for the redesign of the project and the simultaneous existence of the old, and new design of the application.
+
+[Handler functions](/src/shared/lib/features/) have been created, that allow convenient interaction with the concept, as well as automatic refactoring using [ts-morph](https://ts-morph.com/), which "kicks out" a feature, either with an on flag or an off flag, based on the name of the feature.
 
 ----
 
