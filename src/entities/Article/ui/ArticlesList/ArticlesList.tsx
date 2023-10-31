@@ -1,7 +1,10 @@
-import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import { CSSProperties, FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticlesView } from '../../model/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
@@ -14,6 +17,7 @@ interface ArticlesListProps {
   isLoading?: boolean;
   view: ArticlesView;
   target?: HTMLAttributeAnchorTarget;
+  wrap?: CSSProperties['flexWrap'];
 }
 
 const getSkeletons = (view: ArticlesView) => {
@@ -45,7 +49,11 @@ export const ArticlesList: FC<ArticlesListProps> = memo((props) => {
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-        <Text text={t('articles-not-found')} />
+        <ToggleFeatures
+          name="isAppRedesigned"
+          on={<Text variant="error" text={t('articles-not-found')} />}
+          off={<TextDeprecated text={t('articles-not-found')} />}
+        />
       </div>
     );
   }

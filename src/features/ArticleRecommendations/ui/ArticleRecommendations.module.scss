@@ -8,8 +8,8 @@
 
 .list-redesigned {
   height: 400px;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  overflow-x: auto;
+  // overflow-y: hidden;
+  // overflow-x: auto;
+  overflow-y: auto;
   padding-top: 20px;
 }

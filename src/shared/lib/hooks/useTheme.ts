@@ -49,7 +49,14 @@ export const useTheme = (): UseThemeResult => {
     });
 
     setTheme(newTheme);
-    document.body.className = newTheme;
+
+    const bodyClassName = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => ['redesigned', newTheme],
+      off: () => [newTheme],
+    });
+
+    document.body.className = bodyClassName.join(' ');
 
     saveAction?.(newTheme);
   };

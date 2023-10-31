@@ -9,9 +9,10 @@ body {
   font: var(--font-m);
   color: var(--primary-color);
 
-  .redesigned {
+  &.redesigned {
     font: var(--font-m-redesigned);
     color: var(--text);
+    background: var(--bg);
   }
 }
 

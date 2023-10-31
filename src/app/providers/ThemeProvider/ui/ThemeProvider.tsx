@@ -2,6 +2,7 @@ import { useMemo, useState, FC, ReactNode, useEffect } from 'react';
 import { Theme } from '@/shared/consts/theme';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
 import { THEME_KEY } from '@/shared/consts/localStorage';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ThemeProviderProps {
   initialTheme?: Theme;
@@ -22,7 +23,13 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
   }, [initialTheme, themeInited]);
 
   useEffect(() => {
-    document.body.className = theme;
+    const bodyClassName = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => ['redesigned', theme],
+      off: () => [theme],
+    });
+
+    document.body.className = bodyClassName.join(' ');
 
     localStorage.setItem(THEME_KEY, theme);
   }, [theme]);

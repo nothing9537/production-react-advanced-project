@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
@@ -24,7 +24,13 @@ const App: FC = memo(() => {
 
   useEffect(() => {
     if (!_mounted) {
-      document.body.className = theme;
+      const bodyClassName = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => ['redesigned', theme],
+        off: () => [theme],
+      });
+
+      document.body.className = bodyClassName.join(' ');
       dispatch(initAuthData());
     }
   }, [dispatch, theme, _mounted]);
