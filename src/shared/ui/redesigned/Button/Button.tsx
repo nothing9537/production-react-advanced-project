@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/button-has-type */
-import { ButtonHTMLAttributes, FC, forwardRef, memo, ReactElement } from 'react';
+import { ButtonHTMLAttributes, FC, forwardRef, ReactElement } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -8,7 +7,7 @@ export type ButtonVariant = 'clear' | 'outlined' | 'contained';
 export type ButtonColor = 'success' | 'cancel' | 'normal';
 export type ButtonSize = 's' | 'm' | 'l';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> {
   className?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -20,7 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor;
 }
 
-export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+export const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
     fullWidth,
@@ -53,4 +52,4 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>(forwardRef<HTMLButtonEl
       {addonRight && <span className={cls['addon-right']}>{addonRight}</span>}
     </button>
   );
-}));
+});

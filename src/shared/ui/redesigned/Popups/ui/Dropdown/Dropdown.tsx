@@ -38,7 +38,7 @@ export const Dropdown: FC<DropdownProps> = ({ className, items, component, onCha
 
   return (
     <Menu as="div" className={classNames(popupCls.Popup, {}, [className])}>
-      <Menu.Button as={Button} className={popupCls.trigger}>
+      <Menu.Button as={Button} variant="clear" className={popupCls.trigger}>
         {component}
       </Menu.Button>
       <Menu.Items className={classNames(cls.options, roundingModsMapper(position), classes)}>

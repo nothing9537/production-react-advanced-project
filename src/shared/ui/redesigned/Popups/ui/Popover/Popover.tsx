@@ -18,7 +18,7 @@ export const Popover: FC<PopoverProps> = memo(({ className, component, position 
 
   return (
     <HeadlessPopover as="div" className={classNames(cls.Popover, {}, [className, popupCls.Popup])}>
-      <HeadlessPopover.Button className={popupCls.trigger}>
+      <HeadlessPopover.Button as="div" className={popupCls.trigger}>
         {component}
       </HeadlessPopover.Button>
       <HeadlessPopover.Panel className={classNames(cls.panel, roundingModsMapper(position), classes)}>
