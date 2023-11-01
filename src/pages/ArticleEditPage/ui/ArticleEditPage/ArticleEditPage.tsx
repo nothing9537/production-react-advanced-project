@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { useAppTranslation } from '@/shared/lib/hooks/useAppTranslation';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { PageWrapper } from '@/widgets/PageWrapper';
+
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
@@ -9,11 +11,12 @@ interface ArticleEditPageProps {
 }
 
 const ArticleEditPage: FC<ArticleEditPageProps> = memo(({ className }) => {
-  const { t } = useTranslation();
+  const { t } = useAppTranslation('translation');
+  const { id } = useParams<{ id: string }>();
 
   return (
     <PageWrapper className={classNames(cls.ArticleEditPage, {}, [className])}>
-      {t('Article edit page')}
+      {`${t('edit-page')} id = ${id}`}
     </PageWrapper>
   );
 });
