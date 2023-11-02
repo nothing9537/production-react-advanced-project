@@ -144,6 +144,8 @@ A lot of helpers to handle redux/hooks (useDispatch -> [buildSlice](/src/shared/
 
 Several scripts for automated refactoring with [ts-morph](https://ts-morph.com/) have been written, which allow to work with AST code tree, parse and modify it. 
 
+Also, the project was initially configured on Webpack, and then Vite was added as an additional builder. 
+
 ----
 
 ## Feature flags
