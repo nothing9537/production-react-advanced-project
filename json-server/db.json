@@ -1230,7 +1230,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_sand_theme",
+        "theme": "app_light_theme",
         "isArticlesPageWasOpenedOnce": true
       },
       "avatar": "https://source.boringavatars.com/pixel/120/Stefan?colors=26a653,2a1d8f,79646a"
@@ -1501,6 +1501,12 @@
       "userId": "1",
       "articleId": "17",
       "id": "k8nyGFH"
+    },
+    {
+      "rate": 3,
+      "userId": "1",
+      "articleId": "5",
+      "id": "hAKsHt2"
     }
   ]
 }
