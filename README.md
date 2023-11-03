@@ -1,7 +1,7 @@
 ## Link 
 [Link to an IP address with a working application.](http://216.128.146.136/)
 
-For login to the application, you can use 2 profiles with different levels of access. More details - here.
+For login to the application, you can use 2 profiles with different levels of access. More details - [here](/docs/data.md).
 
 A server was rented on Debian operating system, nginx was configured at the basic level, as well as distribution of static files, as well as gzip.
 
