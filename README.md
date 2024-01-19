@@ -1,5 +1,6 @@
-## Link 
-[Link to an IP address with a working application.](http://216.128.146.136/)
+## About
+
+The project was designed with maximum emphasis on code quality, structure, architecture, scalability. Familiarize and learn new tools/approaches. Nevertheless, in the application the user has authorization, the ability to view fake articles, sort them, edit profile, change the design of the application. 
 
 For login to the application, you can use 2 profiles with different levels of access. More details - [here](/docs/data.md).
 
