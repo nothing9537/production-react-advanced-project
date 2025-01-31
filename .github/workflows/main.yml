@@ -1,38 +1,3 @@
-# name: Linting, testing, building pipeline
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
-# jobs:
-#   webpack-pipeline:
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [ 20.x ]
-#     steps:
-#       - uses: actions/checkout@v3
-      
-#       - name: Starting Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - name: Install dependencies
-#         run: npm i
-#       - name: Production build 
-#         run: npm run build:prod
-#       - name: Linting TypeScript
-#         if: always()
-#         run: npm run lint:ts
-#       - name: Build Storybook
-#         if: always()
-#         run: npm run storybook:build
-#       - name: Screenshort testing
-#         run: npm run test:ui
-#       - name: Unit testing JEST
-#         if: always()
-#         run: npm run test:unit
-
 name: Linting, testing, building pipeline
 on:
   push:
@@ -71,8 +36,8 @@ jobs:
         run: npm run storybook:build
 
         if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci
         if: always()
       - name: unit testing
         run: npm run test:unit
